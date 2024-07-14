@@ -1,3 +1,2 @@
-from django.db import models
-
-# Create your models here.
+from content.models.page import Page
+from content.models.post import Post
