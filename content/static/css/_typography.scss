@@ -1,7 +1,20 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Typography styles
 html {
-  font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-  font-size: 1.6rem;
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+.small-text {
+    font-size: 1.4rem;
 }
