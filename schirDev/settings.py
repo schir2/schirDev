@@ -24,8 +24,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'tailwind',
-    'theme',
     'django_browser_reload',
 
     'users',
@@ -121,7 +119,3 @@ FIXTURE_DIRS = (os.path.join(BASE_DIR, 'fixtures'),)
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-TAILWIND_APP_NAME = 'theme'
-
-NPM_BIN_PATH = 'npm.cmd'
