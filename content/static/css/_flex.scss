@@ -1,0 +1,73 @@
+// _flex.scss
+
+// Import variables
+@import 'variables';
+
+// Flex Direction
+@each $name, $direction in $flex-directions {
+  .flex-#{$name} {
+    flex-direction: $direction;
+  }
+}
+
+// Flex Wrap
+@each $name, $wrap in $flex-wraps {
+  .flex-#{$name} {
+    flex-wrap: $wrap;
+  }
+}
+
+// Justify Content
+@each $name, $justify in $justify-contents {
+  .justify-content-#{$name} {
+    justify-content: $justify;
+  }
+}
+
+// Align Items
+@each $name, $align in $align-items {
+  .align-items-#{$name} {
+    align-items: $align;
+  }
+}
+
+// Align Self
+@each $name, $align in $align-self {
+  .align-self-#{$name} {
+    align-self: $align;
+  }
+}
+
+// Align Content
+@each $name, $align in $align-contents {
+  .align-content-#{$name} {
+    align-content: $align;
+  }
+}
+
+// Flex Grow
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+// Flex Shrink
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-shrink-1 {
+  flex-shrink: 1;
+}
+
+// Flex
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
