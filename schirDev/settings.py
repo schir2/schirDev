@@ -30,7 +30,6 @@ INSTALLED_APPS = [
 
     'users',
 
-    "content.apps.ContentConfig"
 ]
 
 MIDDLEWARE = [
