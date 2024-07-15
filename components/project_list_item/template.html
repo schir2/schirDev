@@ -1,0 +1,23 @@
+{% load static %}
+<li>
+    <div class="timeline-middle">
+        {{ project.year }}
+    </div>
+    <div class="timeline-start mb-10">
+        <h2 class="text-lg font-black">{{ project.name }}</h2>
+        <p>{{ project.description }}</p>
+        mouse.
+    </div>
+    <div class="timeline-end mb-10">
+        <h2 class="text-lg font-black"></h2>
+        {% for tech_stack in project.tech_stacks.all %}
+            {% component 'chip' %}
+                {% tech_stack.icon %}
+                <img src="{{ tech_stack.icon.url }}">
+                {% endif %}
+            {% endcomponent %}
+        {% endfor %}
+    </div>
+
+    <hr/>
+</li>

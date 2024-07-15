@@ -1,0 +1,12 @@
+{% extends 'content/layouts/base_list.html' %}
+{% block list_content %}
+    <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+        {% for project in project_list %}
+            {% component 'project_list_item' project=project %}
+            {% endcomponent %}
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}
