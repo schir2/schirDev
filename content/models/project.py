@@ -14,6 +14,8 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ('-year',)
 
 class TechStack(models.Model):
     name = models.CharField(verbose_name=_('Name'), max_length=255)

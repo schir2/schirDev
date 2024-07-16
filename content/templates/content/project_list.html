@@ -1,12 +1,10 @@
 {% extends 'content/layouts/base_list.html' %}
+{% block head_title %}Projects{% endblock %}
 {% block list_content %}
-    <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+    <h1 class="text-6xl m-6 text-center">Projects</h1>
+    <div class="flex flex-col gap-3">
         {% for project in project_list %}
-            {% component 'project_list_item' project=project %}
-            {% endcomponent %}
+            {% include 'content/partials/project_list_item.html' with project=project %}
         {% endfor %}
-    </ul>
-
-
-
+    </div>
 {% endblock %}
