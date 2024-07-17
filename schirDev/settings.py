@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django_components.safer_staticfiles',
 
     'django_browser_reload',
+    'active_link',
 
     'users',
 
@@ -134,3 +135,5 @@ FIXTURE_DIRS = (os.path.join(BASE_DIR, 'fixtures'),)
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACTIVE_LINK_CSS_CLASS = 'font-semibold'

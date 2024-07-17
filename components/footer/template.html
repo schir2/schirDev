@@ -1,10 +1,10 @@
 <footer class="z-50 sticky top-[100vh] bg-slate-100 text-xl border-solid border-2">
     <div class="container p-6 mx-auto">
         <div class="flex justify-center gap-3 items-center">
-            <a href="{% url 'content:project_list' %}" class="hover:underline">Projects</a>
-            <a href="{% url 'content:bio' %}" class=" hover:underline">Bio</a>
-            <a href="{% url 'content:resume' %}" class=" hover:underline">Resume</a>
-            <a href="{% url 'content:contact' %}" class=" hover:underline">Contact</a>
+            {% component 'link' url='content:project_list' %}Projects{% endcomponent %}
+            {% component 'link' url='content:bio' %}Bio{% endcomponent %}
+            {% component 'link' url='content:contact' %}Contact{% endcomponent %}
+            {% component 'link' url='content:about' %}About{% endcomponent %}
             <a href="#"
                class="transition-colors duration-3000 hover:text-blue-500 dark:hover:text-blue-400"
                aria-label="Facebook">
@@ -28,9 +28,7 @@
         <div class="divider text-sm">Technologies</div>
         <div class="flex flex-wrap justify-center gap-3">
             {% for tech_stack in tech_stacks %}
-                {% if tech_stack.icon %}
-                    <img class="w-8 h-8" src="{{ tech_stack.icon.url }}" alt="{{ tech_stack.name }}">
-                {% endif %}
+                {% include 'content/components/tech_stack_icon.html' %}
             {% endfor %}
 
         </div>

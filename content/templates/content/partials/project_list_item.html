@@ -2,16 +2,14 @@
 <div class="card bg-base-100 shadow-md hover:shadow-xl transition delay-50 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 m-3">
     <div class="card-body">
         <div class="flex justify-between">
-            <h2 class="text-lg font-black">{{ project.name }}</h2>
-            <span class="text-lg font-black">{{ project.year }}</span>
+            <h2 class="text-lg font-semibold">{{ project.name }}</h2>
+            <span class="text-lg font-semibold">{{ project.year }}</span>
         </div>
         <span>{{ project.description }}</span>
 
         <div class="flex gap-2">
             {% for tech_stack in project.tech_stacks.all %}
-                {% if tech_stack.icon %}
-                    <img class="w-8 h-8 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300" src="{{ tech_stack.icon.url }}" alt="{{ tech_stack.name }}">
-                {% endif %}
+                {% include 'content/components/tech_stack_icon.html' %}
             {% endfor %}
         </div>
     </div>
