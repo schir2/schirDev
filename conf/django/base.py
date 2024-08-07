@@ -1,15 +1,9 @@
 import os
-from pathlib import Path
+from conf.env import env, BASE_DIR
 
-import environ
-
-env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env()
-
-BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = env('DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 INTERNAL_IPS = env.list('INTERNAL_IPS', default=['localhost', '127.0.0.1'])
@@ -42,7 +36,7 @@ MIDDLEWARE = [
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
-ROOT_URLCONF = 'schirDev.urls'
+ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
     {
@@ -61,7 +55,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'schirDev.wsgi.application'
+WSGI_APPLICATION = 'conf.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
