@@ -2,14 +2,14 @@
 <div class="card bg-slate-50 shadow-md hover:shadow-xl transition delay-50 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 m-2">
     <div class="card-body">
         <div class="flex justify-between">
-            <h2 class="text-lg font-semibold">{{ project.name }}</h2>
-            <span class="text-lg font-semibold">{{ project.year }}</span>
+            <h2 class="text-xl font-semibold ">{{ project.name }}</h2>
+            <span class="text-xl font-semibold">{{ project.year }}</span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <span>{{ project.description }}</span>
             {% if project.image %}
                 <img class="h-96 w-full object-cover" src="{{ project.image.url }}" alt="project_image">
             {% endif %}
+            <span>{{ project.description }}</span>
         </div>
         <div class="divider text-sm">Tech Stack</div>
 
