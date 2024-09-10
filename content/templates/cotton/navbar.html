@@ -27,10 +27,10 @@
             <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
                  class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
                 <div class="flex flex-col dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center text-lg">
-                    {% component 'link' url='content:project_list' %}Projects{% endcomponent %}
-                    {% component 'link' url='content:bio' %}Bio{% endcomponent %}
-                    {% component 'link' url='content:contact' %}Contact{% endcomponent %}
-                    {% component 'link' url='content:about' %}About{% endcomponent %}
+                    <c-link href={% url 'content:project_list' %}>Projects</c-link>
+                    <c-link href={% url 'content:bio' %}>Bio</c-link>
+                    <c-link href={% url 'content:contact' %}>Contact</c-link>
+                    <c-link href={% url 'content:about' %}>About</c-link>
 
                     <div class="relative mt-4 lg:mt-0 lg:mx-4">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3">

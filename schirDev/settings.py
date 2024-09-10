@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
 
+    'django_cotton',
     'django_components',
     'django_components.safer_staticfiles',
 
