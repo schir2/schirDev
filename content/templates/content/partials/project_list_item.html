@@ -5,12 +5,20 @@
             <h2 class="text-lg font-semibold">{{ project.name }}</h2>
             <span class="text-lg font-semibold">{{ project.year }}</span>
         </div>
-        <span>{{ project.description }}</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <span>{{ project.description }}</span>
+            {% if project.image %}
+                <img class="h-96 w-full object-cover" src="{{ project.image.url }}" alt="project_image">
+            {% endif %}
+        </div>
         <div class="divider text-sm">Tech Stack</div>
 
         <div class="flex gap-2 justify-center">
             {% for tech_stack in project.tech_stacks.all %}
-                {% include 'content/components/tech_stack_icon.html' %}
+                {% if tech_stack.icon %}
+                    <img class="w-8 h-8 transition ease-in-out hover:-translate-y-1 hover:scale-150 duration-200"
+                         src="{{ tech_stack.icon.url }}" alt="{{ tech_stack.name }}">
+                {% endif %}
             {% endfor %}
         </div>
     </div>

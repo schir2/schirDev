@@ -10,6 +10,7 @@ class Project(models.Model):
     company = models.ForeignKey('Company', verbose_name=_('Company'), max_length=255, on_delete=models.SET_NULL,
                                 null=True, related_name='projects')
     year = models.PositiveSmallIntegerField(verbose_name=_('Year'), default=timezone.now().year, )
+    image = models.ImageField(verbose_name=_('Image'), upload_to='projects/%Y/%m/%d/', blank=True, null=True)
 
     def __str__(self):
         return self.name

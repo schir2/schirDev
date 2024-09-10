@@ -34,7 +34,7 @@ class TechStackAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'company', 'get_tech_stacks')
+    list_display = ('name', 'company', 'get_tech_stacks', 'image', 'year')
     search_fields = ('name', 'company__name')
     list_filter = ('company', 'tech_stacks')
 
