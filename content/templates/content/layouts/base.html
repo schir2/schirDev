@@ -1,25 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="bg-slate-200 text-lg">
+<html lang="en" class="bg-slate-50 text-lg scroll-smooth text-black">
 <head>
     <title>{% block head_title %}{% endblock %}</title>
+    <link rel="icon" href="{% static 'content/img/logos/logo.gif' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="//unpkg.com/alpinejs" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        section {
+            padding-top: 5rem;
+            min-height: calc(100vh - 5rem);
+        }
+
+        .disable-pointer-events {
+            pointer-events: none; /* Disable all interactions */
+        }
+
+    </style>
 </head>
 
 <body>
-<div class="flex flex-col">
-    <c-navbar></c-navbar>
-    <div class="container min-h-full mx-auto bg-slate-100 shadow-xl max-w-5xl">
-        {% block content %}{% endblock %}
-    </div>
-    <c-footer></c-footer>
-    {% block javascript %}
-    {% endblock %}
+<c-navbar></c-navbar>
+<div class="container mx-auto bg-slate-50 max-w-5xl">
+    {% block content %}{% endblock %}
 </div>
+{% block javascript %}
+{% endblock %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all links that trigger scrolling
+        const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+
+        // Function to disable pointer events during scroll
+        function disablePointerEvents() {
+            document.body.classList.add("disable-pointer-events");
+
+            // Re-enable pointer events after scrolling is done
+            setTimeout(() => {
+                document.body.classList.remove("disable-pointer-events");
+            }, 1000); // Adjust the timeout duration to match your scroll duration
+        }
+
+        // Add event listeners to all scroll-triggering links
+        smoothScrollLinks.forEach(link => {
+            link.addEventListener("click", disablePointerEvents);
+        });
+    });
+
+</script>
 </body>
 </html>

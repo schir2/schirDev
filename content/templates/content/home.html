@@ -1,10 +1,85 @@
 {% extends 'content/layouts/base.html' %}
-{% block head_title %}
-	Home - schir.dev
-{% endblock %}
+{% block head_title %}schir.dev{% endblock %}
 {% block content %}
-<p>
-    Passionate about full-stack development, with expertise in backend systems, frontend design, and UI/UX. Dedicated to
-    learning new things and understanding people and their challenges. Outside of work, enjoys climbing and running.
-</p>
+    <section id="home" class="flex content-center items-center h-screen">
+        <h1 class="text-4xl md:text-7xl p-6 mb-6 md:font-light font-extralight p-6">Full Stack Developer, Climber, Runner <b>Marek Schir</b></h1>
+
+        <!-- Back to Top Button -->
+        <a id="back-to-top" href="#home"
+           class="fixed bottom-10 right-10 bg-gray-700 text-white py-2 px-4 rounded-full shadow-md hover:bg-gray-800 hidden z-50">
+            ↑ Back to Top
+        </a>
+
+
+    </section>
+    <section id="projects">
+        <h1 class="text-6xl p-6 pb-9 mb-6 text-center">Projects</h1>
+        <div class="flex flex-col gap-2">
+            {% for project in projects %}
+                {% include 'content/partials/project_list_item.html' with project=project %}
+            {% endfor %}
+        </div>
+    </section>
+    <section id="bio">
+        <h1 class="text-6xl md:p-6 text-center">Bio</h1>
+        <div class="leading-loose md:p-6 p-6 md:m-6">
+            <p class="indent-8 mb-4">I have been fascinated with computers ever since I was a child. I was mesmerized by
+                the
+                3D-generated graphics
+                displayed on computer screens, which I first saw through the window of a storefront.</p>
+            <p class="indent-8 mb-4">
+                For most of my career, I have worked at M&M Environmental, taking on various roles and responsibilities.
+                I
+                began
+                as a Python developer with little knowledge of programming or software development. The concept of
+                software
+                engineering was foreign to me. I still remember creating a web scraping application that took forever to
+                run
+                because I didn't understand the difference between a list and a set.
+            </p>
+            <p class="indent-8 mb-4">
+                Over time, I transitioned into an IT role, leveraging my networking knowledge in Cisco and experience
+                with
+                Windows-based operating systems. Additionally, I took on roles in accounts receivable (AR) and accounts
+                payable
+                (AP), physical network installation, system administration, and help desk support and web design.
+                Working
+                closely with the management staff and the CEO, I have learned through lots of trial and error how
+                important
+                communication is, and how important it is to continue to ask questions.
+            <p class="indent-8 mb-4">
+            </p>
+            <p class="indent-8 mb-4">
+                Throughout the years, I became more acquainted with software engineering and design. As I delved deeper
+                into
+                software engineering, learned about various algorithms, and studied design patterns, I began to
+                appreciate
+                the
+                logically artistic aspect of development.
+            </p>
+            <p class="indent-8 mb-4">
+                I've loved solving puzzles and problems for as long as I can remember. My phone is still full of logic
+                and
+                puzzle games. The process of studying for interviews and solving LeetCode puzzles has been an enjoyable
+                journey,
+                helping me learn so much. Part of me wishes I had a more formal education in computer science, but
+                another
+                part
+                appreciates learning these concepts later and remembering all the mistakes I made along the way.
+            </p>
+            <p class="indent-8 mb-4">
+                At this point in my career, I have worked for M&M Environmental for quite a long time, and I have felt a
+                strong
+                sense of loyalty and hesitation in leaving. However, I feel it is time for me to move on to a role where
+                I
+                can
+                focus more on coding and software development.</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h1 class="text-6xl p-6 pb-9 mb-6 text-center">Contact</h1>
+        <div class="flex flex-col gap-2 p-3">
+        </div>
+    </section>
+
 {% endblock %}

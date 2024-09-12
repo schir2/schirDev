@@ -1,7 +1,6 @@
 from django.urls import path, include
 
-from content.views.home_views import home_view, about_view, bio_view, contact_view, resume_view
-from content.views.project_views import ProjectListView
+from content.views import home_view, about_view, bio_view, resume_view, contact_view, ProjectListView
 
 app_name = 'content'
 

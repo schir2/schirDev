@@ -1,9 +1,10 @@
-<nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 sticky top-0 left-0 right-0 z-50">
+{% load static %}
+<nav x-data="{ isOpen: false }" class="bg-slate-50 border-b dark:bg-gray-800 fixed top-0 left-0 right-0 z-50">
     <div class="container px-6 py-4 mx-auto">
         <div class="lg:flex lg:items-center">
             <div class="flex items-center justify-between">
                 <a href="{% url 'content:home' %}">
-                    <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                    <img class="w-24 h-12 sm:h-12 object-cover" src="{% static 'content/img/logos/logo.gif' %}" alt="">
                 </a>
 
                 <!-- Mobile menu button -->
@@ -27,24 +28,10 @@
             <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
                  class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
                 <div class="flex flex-col dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center text-lg">
-                    <c-link href={% url 'content:project_list' %}>Projects</c-link>
-                    <c-link href={% url 'content:bio' %}>Bio</c-link>
-                    <c-link href={% url 'content:contact' %}>Contact</c-link>
-                    <c-link href={% url 'content:about' %}>About</c-link>
-
-                    <div class="relative mt-4 lg:mt-0 lg:mx-4">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                            <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                      stroke-linejoin="round"></path>
-                            </svg>
-                        </span>
-
-                        <input type="text"
-                               class="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
-                               placeholder="Search">
-                    </div>
+                    <c-link href='#home'>Home</c-link>
+                    <c-link href='#projects'>Projects</c-link>
+                    <c-link href='#bio'>Bio</c-link>
+                    <c-link href='#contact'>Contact</c-link>
                 </div>
 
                 <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
