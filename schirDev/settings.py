@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django_components',
     'django_components.safer_staticfiles',
     'widget_tweaks',
+    'django_htmx',
 
     'django_browser_reload',
     'active_link',
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_browser_reload.middleware.BrowserReloadMiddleware",
     'django_currentuser.middleware.ThreadLocalUserMiddleware',
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = 'schirDev.urls'
