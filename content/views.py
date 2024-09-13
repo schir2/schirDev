@@ -16,15 +16,22 @@ def home_view(request):
 
 def contact_message_form_view(request):
     context = {}
-    form = ContactMessageForm
+
     if request.method == 'POST':
         form = ContactMessageForm(request.POST)
         if form.is_valid():
             form.save()
-        context['form'] = form
+            form = ContactMessageForm()
+            context['message'] = 'Your message was successfully sent'
+        form = form
     else:
-        context['form'] = form()
-    return render(request, 'content/home.html', context=context)
+        form = ContactMessageForm()
+
+    context['form'] = form
+
+    if request.htmx:
+        return render(request, template_name='content/partials/contact_message_form.html', context=context)
+    return render(request, 'content/contact_message_form.html', context=context)
 
 
 class ProjectListView(ListView):

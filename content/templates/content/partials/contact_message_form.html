@@ -1,5 +1,8 @@
 {% load widget_tweaks %}
-<form hx-post="{% url 'content:contact_message_form' %}">
+<form id="contactMessageForm"
+      hx-post="{% url 'content:contact_message_form' %}"
+      hx-target="#contactMessageForm"
+>
     {% csrf_token %}
 
     {% csrf_token %}
@@ -23,4 +26,8 @@
             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
         Send
     </button>
+    {% if message %}
+        <div class="text-green-500">{{ message }}</div>
+    {% endif %}
+
 </form>
