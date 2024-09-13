@@ -22,18 +22,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-
     'django_cotton',
     'django_components',
     'django_components.safer_staticfiles',
     'widget_tweaks',
     'django_htmx',
-
+    'django_recaptcha',
     'django_browser_reload',
     'active_link',
-
     'users',
-
     "content.apps.ContentConfig"
 ]
 
@@ -142,3 +139,6 @@ FIXTURE_DIRS = (os.path.join(BASE_DIR, 'fixtures'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACTIVE_LINK_CSS_CLASS = 'font-semibold'
+
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')

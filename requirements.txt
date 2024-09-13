@@ -7,3 +7,4 @@ django-cotton==0.9.37
 django-currentuser==0.8.0
 django-widget-tweaks==1.5.0
 django-htmx==1.19.0
+django-recaptcha==4.0.0
