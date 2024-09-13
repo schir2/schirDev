@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django_cotton',
     'django_components',
     'django_components.safer_staticfiles',
+    'widget_tweaks',
 
     'django_browser_reload',
     'active_link',
