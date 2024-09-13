@@ -7,17 +7,17 @@ from content.models.company import Company
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    list_display = ('title', 'author', 'created_at', 'updated_at')
+    list_display = ('title', 'creator', 'created_at', 'edited_at')
     search_fields = ('title', 'content')
-    list_filter = ('created_at', 'author')
+    list_filter = ('created_at', 'creator')
 
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    list_display = ('title', 'author', 'created_at', 'updated_at')
+    list_display = ('title', 'creator', 'created_at', 'edited_at')
     search_fields = ('title', 'content')
-    list_filter = ('created_at', 'author')
+    list_filter = ('created_at', 'creator')
 
 
 @admin.register(Company)
