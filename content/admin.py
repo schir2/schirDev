@@ -28,7 +28,8 @@ class CompanyAdmin(admin.ModelAdmin):
 
 @admin.register(TechStack)
 class TechStackAdmin(admin.ModelAdmin):
-    list_display = ('name', 'icon')
+    list_display = ('name', 'proficiency')
+    list_filter = ('proficiency',)
     search_fields = ('name',)
 
 

@@ -22,8 +22,21 @@ class Project(BaseModel):
 
 
 class TechStack(BaseModel):
+    PROFICIENCY = [
+        (1, _('Novice')),
+        (2, _('Beginner')),
+        (3, _('Competent')),
+        (4, _('Proficient')),
+        (5, _('Expert')),
+    ]
+
     name = models.CharField(verbose_name=_('Name'), max_length=255)
     icon = models.FileField(_("Icon"), upload_to='icons/', blank=True, null=True)
+    proficiency = models.PositiveSmallIntegerField(
+        _("Proficiency"),
+        choices=PROFICIENCY,
+        default=3,
+    )
 
     def __str__(self):
         return self.name
