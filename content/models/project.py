@@ -8,7 +8,7 @@ from content.models.base import BaseModel
 class Project(BaseModel):
     name = models.CharField(verbose_name=_('Name'), max_length=255)
     description = models.TextField(verbose_name=_('Description'), )
-    tech_stacks = models.ManyToManyField('TechStack', verbose_name=_('Tech Stack'), related_name='projects')
+    skills = models.ManyToManyField('content.Skill', verbose_name=_('Skills'), related_name='projects')
     company = models.ForeignKey('Company', verbose_name=_('Company'), max_length=255, on_delete=models.SET_NULL,
                                 null=True, related_name='projects')
     year = models.PositiveSmallIntegerField(verbose_name=_('Year'), default=timezone.now().year, )
@@ -21,7 +21,7 @@ class Project(BaseModel):
         ordering = ('-year',)
 
 
-class TechStack(BaseModel):
+class Skill(BaseModel):
     PROFICIENCY = [
         (1, _('Novice')),
         (2, _('Beginner')),

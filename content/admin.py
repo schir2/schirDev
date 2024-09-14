@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from content.models import Page, Post, TechStack, Project
+from content.models import Page, Post, Skill, Project
 from content.models.company import Company
 
 
@@ -26,7 +26,7 @@ class CompanyAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-@admin.register(TechStack)
+@admin.register(Skill)
 class TechStackAdmin(admin.ModelAdmin):
     list_display = ('name', 'proficiency')
     list_filter = ('proficiency',)
@@ -35,11 +35,11 @@ class TechStackAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'company', 'get_tech_stacks', 'image', 'year')
+    list_display = ('name', 'company', 'get_skills', 'image', 'year')
     search_fields = ('name', 'company__name')
-    list_filter = ('company', 'tech_stacks')
+    list_filter = ('company', 'skills')
 
-    def get_tech_stacks(self, obj):
-        return ", ".join([tech.name for tech in obj.tech_stacks.all()])
+    def get_skills(self, obj):
+        return ", ".join([skill.name for skill in obj.skills.all()])
 
-    get_tech_stacks.short_description = 'Tech Stack'
+    get_skills.short_description = 'Skills'

@@ -1,6 +1,6 @@
 from django_components import component
 
-from content.models import TechStack
+from content.models import Skill
 
 
 @component.register("footer")
@@ -9,7 +9,7 @@ class Footer(component.Component):
 
     def get_context_data(self):
         return {
-            'tech_stacks': TechStack.objects.all(),
+            'skills': Skill.objects.all(),
         }
 
     class Media:

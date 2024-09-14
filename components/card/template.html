@@ -12,8 +12,8 @@
     </div>
 
     <div class="flex items-center justify-between mt-4">
-        {% for tech_stack in project.tech_stacks.all %}
-            {{ tech_stack.name }}
+        {% for skill in project.skills.all %}
+            {{ skill.name }}
 
         {% endfor %}
 

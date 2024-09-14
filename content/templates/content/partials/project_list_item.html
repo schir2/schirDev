@@ -11,13 +11,13 @@
             {% endif %}
             <span>{{ project.description }}</span>
         </div>
-        <div class="divider text-sm">Tech Stack</div>
+        <div class="divider text-sm">Skills</div>
 
         <div class="flex gap-2 justify-center">
-            {% for tech_stack in project.tech_stacks.all %}
-                {% if tech_stack.icon %}
+            {% for skill in project.skills.all %}
+                {% if skill.icon %}
                     <img class="w-8 h-8 transition ease-in-out hover:-translate-y-1 hover:scale-150 duration-200"
-                         src="{{ tech_stack.icon.url }}" alt="{{ tech_stack.name }}">
+                         src="{{ skill.icon.url }}" alt="{{ skill.name }}">
                 {% endif %}
             {% endfor %}
         </div>
