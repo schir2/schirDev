@@ -1,0 +1,8 @@
+    <section id="skills">
+        <h1 class="text-6xl p-6 pb-9 mb-6 text-center">Skills</h1>
+        <div class="flex flex-col gap-2">
+            {% for skill in skills %}
+                {% include 'content/partials/skill_list_item.html' with project=project %}
+            {% endfor %}
+        </div>
+    </section>

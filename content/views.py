@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from content.forms.contact_message_forms import ContactMessageForm
-from content.models import Project
+from content.models import Project, TechStack
 
 
 def home_view(request):
@@ -10,6 +10,7 @@ def home_view(request):
     form = ContactMessageForm
     projects = Project.objects.all()
     context['projects'] = projects
+    context['skills'] = TechStack.objects.all()
     context['form'] = form()
     return render(request, 'content/home.html', context=context)
 
