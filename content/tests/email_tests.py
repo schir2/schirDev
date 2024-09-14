@@ -15,3 +15,8 @@ class EmailTests(TestCase):
     def test_send_mail(self):
         email = EmailMessage(self.subject, self.message, self.from_email, self.recipient_list)
         email.send(False)
+
+
+# tests.py
+
+
