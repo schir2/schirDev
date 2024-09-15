@@ -1,7 +1,7 @@
 {% load static tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="bg-white0 text-lg scroll-smooth text-black">
+<html lang="en" class="scroll-smooth">
 <head>
     <title>{% block head_title %}{% endblock %}</title>
     <link rel="icon" href="{% static 'content/img/logos/logo.gif' %}">
@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-slate-50 text-lg text-black">
 <c-navbar></c-navbar>
 <div class="container mx-auto bg-slate-50 max-w-5xl">
     {% block content %}{% endblock %}
