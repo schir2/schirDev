@@ -13,11 +13,6 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
     <script src="{% static 'js/htmx.min.js' %}"></script>
     <style>
-        section {
-            padding-top: 5rem;
-            min-height: calc(100vh - 5rem);
-        }
-
         .disable-pointer-events {
             pointer-events: none; /* Disable all interactions */
         }
@@ -25,9 +20,9 @@
     </style>
 </head>
 
-<body class="bg-slate-50 text-lg text-black pt-5">
+<body class="bg-light dark:bg-slate-600 text-lg text-black dark:text-gray-200 pt-5">
 <c-navbar></c-navbar>
-<div class="container mx-auto bg-slate-50 max-w-5xl">
+<div class="container mx-auto bg-slate-50 dark:bg-slate-600 max-w-5xl">
     {% block content %}{% endblock %}
 </div>
 {% block javascript %}
