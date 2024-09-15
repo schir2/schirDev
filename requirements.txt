@@ -9,3 +9,4 @@ django-widget-tweaks==1.5.0
 django-htmx==1.19.0
 django-recaptcha==4.0.0
 Pillow
+django-tailwind==3.8.0

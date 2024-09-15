@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django_recaptcha',
     'django_browser_reload',
     'active_link',
+    'tailwind',
+    'theme',
     'users',
     "content.apps.ContentConfig"
 ]
@@ -150,3 +152,8 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = r'C:\Users\Marek Schir\AppData\Roaming\npm\npm.cmd'
+

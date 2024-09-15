@@ -1,15 +1,16 @@
+{% load static tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="bg-slate-50 text-lg scroll-smooth text-black">
+<html lang="en" class="bg-white0 text-lg scroll-smooth text-black">
 <head>
     <title>{% block head_title %}{% endblock %}</title>
     <link rel="icon" href="{% static 'content/img/logos/logo.gif' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
     <script src="//unpkg.com/alpinejs" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="{% static 'js/htmx.min.js' %}"></script>
     <style>
         section {
