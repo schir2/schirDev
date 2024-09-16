@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from content.models import Page, Post, Skill, Project
+from content.models import Page, Post, Skill, Project, SkillCategory
 from content.models.company import Company
 
 
@@ -30,6 +30,12 @@ class CompanyAdmin(admin.ModelAdmin):
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('name', 'proficiency')
     list_filter = ('proficiency',)
+    search_fields = ('name',)
+
+
+@admin.register(SkillCategory)
+class SkillCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
     search_fields = ('name',)
 
 
