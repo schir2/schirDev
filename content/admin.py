@@ -27,7 +27,7 @@ class CompanyAdmin(admin.ModelAdmin):
 
 
 @admin.register(Skill)
-class TechStackAdmin(admin.ModelAdmin):
+class SkillAdmin(admin.ModelAdmin):
     list_display = ('name', 'proficiency')
     list_filter = ('proficiency',)
     search_fields = ('name',)

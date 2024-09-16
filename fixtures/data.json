@@ -1,0 +1,560 @@
+[
+{
+    "model": "sessions.session",
+    "pk": "axfzokoa8cjw1urp7spjo1dtsdsus8c1",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQBe_iOrJYjD-kTM8Z0FuviUkiI2Gootw9QqJI2jcz761G7Fse95rWcRZ1VaQuvxsjPlM5gDxQ7ouOS9nWmfWh6JNWPSySXrfT_TvIqPmojYdl7kDkY3QsMhnfO48mSm8DIXSOyCIYwz6hc5DWNYwwEdoIqz5f9EM4Sw:1snpFX:Ye6Ty1wf6O_1wpDkiLafpLiX0bSZbgPhauw-JtBaEcc",
+        "expire_date": "2024-09-24T01:00:55.812Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "vzvfkyut8i9qvsgl13hsyo95mfamnjhm",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQBe_iOrJYjD-kTM8Z0FuviUkiI2Gootw9QqJI2jcz761G7Fse95rWcRZ1VaQuvxsjPlM5gDxQ7ouOS9nWmfWh6JNWPSySXrfT_TvIqPmojYdl7kDkY3QsMhnfO48mSm8DIXSOyCIYwz6hc5DWNYwwEdoIqz5f9EM4Sw:1sT9C6:o1qzXlqybHgnXKHy4rHJxJduyhsNHs--M7NKmQb1yt0",
+        "expire_date": "2024-07-29T00:03:54.495Z"
+    }
+},
+{
+    "model": "users.user",
+    "fields": {
+        "password": "pbkdf2_sha256$720000$jn2FDfCcMkhGpjBzMp584E$AgmhupuraHDhfPRs9RtzCSzsLt2lqBaHbiJn7yhITBM=",
+        "last_login": "2024-09-10T01:00:55.806Z",
+        "is_superuser": true,
+        "username": "schir2",
+        "first_name": "",
+        "last_name": "",
+        "email": "schir2@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-07-15T00:03:48.668Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "schir2"
+        ]
+    }
+},
+{
+    "model": "content.project",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Vehicle GPS Alerting System for Field Service Workers",
+        "description": "Developed a comprehensive system to track field service workers' locations relative to their assigned jobs, start times, and end times. Integrated Vehicle GPS data via REST API with Field Service Management Software, utilizing Microsoft SQL Server and MySQL for data storage. Implemented a real-time dashboard map hosted with PHP, using JavaScript and Google Maps API for asynchronous location updates. Automated the system with Python scripts and Linux-based cron jobs.",
+        "company": 1,
+        "year": 2022,
+        "image": "projects/2024/09/11/high-angle-woman-holding-laptop.jpg",
+        "skills": []
+    }
+},
+{
+    "model": "content.project",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Automated User Lookup and Reporting System",
+        "description": "Developed a web scraping system to parse emails, look up users on a popular review site, and report findings via email alerts and MySQL database entries. Initially built a real-time dashboard with PHP, MySQL, later transitioned to Python Django. Automated with Python scripts and cron jobs on a remote Linux machine, using the Gmail API for email parsing and alerts. Significantly improved business ratings with timely user information.",
+        "company": 1,
+        "year": 2009,
+        "image": "projects/2024/09/10/pexels-pixabay-276452.jpg",
+        "skills": []
+    }
+},
+{
+    "model": "content.project",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Visual Lead Inspection Job Tracking System",
+        "description": "Developed a mobile web application for scheduling and tracking lead inspection jobs. The system managed job assignments, tracked completion, and calculated bonuses based on job completion. It also identified duplication errors from vendors to ensure correct payments. Integrated with QuickBooks Online via REST API. Hosted on DigitalOcean droplets using a Linux server with Nginx, the application was built with Django, PostgreSQL, Python, and HTMX for asynchronous interactions and HTML.",
+        "company": 1,
+        "year": 2021,
+        "image": "",
+        "skills": []
+    }
+},
+{
+    "model": "content.project",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Field Service Management System Extension",
+        "description": "Developed an extension to the existing field service management system, integrating various software applications including the current field service management software and FreePBX for phone calls. This extension provided easier access to data, improved speed of access, and generated custom reports. The application was built with Django and Python, utilizing multiple databases (Microsoft SQL, MySQL). It was run on an Apache web server with HTML, HTMX, and JavaScript for the front end.",
+        "company": 1,
+        "year": 2017,
+        "image": "",
+        "skills": []
+    }
+},
+{
+    "model": "content.project",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Field Service Management API",
+        "description": "Developed an API for the field service management application running on Microsoft SQL Server. Utilized Python with Django and Django Rest Framework to expose API endpoints, enabling Vue and React applications to access the server.",
+        "company": 1,
+        "year": 2021,
+        "image": "",
+        "skills": []
+    }
+},
+{
+    "model": "content.project",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Lead Analyzer Reporting Platform",
+        "description": "Developed a platform to extract data from XRF Lead Analyzers, parse CSV files, and generate reports. Implemented multi-step data import wizards for validation and processing. Generated reports in Excel and PDF formats, submitted to a NYC government agency. Built with Django, HTML, HTMX, and JavaScript, using PostgreSQL for storage and running on a Windows server.",
+        "company": 1,
+        "year": 2023,
+        "image": "projects/2024/09/11/paint-rough-concrete-wall-surface.jpg",
+        "skills": []
+    }
+},
+{
+    "model": "content.project",
+    "pk": 7,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-12T23:59:08.632Z",
+        "creator": null,
+        "editor": null,
+        "name": "Customer Quoting Application",
+        "description": "Developed a customer-facing quoting application used for collecting customer information and generating quotes with conditional logic. The backend was built using Django and Django Rest Framework with PostgreSQL for data storage. The frontend was created using Nuxt3 and Vuetify.",
+        "company": 1,
+        "year": 2024,
+        "image": "projects/2024/09/10/pexels-tima-miroshnichenko-7567303.jpg",
+        "skills": []
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Python",
+        "icon": "icons/python-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "PHP",
+        "icon": "icons/php-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "JS",
+        "icon": "icons/javascript-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "MSSQL",
+        "icon": "icons/microsoft-sql-server-logo-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "MySQL",
+        "icon": "icons/mysql-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Linux",
+        "icon": "icons/linux-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 7,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Django",
+        "icon": "icons/django-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 8,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "AWS",
+        "icon": "icons/aws-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 9,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Apache",
+        "icon": "icons/apache-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 10,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "REST",
+        "icon": "",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 11,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Digital Ocean",
+        "icon": "icons/digital-ocean-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 12,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Nginx",
+        "icon": "icons/nginx-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 13,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "HTMX",
+        "icon": "icons/htmx.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 14,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Postgres",
+        "icon": "icons/postgresql-plain-wordmark.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 15,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Windows",
+        "icon": "icons/windows-174-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 16,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Nuxt3",
+        "icon": "icons/nuxt-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 17,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Vuetify",
+        "icon": "icons/vuetify.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 18,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "VUE",
+        "icon": "icons/vue-svgrepo-com.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skill",
+    "pk": 19,
+    "fields": {
+        "created_at": "2024-09-13T00:00:29.176Z",
+        "edited_at": "2024-09-13T00:00:29.200Z",
+        "creator": null,
+        "editor": null,
+        "name": "Figma",
+        "icon": "icons/figma_logo_brand_icon.svg",
+        "proficiency": 3,
+        "category": null
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-16T23:13:40.937Z",
+        "edited_at": "2024-09-16T23:13:40.937Z",
+        "creator": null,
+        "editor": null,
+        "name": "Programming Languages",
+        "icon": ""
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-16T23:13:59.173Z",
+        "edited_at": "2024-09-16T23:13:59.173Z",
+        "creator": null,
+        "editor": null,
+        "name": "Frameworks and Libraries",
+        "icon": ""
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-16T23:14:35.201Z",
+        "edited_at": "2024-09-16T23:14:35.201Z",
+        "creator": null,
+        "editor": null,
+        "name": "Front-End Technologies",
+        "icon": ""
+    }
+},
+{
+    "model": "content.contactmessage",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-13T00:34:50.512Z",
+        "edited_at": "2024-09-13T00:34:50.512Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Marek Schir",
+        "email": "schir2@gmail.com",
+        "subject": "Bobo",
+        "message": "Bobo"
+    }
+},
+{
+    "model": "content.contactmessage",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-13T00:35:15.384Z",
+        "edited_at": "2024-09-13T00:35:15.384Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Marek Schir",
+        "email": "schir2@gmail.com",
+        "subject": "Bobo",
+        "message": "Bobo"
+    }
+},
+{
+    "model": "content.contactmessage",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-13T00:45:21.875Z",
+        "edited_at": "2024-09-13T00:45:21.875Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Marek  Schir",
+        "email": "schir2@gmail.com",
+        "subject": "jlj",
+        "message": "lkj"
+    }
+},
+{
+    "model": "content.contactmessage",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-09-13T00:45:29.459Z",
+        "edited_at": "2024-09-13T00:45:29.459Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Marek  Schir",
+        "email": "schir2@gmail.com",
+        "subject": "jlj",
+        "message": "lkj"
+    }
+},
+{
+    "model": "content.contactmessage",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-09-13T00:47:43.733Z",
+        "edited_at": "2024-09-13T00:47:43.733Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Marek Schir",
+        "email": "schir2@gmail.com",
+        "subject": "hi",
+        "message": "hi"
+    }
+},
+{
+    "model": "content.company",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.533Z",
+        "edited_at": "2024-09-12T23:59:08.547Z",
+        "creator": null,
+        "editor": null,
+        "name": "MMPC",
+        "url": "https://www.mandmpestcontrol.com"
+    }
+}
+]
