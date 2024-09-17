@@ -44,3 +44,4 @@ class SkillCategory(BaseModel):
 
     class Meta:
         ordering = ['name']
+        verbose_name_plural = _('Skill Categories')

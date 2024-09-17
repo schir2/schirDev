@@ -13,3 +13,4 @@ class Company(BaseModel):
 
     class Meta:
         ordering = ['name']
+        verbose_name_plural = _('Companies')
