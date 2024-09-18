@@ -28,8 +28,8 @@ class CompanyAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('name', 'proficiency')
-    list_filter = ('proficiency',)
+    list_display = ('name', 'category', 'proficiency')
+    list_filter = ('proficiency', 'category')
     search_fields = ('name',)
 
 

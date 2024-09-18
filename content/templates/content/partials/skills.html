@@ -1,9 +1,14 @@
-    <section id="skills" class="min-h-screen">
-        <h1 class="text-6xl p-6 pb-9 mb-6 text-center">Skills</h1>
-        
+<section id="skills" class="min-h-screen">
+    <h1 class="text-6xl p-6 pb-9 mb-6 text-center">Skills</h1>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        {% regroup skills by category as skills_by_category %}
+        {% for skill_category in skills_by_category %}
+            {{ skill_category }}
+            
             {% for skill in skills %}
                 {% include 'content/partials/skill_list_item.html' with skill=skill %}
             {% endfor %}
-        </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
