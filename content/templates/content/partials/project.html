@@ -1,11 +1,11 @@
 {% load static %}
-<div class="card bg-slate-50 dark:bg-slate-700 shadow-md hover:shadow-xl transition delay-100 ease-in-out duration-300">
+<div class="card bg-slate-50 dark:bg-slate-700 shadow-md hover:shadow-xl transition delay-100 ease-in-out duration-300 break-inside-avoid mb-6">
     <div class="card-body">
         <div class="flex justify-between mb-6">
             <h2 class="text-3xl ">{{ project.name }}</h2>
             <span class="text-3xl font-light">{{ project.year }}</span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
             {% if project.image %}
                 <img class="h-96 w-full object-cover" src="{{ project.image.url }}" alt="project_image">
             {% endif %}
