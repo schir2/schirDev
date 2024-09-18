@@ -9,6 +9,7 @@ pip install -r requirements
 python manage.py makemigrations
 python manage.py loaddata fixtures/data
 python manage.py migrate
+python manage.py autoload
 ~~~
 
 comment out the `theme` app from INSTALLED_APPS in settings.py
