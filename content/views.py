@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from content.forms.contact_message_forms import ContactMessageForm
-from content.models import Project, Skill
+from content.models import Project, SkillCategory
 
 
 def home_view(request):
@@ -10,7 +10,7 @@ def home_view(request):
     form = ContactMessageForm
     projects = Project.objects.all()
     context['projects'] = projects
-    context['skills'] = Skill.objects.all()
+    context['skill_categories'] = SkillCategory.objects.all()
     context['form'] = form()
     return render(request, 'content/home.html', context=context)
 
