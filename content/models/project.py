@@ -10,7 +10,7 @@ class Project(BaseModel):
     description = models.TextField(verbose_name=_('Description'), )
     skills = models.ManyToManyField('content.Skill', verbose_name=_('Skills'), related_name='projects')
     company = models.ForeignKey('Company', verbose_name=_('Company'), max_length=255, on_delete=models.SET_NULL,
-                                null=True, related_name='projects')
+                                null=True, related_name='projects', blank=True)
     year = models.PositiveSmallIntegerField(verbose_name=_('Year'), default=timezone.now().year, )
     image = models.ImageField(verbose_name=_('Image'), upload_to='projects/%Y/%m/%d/', blank=True, null=True)
 
