@@ -49,5 +49,30 @@
     });
 
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const progressBars = document.querySelectorAll('.progress-bar');
+
+    const options = {
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const progressBar = entry.target;
+          const percentage = progressBar.getAttribute('data-percentage');
+          progressBar.style.width = percentage;
+          observer.unobserve(progressBar); // Stop observing after animation
+        }
+      });
+    }, options);
+
+    progressBars.forEach(function (progressBar) {
+      observer.observe(progressBar);
+    });
+  });
+</script>
+
 </body>
 </html>
