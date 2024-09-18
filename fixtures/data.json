@@ -1363,7 +1363,7 @@
     "pk": 1,
     "fields": {
         "created_at": "2024-09-16T23:13:40.937Z",
-        "edited_at": "2024-09-18T00:33:49.005Z",
+        "edited_at": "2024-09-18T03:52:06.994Z",
         "creator": [
             "schir2"
         ],
@@ -1371,7 +1371,7 @@
             "schir2"
         ],
         "name": "Programming Languages",
-        "icon": "",
+        "icon": "category_icons/code-svgrepo-com.svg",
         "order": 1
     }
 },
@@ -1380,7 +1380,7 @@
     "pk": 2,
     "fields": {
         "created_at": "2024-09-16T23:13:59.173Z",
-        "edited_at": "2024-09-18T00:33:40.188Z",
+        "edited_at": "2024-09-18T03:52:14.746Z",
         "creator": [
             "schir2"
         ],
@@ -1388,7 +1388,7 @@
             "schir2"
         ],
         "name": "Frameworks and Libraries",
-        "icon": "",
+        "icon": "category_icons/fabric-svgrepo-com.svg",
         "order": 2
     }
 },
@@ -1397,7 +1397,7 @@
     "pk": 3,
     "fields": {
         "created_at": "2024-09-16T23:14:35.201Z",
-        "edited_at": "2024-09-18T00:33:58.570Z",
+        "edited_at": "2024-09-18T03:56:01.044Z",
         "creator": [
             "schir2"
         ],
@@ -1405,7 +1405,7 @@
             "schir2"
         ],
         "name": "Front-End Technologies",
-        "icon": "",
+        "icon": "category_icons/browser-svgrepo-com.svg",
         "order": 3
     }
 },
@@ -1414,7 +1414,7 @@
     "pk": 4,
     "fields": {
         "created_at": "2024-09-18T00:02:31.271Z",
-        "edited_at": "2024-09-18T00:33:44.867Z",
+        "edited_at": "2024-09-18T03:56:27.768Z",
         "creator": [
             "schir2"
         ],
@@ -1422,7 +1422,7 @@
             "schir2"
         ],
         "name": "Other",
-        "icon": "",
+        "icon": "category_icons/other-insurance-svgrepo-com.svg",
         "order": 10
     }
 },
@@ -1431,7 +1431,7 @@
     "pk": 5,
     "fields": {
         "created_at": "2024-09-18T00:03:55.010Z",
-        "edited_at": "2024-09-18T00:33:33.523Z",
+        "edited_at": "2024-09-18T03:51:56.125Z",
         "creator": [
             "schir2"
         ],
@@ -1439,7 +1439,7 @@
             "schir2"
         ],
         "name": "Databases",
-        "icon": "",
+        "icon": "category_icons/database-svgrepo-com.svg",
         "order": 4
     }
 },
