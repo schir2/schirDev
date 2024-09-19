@@ -43,6 +43,41 @@ module.exports = {
     ],
     theme: {
         extend: {
+
+            colors: {
+                'text-base': 'var(--text-base)',
+                'text-muted': 'var(--text-muted)',
+                'text-primary': 'var(--text-primary)',
+                'text-secondary': 'var(--text-secondary)',
+                'text-accent': 'var(--text-accent)',
+                'text-error': 'var(--text-error)',
+                'text-success': 'var(--text-success)',
+                'text-link': 'var(--text-link)',
+
+                'bg-base': 'var(--bg-base)',
+                'bg-muted': 'var(--bg-muted)',
+                'bg-primary': 'var(--bg-primary)',
+                'bg-secondary': 'var(--bg-secondary)',
+                'bg-accent': 'var(--bg-accent)',
+                'bg-card': 'var(--bg-card)',
+                'bg-overlay': 'var(--bg-overlay)',
+
+                'border-base': 'var(--border-base)',
+                'border-muted': 'var(--border-muted)',
+                'border-primary': 'var(--border-primary)',
+                'border-secondary': 'var(--border-secondary)',
+                'border-accent': 'var(--border-accent)',
+                'border-error': 'var(--border-error)',
+                'border-success': 'var(--border-success)',
+
+                'fill-base': 'var(--fill-base)',
+                'fill-muted': 'var(--fill-muted)',
+                'fill-primary': 'var(--fill-primary)',
+                'fill-secondary': 'var(--fill-secondary)',
+                'fill-accent': 'var(--fill-accent)',
+                'fill-error': 'var(--fill-error)',
+                'fill-success': 'var(--fill-success)',
+            },
             transitionDuration: {
                 '1500': '1500ms',
                 '2000': '2000ms',
