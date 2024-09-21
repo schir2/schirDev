@@ -2,7 +2,7 @@ from django.core.mail import EmailMessage
 from django.test import TestCase
 from django.test.utils import override_settings
 
-from schirDev import settings
+from core import settings
 
 
 @override_settings(EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend')
