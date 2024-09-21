@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'theme',
     'users',
     "content.apps.ContentConfig",
-    "common.apps.CommonConfig"
+    "common.apps.CommonConfig",
+    "blog.apps.BlogConfig"
 ]
 
 MIDDLEWARE = [

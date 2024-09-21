@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from content.models import Page, Post, Skill, Project, SkillCategory
+from content.models import Page, Skill, Project, SkillCategory
+from blog.models.post import Post
 from content.models.company import Company
 
 
