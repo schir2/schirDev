@@ -1,7 +1,7 @@
-<section id="projects" class="min-h-screen min-w-screen p-6">
+<section id="projects" class="min-h-screen min-w-screen p-6  bg-gradient-to-r from-cyan-500 to-blue-500">
     <div class="container w-5xl m-auto">
         <h1 class="text-6xl p-6 pb-9 mb-6 text-center">Projects</h1>
-        <div class="columns-1 sm:columns-2 xl:columns-3 gap-6">
+        <div class="columns-1 sm:columns-1 lg:columns-2 xl:columns-2 gap-6">
             {% for project in projects %}
                 {% include 'content/partials/project.html' with project=project %}
             {% endfor %}

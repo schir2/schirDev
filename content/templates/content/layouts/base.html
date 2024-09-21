@@ -12,43 +12,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
     {% tailwind_css %}
     <script src="{% static 'js/htmx.min.js' %}"></script>
-    <style>
-        .disable-pointer-events {
-            pointer-events: none; /* Disable all interactions */
-        }
-
-    </style>
 </head>
 
-<body class="bg-white text-lg text-black pt-5">
+<body class="bg-white text-lg text-black">
 <c-navbar></c-navbar>
-<div bg-slate-light w-screen">
+<main>
     {% block content %}{% endblock %}
-</div>
+</main>
 {% block javascript %}
 {% endblock %}
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Select all links that trigger scrolling
-        const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-
-        // Function to disable pointer events during scroll
-        function disablePointerEvents() {
-            document.body.classList.add("disable-pointer-events");
-
-            // Re-enable pointer events after scrolling is done
-            setTimeout(() => {
-                document.body.classList.remove("disable-pointer-events");
-            }, 1000); // Adjust the timeout duration to match your scroll duration
-        }
-
-        // Add event listeners to all scroll-triggering links
-        smoothScrollLinks.forEach(link => {
-            link.addEventListener("click", disablePointerEvents);
-        });
-    });
-
-</script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const progressBars = document.querySelectorAll('.progress-bar');
