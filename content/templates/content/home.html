@@ -3,12 +3,13 @@
 {% block content %}
     {% include 'content/partials/home.html' %}
     {% include 'content/partials/skills.html' %}
-    {% include 'content/partials/certifications.html' %}
     {% include 'content/partials/projects.html' %}
     {% for page in pages %}
-        <section id="{{ page.slug }}">
-        <h2>{{ page.title }}</h2>
-        {{ page.content|safe }}
+        <section id="{{ page.slug }}" class="m-auto md:p-20 w-screen">
+            <div class="prose md:prose-lg lg:prose-2xl text-black mx-auto max-w-5xl p-12 md:p-20 bg-slate-50 shadow-lg">
+                <h2>{{ page.title }}</h2>
+                {{ page.content|safe }}
+            </div>
         </section>
     {% endfor %}
     {% include 'content/partials/contact.html' %}
