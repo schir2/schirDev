@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'users',
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
-    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +124,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "components"),
 ]
 
 MEDIA_URL = '/media/'
@@ -140,9 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACTIVE_LINK_CSS_CLASS = 'font-semibold'
 
-RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
-RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -151,6 +146,4 @@ EMAIL_USE_SSL = False
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
-TAILWIND_APP_NAME = 'theme'
-
-NPM_BIN_PATH = env('NPM_BIN_PATH', default=r'C:\Users\Marek Schir\AppData\Roaming\npm\npm.cmd')
+from core.extensions import *

@@ -2,6 +2,7 @@ from django.core.mail import EmailMessage
 from django.test import TestCase
 from django.test.utils import override_settings
 
+import core.extensions.smtp_settings
 from core import settings
 
 
@@ -9,7 +10,7 @@ from core import settings
 class EmailTests(TestCase):
     subject = 'Test Email'
     message = 'This is a test email sent using SMTP in Django <3.'
-    from_email = settings.EMAIL_HOST_USER
+    from_email = core.extensions.smtp_settings.EMAIL_HOST_USER
     recipient_list = ['schir2@gmail.com']
 
     def test_send_mail(self):
