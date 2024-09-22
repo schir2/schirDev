@@ -35,6 +35,8 @@ class Page(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True)
     content = models.TextField(verbose_name=_('Content'))
+    show_on_homepage = models.BooleanField(verbose_name=_('Show on homepage'), default=False)
+    show_in_navbar = models.BooleanField(verbose_name=_('Show on navigation'), default=False)
 
     def __str__(self):
         return self.title
