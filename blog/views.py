@@ -3,9 +3,9 @@ from django.shortcuts import render
 from blog.models import Article
 
 
-def home_view(request):
+def blog_index_view(request):
     context = {}
-    template_name = ''
+    template_name = 'blog/index.html'
     return render(request, template_name=template_name, context=context)
 
 
