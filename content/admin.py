@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from content.models import Page, Skill, Project, SkillCategory, Company
+from content.models import Page, Skill, Project, SkillCategory, Company, Article
 
 
 @admin.register(Page)
@@ -40,3 +40,11 @@ class ProjectAdmin(admin.ModelAdmin):
         return ", ".join([skill.name for skill in obj.skills.all()])
 
     get_skills.short_description = 'Skills'
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+    list_display = ('title', 'creator', 'created_at', 'edited_at')
+    search_fields = ('title', 'content')
+    list_filter = ('created_at', 'creator')
