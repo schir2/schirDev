@@ -5,6 +5,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('content.urls', namespace='content')),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
