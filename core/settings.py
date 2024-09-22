@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'users',
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
+    "blog.apps.BlogConfig"
 ]
 
 MIDDLEWARE = [

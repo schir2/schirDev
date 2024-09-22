@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from content.models import Page, Skill, Project, SkillCategory, Company, Article
+from content.models import Page, Skill, Project, SkillCategory, Company
+from blog.models import Article
 
 
 @admin.register(Page)

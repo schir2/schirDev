@@ -105,13 +105,3 @@ class SkillCategory(BaseModel):
         verbose_name_plural = _('Skill Categories')
 
 
-class Article(BaseModel):
-    title = models.CharField(verbose_name=_('Title'), max_length=200)
-    slug = models.SlugField(verbose_name=_('Slug'), unique=True)
-    content = models.TextField(verbose_name=_('Content'), )
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['-created_at']

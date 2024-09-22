@@ -13,3 +13,8 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Tag(BaseModel):
+    name = models.CharField(verbose_name=_('Name'), max_length=100, unique=True)
+    slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=100)

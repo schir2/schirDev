@@ -1,665 +1,4 @@
-[
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
-        "codename": "add_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
-        "codename": "change_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
-        "codename": "delete_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view log entry",
-        "content_type": [
-            "admin",
-            "logentry"
-        ],
-        "codename": "view_logentry"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
-        "codename": "add_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
-        "codename": "change_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
-        "codename": "delete_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view permission",
-        "content_type": [
-            "auth",
-            "permission"
-        ],
-        "codename": "view_permission"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "codename": "add_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "codename": "change_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "codename": "delete_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view group",
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "codename": "view_group"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
-        "codename": "add_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
-        "codename": "change_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
-        "codename": "delete_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view content type",
-        "content_type": [
-            "contenttypes",
-            "contenttype"
-        ],
-        "codename": "view_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
-        "codename": "add_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
-        "codename": "change_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
-        "codename": "delete_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view session",
-        "content_type": [
-            "sessions",
-            "session"
-        ],
-        "codename": "view_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add user",
-        "content_type": [
-            "users",
-            "user"
-        ],
-        "codename": "add_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change user",
-        "content_type": [
-            "users",
-            "user"
-        ],
-        "codename": "change_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete user",
-        "content_type": [
-            "users",
-            "user"
-        ],
-        "codename": "delete_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view user",
-        "content_type": [
-            "users",
-            "user"
-        ],
-        "codename": "view_user"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add profile",
-        "content_type": [
-            "users",
-            "profile"
-        ],
-        "codename": "add_profile"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change profile",
-        "content_type": [
-            "users",
-            "profile"
-        ],
-        "codename": "change_profile"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete profile",
-        "content_type": [
-            "users",
-            "profile"
-        ],
-        "codename": "delete_profile"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view profile",
-        "content_type": [
-            "users",
-            "profile"
-        ],
-        "codename": "view_profile"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add page",
-        "content_type": [
-            "content",
-            "page"
-        ],
-        "codename": "add_page"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change page",
-        "content_type": [
-            "content",
-            "page"
-        ],
-        "codename": "change_page"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete page",
-        "content_type": [
-            "content",
-            "page"
-        ],
-        "codename": "delete_page"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view page",
-        "content_type": [
-            "content",
-            "page"
-        ],
-        "codename": "view_page"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add post",
-        "content_type": [
-            "content",
-            "post"
-        ],
-        "codename": "add_post"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change post",
-        "content_type": [
-            "content",
-            "post"
-        ],
-        "codename": "change_post"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete post",
-        "content_type": [
-            "content",
-            "post"
-        ],
-        "codename": "delete_post"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view post",
-        "content_type": [
-            "content",
-            "post"
-        ],
-        "codename": "view_post"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add project",
-        "content_type": [
-            "content",
-            "project"
-        ],
-        "codename": "add_project"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change project",
-        "content_type": [
-            "content",
-            "project"
-        ],
-        "codename": "change_project"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete project",
-        "content_type": [
-            "content",
-            "project"
-        ],
-        "codename": "delete_project"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view project",
-        "content_type": [
-            "content",
-            "project"
-        ],
-        "codename": "view_project"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add tech stack",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "add_techstack"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change tech stack",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "change_techstack"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete tech stack",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "delete_techstack"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view tech stack",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "view_techstack"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add company",
-        "content_type": [
-            "content",
-            "company"
-        ],
-        "codename": "add_company"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change company",
-        "content_type": [
-            "content",
-            "company"
-        ],
-        "codename": "change_company"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete company",
-        "content_type": [
-            "content",
-            "company"
-        ],
-        "codename": "delete_company"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view company",
-        "content_type": [
-            "content",
-            "company"
-        ],
-        "codename": "view_company"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add contact message",
-        "content_type": [
-            "content",
-            "contactmessage"
-        ],
-        "codename": "add_contactmessage"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change contact message",
-        "content_type": [
-            "content",
-            "contactmessage"
-        ],
-        "codename": "change_contactmessage"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete contact message",
-        "content_type": [
-            "content",
-            "contactmessage"
-        ],
-        "codename": "delete_contactmessage"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view contact message",
-        "content_type": [
-            "content",
-            "contactmessage"
-        ],
-        "codename": "view_contactmessage"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add skill",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "add_skill"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change skill",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "change_skill"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete skill",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "delete_skill"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view skill",
-        "content_type": [
-            "content",
-            "skill"
-        ],
-        "codename": "view_skill"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can add skill category",
-        "content_type": [
-            "content",
-            "skillcategory"
-        ],
-        "codename": "add_skillcategory"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can change skill category",
-        "content_type": [
-            "content",
-            "skillcategory"
-        ],
-        "codename": "change_skillcategory"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can delete skill category",
-        "content_type": [
-            "content",
-            "skillcategory"
-        ],
-        "codename": "delete_skillcategory"
-    }
-},
-{
-    "model": "auth.permission",
-    "fields": {
-        "name": "Can view skill category",
-        "content_type": [
-            "content",
-            "skillcategory"
-        ],
-        "codename": "view_skillcategory"
-    }
-},
-{
+[{
     "model": "users.user",
     "fields": {
         "password": "pbkdf2_sha256$720000$jn2FDfCcMkhGpjBzMp584E$AgmhupuraHDhfPRs9RtzCSzsLt2lqBaHbiJn7yhITBM=",
@@ -1363,7 +702,7 @@
     "pk": 1,
     "fields": {
         "created_at": "2024-09-16T23:13:40.937Z",
-        "edited_at": "2024-09-18T03:52:06.994Z",
+        "edited_at": "2024-09-18T00:33:49.005Z",
         "creator": [
             "schir2"
         ],
@@ -1371,7 +710,7 @@
             "schir2"
         ],
         "name": "Programming Languages",
-        "icon": "category_icons/code-svgrepo-com.svg",
+        "icon": "",
         "order": 1
     }
 },
@@ -1380,7 +719,7 @@
     "pk": 2,
     "fields": {
         "created_at": "2024-09-16T23:13:59.173Z",
-        "edited_at": "2024-09-18T03:52:14.746Z",
+        "edited_at": "2024-09-18T00:33:40.188Z",
         "creator": [
             "schir2"
         ],
@@ -1388,7 +727,7 @@
             "schir2"
         ],
         "name": "Frameworks and Libraries",
-        "icon": "category_icons/fabric-svgrepo-com.svg",
+        "icon": "",
         "order": 2
     }
 },
@@ -1397,7 +736,7 @@
     "pk": 3,
     "fields": {
         "created_at": "2024-09-16T23:14:35.201Z",
-        "edited_at": "2024-09-18T03:56:01.044Z",
+        "edited_at": "2024-09-18T00:33:58.570Z",
         "creator": [
             "schir2"
         ],
@@ -1405,7 +744,7 @@
             "schir2"
         ],
         "name": "Front-End Technologies",
-        "icon": "category_icons/browser-svgrepo-com.svg",
+        "icon": "",
         "order": 3
     }
 },
@@ -1414,7 +753,7 @@
     "pk": 4,
     "fields": {
         "created_at": "2024-09-18T00:02:31.271Z",
-        "edited_at": "2024-09-18T03:56:27.768Z",
+        "edited_at": "2024-09-18T00:33:44.867Z",
         "creator": [
             "schir2"
         ],
@@ -1422,7 +761,7 @@
             "schir2"
         ],
         "name": "Other",
-        "icon": "category_icons/other-insurance-svgrepo-com.svg",
+        "icon": "",
         "order": 10
     }
 },
@@ -1431,7 +770,7 @@
     "pk": 5,
     "fields": {
         "created_at": "2024-09-18T00:03:55.010Z",
-        "edited_at": "2024-09-18T03:51:56.125Z",
+        "edited_at": "2024-09-18T00:33:33.523Z",
         "creator": [
             "schir2"
         ],
@@ -1439,7 +778,7 @@
             "schir2"
         ],
         "name": "Databases",
-        "icon": "category_icons/database-svgrepo-com.svg",
+        "icon": "",
         "order": 4
     }
 },
