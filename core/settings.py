@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django_cotton',
-    'django_components',
     'django_components.safer_staticfiles',
     'widget_tweaks',
     'django_htmx',
@@ -64,10 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
-
-            'builtins': [
-                'django_components.templatetags.component_tags',
+                'content.context_processors.navbar_items',
             ],
             'loaders': [(
                 'django.template.loaders.cached.Loader', [
