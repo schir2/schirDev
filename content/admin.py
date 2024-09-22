@@ -1,19 +1,10 @@
 from django.contrib import admin
 
 from content.models import Page, Skill, Project, SkillCategory, Company
-from blog.models.post import Post
 
 
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("title",)}
-    list_display = ('title', 'creator', 'created_at', 'edited_at')
-    search_fields = ('title', 'content')
-    list_filter = ('created_at', 'creator')
-
-
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = ('title', 'creator', 'created_at', 'edited_at')
     search_fields = ('title', 'content')

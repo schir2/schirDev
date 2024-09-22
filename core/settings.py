@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'users',
-    "content.apps.ContentConfig"
+    "content.apps.ContentConfig",
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
