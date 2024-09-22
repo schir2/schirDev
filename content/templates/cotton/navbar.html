@@ -32,6 +32,9 @@
                     <c-link href='#skills'>Skills</c-link>
                     <c-link href='#certifications'>Certifications</c-link>
                     <c-link href='#projects'>Projects</c-link>
+                    {% for page in navbar_items %}
+                        <c-link href="#{{ page.slug }}">{{ page.title }}</c-link>
+                    {% endfor %}
                     <c-link href='#contact'>Contact</c-link>
                 </div>
 

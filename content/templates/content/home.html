@@ -5,7 +5,11 @@
     {% include 'content/partials/skills.html' %}
     {% include 'content/partials/certifications.html' %}
     {% include 'content/partials/projects.html' %}
-    {% include 'content/partials/bio.html' %}
-    {%
+    {% for page in pages %}
+        <section id="{{ page.slug }}">
+        <h2>{{ page.title }}</h2>
+        {{ page.content|safe }}
+        </section>
+    {% endfor %}
     {% include 'content/partials/contact.html' %}
 {% endblock %}

@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from django_currentuser.db.models import CurrentUserField
 
 
-# Create your models here.
 class BaseModel(models.Model):
     created_at = models.DateTimeField(verbose_name=_('Created At'), auto_now_add=True)
     edited_at = models.DateTimeField(verbose_name=_('Edited At'), auto_now=True)
