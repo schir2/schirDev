@@ -1,0 +1,73 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <title>{% block head_title %}{% endblock %}</title>
+    <link rel="icon" href="{% static 'content/img/logos/logo.gif' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
+    {% tailwind_css %}
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+</head>
+
+<body class="bg-white text-lg text-black">
+<c-navbar></c-navbar>
+<main>
+    {% block content %}{% endblock %}
+</main>
+{% block javascript %}
+{% endblock %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const progressBars = document.querySelectorAll('.progress-bar');
+
+        const options = {
+            threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    const percentage = progressBar.getAttribute('data-percentage');
+                    progressBar.style.width = percentage;
+                    observer.unobserve(progressBar); // Stop observing after animation
+                }
+            });
+        }, options);
+
+        progressBars.forEach(function (progressBar) {
+            observer.observe(progressBar);
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarHeight = document.querySelector('nav').offsetHeight;
+
+        // Adjust scrolling to each anchor section
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - navbarHeight, // Adjust by navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
