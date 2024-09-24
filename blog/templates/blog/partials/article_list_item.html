@@ -1,0 +1,10 @@
+<div id="article{{ article.pk }}">
+    <h2 class="text-4xl">{{ article.title }}</h2>
+    <sub>{{ article.category.name }}</sub>
+    <ul>
+        {% for tag in tags %}
+            {% include 'blog/components/tag.html' %}
+        {% endfor %}
+    </ul>
+<span>{{ article.creator.username }}</span>
+</div>
