@@ -4,11 +4,13 @@
 {% endblock %}
 {% block content %}
     <section id="latestArticles" class="min-h-screen bg-gradient-to-br from-gray-50 to-violet-50">
-        <h1 class="text-6xl font-semibold">Latest Articles</h1>
-        <div class="grid">
-            {% for article in articles %}
-                {% include 'blog/partials/article_list_item.html' %}
-            {% endfor %}
+        <div class="container max-w-5xl mx-auto">
+            <h1 class="text-6xl font-semibold text-center font-light">Latest Articles</h1>
+            <div class="grid">
+                {% for article in articles %}
+                    {% include 'blog/partials/article_list_item.html' %}
+                {% endfor %}
+            </div>
         </div>
 
     </section>
