@@ -1,5 +1,11 @@
 {% extends 'content/layouts/base.html' %}
 {% block head_title %}schir.dev{% endblock %}
+{% block section_links %}
+    <c-link href='#home'>Top</c-link>
+    <c-link href='#skills'>Skills</c-link>
+    <c-link href='#projects'>Projects</c-link>
+    <c-link href='#contact'>Contact</c-link>
+{% endblock %}
 {% block content %}
     {% include 'content/partials/home.html' %}
     {% include 'content/partials/skills.html' %}

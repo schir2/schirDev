@@ -15,8 +15,13 @@
 </head>
 
 <body class="bg-white text-lg text-black">
-<c-navbar></c-navbar>
-<main>
+<c-navbar>
+    <c-slot name="section_links">
+        {% block section_links %}
+        {% endblock %}
+    </c-slot>
+</c-navbar>
+<main class="pt-20">
     {% block content %}{% endblock %}
 </main>
 {% block javascript %}

@@ -15,57 +15,62 @@
 </head>
 
 <body class="bg-white text-lg text-black">
-<c-navbar></c-navbar>
+<c-navbar>
+    <c-slot name="section_links">
+        {% block section_links %}
+        {% endblock %}
+    </c-slot>
+</c-navbar>
 <main>
     {% block content %}{% endblock %}
 </main>
 {% block javascript %}
 {% endblock %}
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const progressBars = document.querySelectorAll('.progress-bar');
+    document.addEventListener('DOMContentLoaded', function () {
+        const progressBars = document.querySelectorAll('.progress-bar');
 
-    const options = {
-      threshold: 0.1,
-    };
+        const options = {
+            threshold: 0.1,
+        };
 
-    const observer = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          const progressBar = entry.target;
-          const percentage = progressBar.getAttribute('data-percentage');
-          progressBar.style.width = percentage;
-          observer.unobserve(progressBar); // Stop observing after animation
-        }
-      });
-    }, options);
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    const percentage = progressBar.getAttribute('data-percentage');
+                    progressBar.style.width = percentage;
+                    observer.unobserve(progressBar); // Stop observing after animation
+                }
+            });
+        }, options);
 
-    progressBars.forEach(function (progressBar) {
-      observer.observe(progressBar);
+        progressBars.forEach(function (progressBar) {
+            observer.observe(progressBar);
+        });
     });
-  });
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const navbarHeight = document.querySelector('nav').offsetHeight;
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarHeight = document.querySelector('nav').offsetHeight;
 
-    // Adjust scrolling to each anchor section
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        // Adjust scrolling to each anchor section
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
 
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - navbarHeight, // Adjust by navbar height
-            behavior: 'smooth'
-          });
-        }
-      });
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - navbarHeight, // Adjust by navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     });
-  });
 </script>
 
 
