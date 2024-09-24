@@ -1,7 +1,15 @@
 {% extends 'blog/layouts/base.html' %}
 {% block head_title %}
-	Blog
+    Blog
 {% endblock %}
 {% block content %}
-	<h1 class="text-6xl font-semibold">Blog Home</h1>
+    <section id="latestArticles" class="min-h-screen bg-gradient-to-br from-gray-50 to-violet-50">
+        <h1 class="text-6xl font-semibold">Latest Articles</h1>
+        <div class="grid">
+            {% for article in articles %}
+                {% include 'blog/partials/article_list_item.html' %}
+            {% endfor %}
+        </div>
+
+    </section>
 {% endblock %}
