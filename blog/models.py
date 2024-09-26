@@ -1,3 +1,4 @@
+from autoslug import AutoSlugField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
@@ -7,7 +8,7 @@ from common.models import BaseModel
 
 class Article(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
-    slug = models.SlugField(verbose_name=_('Slug'), unique=True)
+    slug = AutoSlugField(populate_from='title')
     content = HTMLField(verbose_name=_('Content'), )
     category = models.ForeignKey('ArticleCategory', verbose_name=_('Category'), related_name='articles',
                                  on_delete=models.SET_NULL,
