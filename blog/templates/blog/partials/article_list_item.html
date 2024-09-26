@@ -3,7 +3,7 @@
     <sub>{{ article.category.name }}</sub>
     <ul>
         {% for tag in tags %}
-            {% include 'blog/components/tag.html' %}
+            {% include 'blog/partials/tag.html' %}
         {% endfor %}
     </ul>
 <span>{{ article.creator.username }}</span>

@@ -3,14 +3,26 @@
     Blog
 {% endblock %}
 {% block content %}
-    <section id="latestArticles" class="bg-gradient-to-br from-gray-50 to-violet-50 min-h-screen">
-        <div class="container max-w-5xl mx-auto">
-            <h1 class="text-6xl font-semibold text-center font-light">Latest Articles</h1>
-            <a href="{% url 'blog:article_create' %}">Write a New Article</a>
-            <div class="grid">
-                {% include 'blog/partials/article_list.html' with articles=articles %}
+    <div class="grid grid-cols-12">
+        <div id="latestArticles" class="col-span-8">
+            <div>
+                <h1 class="text-6xl font-light">Latest Articles</h1>
+                <a href="{% url 'blog:article_create' %}">Write a New Article</a>
+                <div class="grid">
+                    {% include 'blog/partials/article_list.html' with articles=articles %}
+                </div>
             </div>
         </div>
+        <div class="col-span-4">
 
-    </section>
+            <c-sidebar-widget :id="myArticles" title="My Articles">
+                {% include 'blog/partials/article_list.html' with articles=my_articles %}
+            </c-sidebar-widget>
+            <c-sidebar-widget id="myComments" title="My Comments">
+                {% include 'blog/partials/comment_list.html' with comments=my_comments %}
+            </c-sidebar-widget>
+
+
+        </div>
+    </div>
 {% endblock %}
