@@ -10,7 +10,7 @@ urlpatterns = [
     path('articles/', include([
         path('', article_list_view, name='article_list'),
         path('create', article_create_view, name='article_create'),
-        path('<int:pk>/',
+        path('<str:slug>/',
              include([
                  path('', article_detail_view, name='article_detail'),
              ])
