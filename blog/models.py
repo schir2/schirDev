@@ -1,5 +1,7 @@
-from autoslug import AutoSlugField
+import uuid
+
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 
@@ -8,7 +10,7 @@ from common.models import BaseModel
 
 class Article(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
-    slug = AutoSlugField(populate_from='title')
+    slug = models.SlugField(verbose_name=_('Slug'), unique=True)
     content = HTMLField(verbose_name=_('Content'), )
     category = models.ForeignKey('ArticleCategory', verbose_name=_('Category'), related_name='articles',
                                  on_delete=models.SET_NULL,
@@ -20,10 +22,23 @@ class Article(BaseModel):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+
+            if Article.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{uuid.uuid4().hex[:8]}"
+
+            self.slug = slug
+
+        super().save(*args, **kwargs)
+
     class Meta:
         ordering = ['-created_at']
         verbose_name = _('Article')
         verbose_name_plural = _('Articles')
+        unique_together = ('title', 'creator',)
 
 
 class ArticleCategory(BaseModel):
