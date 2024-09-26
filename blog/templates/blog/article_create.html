@@ -1,0 +1,10 @@
+{% extends 'blog/layouts/base.html' %}
+    {% block head_title %}Write a new Article{% endblock %}
+{% block content %}
+
+<h1>Write a new Article</h1>
+{% include 'blog/partials/article_form.html' %}
+{% endblock %}
+{% block javascript %}
+    {{ form.media }}
+{% endblock %}
