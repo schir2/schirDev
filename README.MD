@@ -43,8 +43,6 @@ python manage.py tailwind install
 python manage.py npm start
 ```
 
-~~~
-
 # To-Do List for Portfolio Site Enhancements
 
 ## 1. Enhance User Navigation and Experience
