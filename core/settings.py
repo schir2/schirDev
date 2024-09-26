@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'active_link',
     'tailwind',
     'theme',
+    'tinymce',
     'users',
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
