@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Article, ArticleCategory, Comment, Tag
+from .models import ArticleCategory, Comment, Tag, Article
 
 
 @admin.register(Tag)
@@ -19,6 +19,15 @@ class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     autocomplete_fields = ['category', 'tags']
     ordering = ['-created_at']
+    readonly_fields = ('image_preview',)
+
+    def image_preview(self, obj):
+        if obj.image:
+            return '<img src="{}" style="max-width: 200px;"/>'.format(obj.image.url)
+        return ""
+
+    image_preview.allow_tags = True
+    image_preview.short_description = 'Image Preview'
 
 
 @admin.register(ArticleCategory)
