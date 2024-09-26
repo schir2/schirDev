@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from blog.forms import ArticleForm
 from blog.models import Article
 
 
@@ -24,4 +25,18 @@ def article_detail_view(request, slug):
     context = {}
     article = Article.objects.get(slug=slug)
     context["article"] = article
+    return render(request, template_name=template_name, context=context)
+
+
+def article_create_view(request):
+    template_name = 'blog/article_create.html'
+    context = {}
+    if request.method == "POST":
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            article = form.save()
+            return redirect('blog:article_detail', [article.slug])
+    else:
+        form = ArticleForm()
+    context['form'] = form
     return render(request, template_name=template_name, context=context)
