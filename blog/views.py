@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.shortcuts import render, redirect
 
 from blog.forms import ArticleForm
@@ -34,8 +35,11 @@ def article_create_view(request):
     if request.method == "POST":
         form = ArticleForm(request.POST)
         if form.is_valid():
-            article = form.save()
-            return redirect('blog:article_detail', [article.slug])
+            try:
+                article = form.save()
+                return redirect('blog:article_detail', slug=article.slug)
+            except IntegrityError:
+                form.add_error('title', "An article with this title already exists.")
     else:
         form = ArticleForm()
     context['form'] = form
