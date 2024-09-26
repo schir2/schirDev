@@ -4,4 +4,5 @@
 {% endblock %}
 {% block content %}
 	<h1 class="text-6xl font-semibold">Articles</h1>
+    {% include 'blog/partials/article_list.html' with articles=articles %}
 {% endblock %}
