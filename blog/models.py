@@ -23,15 +23,12 @@ class Article(BaseModel):
         return self.title
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            base_slug = slugify(self.title)
+        base_slug = slugify(self.title)
+        if not self.slug or not self.slug.startswith(base_slug):
             slug = base_slug
-
             if Article.objects.filter(slug=slug).exists():
-                slug = f"{base_slug}-{uuid.uuid4().hex[:8]}"
-
+                slug = f"{base_slug}-{uuid.uuid4().hex[:8]}"  # Append UUID for uniqueness
             self.slug = slug
-
         super().save(*args, **kwargs)
 
     class Meta:
