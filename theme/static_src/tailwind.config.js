@@ -43,6 +43,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            minHeight: {
+                'nav-offset': 'calc(100vh - 5rem)',
+            },
 
             colors: {
                 'text-base': 'var(--text-base)',
