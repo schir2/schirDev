@@ -63,6 +63,7 @@ class FeaturedArticleAdmin(admin.ModelAdmin):
     list_display = ('article', 'featured_reason', 'created_at', 'edited_at', 'creator', 'editor')
     search_fields = ('article__title', 'featured_reason')
     ordering = ['-created_at']
+    autocomplete_fields = ('article',)
     readonly_fields = ('created_at', 'edited_at', 'creator', 'editor')
 
 

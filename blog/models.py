@@ -81,9 +81,15 @@ class Tag(BaseModel):
 
 
 class FeaturedArticle(BaseModel):
+    class FeaturedReason(models.TextChoices):
+        EDITOR_CHOICE = 'editor_choice', _("Editor's Choice")
+        STAFF_PICK = 'staff_pick', _("Staff Pick")
+        TOPIC_HIGHLIGHT = 'topic_highlight', _("Topic Highlight")
+        POPULAR_ARTICLE = 'popular_article', _("Popular Article")
+
     article = models.OneToOneField('Article', verbose_name=_('Article'), on_delete=models.CASCADE,
                                    related_name='featured')
-    featured_reason = models.TextField(blank=True, verbose_name=_('Reason for Featuring'))
+    featured_reason = models.TextField(blank=True, choices=FeaturedReason.choices, verbose_name=_('Reason for Featuring'))
 
     def __str__(self):
         return f'Featured article {self.article.title}'
