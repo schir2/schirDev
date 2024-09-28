@@ -1,0 +1,119 @@
+[
+  {
+    "model": "blog.articlecategory",
+    "pk": 1,
+    "fields": {
+      "name": "Software Development",
+      "slug": "software-development",
+      "description": "Articles about programming concepts, software design patterns, tutorials, and code samples.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 2,
+    "fields": {
+      "name": "Web Development",
+      "slug": "web-development",
+      "description": "Focused on frontend and backend web development, covering topics like HTML, CSS, JavaScript, Django, and APIs.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 3,
+    "fields": {
+      "name": "Data Science & Analytics",
+      "slug": "data-science-analytics",
+      "description": "Data analysis, machine learning, and insights on handling and visualizing data with Python or other tools.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 4,
+    "fields": {
+      "name": "DevOps & Automation",
+      "slug": "devops-automation",
+      "description": "Content on CI/CD, Docker, Kubernetes, server automation, and configuration management.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 5,
+    "fields": {
+      "name": "IT Infrastructure",
+      "slug": "it-infrastructure",
+      "description": "Topics on networking, servers, security, and infrastructure management.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 6,
+    "fields": {
+      "name": "IT Operations & Support",
+      "slug": "it-operations-support",
+      "description": "Day-to-day IT operations, troubleshooting, and support tips for both on-premises and cloud systems.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 7,
+    "fields": {
+      "name": "Climbing",
+      "slug": "climbing",
+      "description": "Personal experiences, climbing techniques, training tips, and gear recommendations for bouldering and climbing.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 8,
+    "fields": {
+      "name": "Running",
+      "slug": "running",
+      "description": "Articles covering running routines, training plans, race experiences, and gear reviews.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  },
+  {
+    "model": "blog.articlecategory",
+    "pk": 9,
+    "fields": {
+      "name": "Fitness",
+      "slug": "fitness",
+      "description": "General fitness tips, strength training routines, flexibility exercises, and maintaining overall health.",
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null
+    }
+  }
+]

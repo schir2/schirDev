@@ -41,6 +41,8 @@ class Article(BaseModel):
 class ArticleCategory(BaseModel):
     name = models.CharField(verbose_name=_('Name'), max_length=100, unique=True)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=100)
+    description = models.TextField(verbose_name=_('Description'), blank=True)
+
 
     class Meta:
         ordering = ['name']
