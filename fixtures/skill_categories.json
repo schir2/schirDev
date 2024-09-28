@@ -1,0 +1,87 @@
+[
+{
+    "model": "content.skillcategory",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-16T23:13:40.937Z",
+        "edited_at": "2024-09-18T00:33:49.005Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Programming Languages",
+        "icon": "",
+        "order": 1
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-16T23:13:59.173Z",
+        "edited_at": "2024-09-18T00:33:40.188Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Frameworks and Libraries",
+        "icon": "",
+        "order": 2
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-16T23:14:35.201Z",
+        "edited_at": "2024-09-18T00:33:58.570Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Front-End Technologies",
+        "icon": "",
+        "order": 3
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-09-18T00:02:31.271Z",
+        "edited_at": "2024-09-18T00:33:44.867Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Other",
+        "icon": "",
+        "order": 10
+    }
+},
+{
+    "model": "content.skillcategory",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-09-18T00:03:55.010Z",
+        "edited_at": "2024-09-18T00:33:33.523Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Databases",
+        "icon": "",
+        "order": 4
+    }
+}
+]

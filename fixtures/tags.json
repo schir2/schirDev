@@ -1,0 +1,650 @@
+[
+    {
+        "model": "blog.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Python",
+            "slug": "python",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 2,
+        "fields": {
+            "name": "Django",
+            "slug": "django",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 3,
+        "fields": {
+            "name": "Algorithms",
+            "slug": "algorithms",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 4,
+        "fields": {
+            "name": "Data Structures",
+            "slug": "data-structures",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 5,
+        "fields": {
+            "name": "REST API",
+            "slug": "rest-api",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 6,
+        "fields": {
+            "name": "Design Patterns",
+            "slug": "design-patterns",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 7,
+        "fields": {
+            "name": "Code Optimization",
+            "slug": "code-optimization",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 8,
+        "fields": {
+            "name": "HTML",
+            "slug": "html",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 9,
+        "fields": {
+            "name": "CSS",
+            "slug": "css",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 10,
+        "fields": {
+            "name": "JavaScript",
+            "slug": "javascript",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 11,
+        "fields": {
+            "name": "React",
+            "slug": "react",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 12,
+        "fields": {
+            "name": "Vue.js",
+            "slug": "vue.js",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 13,
+        "fields": {
+            "name": "Tailwind CSS",
+            "slug": "tailwind-css",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 14,
+        "fields": {
+            "name": "Responsive Design",
+            "slug": "responsive-design",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 15,
+        "fields": {
+            "name": "Machine Learning",
+            "slug": "machine-learning",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 16,
+        "fields": {
+            "name": "Data Visualization",
+            "slug": "data-visualization",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 17,
+        "fields": {
+            "name": "Pandas",
+            "slug": "pandas",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 18,
+        "fields": {
+            "name": "NumPy",
+            "slug": "numpy",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 19,
+        "fields": {
+            "name": "Scikit-Learn",
+            "slug": "scikit-learn",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 20,
+        "fields": {
+            "name": "Matplotlib",
+            "slug": "matplotlib",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 21,
+        "fields": {
+            "name": "CI/CD",
+            "slug": "ci/cd",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 22,
+        "fields": {
+            "name": "Docker",
+            "slug": "docker",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 23,
+        "fields": {
+            "name": "Kubernetes",
+            "slug": "kubernetes",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 24,
+        "fields": {
+            "name": "Ansible",
+            "slug": "ansible",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 25,
+        "fields": {
+            "name": "Terraform",
+            "slug": "terraform",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 26,
+        "fields": {
+            "name": "Cloud",
+            "slug": "cloud",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 27,
+        "fields": {
+            "name": "Jenkins",
+            "slug": "jenkins",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 28,
+        "fields": {
+            "name": "Networking",
+            "slug": "networking",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 29,
+        "fields": {
+            "name": "Firewalls",
+            "slug": "firewalls",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 30,
+        "fields": {
+            "name": "VPN",
+            "slug": "vpn",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 31,
+        "fields": {
+            "name": "Security",
+            "slug": "security",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 32,
+        "fields": {
+            "name": "Linux",
+            "slug": "linux",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 33,
+        "fields": {
+            "name": "Windows Server",
+            "slug": "windows-server",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 34,
+        "fields": {
+            "name": "Troubleshooting",
+            "slug": "troubleshooting",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 35,
+        "fields": {
+            "name": "IT Support",
+            "slug": "it-support",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 36,
+        "fields": {
+            "name": "Helpdesk",
+            "slug": "helpdesk",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 37,
+        "fields": {
+            "name": "SysAdmin",
+            "slug": "sysadmin",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 38,
+        "fields": {
+            "name": "Scripting",
+            "slug": "scripting",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 39,
+        "fields": {
+            "name": "Bouldering",
+            "slug": "bouldering",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 40,
+        "fields": {
+            "name": "Sport Climbing",
+            "slug": "sport-climbing",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 41,
+        "fields": {
+            "name": "Trad Climbing",
+            "slug": "trad-climbing",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 42,
+        "fields": {
+            "name": "Training",
+            "slug": "training",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 43,
+        "fields": {
+            "name": "Gear Reviews",
+            "slug": "gear-reviews",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 44,
+        "fields": {
+            "name": "Marathon",
+            "slug": "marathon",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 45,
+        "fields": {
+            "name": "5K",
+            "slug": "5k",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 46,
+        "fields": {
+            "name": "10K",
+            "slug": "10k",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 47,
+        "fields": {
+            "name": "Training Plans",
+            "slug": "training-plans",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 48,
+        "fields": {
+            "name": "Gear",
+            "slug": "gear",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 49,
+        "fields": {
+            "name": "Trail Running",
+            "slug": "trail-running",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 50,
+        "fields": {
+            "name": "Strength Training",
+            "slug": "strength-training",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 51,
+        "fields": {
+            "name": "Flexibility",
+            "slug": "flexibility",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 52,
+        "fields": {
+            "name": "Cardio",
+            "slug": "cardio",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 53,
+        "fields": {
+            "name": "HIIT",
+            "slug": "hiit",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 54,
+        "fields": {
+            "name": "Yoga",
+            "slug": "yoga",
+            "created_at": "2024-09-28T15:44:13Z",
+            "edited_at": "2024-09-28T15:44:13Z",
+            "creator": null,
+            "editor": null
+        }
+    }
+]
