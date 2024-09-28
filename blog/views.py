@@ -2,17 +2,18 @@ from django.db import IntegrityError
 from django.shortcuts import render, redirect
 
 from blog.forms import ArticleForm
-from blog.models import Article, Comment, Topic
+from blog.models import Article, Comment, Topic, FeaturedArticle
 
 
 def blog_index_view(request):
     context = {}
     template_name = 'blog/index.html'
-    latest_articles = Article.objects.filter(creator=request.user)
-    featured_articles = Comment.objects.filter(creator=request.user)
+    latest_articles = Article.objects.order_by('-created_at')[:5]
+    featured_articles = FeaturedArticle.objects.order_by('-created_at')[:5]
+    topics = Topic.objects.all()
     context['latest_articles'] = latest_articles
     context['featured_articles'] = featured_articles
-    context['topics'] = Topic.objects.all()
+    context['topics'] = topics
     return render(request, template_name=template_name, context=context)
 
 

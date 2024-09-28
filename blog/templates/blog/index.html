@@ -9,25 +9,18 @@
                 <h1 class="text-6xl font-light">Latest Articles</h1>
                 <a href="{% url 'blog:article_create' %}">Write a New Article</a>
                 <div class="grid">
-                    {% include 'blog/partials/article_list.html' with articles=articles %}
+                    {% include 'blog/partials/article_list.html' with articles=latest_articles %}
                 </div>
             </div>
         </div>
         <div class="col-span-4">
-
             <c-sidebar-widget :id="featuredArticles" title="Featured">
-                {% include 'blog/partials/article_list.html' with articles= recommendedArticles %}
+                {% include 'blog/partials/featured_article_list.html' with featured_articles=featured_articles %}
             </c-sidebar-widget>
 
             <c-sidebar-widget :id="topics" title="Topics">
-                {% include 'blog/partials/article_list.html' with articles=my_articles %}
+                {% include 'blog/partials/topic_list.html' with topics=topics %}
             </c-sidebar-widget>
-
-            <c-sidebar-widget id="myComments" title="My Comments">
-                {% include 'blog/partials/comment_list.html' with comments=my_comments %}
-            </c-sidebar-widget>
-
-
         </div>
     </div>
 {% endblock %}
