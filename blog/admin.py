@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Article, ArticleCategory, Comment, FeaturedArticle, ArticleInteraction
+from .models import Article, Topic, Comment, FeaturedArticle, ArticleInteraction
 from .models import Tag
 
 
@@ -17,11 +17,11 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'category', 'is_published', 'popularity_score', 'created_at', 'edited_at', 'creator', 'editor')
-    list_filter = ('category', 'is_published', 'tags', 'created_at')
-    search_fields = ('title', 'content', 'category__name', 'tags__name')
+        'title', 'topic', 'is_published', 'popularity_score', 'created_at', 'edited_at', 'creator', 'editor')
+    list_filter = ('topic', 'is_published', 'tags', 'created_at')
+    search_fields = ('title', 'content', 'topic__name', 'tags__name')
     prepopulated_fields = {'slug': ('title',)}
-    autocomplete_fields = ['category', 'tags']
+    autocomplete_fields = ['topic', 'tags']
     ordering = ['-created_at']
     readonly_fields = ('image_preview', 'popularity_score', 'created_at', 'edited_at', 'creator', 'editor')
 
@@ -34,8 +34,8 @@ class ArticleAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Image Preview'
 
 
-@admin.register(ArticleCategory)
-class ArticleCategoryAdmin(admin.ModelAdmin):
+@admin.register(Topic)
+class TopicAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'description', 'created_at', 'edited_at', 'creator', 'editor')
     search_fields = ('name', 'description',)
     prepopulated_fields = {'slug': ('name',)}

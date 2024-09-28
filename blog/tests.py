@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.utils.text import slugify
 
-from blog.models import ArticleCategory, Article
+from blog.models import Topic, Article
 from users.models import User
 
 
@@ -12,15 +12,15 @@ class ArticleTestCase(TestCase):
         self.user1 = User.objects.create_user(username='user1', password='password123')
         self.user2 = User.objects.create_user(username='user2', password='password123')
 
-        # Create a category for articles
-        self.category = ArticleCategory.objects.create(name='Test Category', slug='test-category')
+        # Create a topic for articles
+        self.topic = Topic.objects.create(name='Test Topic', slug='test-topic')
 
     def test_slug_is_generated(self):
         """Test that a slug is automatically generated when an article is created."""
         article = Article.objects.create(
             title="Test Article",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         expected_slug = slugify(article.title)
@@ -31,13 +31,13 @@ class ArticleTestCase(TestCase):
         article1 = Article.objects.create(
             title="Unique Title 1",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         article2 = Article.objects.create(
             title="Unique Title 2",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         self.assertNotEqual(article1.slug, article2.slug)
@@ -47,13 +47,13 @@ class ArticleTestCase(TestCase):
         article1 = Article.objects.create(
             title="Same Title",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         article2 = Article.objects.create(
             title="Same Title",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user2
         )
         # The second slug should be different, likely appending a UUID or a unique suffix
@@ -64,13 +64,13 @@ class ArticleTestCase(TestCase):
         article1 = Article.objects.create(
             title="Test Article",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         article2 = Article.objects.create(
             title="Test Article",  # Same title as article1
             content="Different content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user2
         )
 
@@ -84,7 +84,7 @@ class ArticleTestCase(TestCase):
         article = Article.objects.create(
             title="Test Article",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         original_slug = article.slug
@@ -99,7 +99,7 @@ class ArticleTestCase(TestCase):
         article = Article.objects.create(
             title="Original Title",
             content="Test content",
-            category=self.category,
+            topic=self.topic,
             creator=self.user1
         )
         original_slug = article.slug

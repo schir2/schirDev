@@ -12,9 +12,9 @@ class Article(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True)
     content = HTMLField(verbose_name=_('Content'), )
-    category = models.ForeignKey('ArticleCategory', verbose_name=_('Category'), related_name='articles',
-                                 on_delete=models.SET_NULL,
-                                 blank=True, null=True)
+    topic = models.ForeignKey('blog.Topic', verbose_name=_('Topic'), related_name='articles',
+                              on_delete=models.SET_NULL,
+                              blank=True, null=True)
     tags = models.ManyToManyField('blog.Tag', verbose_name=_('Tags'), related_name='articles', blank=True)
     image = models.ImageField(verbose_name=_('Image'), upload_to='blog/article_images/', blank=True, null=True)
     is_published = models.BooleanField(_('Is published'), default=True)
@@ -39,15 +39,15 @@ class Article(BaseModel):
         unique_together = ('title', 'creator',)
 
 
-class ArticleCategory(BaseModel):
+class Topic(BaseModel):
     name = models.CharField(verbose_name=_('Name'), max_length=100, unique=True)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=100)
     description = models.TextField(verbose_name=_('Description'), blank=True)
 
     class Meta:
         ordering = ['name']
-        verbose_name = _('Article Category')
-        verbose_name_plural = _('Article Categories')
+        verbose_name = _('Topic')
+        verbose_name_plural = _('Topics')
 
     def __str__(self):
         return self.name
