@@ -18,6 +18,7 @@ class Article(BaseModel):
     tags = models.ManyToManyField('blog.Tag', verbose_name=_('Tags'), related_name='articles', blank=True)
     image = models.ImageField(verbose_name=_('Image'), upload_to='blog/article_images/', blank=True, null=True)
     is_published = models.BooleanField(_('Is published'), default=True)
+    popularity_score = models.FloatField(verbose_name=_('Popularity Score'), default=0.0)
 
     def __str__(self):
         return self.title
@@ -43,7 +44,6 @@ class ArticleCategory(BaseModel):
     slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=100)
     description = models.TextField(verbose_name=_('Description'), blank=True)
 
-
     class Meta:
         ordering = ['name']
         verbose_name = _('Article Category')
@@ -67,3 +67,35 @@ class Comment(BaseModel):
 class Tag(BaseModel):
     name = models.CharField(verbose_name=_('Name'), max_length=100, unique=True)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=100)
+
+
+class FeaturedArticle(BaseModel):
+    article = models.OneToOneField('Article', verbose_name=_('Article'), on_delete=models.CASCADE,
+                                   related_name='featured')
+    featured_reason = models.TextField(blank=True, verbose_name=_('Reason for Featuring'))
+
+    def __str__(self):
+        return f'Featured article {self.article.title}'
+
+    class Meta:
+        verbose_name = _('Featured Article')
+        verbose_name_plural = _('Featured Articles')
+        ordering = ['-created_at']
+
+
+class ArticleInteraction(BaseModel):
+    class InteractionType(models.TextChoices):
+        LIKE = 'like', 'Like'
+        DISLIKE = 'dislike', 'Dislike'
+
+    article = models.ForeignKey('Article', verbose_name=_('Article'), on_delete=models.CASCADE,
+                                related_name='interactions')
+    interaction_type = models.CharField(choices=InteractionType.choices, max_length=10)
+
+    def __str__(self):
+        return f'Interaction {self.creator.username} {self.interaction_type} {self.article.title}'
+
+    class Meta:
+        verbose_name = _('Interaction')
+        verbose_name_plural = _('Interactions')
+        ordering = ['-created_at']

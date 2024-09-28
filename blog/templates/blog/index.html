@@ -15,9 +15,14 @@
         </div>
         <div class="col-span-4">
 
-            <c-sidebar-widget :id="myArticles" title="My Articles">
+            <c-sidebar-widget :id="featuredArticles" title="Featured">
+                {% include 'blog/partials/article_list.html' with articles= recommendedArticles %}
+            </c-sidebar-widget>
+
+            <c-sidebar-widget :id="topics" title="Topics">
                 {% include 'blog/partials/article_list.html' with articles=my_articles %}
             </c-sidebar-widget>
+
             <c-sidebar-widget id="myComments" title="My Comments">
                 {% include 'blog/partials/comment_list.html' with comments=my_comments %}
             </c-sidebar-widget>
