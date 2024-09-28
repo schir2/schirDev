@@ -49,6 +49,9 @@ class ArticleCategory(BaseModel):
         verbose_name = _('Article Category')
         verbose_name_plural = _('Article Categories')
 
+    def __str__(self):
+        return self.name
+
 
 class Comment(BaseModel):
     article = models.ForeignKey(Article, verbose_name=_('Article'), related_name='comments', on_delete=models.CASCADE)
@@ -67,6 +70,14 @@ class Comment(BaseModel):
 class Tag(BaseModel):
     name = models.CharField(verbose_name=_('Name'), max_length=100, unique=True)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=100)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = _('Tag')
+        verbose_name_plural = _('Tags')
 
 
 class FeaturedArticle(BaseModel):
