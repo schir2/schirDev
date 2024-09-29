@@ -1,19 +1,25 @@
-from django.test import TestCase
+from unittest.mock import patch, Mock
+
+from django.db import IntegrityError
+from django.test import TestCase, RequestFactory
+from django.utils import timezone
 from django.utils.text import slugify
 
-from blog.models import Topic, Article
-from users.models import User
+from blog.factories import create_article_with_interactions, UserFactory, ArticleFactory, TopicFactory, TagFactory
+from blog.models import Article, InteractionType, ArticleInteraction, Comment, FeaturedArticle
 
 
 class ArticleTestCase(TestCase):
 
     def setUp(self):
-        # Create two users
-        self.user1 = User.objects.create_user(username='user1', password='password123')
-        self.user2 = User.objects.create_user(username='user2', password='password123')
-
-        # Create a topic for articles
-        self.topic = Topic.objects.create(name='Test Topic', slug='test-topic')
+        self.user = UserFactory()
+        self.topic = TopicFactory()
+        self.tag = TagFactory()
+        self.article = ArticleFactory(creator=self.user, topic=self.topic)
+        self.article.tags.add(self.tag)
+        self.user1 = UserFactory()
+        self.user2 = UserFactory()
+        self.request_factory = RequestFactory()
 
     def test_slug_is_generated(self):
         """Test that a slug is automatically generated when an article is created."""
@@ -110,3 +116,92 @@ class ArticleTestCase(TestCase):
         updated_slug = slugify(article.title)
         self.assertNotEqual(article.slug, original_slug)
         self.assertEqual(article.slug, updated_slug)
+
+    def test_article_creation(self):
+        self.assertIsInstance(self.article, Article)
+        self.assertEqual(self.article.creator, self.user)
+
+    def test_article_with_interactions(self):
+        article = create_article_with_interactions()
+        self.assertEqual(article.comments.count(), 3)
+        self.assertEqual(article.interactions.filter(interaction_type='like').count(), 5)
+        self.assertEqual(article.interactions.filter(interaction_type='dislike').count(), 2)
+
+    def test_increment_view_count(self):
+        request = self.request_factory.get('fake-url')
+        request.user = self.user
+        initial_count = self.article.view_count
+        self.article.increment_view_count(request)
+        self.article.refresh_from_db()
+        self.assertEqual(self.article.view_count, initial_count + 1)
+
+        self.article.increment_view_count(request)
+        self.article.refresh_from_db()
+        self.assertEqual(self.article.view_count, initial_count + 1)
+
+    def test_calculate_popularity_score(self):
+        with patch('django.utils.timezone.now') as mock_now:
+            mock_now.return_value = timezone.make_aware(timezone.datetime(2023, 1, 1))
+
+            article = ArticleFactory(
+                created_at=timezone.make_aware(timezone.datetime(2022, 1, 1)),
+                view_count=500
+            )
+
+            # Bulk create interactions
+            ArticleInteraction.objects.bulk_create([
+                ArticleInteraction(article=article, creator=UserFactory(), interaction_type='like')
+                for _ in range(50)
+            ])
+
+            # Bulk create comments
+            Comment.objects.bulk_create([
+                Comment(article=article, creator=UserFactory(), content="Test comment")
+                for _ in range(25)
+            ])
+
+            # Mock the queryset counts to avoid additional database queries
+            with patch.object(ArticleInteraction.objects, 'filter') as mock_filter:
+                mock_filter.return_value = Mock(count=lambda: 50)
+                with patch.object(Comment.objects, 'filter') as mock_comment_filter:
+                    mock_comment_filter.return_value = Mock(count=lambda: 25)
+
+                    score = article.calculate_popularity_score()
+
+            self.assertGreater(score, 0)
+            self.assertLess(score, 1)
+            self.assertEqual(article.popularity_score, score)
+
+    def test_likes_and_dislikes_properties(self):
+        article = ArticleFactory()
+        for _ in range(5):
+            article.interactions.create(creator=UserFactory(), interaction_type=InteractionType.LIKE)
+        for _ in range(3):
+            article.interactions.create(creator=UserFactory(), interaction_type=InteractionType.DISLIKE)
+
+        self.assertEqual(article.likes.count(), 5)
+        self.assertEqual(article.dislikes.count(), 3)
+
+    def test_is_featured_property(self):
+        article = ArticleFactory()
+        self.assertFalse(article.is_featured)
+
+        # Create a FeaturedArticle instance for this article
+        FeaturedArticle.objects.create(article=article)
+        self.assertTrue(article.is_featured)
+
+    def test_unique_together_constraint(self):
+        article1 = ArticleFactory(creator=self.user, title="Test Article")
+        with self.assertRaises(IntegrityError):
+            ArticleFactory(creator=self.user, title="Test Article")
+
+    def test_str_method(self):
+        article = ArticleFactory(title="Test Article")
+        self.assertEqual(str(article), "Test Article")
+
+    def test_ordering(self):
+        ArticleFactory(title="Old Article", created_at=timezone.now() - timezone.timedelta(days=2))
+        ArticleFactory(title="New Article", created_at=timezone.now())
+        articles = Article.objects.all()
+        self.assertEqual(articles[0].title, "New Article")
+        self.assertEqual(articles[1].title, "Old Article")
