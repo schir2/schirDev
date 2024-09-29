@@ -8,6 +8,11 @@ from tinymce.models import HTMLField
 from common.models import BaseModel
 
 
+class InteractionType(models.TextChoices):
+    LIKE = 'like', 'Like'
+    DISLIKE = 'dislike', 'Dislike'
+
+
 class Article(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True)
@@ -37,6 +42,14 @@ class Article(BaseModel):
         verbose_name = _('Article')
         verbose_name_plural = _('Articles')
         unique_together = ('title', 'creator',)
+
+    @property
+    def likes(self):
+        return self.interactions.filter(interaction_type=InteractionType.LIKE)
+
+    @property
+    def dislikes(self):
+        return self.interactions.filter(interaction_type=InteractionType.DISLIKE)
 
 
 class Topic(BaseModel):
@@ -101,9 +114,6 @@ class FeaturedArticle(BaseModel):
 
 
 class ArticleInteraction(BaseModel):
-    class InteractionType(models.TextChoices):
-        LIKE = 'like', 'Like'
-        DISLIKE = 'dislike', 'Dislike'
 
     article = models.ForeignKey('Article', verbose_name=_('Article'), on_delete=models.CASCADE,
                                 related_name='interactions')
