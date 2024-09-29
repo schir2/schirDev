@@ -33,7 +33,7 @@ def article_list_view(request):
 
 
 def article_detail_view(request, slug):
-    template_name = 'blog/article.html'
+    template_name = 'blog/article_detail.html'
     context = {}
     article = get_object_or_404(
         Article.objects.select_related('creator', 'topic').prefetch_related('tags', 'interactions'),
@@ -58,6 +58,18 @@ def article_create_view(request):
         form = ArticleForm()
     context['form'] = form
     return render(request, template_name=template_name, context=context)
+
+
+def article_archive_view(request, slug: str):
+    return
+
+
+def article_edit_view(request, slug: str):
+    return
+
+
+def article_delete_view(request, slug: str):
+    return
 
 
 def tag_list_view(request):

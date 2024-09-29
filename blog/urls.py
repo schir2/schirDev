@@ -4,7 +4,7 @@ from django.urls.conf import include
 from blog.views import article_list_view, article_detail_view, blog_index_view, article_create_view, tag_list_view, \
     tag_detail_view, tag_create_view, tag_edit_view, tag_delete_view, topic_list_view, topic_create_view, \
     topic_detail_view, topic_edit_view, topic_delete_view, article_like_count_view, article_dislike_count_view, \
-    toggle_dislike_view, toggle_like_view
+    toggle_dislike_view, toggle_like_view, article_archive_view, article_edit_view
 
 app_name = 'blog'
 
@@ -16,6 +16,8 @@ urlpatterns = [
         path('<str:slug>/',
              include([
                  path('', article_detail_view, name='article_detail'),
+                 path('edit', article_edit_view, name='article_edit'),
+                 path('archive', article_archive_view, name='article_archive'),
                  path('like_count', article_like_count_view, name='article_like_count'),
                  path('dislike_count', article_dislike_count_view, name='article_dislike_count'),
                  path('toggle-like/', toggle_like_view, name='toggle_like'),
