@@ -11,14 +11,17 @@ from blog.models import Article, InteractionType, ArticleInteraction, Comment, F
 
 class ArticleTestCase(TestCase):
 
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = UserFactory()
+        cls.topic = TopicFactory()
+        cls.tag = TagFactory()
+        cls.user1 = UserFactory()
+        cls.user2 = UserFactory()
+
     def setUp(self):
-        self.user = UserFactory()
-        self.topic = TopicFactory()
-        self.tag = TagFactory()
         self.article = ArticleFactory(creator=self.user, topic=self.topic)
         self.article.tags.add(self.tag)
-        self.user1 = UserFactory()
-        self.user2 = UserFactory()
         self.request_factory = RequestFactory()
 
     def test_slug_is_generated(self):
@@ -139,38 +142,32 @@ class ArticleTestCase(TestCase):
         self.article.refresh_from_db()
         self.assertEqual(self.article.view_count, initial_count + 1)
 
-    def test_calculate_popularity_score(self):
-        with patch('django.utils.timezone.now') as mock_now:
-            mock_now.return_value = timezone.make_aware(timezone.datetime(2023, 1, 1))
+    @patch('django.utils.timezone.now')
+    @patch('blog.models.Article.interactions')
+    @patch('blog.models.Article.comments')
+    def test_calculate_popularity_score(self, mock_comments, mock_interactions, mock_now):
+        mock_now.return_value = timezone.make_aware(timezone.datetime(2023, 1, 1))
 
-            article = ArticleFactory(
-                created_at=timezone.make_aware(timezone.datetime(2022, 1, 1)),
-                view_count=500
-            )
+        article = ArticleFactory(
+            created_at=timezone.make_aware(timezone.datetime(2022, 1, 1)),
+            view_count=500
+        )
 
-            # Bulk create interactions
-            ArticleInteraction.objects.bulk_create([
-                ArticleInteraction(article=article, creator=UserFactory(), interaction_type='like')
-                for _ in range(50)
-            ])
+        # Setup mocks
+        mock_interactions.filter.return_value.count.return_value = 50
+        mock_comments.count.return_value = 25
 
-            # Bulk create comments
-            Comment.objects.bulk_create([
-                Comment(article=article, creator=UserFactory(), content="Test comment")
-                for _ in range(25)
-            ])
-
-            # Mock the queryset counts to avoid additional database queries
-            with patch.object(ArticleInteraction.objects, 'filter') as mock_filter:
-                mock_filter.return_value = Mock(count=lambda: 50)
-                with patch.object(Comment.objects, 'filter') as mock_comment_filter:
-                    mock_comment_filter.return_value = Mock(count=lambda: 25)
-
-                    score = article.calculate_popularity_score()
+        with patch.object(Article, 'save') as mock_save:
+            score = article.calculate_popularity_score()
 
             self.assertGreater(score, 0)
             self.assertLess(score, 1)
+            mock_save.assert_called_once()
             self.assertEqual(article.popularity_score, score)
+
+        # Verify that the mocks were called
+        mock_interactions.filter.assert_called_once()
+        mock_comments.count.assert_called_once()
 
     def test_likes_and_dislikes_properties(self):
         article = ArticleFactory()
