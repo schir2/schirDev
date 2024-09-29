@@ -6,7 +6,7 @@
     <div class="grid gap-6 grid-cols-12 min-h-nav-offset bg-slate-50 md:p-6 shadow-sm border">
         <section id="popularArticles" class="col-span-12 lg:col-span-8">
             <h1 class="text-6xl font-light pt-3 pb-6">Popular Articles</h1>
-            <div class="grid gap-3">
+            <div class="grid gap-3 grid-cols-12">
                 {% include 'blog/partials/article_list.html' with articles=popular_articles %}
             </div>
         </section>
