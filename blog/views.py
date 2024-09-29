@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
-from django.views.generic import TemplateView
 
 from blog.forms import ArticleForm
 from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
@@ -36,7 +35,9 @@ def article_list_view(request):
 def article_detail_view(request, slug):
     template_name = 'blog/article.html'
     context = {}
-    article = get_object_or_404(Article, slug=slug)
+    article = get_object_or_404(
+        Article.objects.select_related('creator', 'topic').prefetch_related('tags', 'interactions'),
+        slug=slug)
     article.increment_view_count(request)
     context["article"] = article
     return render(request, template_name=template_name, context=context)
@@ -62,12 +63,16 @@ def article_create_view(request):
 def tag_list_view(request):
     template_name = 'blog/tag_list.html'
     context = {}
+    tags = Tag.objects.all()
+    context['tags'] = tags
     return render(request, template_name=template_name, context=context)
 
 
 def tag_detail_view(request, slug: str):
     template_name = 'blog/tag_detail.html'
     context = {}
+    tag = get_object_or_404(Tag, slug=slug)
+    context['tag'] = tag
     return render(request, template_name=template_name, context=context)
 
 
@@ -87,9 +92,6 @@ def tag_delete_view(request):
     template_name = 'blog/tag_delete.html'
     context = {}
     return render(request, template_name=template_name, context=context)
-
-
-
 
 
 def topic_list_view(request):
@@ -165,6 +167,7 @@ def toggle_like_view(request, slug):
     response = HttpResponse(render_to_string('blog/partials/like_dislike_buttons.html', context))
     response['HX-Trigger'] = 'interactionUpdated'
     return response
+
 
 @require_POST
 def toggle_dislike_view(request, slug):
