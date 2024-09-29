@@ -21,7 +21,7 @@
         {% endblock %}
     </c-slot>
 </c-navbar>
-<main class="pt-20">
+<main class="pt-20 max-w-6xl mx-auto">
     {% block content %}{% endblock %}
 </main>
 {% block javascript %}
@@ -71,6 +71,11 @@
             });
         });
     });
+</script>
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
 </script>
 
 
