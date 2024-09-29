@@ -1,10 +1,29 @@
-<div id="article{{ article.pk }}">
-    <h2 class="text-2xl font-light">{{ article.title }}</h2>
-    <sub>{{ article.category.name }}</sub>
-    <ul>
-        {% for tag in tags %}
-            {% include 'blog/partials/tag.html' %}
-        {% endfor %}
-    </ul>
-<span>{{ article.creator.username }}</span>
+{% load static %}
+
+<div id="article{{ article.pk }}"
+     class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    {% if article.image %}
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
+    {% endif %}
+    <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2 text-gray-800">{{ article.title }}</h2>
+        <div class="flex flex-wrap gap-2 mb-4">
+            {% for tag in article.tags.all %}
+                {% include 'blog/partials/tag_chip.html' with tag=tag %}
+            {% endfor %}
+        </div>
+        <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>{{ article.created_at|date:"F d, Y" }}</span>
+            <span>{{ article.creator.username }}</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+            <div id="interaction-buttons-{{ article.pk }}">
+                {% include 'blog/partials/like_dislike_buttons.html' with article=article %}
+            </div>
+            <a href="{% url 'blog:article_detail' slug=article.slug %}"
+               class="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition duration-300">
+                Read More
+            </a>
+        </div>
+    </div>
 </div>
