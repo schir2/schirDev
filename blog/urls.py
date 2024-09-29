@@ -17,7 +17,7 @@ urlpatterns = [
              include([
                  path('', article_detail_view, name='article_detail'),
                  path('like_count', article_like_count_view, name='article_like_count'),
-                 path('like_count', article_dislike_count_view, name='article_dislike_count'),
+                 path('dislike_count', article_dislike_count_view, name='article_dislike_count'),
                  path('toggle-like/', toggle_like_view, name='toggle_like'),
                  path('toggle-dislike/', toggle_dislike_view, name='toggle_dislike'),
 
