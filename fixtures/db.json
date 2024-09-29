@@ -1,0 +1,2819 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "users",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "users",
+      "model": "profile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "content",
+      "model": "page"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "content",
+      "model": "project"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "content",
+      "model": "company"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "content",
+      "model": "contactmessage"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "content",
+      "model": "skill"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "content",
+      "model": "skillcategory"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "blog",
+      "model": "topic"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "blog",
+      "model": "article"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "blog",
+      "model": "comment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "blog",
+      "model": "tag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "blog",
+      "model": "featuredarticle"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "fields": {
+      "app_label": "blog",
+      "model": "articleinteraction"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "ha42eh6wfir059e6thddug3gmfuy8wth",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQAP_C2RAR6IJH730DWXZBqgaS0p6MfzckPeh1ZjJvEXDfSth7WsPC4iqUOP2yiPRMdQh-YL03Sa1u6xLlSORhu5wbp9ftaP8GBXsZWwTKk7MmRwNA1hO7TDQlwDOQUv5ikHVOlpRO6MADg9ExG6fZkLLi8wX6JDhI:1suZaP:rKegOWcK6Y73CZ3XPniZihEIKYhY0bw4bo0sjjtZSXs",
+      "expire_date": "2024-10-12T15:42:21.909Z"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add profile",
+      "content_type": [
+        "users",
+        "profile"
+      ],
+      "codename": "add_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change profile",
+      "content_type": [
+        "users",
+        "profile"
+      ],
+      "codename": "change_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete profile",
+      "content_type": [
+        "users",
+        "profile"
+      ],
+      "codename": "delete_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view profile",
+      "content_type": [
+        "users",
+        "profile"
+      ],
+      "codename": "view_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add page",
+      "content_type": [
+        "content",
+        "page"
+      ],
+      "codename": "add_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change page",
+      "content_type": [
+        "content",
+        "page"
+      ],
+      "codename": "change_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete page",
+      "content_type": [
+        "content",
+        "page"
+      ],
+      "codename": "delete_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view page",
+      "content_type": [
+        "content",
+        "page"
+      ],
+      "codename": "view_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add project",
+      "content_type": [
+        "content",
+        "project"
+      ],
+      "codename": "add_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change project",
+      "content_type": [
+        "content",
+        "project"
+      ],
+      "codename": "change_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete project",
+      "content_type": [
+        "content",
+        "project"
+      ],
+      "codename": "delete_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view project",
+      "content_type": [
+        "content",
+        "project"
+      ],
+      "codename": "view_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add company",
+      "content_type": [
+        "content",
+        "company"
+      ],
+      "codename": "add_company"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change company",
+      "content_type": [
+        "content",
+        "company"
+      ],
+      "codename": "change_company"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete company",
+      "content_type": [
+        "content",
+        "company"
+      ],
+      "codename": "delete_company"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view company",
+      "content_type": [
+        "content",
+        "company"
+      ],
+      "codename": "view_company"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add contact message",
+      "content_type": [
+        "content",
+        "contactmessage"
+      ],
+      "codename": "add_contactmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change contact message",
+      "content_type": [
+        "content",
+        "contactmessage"
+      ],
+      "codename": "change_contactmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete contact message",
+      "content_type": [
+        "content",
+        "contactmessage"
+      ],
+      "codename": "delete_contactmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view contact message",
+      "content_type": [
+        "content",
+        "contactmessage"
+      ],
+      "codename": "view_contactmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add skill",
+      "content_type": [
+        "content",
+        "skill"
+      ],
+      "codename": "add_skill"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change skill",
+      "content_type": [
+        "content",
+        "skill"
+      ],
+      "codename": "change_skill"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete skill",
+      "content_type": [
+        "content",
+        "skill"
+      ],
+      "codename": "delete_skill"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view skill",
+      "content_type": [
+        "content",
+        "skill"
+      ],
+      "codename": "view_skill"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add skill category",
+      "content_type": [
+        "content",
+        "skillcategory"
+      ],
+      "codename": "add_skillcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change skill category",
+      "content_type": [
+        "content",
+        "skillcategory"
+      ],
+      "codename": "change_skillcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete skill category",
+      "content_type": [
+        "content",
+        "skillcategory"
+      ],
+      "codename": "delete_skillcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view skill category",
+      "content_type": [
+        "content",
+        "skillcategory"
+      ],
+      "codename": "view_skillcategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Article Category",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "add_articlecategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Article Category",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "change_articlecategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Article Category",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "delete_articlecategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Article Category",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "view_articlecategory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Article",
+      "content_type": [
+        "blog",
+        "article"
+      ],
+      "codename": "add_article"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Article",
+      "content_type": [
+        "blog",
+        "article"
+      ],
+      "codename": "change_article"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Article",
+      "content_type": [
+        "blog",
+        "article"
+      ],
+      "codename": "delete_article"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Article",
+      "content_type": [
+        "blog",
+        "article"
+      ],
+      "codename": "view_article"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Comment",
+      "content_type": [
+        "blog",
+        "comment"
+      ],
+      "codename": "add_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Comment",
+      "content_type": [
+        "blog",
+        "comment"
+      ],
+      "codename": "change_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Comment",
+      "content_type": [
+        "blog",
+        "comment"
+      ],
+      "codename": "delete_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Comment",
+      "content_type": [
+        "blog",
+        "comment"
+      ],
+      "codename": "view_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add tag",
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "codename": "add_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change tag",
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "codename": "change_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete tag",
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "codename": "delete_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view tag",
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "codename": "view_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add featured article",
+      "content_type": [
+        "blog",
+        "featuredarticle"
+      ],
+      "codename": "add_featuredarticle"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change featured article",
+      "content_type": [
+        "blog",
+        "featuredarticle"
+      ],
+      "codename": "change_featuredarticle"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete featured article",
+      "content_type": [
+        "blog",
+        "featuredarticle"
+      ],
+      "codename": "delete_featuredarticle"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view featured article",
+      "content_type": [
+        "blog",
+        "featuredarticle"
+      ],
+      "codename": "view_featuredarticle"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add user article interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "add_userarticleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change user article interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "change_userarticleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete user article interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "delete_userarticleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view user article interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "view_userarticleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "add_articleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "change_articleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "delete_articleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Interaction",
+      "content_type": [
+        "blog",
+        "articleinteraction"
+      ],
+      "codename": "view_articleinteraction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Topic",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "add_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Topic",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "change_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Topic",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "delete_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Topic",
+      "content_type": [
+        "blog",
+        "topic"
+      ],
+      "codename": "view_topic"
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "pbkdf2_sha256$720000$jn2FDfCcMkhGpjBzMp584E$AgmhupuraHDhfPRs9RtzCSzsLt2lqBaHbiJn7yhITBM=",
+      "last_login": "2024-09-28T15:42:21.893Z",
+      "is_superuser": true,
+      "username": "schir2",
+      "first_name": "",
+      "last_name": "",
+      "email": "schir2@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-07-15T00:03:48.668Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 1,
+    "fields": {
+      "user": [
+        "schir2"
+      ]
+    }
+  },
+  {
+    "model": "content.company",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.533Z",
+      "edited_at": "2024-09-12T23:59:08.547Z",
+      "creator": null,
+      "editor": null,
+      "name": "MMPC",
+      "url": "https://www.mandmpestcontrol.com"
+    }
+  },
+  {
+    "model": "content.contactmessage",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-13T00:34:50.512Z",
+      "edited_at": "2024-09-13T00:34:50.512Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Marek Schir",
+      "email": "schir2@gmail.com",
+      "subject": "Bobo",
+      "message": "Bobo"
+    }
+  },
+  {
+    "model": "content.contactmessage",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-09-13T00:35:15.384Z",
+      "edited_at": "2024-09-13T00:35:15.384Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Marek Schir",
+      "email": "schir2@gmail.com",
+      "subject": "Bobo",
+      "message": "Bobo"
+    }
+  },
+  {
+    "model": "content.contactmessage",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-13T00:45:21.875Z",
+      "edited_at": "2024-09-13T00:45:21.875Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Marek  Schir",
+      "email": "schir2@gmail.com",
+      "subject": "jlj",
+      "message": "lkj"
+    }
+  },
+  {
+    "model": "content.contactmessage",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-09-13T00:45:29.459Z",
+      "edited_at": "2024-09-13T00:45:29.459Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Marek  Schir",
+      "email": "schir2@gmail.com",
+      "subject": "jlj",
+      "message": "lkj"
+    }
+  },
+  {
+    "model": "content.contactmessage",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-09-13T00:47:43.733Z",
+      "edited_at": "2024-09-13T00:47:43.733Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Marek Schir",
+      "email": "schir2@gmail.com",
+      "subject": "hi",
+      "message": "hi"
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:04:56Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Vehicle GPS Alerting System for Field Service Workers",
+      "description": "Developed a comprehensive system to track field service workers' locations relative to their assigned jobs, start times, and end times. Integrated Vehicle GPS data via REST API with Field Service Management Software, utilizing Microsoft SQL Server and MySQL for data storage. Implemented a real-time dashboard map hosted with PHP, using JavaScript and Google Maps API for asynchronous location updates. Automated the system with Python scripts and Linux-based cron jobs.",
+      "company": 1,
+      "year": 2022,
+      "image": "projects/2024/09/11/high-angle-woman-holding-laptop.jpg",
+      "skills": [
+        25,
+        24,
+        4,
+        5,
+        6,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:10:46.513Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Automated User Lookup and Reporting System",
+      "description": "Developed a web scraping system to parse emails, look up users on a popular review site, and report findings via email alerts and MySQL database entries. Initially built a real-time dashboard with PHP, MySQL, later transitioned to Python Django. Automated with Python scripts and cron jobs on a remote Linux machine, using the Gmail API for email parsing and alerts. Significantly improved business ratings with timely user information.",
+      "company": 1,
+      "year": 2009,
+      "image": "projects/2024/09/10/pexels-pixabay-276452.jpg",
+      "skills": [
+        25,
+        1,
+        24,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:06:21.594Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Visual Lead Inspection Job Tracking System",
+      "description": "Developed a mobile web application for scheduling and tracking lead inspection jobs. The system managed job assignments, tracked completion, and calculated bonuses based on job completion. It also identified duplication errors from vendors to ensure correct payments. Integrated with QuickBooks Online via REST API. Hosted on DigitalOcean droplets using a Linux server with Nginx, the application was built with Django, PostgreSQL, Python, and HTMX for asynchronous interactions and HTML.",
+      "company": 1,
+      "year": 2021,
+      "image": "",
+      "skills": [
+        7,
+        25,
+        1,
+        24,
+        11,
+        6,
+        14,
+        3
+      ]
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:09:12.452Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Field Service Management System Extension",
+      "description": "Developed an extension to the existing field service management system, integrating various software applications including the current field service management software and FreePBX for phone calls. This extension provided easier access to data, improved speed of access, and generated custom reports. The application was built with Django and Python, utilizing multiple databases (Microsoft SQL, MySQL). It was run on an Apache web server with HTML, HTMX, and JavaScript for the front end.",
+      "company": 1,
+      "year": 2017,
+      "image": "",
+      "skills": [
+        7,
+        25,
+        1,
+        15,
+        22,
+        24,
+        19,
+        13,
+        4,
+        5,
+        21,
+        6,
+        3
+      ]
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:08:29.517Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Field Service Management API",
+      "description": "Developed an API for the field service management application running on Microsoft SQL Server. Utilized Python with Django and Django Rest Framework to expose API endpoints, enabling Vue and React applications to access the server.",
+      "company": 1,
+      "year": 2021,
+      "image": "",
+      "skills": [
+        1,
+        4,
+        6,
+        10,
+        28
+      ]
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:03:59.205Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Lead Analyzer Reporting Platform",
+      "description": "Developed a platform to extract data from XRF Lead Analyzers, parse CSV files, and generate reports. Implemented multi-step data import wizards for validation and processing. Generated reports in Excel and PDF formats, submitted to a NYC government agency. Built with Django, HTML, HTMX, and JavaScript, using PostgreSQL for storage and running on a Windows server.",
+      "company": 1,
+      "year": 2023,
+      "image": "projects/2024/09/11/paint-rough-concrete-wall-surface.jpg",
+      "skills": [
+        7,
+        25,
+        1,
+        24,
+        19,
+        13,
+        11,
+        14,
+        3
+      ]
+    }
+  },
+  {
+    "model": "content.project",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-09-12T23:59:08.613Z",
+      "edited_at": "2024-09-18T01:11:17.450Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Customer Quoting Application",
+      "description": "Developed a customer-facing quoting application used for collecting customer information and generating quotes with conditional logic. The backend was built using Django and Django Rest Framework with PostgreSQL for data storage. The frontend was created using Nuxt3 and Vuetify.",
+      "company": 1,
+      "year": 2024,
+      "image": "projects/2024/09/10/pexels-tima-miroshnichenko-7567303.jpg",
+      "skills": [
+        7,
+        25,
+        1,
+        24,
+        19,
+        21,
+        18,
+        16,
+        10,
+        17,
+        3
+      ]
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:04:44.466Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Python",
+      "icon": "icons/python-svgrepo-com.svg",
+      "proficiency": 5,
+      "category": 1
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:32:02.112Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "PHP",
+      "icon": "icons/php02-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 1
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:31:53.325Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "JS",
+      "icon": "icons/icons8-javascript.svg",
+      "proficiency": 2,
+      "category": 1
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:03:58.246Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "MSSQL",
+      "icon": "icons/microsoft-sql-server-logo-svgrepo-com.svg",
+      "proficiency": 4,
+      "category": 5
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:04:04.936Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "MySQL",
+      "icon": "icons/mysql-svgrepo-com.svg",
+      "proficiency": 4,
+      "category": 5
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:31:02.605Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Linux",
+      "icon": "icons/ubuntu-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 4
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:03:03.594Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Django",
+      "icon": "icons/django-svgrepo-com.svg",
+      "proficiency": 5,
+      "category": 2
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:02:37.333Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "AWS",
+      "icon": "icons/aws-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 4
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 10,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:04:51.105Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "REST",
+      "icon": "",
+      "proficiency": 3,
+      "category": 4
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 11,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:02:54.577Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Digital Ocean",
+      "icon": "icons/digital-ocean-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 4
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 13,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:37:13.468Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "HTMX",
+      "icon": "icons/htmx.svg",
+      "proficiency": 4,
+      "category": 2
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 14,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:34:55.028Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Postgres",
+      "icon": "icons/postgresql-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 5
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 15,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:05:30.512Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Windows",
+      "icon": "icons/windows-174-svgrepo-com.svg",
+      "proficiency": 5,
+      "category": 4
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 16,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:04:20.509Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Nuxt3",
+      "icon": "icons/nuxt-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 2
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 17,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:32:44.765Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Vuetify",
+      "icon": "icons/vuetify-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 3
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 18,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:05:00.566Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "VUE",
+      "icon": "icons/vue-svgrepo-com.svg",
+      "proficiency": 4,
+      "category": 2
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 19,
+    "fields": {
+      "created_at": "2024-09-13T00:00:29.176Z",
+      "edited_at": "2024-09-18T00:30:30.434Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Figma",
+      "icon": "icons/figma-svgrepo-com.svg",
+      "proficiency": 4,
+      "category": 3
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 20,
+    "fields": {
+      "created_at": "2024-09-18T00:31:33.739Z",
+      "edited_at": "2024-09-18T00:31:33.739Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "C#",
+      "icon": "icons/csharp-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 1
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 21,
+    "fields": {
+      "created_at": "2024-09-18T00:36:24.290Z",
+      "edited_at": "2024-09-18T00:36:24.291Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "SQLite",
+      "icon": "icons/brand-sqllite-svgrepo-com.svg",
+      "proficiency": 4,
+      "category": 5
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 22,
+    "fields": {
+      "created_at": "2024-09-18T00:38:38.881Z",
+      "edited_at": "2024-09-18T00:38:38.882Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Bootstrap",
+      "icon": "icons/bootstrap-svgrepo-com.svg",
+      "proficiency": 4,
+      "category": 3
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 23,
+    "fields": {
+      "created_at": "2024-09-18T00:39:15.598Z",
+      "edited_at": "2024-09-18T00:39:15.598Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Tailwind",
+      "icon": "icons/tailwind-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 3
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 24,
+    "fields": {
+      "created_at": "2024-09-18T00:41:27.033Z",
+      "edited_at": "2024-09-18T00:41:27.033Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "CSS",
+      "icon": "",
+      "proficiency": 4,
+      "category": 3
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 25,
+    "fields": {
+      "created_at": "2024-09-18T00:42:11.942Z",
+      "edited_at": "2024-09-18T00:42:11.942Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "HTML",
+      "icon": "icons/html-5-svgrepo-com.svg",
+      "proficiency": 5,
+      "category": 3
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 26,
+    "fields": {
+      "created_at": "2024-09-18T00:43:52.887Z",
+      "edited_at": "2024-09-18T00:43:52.887Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Github",
+      "icon": "icons/github-142-svgrepo-com.svg",
+      "proficiency": 3,
+      "category": 4
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 27,
+    "fields": {
+      "created_at": "2024-09-18T00:44:53.251Z",
+      "edited_at": "2024-09-18T00:45:05.321Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "GraphQL",
+      "icon": "icons/graph-ql-svgrepo-com.svg",
+      "proficiency": 2,
+      "category": 5
+    }
+  },
+  {
+    "model": "content.skill",
+    "pk": 28,
+    "fields": {
+      "created_at": "2024-09-18T01:07:27.931Z",
+      "edited_at": "2024-09-18T01:07:27.931Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Flask",
+      "icon": "icons/flask-svgrepo-com.svg",
+      "proficiency": 2,
+      "category": 2
+    }
+  },
+  {
+    "model": "content.skillcategory",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-16T23:13:40.937Z",
+      "edited_at": "2024-09-18T00:33:49.005Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Programming Languages",
+      "icon": "",
+      "order": 1
+    }
+  },
+  {
+    "model": "content.skillcategory",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-09-16T23:13:59.173Z",
+      "edited_at": "2024-09-18T00:33:40.188Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Frameworks and Libraries",
+      "icon": "",
+      "order": 2
+    }
+  },
+  {
+    "model": "content.skillcategory",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-16T23:14:35.201Z",
+      "edited_at": "2024-09-18T00:33:58.570Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Front-End Technologies",
+      "icon": "",
+      "order": 3
+    }
+  },
+  {
+    "model": "content.skillcategory",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-09-18T00:02:31.271Z",
+      "edited_at": "2024-09-18T00:33:44.867Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Other",
+      "icon": "",
+      "order": 10
+    }
+  },
+  {
+    "model": "content.skillcategory",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-09-18T00:03:55.010Z",
+      "edited_at": "2024-09-18T00:33:33.523Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Databases",
+      "icon": "",
+      "order": 4
+    }
+  },
+  {
+    "model": "blog.article",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-28T17:48:16.940Z",
+      "edited_at": "2024-09-29T03:07:30.360Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Hello World",
+      "slug": "hello-world",
+      "content": "<p>Data Science Stuff</p>",
+      "topic": 7,
+      "image": "blog/article_images/vlcsnap-2020-06-02-16h16m19s303.png",
+      "is_published": true,
+      "view_count": 6,
+      "popularity_score": 0.0,
+      "tags": [
+        39
+      ]
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "Software Development",
+      "slug": "software-development",
+      "description": "Articles about programming concepts, software design patterns, tutorials, and code samples."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "Web Development",
+      "slug": "web-development",
+      "description": "Focused on frontend and backend web development, covering topics like HTML, CSS, JavaScript, Django, and APIs."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "Data Science & Analytics",
+      "slug": "data-science-analytics",
+      "description": "Data analysis, machine learning, and insights on handling and visualizing data with Python or other tools."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "DevOps & Automation",
+      "slug": "devops-automation",
+      "description": "Content on CI/CD, Docker, Kubernetes, server automation, and configuration management."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "IT Infrastructure",
+      "slug": "it-infrastructure",
+      "description": "Topics on networking, servers, security, and infrastructure management."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "IT Operations & Support",
+      "slug": "it-operations-support",
+      "description": "Day-to-day IT operations, troubleshooting, and support tips for both on-premises and cloud systems."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "Climbing",
+      "slug": "climbing",
+      "description": "Personal experiences, climbing techniques, training tips, and gear recommendations for bouldering and climbing."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "Running",
+      "slug": "running",
+      "description": "Articles covering running routines, training plans, race experiences, and gear reviews."
+    }
+  },
+  {
+    "model": "blog.topic",
+    "pk": 9,
+    "fields": {
+      "created_at": "2024-09-25T12:00:00Z",
+      "edited_at": "2024-09-25T12:00:00Z",
+      "creator": null,
+      "editor": null,
+      "name": "Fitness",
+      "slug": "fitness",
+      "description": "General fitness tips, strength training routines, flexibility exercises, and maintaining overall health."
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Python",
+      "slug": "python"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Django",
+      "slug": "django"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Algorithms",
+      "slug": "algorithms"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Data Structures",
+      "slug": "data-structures"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "REST API",
+      "slug": "rest-api"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Design Patterns",
+      "slug": "design-patterns"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Code Optimization",
+      "slug": "code-optimization"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "HTML",
+      "slug": "html"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 9,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "CSS",
+      "slug": "css"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 10,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "JavaScript",
+      "slug": "javascript"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 11,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "React",
+      "slug": "react"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 12,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Vue.js",
+      "slug": "vue.js"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 13,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Tailwind CSS",
+      "slug": "tailwind-css"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 14,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Responsive Design",
+      "slug": "responsive-design"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 15,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Machine Learning",
+      "slug": "machine-learning"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 16,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Data Visualization",
+      "slug": "data-visualization"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 17,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Pandas",
+      "slug": "pandas"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 18,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "NumPy",
+      "slug": "numpy"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 19,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Scikit-Learn",
+      "slug": "scikit-learn"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 20,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Matplotlib",
+      "slug": "matplotlib"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 22,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Docker",
+      "slug": "docker"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 23,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Kubernetes",
+      "slug": "kubernetes"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 25,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Terraform",
+      "slug": "terraform"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 27,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Jenkins",
+      "slug": "jenkins"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 28,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Networking",
+      "slug": "networking"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 29,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Firewalls",
+      "slug": "firewalls"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 30,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "VPN",
+      "slug": "vpn"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 31,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Security",
+      "slug": "security"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 32,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Linux",
+      "slug": "linux"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 33,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Windows Server",
+      "slug": "windows-server"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 34,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Troubleshooting",
+      "slug": "troubleshooting"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 36,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Helpdesk",
+      "slug": "helpdesk"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 37,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "SysAdmin",
+      "slug": "sysadmin"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 38,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Scripting",
+      "slug": "scripting"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 39,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Bouldering",
+      "slug": "bouldering"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 40,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Sport Climbing",
+      "slug": "sport-climbing"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 41,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Trad Climbing",
+      "slug": "trad-climbing"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 42,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Training",
+      "slug": "training"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 43,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Gear Reviews",
+      "slug": "gear-reviews"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 44,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Marathon",
+      "slug": "marathon"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 45,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "5K",
+      "slug": "5k"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 46,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "10K",
+      "slug": "10k"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 47,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Training Plans",
+      "slug": "training-plans"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 48,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Gear",
+      "slug": "gear"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 49,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Trail Running",
+      "slug": "trail-running"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 50,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Strength Training",
+      "slug": "strength-training"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 51,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Flexibility",
+      "slug": "flexibility"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 52,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Cardio",
+      "slug": "cardio"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 53,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "HIIT",
+      "slug": "hiit"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 54,
+    "fields": {
+      "created_at": "2024-09-28T15:44:13Z",
+      "edited_at": "2024-09-28T15:44:13Z",
+      "creator": null,
+      "editor": null,
+      "name": "Yoga",
+      "slug": "yoga"
+    }
+  },
+  {
+    "model": "blog.articleinteraction",
+    "pk": 18,
+    "fields": {
+      "created_at": "2024-09-29T04:26:59.700Z",
+      "edited_at": "2024-09-29T04:27:01.334Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "article": 1,
+      "interaction_type": "like"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2024-09-28T17:48:16.954Z",
+      "user": [
+        "schir2"
+      ],
+      "content_type": [
+        "blog",
+        "article"
+      ],
+      "object_id": "1",
+      "object_repr": "Hello World",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2024-09-28T21:13:03.767Z",
+      "user": [
+        "schir2"
+      ],
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "object_id": "21",
+      "object_repr": "CI/CD",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2024-09-28T21:13:48.677Z",
+      "user": [
+        "schir2"
+      ],
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "object_id": "24",
+      "object_repr": "Ansible",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2024-09-28T21:13:48.685Z",
+      "user": [
+        "schir2"
+      ],
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "object_id": "26",
+      "object_repr": "Cloud",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2024-09-28T21:13:48.694Z",
+      "user": [
+        "schir2"
+      ],
+      "content_type": [
+        "blog",
+        "tag"
+      ],
+      "object_id": "35",
+      "object_repr": "IT Support",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2024-09-29T03:07:30.365Z",
+      "user": [
+        "schir2"
+      ],
+      "content_type": [
+        "blog",
+        "article"
+      ],
+      "object_id": "1",
+      "object_repr": "Hello World",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Topic\", \"Tags\"]}}]"
+    }
+  }
+]

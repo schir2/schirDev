@@ -1,6 +1,6 @@
 [
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 1,
     "fields": {
       "name": "Software Development",
@@ -13,7 +13,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 2,
     "fields": {
       "name": "Web Development",
@@ -26,7 +26,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 3,
     "fields": {
       "name": "Data Science & Analytics",
@@ -39,7 +39,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 4,
     "fields": {
       "name": "DevOps & Automation",
@@ -52,7 +52,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 5,
     "fields": {
       "name": "IT Infrastructure",
@@ -65,7 +65,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 6,
     "fields": {
       "name": "IT Operations & Support",
@@ -78,7 +78,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 7,
     "fields": {
       "name": "Climbing",
@@ -91,7 +91,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 8,
     "fields": {
       "name": "Running",
@@ -104,7 +104,7 @@
     }
   },
   {
-    "model": "blog.articlecategory",
+    "model": "blog.topic",
     "pk": 9,
     "fields": {
       "name": "Fitness",
