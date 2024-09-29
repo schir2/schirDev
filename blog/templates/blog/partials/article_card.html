@@ -1,7 +1,7 @@
 {% load static %}
 
 <div id="article{{ article.pk }}"
-     class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-gray-50 col-span-12 md:grid-cols-6 xxl:grid-cols-4">
+     class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-gray-50 col-span-12 md:col-span-6 xxl:col-span-4">
     {% if article.image %}
         <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
     {% endif %}
