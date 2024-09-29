@@ -3,23 +3,47 @@
     Blog
 {% endblock %}
 {% block content %}
-    <div class="grid grid-cols-12 min-h-nav-offset">
-        <div id="latestArticles" class="col-span-8">
-            <div>
-                <h1 class="text-6xl font-light">Latest Articles</h1>
-                <a href="{% url 'blog:article_create' %}">Write a New Article</a>
-                <div class="grid">
-                    {% include 'blog/partials/article_list.html' with articles=latest_articles %}
-                </div>
+    <div class="grid gap-6 grid-cols-12 min-h-nav-offset bg-slate-50 md:p-6 shadow-sm border">
+        <section id="popularArticles" class="col-span-12 lg:col-span-8">
+            <h1 class="text-6xl font-light pt-3 pb-6">Popular Articles</h1>
+            <div class="grid gap-3">
+                {% include 'blog/partials/article_list.html' with articles=popular_articles %}
             </div>
-        </div>
-        <div class="col-span-4">
-            <c-sidebar-widget :id="featuredArticles" title="Featured">
+        </section>
+        <div class="col-span-12 lg:col-span-4 flex flex-col gap-y-3">
+            <c-sidebar-widget :id="latestArticles" title="Latest Articles">
+                <ul class="space-y-3">
+                    {% for article in latest_articles %}
+                        <li>
+                            <a href="{% url 'blog:article_detail' slug=article.slug %}"
+                               class="text-blue-600 hover:underline">{{ article.title }}</a>
+                            <p class="text-sm text-gray-600 mt-1">{{ article.content }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            </c-sidebar-widget>
+            <c-sidebar-widget :id="featuredArticles" title="Featured Articles">
                 {% include 'blog/partials/featured_article_list.html' with featured_articles=featured_articles %}
             </c-sidebar-widget>
 
             <c-sidebar-widget :id="topics" title="Topics">
-                {% include 'blog/partials/topic_list.html' with topics=topics %}
+                <ul id="topics" class="flex flex-wrap gap-x-1 gap-y-2">
+                    {% for topic in topics %}
+                        {% include 'blog/partials/topic_chip.html' %}
+                    {% empty %}
+                    {% endfor %}
+                </ul>
+            </c-sidebar-widget>
+
+            <c-sidebar-widget :id="tags" title="Tags">
+                <ul id="tags" class="flex flex-wrap flex-shrink gap-x-1 gap-y-2">
+                    {% for tag in tags %}
+                        {% include 'blog/partials/tag_chip.html' with tag=tag %}
+                    {% empty %}
+
+                    {% endfor %}
+                </ul>
             </c-sidebar-widget>
         </div>
     </div>
