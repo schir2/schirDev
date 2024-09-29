@@ -36,7 +36,8 @@ def article_list_view(request):
 def article_detail_view(request, slug):
     template_name = 'blog/article.html'
     context = {}
-    article = Article.objects.get(slug=slug)
+    article = get_object_or_404(Article, slug=slug)
+    article.increment_view_count(request)
     context["article"] = article
     return render(request, template_name=template_name, context=context)
 
