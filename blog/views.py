@@ -1,19 +1,27 @@
 from django.db import IntegrityError
-from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import render_to_string
+from django.views.decorators.http import require_POST
+from django.views.generic import TemplateView
 
 from blog.forms import ArticleForm
-from blog.models import Article, Comment, Topic, FeaturedArticle
+from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
 
 
 def blog_index_view(request):
     context = {}
     template_name = 'blog/index.html'
+    popular_articles = Article.objects.order_by('-popularity_score')[:5]
     latest_articles = Article.objects.order_by('-created_at')[:5]
     featured_articles = FeaturedArticle.objects.order_by('-created_at')[:5]
+    tags = Tag.objects.all()
     topics = Topic.objects.all()
+    context['popular_articles'] = popular_articles
     context['latest_articles'] = latest_articles
     context['featured_articles'] = featured_articles
     context['topics'] = topics
+    context['tags'] = tags
     return render(request, template_name=template_name, context=context)
 
 
@@ -48,3 +56,143 @@ def article_create_view(request):
         form = ArticleForm()
     context['form'] = form
     return render(request, template_name=template_name, context=context)
+
+
+def tag_list_view(request):
+    template_name = 'blog/tag_list.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def tag_detail_view(request, slug: str):
+    template_name = 'blog/tag_detail.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def tag_create_view(request):
+    template_name = 'blog/tag_create.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def tag_edit_view(request):
+    template_name = 'blog/tag_edit.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def tag_delete_view(request):
+    template_name = 'blog/tag_delete.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+
+
+
+def topic_list_view(request):
+    template_name = 'blog/topic_list.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def topic_detail_view(request, slug: str):
+    template_name = 'blog/topic_detail.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def topic_create_view(request):
+    template_name = 'blog/topic_create.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def topic_edit_view(request):
+    template_name = 'blog/topic_edit.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def topic_delete_view(request):
+    template_name = 'blog/topic_delete.html'
+    context = {}
+    return render(request, template_name=template_name, context=context)
+
+
+def article_like_count_view(request, slug):
+    article = Article.objects.get(slug=slug)
+    like_count = article.interactions.filter(interaction_type='like').count()
+    return HttpResponse(f"{like_count} likes")
+
+
+def article_dislike_count_view(request, slug):
+    article = Article.objects.get(slug=slug)
+    like_count = article.interactions.filter(interaction_type='dislike').count()
+    return HttpResponse(f"{like_count} dislikes")
+
+
+@require_POST
+def toggle_like_view(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+    interaction, created = ArticleInteraction.objects.get_or_create(
+        article=article,
+        creator=request.user,
+        defaults={'interaction_type': 'like'}
+    )
+
+    if not created and interaction.interaction_type == 'like':
+        interaction.delete()
+        liked = False
+    else:
+        interaction.interaction_type = 'like'
+        interaction.save()
+        liked = True
+
+    like_count = article.interactions.filter(interaction_type='like').count()
+    dislike_count = article.interactions.filter(interaction_type='dislike').count()
+
+    context = {
+        'article': article,
+        'like_count': like_count,
+        'dislike_count': dislike_count,
+        'liked': liked,
+        'disliked': False,
+    }
+
+    response = HttpResponse(render_to_string('blog/partials/like_dislike_buttons.html', context))
+    response['HX-Trigger'] = 'interactionUpdated'
+    return response
+
+@require_POST
+def toggle_dislike_view(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+    interaction, created = ArticleInteraction.objects.get_or_create(
+        article=article,
+        creator=request.user,
+        defaults={'interaction_type': 'dislike'}
+    )
+
+    if not created and interaction.interaction_type == 'dislike':
+        interaction.delete()
+        disliked = False
+    else:
+        interaction.interaction_type = 'dislike'
+        interaction.save()
+        disliked = True
+
+    like_count = article.interactions.filter(interaction_type='like').count()
+    dislike_count = article.interactions.filter(interaction_type='dislike').count()
+
+    context = {
+        'article': article,
+        'like_count': like_count,
+        'dislike_count': dislike_count,
+        'liked': False,
+        'disliked': disliked,
+    }
+
+    response = HttpResponse(render_to_string('blog/partials/like_dislike_buttons.html', context))
+    response['HX-Trigger'] = 'interactionUpdated'
+    return response
