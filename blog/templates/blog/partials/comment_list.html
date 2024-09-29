@@ -1,3 +1,67 @@
 {% for comment in comments %}
     {% include 'blog/partials/comment_list_item.html' %}
 {% endfor %}
+
+{% load static %}
+
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <!-- Existing blog post content -->
+  <!-- ... (keep the existing content from the previous example) ... -->
+
+  <!-- Comment Section -->
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
+    <div class="space-y-6">
+      {% for comment in article.comments.all %}
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <div class="flex justify-between items-start mb-2">
+            <span class="font-semibold text-gray-700">{{ comment.creator.username }}</span>
+            <span class="text-sm text-gray-500">
+              {{ comment.created_at|date:"F d, Y" }}
+            </span>
+          </div>
+          <p class="text-gray-600">{{ comment.content }}</p>
+        </div>
+      {% empty %}
+        <p class="text-gray-600">No comments yet. Be the first to comment!</p>
+      {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+      <form method="post" action="{% url 'blog:add_comment' slug=article.slug %}" class="mt-8">
+        {% csrf_token %}
+        <div class="flex items-start space-x-4">
+          {% if user.profile_image %}
+            <img src="{{ user.profile_image.url }}" alt="{{ user.username }}" class="w-10 h-10 rounded-full">
+          {% else %}
+            <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+          {% endif %}
+          <div class="min-w-0 flex-1">
+            <div class="border-b border-gray-200 focus-within:border-purple-600">
+              <textarea
+                rows="3"
+                name="content"
+                id="comment"
+                class="block w-full resize-none border-0 border-b border-transparent p-0 pb-2 text-gray-900 placeholder:text-gray-400 focus:border-purple-600 focus:ring-0 sm:text-sm sm:leading-6"
+                placeholder="Add a comment..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 flex justify-end">
+          <button
+            type="submit"
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+            Post
+          </button>
+        </div>
+      </form>
+    {% else %}
+      <p class="mt-8 text-gray-600">Please <a href="{% url 'login' %}" class="text-purple-600 hover:text-purple-800">log in</a> to add a comment.</p>
+    {% endif %}
+  </section>
+</div>
