@@ -92,7 +92,7 @@ class Article(BaseModel):
         return self.interactions.filter(interaction_type=InteractionType.DISLIKE)
 
     @property
-    def is_features(self):
+    def is_featured(self):
         return hasattr(self, 'featured')
 
 
