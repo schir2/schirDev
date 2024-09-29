@@ -13,3 +13,10 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+        indexes = [
+            models.Index(fields=['created_at']),
+            models.Index(fields=['edited_at']),
+            models.Index(fields=['creator']),
+            models.Index(fields=['editor']),
+        ]
+        ordering = ['-created_at']
