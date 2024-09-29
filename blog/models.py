@@ -1,6 +1,8 @@
 import uuid
 
+from django.core.cache import cache
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
@@ -23,6 +25,7 @@ class Article(BaseModel):
     tags = models.ManyToManyField('blog.Tag', verbose_name=_('Tags'), related_name='articles', blank=True)
     image = models.ImageField(verbose_name=_('Image'), upload_to='blog/article_images/', blank=True, null=True)
     is_published = models.BooleanField(_('Is published'), default=True)
+    view_count = models.PositiveIntegerField(verbose_name=_('View count'), default=0)
     popularity_score = models.FloatField(verbose_name=_('Popularity Score'), default=0.0)
 
     def __str__(self):
@@ -37,6 +40,43 @@ class Article(BaseModel):
             self.slug = slug
         super().save(*args, **kwargs)
 
+    def increment_view_count(self, request):
+        client_ip = request.META.get('REMOTE_ADDR')
+        user_id = request.user.id if request.user.is_authenticated else None
+        cache_key = f'article_view_{self.id}_{user_id or client_ip}'
+
+        if not cache.get(cache_key):
+            self.view_count = models.F('view_count') + 1
+            self.save(update_fields=['view_count'])
+            cache.set(cache_key, True, 60 * 60 * 24)
+
+    def calculate_popularity_score(self):
+        now = timezone.now()
+
+        time_weight = 0.3
+        view_weight = 0.4
+        interaction_weight = 0.3
+
+        time_diff = now - self.created_at
+        time_factor = 1 / (1 + time_diff.days)
+
+        view_factor = min(self.view_count / 1000, 1)
+
+        like_count = self.interactions.filter(interaction_type=InteractionType.LIKE).count()
+        comment_count = self.comments.count()
+        interaction_factor = min((like_count + comment_count) / 100, 1)
+
+        score = (
+                time_weight * time_factor +
+                view_weight * view_factor +
+                interaction_weight * interaction_factor
+        )
+
+        self.popularity_score = score
+        self.save(update_fields=['popularity_score'])
+
+        return score
+
     class Meta:
         ordering = ['-created_at']
         verbose_name = _('Article')
@@ -50,6 +90,10 @@ class Article(BaseModel):
     @property
     def dislikes(self):
         return self.interactions.filter(interaction_type=InteractionType.DISLIKE)
+
+    @property
+    def is_features(self):
+        return hasattr(self, 'featured')
 
 
 class Topic(BaseModel):
@@ -102,7 +146,8 @@ class FeaturedArticle(BaseModel):
 
     article = models.OneToOneField('Article', verbose_name=_('Article'), on_delete=models.CASCADE,
                                    related_name='featured')
-    featured_reason = models.TextField(blank=True, choices=FeaturedReason.choices, verbose_name=_('Reason for Featuring'))
+    featured_reason = models.TextField(blank=True, choices=FeaturedReason.choices,
+                                       verbose_name=_('Reason for Featuring'))
 
     def __str__(self):
         return f'Featured article {self.article.title}'
@@ -114,7 +159,6 @@ class FeaturedArticle(BaseModel):
 
 
 class ArticleInteraction(BaseModel):
-
     article = models.ForeignKey('Article', verbose_name=_('Article'), on_delete=models.CASCADE,
                                 related_name='interactions')
     interaction_type = models.CharField(choices=InteractionType.choices, max_length=10)
