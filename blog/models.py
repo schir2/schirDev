@@ -1,13 +1,18 @@
 import uuid
+from typing import Union
 
+from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.db import models
 from django.utils import timezone
-from django.utils.text import slugify
+from django.utils.html import strip_tags
+from django.utils.text import slugify, Truncator
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 
 from common.models import BaseModel
+
+User = get_user_model()
 
 
 class InteractionType(models.TextChoices):
@@ -94,6 +99,60 @@ class Article(BaseModel):
     @property
     def is_featured(self):
         return hasattr(self, 'featured')
+
+    def user_has_liked(self, user: Union[User, None]) -> bool:
+        """
+        Check if the given user has liked this article.
+
+        Args:
+            user (User): The user to check for a like interaction.
+
+        Returns:
+            bool: True if the user has liked the article, False otherwise.
+
+        Note:
+            If the user is None (anonymous user), this will always return False.
+        """
+        if user is None or user.is_anonymous:
+            return False
+        return self.interactions.filter(creator=user, interaction_type='like').exists()
+
+    def user_has_disliked(self, user: Union[User, None]) -> bool:
+        """
+        Check if the given user has disliked this article.
+
+        Args:
+            user (User): The user to check for a dislike interaction.
+
+        Returns:
+            bool: True if the user has disliked the article, False otherwise.
+
+        Note:
+            If the user is None (anonymous user), this will always return False.
+        """
+        if user is None or user.is_anonymous:
+            return False
+        return self.interactions.filter(creator=user, interaction_type='dislike').exists()
+
+    # ... existing fields ...
+
+    def safe_excerpt(self, words=30, char_limit=None):
+        """
+        Generate a safe, plain-text excerpt of the article content.
+
+        Args:
+            words (int): The number of words to include in the excerpt. Defaults to 30.
+            char_limit (int, optional): The maximum number of characters for the excerpt.
+
+        Returns:
+            str: A plain-text excerpt of the article content.
+        """
+        plain_text = strip_tags(self.content)
+
+        if char_limit:
+            return Truncator(plain_text).chars(char_limit, truncate='...')
+        else:
+            return Truncator(plain_text).words(words, truncate='...')
 
 
 class Topic(BaseModel):
