@@ -2,15 +2,15 @@ from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 
 from blog.forms import ArticleForm
 from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
 
 
-def blog_index_view(request):
+def home_view(request):
     context = {}
-    template_name = 'blog/index.html'
+    template_name = 'blog/home.html'
     popular_articles = Article.objects.order_by('-popularity_score')[:5]
     latest_articles = Article.objects.order_by('-created_at')[:5]
     featured_articles = FeaturedArticle.objects.order_by('-created_at')[:5]
@@ -40,6 +40,8 @@ def article_detail_view(request, slug):
         slug=slug)
     article.increment_view_count(request)
     context["article"] = article
+    context["user_has_liked"] = article.user_has_liked(request.user)
+    context["user_has_disliked"] = article.user_has_disliked(request.user)
     return render(request, template_name=template_name, context=context)
 
 
@@ -70,6 +72,38 @@ def article_edit_view(request, slug: str):
 
 def article_delete_view(request, slug: str):
     return
+
+@require_GET
+def article_view_count_view(request, slug: str):
+    article = get_object_or_404(Article, slug=slug)
+    return HttpResponse(article.view_count, content_type='text/html')
+
+
+@require_GET
+def article_comments_view(request, slug):
+    """
+    Fetch and render comments for a specific article.
+
+    This view is designed to be called via HTMX for lazy loading of comments.
+    It renders a partial template with the comments for the specified article.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        slug (str): The slug of the article to fetch comments for.
+
+    Returns:
+        HttpResponse: Rendered HTML of the comments.
+    """
+    article = get_object_or_404(Article, slug=slug)
+    comments = article.comments.all().select_related('creator').order_by('-created_at')
+
+    context = {
+        'article': article,
+        'comments': comments,
+    }
+
+    html_content = render_to_string('blog/partials/comments_list.html', context, request=request)
+    return HttpResponse(html_content)
 
 
 def tag_list_view(request):
