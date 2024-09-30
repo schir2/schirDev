@@ -15,16 +15,23 @@
         </section>
         <div class="col-span-12 lg:col-span-4 flex flex-col gap-y-3">
             <c-sidebar-widget :id="latestArticles" title="Latest Articles">
-                <ul class="space-y-3">
+                <ul class="space-y-4">
                     {% for article in latest_articles %}
-                        <li>
+                        <li class="border-b border-gray-200 pb-2 last:border-b-0">
                             <a href="{% url 'blog:article_detail' slug=article.slug %}"
-                               class="text-blue-600 hover:underline">{{ article.title }}</a>
-                            <p class="text-sm text-gray-600 mt-1">{{ article.content }}</p>
+                               class="block hover:bg-gray-50 transition duration-150 ease-in-out">
+                                <h3 class="text-sm font-medium text-gray-900 mb-1">{{ article.title }}</h3>
+                                <p class="text-xs text-gray-500 mb-1">{{ article.safe_excerpt|truncatechars:100 }}</p>
+                                <div class="flex justify-between items-center text-xs text-gray-400">
+                                    <span>By {{ article.creator.username }}</span>
+                                    <span>{{ article.created_at|date:"M d, Y" }}</span>
+                                </div>
+                            </a>
                         </li>
+                    {% empty %}
+                        <li class="text-sm text-gray-500">No articles available.</li>
                     {% endfor %}
                 </ul>
-
             </c-sidebar-widget>
             <c-sidebar-widget :id="featuredArticles" title="Featured Articles">
                 {% include 'blog/partials/featured_article_list.html' with featured_articles=featured_articles %}
