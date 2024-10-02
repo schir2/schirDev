@@ -3,16 +3,18 @@
             hx-target="#interaction-buttons-{{ article.pk }}"
             hx-swap="outerHTML"
             class="flex items-center space-x-1 transition-all duration-300 ease-in-out {% if article.user_has_liked %}text-blue-500{% else %}text-gray-500{% endif %} hover:text-blue-600">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 ease-in-out {% if article.user_has_liked %}scale-110{% endif %}" fill="{% if article.user_has_liked %}currentColor{% else %}none{% endif %}" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
-        </svg>
+        <c-icons.heart
+                class="h-6 w-6 transition-transform duration-300 ease-in-out {% if article.user_has_liked %}scale-110{% endif %}"
+                fill="{% if article.user_has_liked %}{% else %}none{% endif %}"/>
         <span id="like-count-{{ article.pk }}" class="font-semibold">{{ article.likes.count }}</span>
     </button>
     <button hx-post="{% url 'blog:toggle_dislike' slug=article.slug %}"
             hx-target="#interaction-buttons-{{ article.pk }}"
             hx-swap="outerHTML"
             class="flex items-center space-x-1 transition-all duration-300 ease-in-out {% if article.user_has_disliked %}text-red-500{% else %}text-gray-500{% endif %} hover:text-red-600">
-        <c-icons.thumbs-up class="h-6 w-6 transition-transform duration-300 ease-in-out {% if article.user_has_disliked %}scale-110{% endif %}" fill="{% if article.user_has_disliked %}{% else %}none{% endif %}"/>
+        <c-icons.thumbs-up
+                class="h-6 w-6 transition-transform duration-300 ease-in-out {% if article.user_has_disliked %}scale-110{% endif %}"
+                fill="{% if article.user_has_disliked %}{% else %}none{% endif %}"/>
         <span id="dislike-count-{{ article.pk }}" class="font-semibold">{{ article.dislikes.count }}</span>
     </button>
 </div>
