@@ -1,16 +1,18 @@
 {% extends 'blog/layouts/base.html' %}
 
 {% block content %}
-<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-3xl font-bold mb-4">{{ article.title }}</h1>
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-bold mb-4">{{ article.title }}</h1>
 
-    <div class="flex items-center text-sm text-gray-500 mb-4">
-        <span class="mr-4">{{ article.created_at|date:"F d, Y" }}</span>
-        <span class="mr-4">By {{ article.creator.username }}</span>
-        <span class="flex items-center">
+        <div class="flex items-center text-sm text-gray-500 mb-4">
+            <span class="mr-4">{{ article.created_at|date:"F d, Y" }}</span>
+            <span class="mr-4">By {{ article.creator.username }}</span>
+            <span class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd"/>
             </svg>
             <span id="view-count-{{ article.pk }}"
                   hx-get="{% url 'blog:article_view_count' slug=article.slug %}"
@@ -20,25 +22,14 @@
                 {{ article.view_count }}
             </span>
         </span>
-    </div>
-
-    <div class="prose max-w-none">
-        {{ article.content|safe }}
-    </div>
-
-    <!-- Like/Dislike buttons -->
-    {% include 'blog/partials/like_dislike_buttons.html' %}
-
-    <!-- Comments section -->
-    <div id="comments-section"
-         hx-get="{% url 'blog:article_comments' slug=article.slug %}"
-         hx-trigger="revealed"
-         hx-swap="innerHTML">
-        <div class="animate-pulse">
-            <div class="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-            <div class="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
-            <div class="h-4 bg-gray-200 rounded w-5/6"></div>
         </div>
-    </div>
-</article>
+
+        <div class="prose max-w-none">
+            {{ article.content|safe }}
+        </div>
+
+        <!-- Like/Dislike buttons -->
+        {% include 'blog/partials/like_dislike_buttons.html' %}
+        {% include 'blog/partials/comment_list.html' with comments=article.comments.all %}
+    </article>
 {% endblock %}

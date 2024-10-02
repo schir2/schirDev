@@ -1,38 +1,25 @@
-{% for comment in comments %}
-    {% include 'blog/partials/comment_list_item.html' %}
-{% endfor %}
-
 {% load static %}
 
 <div class="max-w-3xl mx-auto px-4 py-8">
-  <!-- Existing blog post content -->
-  <!-- ... (keep the existing content from the previous example) ... -->
 
   <!-- Comment Section -->
   <section class="mt-12">
     <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
     <div class="space-y-6">
+
       {% for comment in article.comments.all %}
-        <div class="bg-gray-50 p-4 rounded-lg">
-          <div class="flex justify-between items-start mb-2">
-            <span class="font-semibold text-gray-700">{{ comment.creator.username }}</span>
-            <span class="text-sm text-gray-500">
-              {{ comment.created_at|date:"F d, Y" }}
-            </span>
-          </div>
-          <p class="text-gray-600">{{ comment.content }}</p>
-        </div>
+    {% include 'blog/partials/comment_list_item.html' %}
       {% empty %}
         <p class="text-gray-600">No comments yet. Be the first to comment!</p>
       {% endfor %}
     </div>
 
-    {% if user.is_authenticated %}
-      <form method="post" action="{% url 'blog:add_comment' slug=article.slug %}" class="mt-8">
+    {% if request.user.is_authenticated %}
+      <form method="post" action="{% url 'blog:article_add_comment' slug=article.slug %}" class="mt-8">
         {% csrf_token %}
         <div class="flex items-start space-x-4">
-          {% if user.profile_image %}
-            <img src="{{ user.profile_image.url }}" alt="{{ user.username }}" class="w-10 h-10 rounded-full">
+          {% if request.user.profile_image %}
+            <img src="{{ request.user.profile_image.url }}" alt="{{ request.user.username }}" class="w-10 h-10 rounded-full">
           {% else %}
             <div class="w-10 h-10 rounded-full bg-gray-300"></div>
           {% endif %}

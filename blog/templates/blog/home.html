@@ -4,15 +4,16 @@
 {% endblock %}
 {% block content %}
     <div class="grid gap-6 grid-cols-12 min-h-nav-offset bg-slate-50 md:p-6 shadow-sm border">
-        <section id="popularArticles" class="col-span-12 lg:col-span-8">
-            <h1 class="text-6xl font-light pt-3 pb-6">Popular Articles</h1>
-            <div class="grid gap-3 grid-cols-12">
-                {% for article in popular_articles %}
-                    {% include 'blog/partials/article_card.html' %}
-                {% endfor %}
+        <div class="col-span-12 lg:col-span-8">
+            <section id="featuredArticles">
+                <div class="grid gap-3 grid-cols-12">
+                    {% for featured_article in featured_articles %}
+                        {% include 'blog/partials/article_card.html' with article=featured_article.article %}
+                    {% endfor %}
 
-            </div>
-        </section>
+                </div>
+            </section>
+        </div>
         <div class="col-span-12 lg:col-span-4 flex flex-col gap-y-3">
             <c-sidebar-widget :id="latestArticles" title="Latest Articles">
                 <ul class="space-y-4">
@@ -33,10 +34,6 @@
                     {% endfor %}
                 </ul>
             </c-sidebar-widget>
-            <c-sidebar-widget :id="featuredArticles" title="Featured Articles">
-                {% include 'blog/partials/featured_article_list.html' with featured_articles=featured_articles %}
-            </c-sidebar-widget>
-
             <c-sidebar-widget :id="topics" title="Topics">
                 <ul id="topics" class="flex flex-wrap gap-x-1 gap-y-2">
                     {% for topic in topics %}
@@ -45,7 +42,6 @@
                     {% endfor %}
                 </ul>
             </c-sidebar-widget>
-
             <c-sidebar-widget :id="tags" title="Tags">
                 <ul id="tags" class="flex flex-wrap flex-shrink gap-x-1 gap-y-2">
                     {% for tag in tags %}
@@ -55,6 +51,17 @@
                     {% endfor %}
                 </ul>
             </c-sidebar-widget>
+        </div>
+
+        <div class="col-span-12 lg:colspan-12">
+            <section id="popularArticles">
+                <div>
+                    {% for article in popular_articles %}
+                        {% include 'blog/partials/article_list_item.html' %}
+                    {% endfor %}
+
+                </div>
+            </section>
         </div>
     </div>
 {% endblock %}

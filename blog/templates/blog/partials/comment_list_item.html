@@ -1,4 +1,9 @@
-<div id="comment{{ comment.pk }}">
-    <h2 class="text-2xl font-light">{{ comment }}</h2>
-<span>{{ comment.creator.username }}</span>
+<div class="bg-gray-50 p-4 rounded-lg">
+    <div class="flex justify-between items-start mb-2">
+        <span class="font-semibold text-gray-700">{{ comment.creator.username }}</span>
+        <span class="text-sm text-gray-500">
+              {{ comment.created_at|date:"F d, Y" }}
+            </span>
+    </div>
+    <p class="text-gray-600">{{ comment.content }}</p>
 </div>

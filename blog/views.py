@@ -11,9 +11,9 @@ from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
 def home_view(request):
     context = {}
     template_name = 'blog/home.html'
-    popular_articles = Article.objects.order_by('-popularity_score')[:5]
-    latest_articles = Article.objects.order_by('-created_at')[:5]
-    featured_articles = FeaturedArticle.objects.order_by('-created_at')[:5]
+    latest_articles = Article.objects.order_by('-created_at')[:3]
+    popular_articles = Article.objects.order_by('-popularity_score')[:10]
+    featured_articles = FeaturedArticle.objects.order_by('-created_at')[:2]
     tags = Tag.objects.all()
     topics = Topic.objects.all()
     context['popular_articles'] = popular_articles
@@ -104,6 +104,10 @@ def article_comments_view(request, slug):
 
     html_content = render_to_string('blog/partials/comments_list.html', context, request=request)
     return HttpResponse(html_content)
+
+
+def article_add_comment_view(request):
+    return
 
 
 def tag_list_view(request):
