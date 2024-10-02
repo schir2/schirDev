@@ -16,12 +16,12 @@
 </head>
 
 <body class="bg-white text-lg text-black">
-<c-navbar>
+<c-blog.navbar>
     <c-slot name="section_links">
         {% block section_links %}
         {% endblock %}
     </c-slot>
-</c-navbar>
+</c-blog.navbar>
 <main class="pt-20 max-w-6xl mx-auto">
     {% block content %}{% endblock %}
 </main>

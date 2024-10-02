@@ -15,7 +15,7 @@
             </section>
         </div>
         <div class="col-span-12 lg:col-span-4 flex flex-col gap-y-3">
-            <c-sidebar-widget :id="latestArticles" title="Latest Articles">
+            <c-blog.sidebar-widget :id="latestArticles" title="Latest Articles">
                 <ul class="space-y-4">
                     {% for article in latest_articles %}
                         <li class="border-b border-gray-200 pb-2 last:border-b-0">
@@ -33,16 +33,16 @@
                         <li class="text-sm text-gray-500">No articles available.</li>
                     {% endfor %}
                 </ul>
-            </c-sidebar-widget>
-            <c-sidebar-widget :id="topics" title="Topics">
+            </c-blog.sidebar-widget>
+            <c-blog.sidebar-widget :id="topics" title="Topics">
                 <ul id="topics" class="flex flex-wrap gap-x-1 gap-y-2">
                     {% for topic in topics %}
                         {% include 'blog/partials/topic_chip.html' %}
                     {% empty %}
                     {% endfor %}
                 </ul>
-            </c-sidebar-widget>
-            <c-sidebar-widget :id="tags" title="Tags">
+            </c-blog.sidebar-widget>
+            <c-blog.sidebar-widget :id="tags" title="Tags">
                 <ul id="tags" class="flex flex-wrap flex-shrink gap-x-1 gap-y-2">
                     {% for tag in tags %}
                         {% include 'blog/partials/tag_chip.html' with tag=tag %}
@@ -50,7 +50,7 @@
 
                     {% endfor %}
                 </ul>
-            </c-sidebar-widget>
+            </c-blog.sidebar-widget>
         </div>
 
         <div class="col-span-12 lg:colspan-12">
