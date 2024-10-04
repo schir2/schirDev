@@ -1,4 +1,8 @@
 {% load active_link_tags %}
-<a href="{{ href }}" class="{% active_link href %} mt-2 lg:mt-0 lg:mx-4 hover:text-gray-900 transition ease-in-out hover:-translate-y-1 hover:scale-120 duration-200">
+<a href="{{ href }}"
+   class="{% active_link href %} mt-2 lg:mt-0 lg:mx-4 hover:text-gray-900 transition ease-in-out hover:-translate-y-1 hover:scale-120 duration-200">
+    {% if icon %}
+        <c-component is="icons.{{ icon }}"/>
+    {% endif %}
     {{ slot }}
 </a>

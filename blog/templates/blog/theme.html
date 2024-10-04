@@ -1,0 +1,22 @@
+{% extends 'blog/layouts/base.html' %}
+{% block section_links %}{% endblock %}
+{% block head_title %}Theme{% endblock %}
+{% block content %}
+    <div class="w-6xl">
+        <h1 class="text-6xl font-thin">CSS Display Cheatsheet</h1>
+        <div class="grid grid-cols-3 gap-4">
+            <c-blog.card title="display: inline"><c-chip>content-wdith</c-chip></c-blog.card>
+            <c-blog.card title="display: block"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: inline block"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: flex"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: inline flex"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: grid"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: inline grid"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: table"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: table row"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: table cell"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: list item"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: hidden"><c-chip>x</c-chip></c-blog.card>
+            <c-blog.card title="display: none"><c-chip>x</c-chip></c-blog.card>
+    </div>
+{% endblock %}

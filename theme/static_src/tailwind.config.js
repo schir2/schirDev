@@ -4,6 +4,14 @@
  * If you need the full config, get it from here:
  * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
  */
+function withOpacity(variableName) {
+    return ({opacityValue}) => {
+        if (opacityValue !== undefined) {
+            return `rgba(var(${variableName}), ${opacityValue})`
+        }
+        return `rgb(var(${variableName}))`
+    }
+}
 
 module.exports = {
     content: [
@@ -46,48 +54,59 @@ module.exports = {
             minHeight: {
                 'nav-offset': 'calc(100vh - 5rem)',
             },
-
-            colors: {
-                'text-base': 'var(--text-base)',
-                'text-muted': 'var(--text-muted)',
-                'text-primary': 'var(--text-primary)',
-                'text-secondary': 'var(--text-secondary)',
-                'text-accent': 'var(--text-accent)',
-                'text-error': 'var(--text-error)',
-                'text-success': 'var(--text-success)',
-                'text-link': 'var(--text-link)',
-
-                'bg-base': 'var(--bg-base)',
-                'bg-muted': 'var(--bg-muted)',
-                'bg-primary': 'var(--bg-primary)',
-                'bg-secondary': 'var(--bg-secondary)',
-                'bg-accent': 'var(--bg-accent)',
-                'bg-card': 'var(--bg-card)',
-                'bg-overlay': 'var(--bg-overlay)',
-
-                'border-base': 'var(--border-base)',
-                'border-muted': 'var(--border-muted)',
-                'border-primary': 'var(--border-primary)',
-                'border-secondary': 'var(--border-secondary)',
-                'border-accent': 'var(--border-accent)',
-                'border-error': 'var(--border-error)',
-                'border-success': 'var(--border-success)',
-
-                'fill-base': 'var(--fill-base)',
-                'fill-muted': 'var(--fill-muted)',
-                'fill-primary': 'var(--fill-primary)',
-                'fill-secondary': 'var(--fill-secondary)',
-                'fill-accent': 'var(--fill-accent)',
-                'fill-error': 'var(--fill-error)',
-                'fill-success': 'var(--fill-success)',
+            textColor: {
+                skin: {
+                    'base': withOpacity('var(--text-base)'),
+                    'muted': withOpacity('var(--text-muted)'),
+                    'primary': withOpacity('var(--text-primary)'),
+                    'secondary': withOpacity('var(--text-secondary)'),
+                    'accent': withOpacity('var(--text-accent)'),
+                    'error': withOpacity('var(--text-error)'),
+                    'success': withOpacity('var(--text-success)'),
+                    'link': withOpacity('var(--text-link)'),
+                }
             },
-            transitionDuration: {
-                '1500': '1500ms',
-                '2000': '2000ms',
-                '2500': '2500ms',
-                '3000': '3000ms',
-                // Add more durations as needed
+            backgroundColor: {
+                skin: {
+                    'base': withOpacity('var(--bg-base)'),
+                    'muted': withOpacity('var(--bg-muted)'),
+                    'primary': withOpacity('var(--bg-primary)'),
+                    'secondary': withOpacity('var(--bg-secondary)'),
+                    'accent': withOpacity('var(--bg-accent)'),
+                    'inverted': withOpacity('var(--bg-inverted)'),
+                    'overlay': withOpacity('var(--bg-overlay)'),
+                }
             },
+            border: {
+                skin: {
+                    'base': withOpacity('var(--border-base)'),
+                    'muted': withOpacity('var(--border-muted)'),
+                    'primary': withOpacity('var(--border-primary)'),
+                    'secondary': withOpacity('var(--border-secondary)'),
+                    'accent': withOpacity('var(--border-accent)'),
+                    'inverted': withOpacity('var(--border-inverted)'),
+                    'error': withOpacity('var(--border-error)'),
+                    'success': withOpacity('var(--border-success)'),
+                }
+            },
+            fill: {
+                skin: {
+                    'base': withOpacity('var(--fill-base)'),
+                    'muted': withOpacity('var(--fill-muted)'),
+                    'primary': withOpacity('var(--fill-primary)'),
+                    'secondary': withOpacity('var(--fill-secondary)'),
+                    'accent': withOpacity('var(--fill-accent)'),
+                    'inverted': withOpacity('var(--fill-inverted)'),
+                    'error': withOpacity('var(--fill-error)'),
+                    'success': withOpacity('var(--fill-success)'),
+                }
+            }
+        },
+        transitionDuration: {
+            '1500': '1500ms',
+            '2000': '2000ms',
+            '2500': '2500ms',
+            '3000': '3000ms',
         },
     },
     plugins: [

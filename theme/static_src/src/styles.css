@@ -6,74 +6,73 @@
     /* variables.css */
     /* Light Theme */
     :root {
-        --text-base: #1F2937; /* Gray-800 */
-        --text-muted: #6B7280; /* Gray-500 */
-        --text-primary: #3B82F6; /* Blue-500 */
-        --text-secondary: #10B981; /* Emerald-500 */
-        --text-accent: #F59E0B; /* Amber-500 */
-        --text-error: #EF4444; /* Red-500 */
-        --text-success: #10B981; /* Emerald-500 */
-        --text-link: #3B82F6; /* Blue-500 */
+        --text-base: 31,41,55; /* Gray-800 */
+        --text-muted: 107,114,128; /* Gray-500 */
+        --text-primary: 59,130,246; /* Blue-500 */
+        --text-secondary: 16,185,129; /* Emerald-500 */
+        --text-accent: 245,158,11; /* Amber-500 */
+        --text-error: 239,68,68; /* Red-500 */
+        --text-success: 16,185,129; /* Emerald-500 */
+        --text-link: 59,130,246; /* Blue-500 */
 
-        --bg-base: #FFFFFF; /* White */
-        --bg-muted: #F3F4F6; /* Gray-100 */
-        --bg-primary: #E0F2FE; /* Blue-100 */
-        --bg-secondary: #D1FAE5; /* Emerald-100 */
-        --bg-accent: #FEF3C7; /* Amber-100 */
-        --bg-card: #FFFFFF; /* White */
-        --bg-overlay: rgba(0, 0, 0, 0.5);
+        --bg-base: 255,255,255; /* White */
+        --bg-muted: 243,244,246; /* Gray-100 */
+        --bg-primary: 224,242,254; /* Blue-100 */
+        --bg-secondary: 209,250,229; /* Emerald-100 */
+        --bg-accent: 254,243,199; /* Amber-100 */
+        --bg-card: 255,255,255; /* White */
+        --bg-overlay: 0, 0, 0, 0.5;
 
-        --border-base: #D1D5DB; /* Gray-300 */
-        --border-muted: #E5E7EB; /* Gray-200 */
-        --border-primary: #3B82F6; /* Blue-500 */
-        --border-secondary: #10B981; /* Emerald-500 */
-        --border-accent: #F59E0B; /* Amber-500 */
-        --border-error: #EF4444; /* Red-500 */
-        --border-success: #10B981; /* Emerald-500 */
+        --border-base: 209,213,219; /* Gray-300 */
+        --border-muted: 229,231,235; /* Gray-200 */
+        --border-primary: 59,130,246; /* Blue-500 */
+        --border-secondary: 16,185,129; /* Emerald-500 */
+        --border-accent: 245,158,11; /* Amber-500 */
+        --border-error: 239,68,68; /* Red-500 */
+        --border-success: 16,185,129; /* Emerald-500 */
 
-        --fill-base: #1F2937; /* Gray-800 */
-        --fill-muted: #6B7280; /* Gray-500 */
-        --fill-primary: #3B82F6; /* Blue-500 */
-        --fill-secondary: #10B981; /* Emerald-500 */
-        --fill-accent: #F59E0B; /* Amber-500 */
-        --fill-error: #EF4444; /* Red-500 */
-        --fill-success: #10B981; /* Emerald-500 */
+        --fill-base: 31,41,55; /* Gray-800 */
+        --fill-muted: 107,114,128; /* Gray-500 */
+        --fill-primary: 59,130,246; /* Blue-500 */
+        --fill-secondary: 16,185,129; /* Emerald-500 */
+        --fill-accent: 245,158,11; /* Amber-500 */
+        --fill-error: 239,68,68; /* Red-500 */
+        --fill-success: 16,185,129; /* Emerald-500 */
     }
 
     /* Dark Theme */
     [data-theme="dark"] {
-        --text-base: #F9FAFB; /* Gray-50 */
-        --text-muted: #9CA3AF; /* Gray-400 */
-        --text-primary: #60A5FA; /* Blue-400 */
-        --text-secondary: #34D399; /* Emerald-400 */
-        --text-accent: #FCD34D; /* Amber-400 */
-        --text-error: #F87171; /* Red-400 */
-        --text-success: #34D399; /* Emerald-400 */
-        --text-link: #60A5FA; /* Blue-400 */
+        --text-base: 249,250,251; /* Gray-50 */
+        --text-muted: 156,163,175; /* Gray-400 */
+        --text-primary: 96,165,250; /* Blue-400 */
+        --text-secondary: 52,211,153; /* Emerald-400 */
+        --text-accent: 252,211,77; /* Amber-400 */
+        --text-error: 248,113,113; /* Red-400 */
+        --text-success: 52,211,153; /* Emerald-400 */
+        --text-link: 96,165,250; /* Blue-400 */
 
-        --bg-base: #1F2937; /* Gray-800 */
-        --bg-muted: #374151; /* Gray-700 */
-        --bg-primary: #2563EB; /* Blue-600 */
-        --bg-secondary: #059669; /* Emerald-600 */
-        --bg-accent: #F97316; /* Orange-600 */
-        --bg-card: #374151; /* Gray-700 */
-        --bg-overlay: rgba(255, 255, 255, 0.1);
+        --bg-base: 31,41,55; /* Gray-800 */
+        --bg-muted: 55,65,81; /* Gray-700 */
+        --bg-primary: 37,99,235; /* Blue-600 */
+        --bg-secondary: 5,150,105; /* Emerald-600 */
+        --bg-accent: 249,115,22; /* Orange-600 */
+        --bg-card: 55,65,81; /* Gray-700 */
+        --bg-overlay: 255, 255, 255, 0.1;
 
-        --border-base: #4B5563; /* Gray-600 */
-        --border-muted: #6B7280; /* Gray-500 */
-        --border-primary: #3B82F6; /* Blue-500 */
-        --border-secondary: #10B981; /* Emerald-500 */
-        --border-accent: #F59E0B; /* Amber-500 */
-        --border-error: #EF4444; /* Red-500 */
-        --border-success: #10B981; /* Emerald-500 */
+        --border-base: 75,85,99; /* Gray-600 */
+        --border-muted: 107,114,128; /* Gray-500 */
+        --border-primary: 59,130,246; /* Blue-500 */
+        --border-secondary: 16,185,129; /* Emerald-500 */
+        --border-accent: 245,158,11; /* Amber-500 */
+        --border-error: 239,68,68; /* Red-500 */
+        --border-success: 16,185,129; /* Emerald-500 */
 
-        --fill-base: #F9FAFB; /* Gray-50 */
-        --fill-muted: #9CA3AF; /* Gray-400 */
-        --fill-primary: #60A5FA; /* Blue-400 */
-        --fill-secondary: #34D399; /* Emerald-400 */
-        --fill-accent: #FCD34D; /* Amber-400 */
-        --fill-error: #F87171; /* Red-400 */
-        --fill-success: #34D399; /* Emerald-400 */
+        --fill-base: 249,250,251; /* Gray-50 */
+        --fill-muted: 156,163,175; /* Gray-400 */
+        --fill-primary: 96,165,250; /* Blue-400 */
+        --fill-secondary: 52,211,153; /* Emerald-400 */
+        --fill-accent: 252,211,77; /* Amber-400 */
+        --fill-error: 248,113,113; /* Red-400 */
+        --fill-success: 52,211,153; /* Emerald-400 */
     }
-
 }

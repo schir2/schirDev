@@ -8,6 +8,12 @@ from blog.forms import ArticleForm
 from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
 
 
+def theme_view(request):
+    template_name = 'blog/theme.html'
+    context = dict()
+    return render(request, template_name=template_name, context=context)
+
+
 def home_view(request):
     context = {}
     template_name = 'blog/home.html'
@@ -72,6 +78,7 @@ def article_edit_view(request, slug: str):
 
 def article_delete_view(request, slug: str):
     return
+
 
 @require_GET
 def article_view_count_view(request, slug: str):
