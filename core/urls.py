@@ -8,7 +8,8 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('tinymce/', include('tinymce.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

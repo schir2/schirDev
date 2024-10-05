@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.utils.html import strip_tags
 from django.utils.text import slugify, Truncator
 from django.utils.translation import gettext_lazy as _
-from tinymce.models import HTMLField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 from common.models import BaseModel
 
@@ -23,7 +23,7 @@ class InteractionType(models.TextChoices):
 class Article(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
     slug = models.SlugField(verbose_name=_('Slug'), unique=True)
-    content = HTMLField(verbose_name=_('Content'), )
+    content = RichTextUploadingField(verbose_name=_('Content'), )
     topic = models.ForeignKey('blog.Topic', verbose_name=_('Topic'), related_name='articles',
                               on_delete=models.SET_NULL,
                               blank=True, null=True)
@@ -171,7 +171,7 @@ class Topic(BaseModel):
 
 class Comment(BaseModel):
     article = models.ForeignKey(Article, verbose_name=_('Article'), related_name='comments', on_delete=models.CASCADE)
-    content = HTMLField(verbose_name=_('Content'), )
+    content = models.TextField(verbose_name=_('Content'), )
     is_approved = models.BooleanField(_('Is approved'), default=True)
 
     def __str__(self):

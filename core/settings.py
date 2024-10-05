@@ -31,8 +31,10 @@ INSTALLED_APPS = [
     'active_link',
     'tailwind',
     'theme',
-    'tinymce',
+    'ckeditor',
+    'ckeditor_uploader',
     'users',
+    'tinymce',
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
     "blog.apps.BlogConfig"
