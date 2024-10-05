@@ -7,11 +7,12 @@
 function withOpacity(variableName) {
     return ({opacityValue}) => {
         if (opacityValue !== undefined) {
-            return `rgba(var(${variableName}), ${opacityValue})`
+            return `rgba(var(--${variableName}), ${opacityValue})`
         }
-        return `rgb(var(${variableName}))`
+        return `rgb(var(--${variableName}))`
     }
 }
+
 
 module.exports = {
     content: [
@@ -56,51 +57,93 @@ module.exports = {
             },
             textColor: {
                 skin: {
-                    'base': withOpacity('var(--text-base)'),
-                    'muted': withOpacity('var(--text-muted)'),
-                    'primary': withOpacity('var(--text-primary)'),
-                    'secondary': withOpacity('var(--text-secondary)'),
-                    'accent': withOpacity('var(--text-accent)'),
-                    'error': withOpacity('var(--text-error)'),
-                    'success': withOpacity('var(--text-success)'),
-                    'link': withOpacity('var(--text-link)'),
-                }
+                    'base': withOpacity('text-base'),
+                    'base-inverted': withOpacity('text-base-inverted'),
+                    'muted': withOpacity('text-muted'),
+                    'muted-inverted': withOpacity('text-muted-inverted'),
+                    'primary': withOpacity('text-primary'),
+                    'primary-inverted': withOpacity('text-primary-inverted'),
+                    'secondary': withOpacity('text-secondary'),
+                    'secondary-inverted': withOpacity('text-secondary-inverted'),
+                    'accent': withOpacity('text-accent'),
+                    'accent-inverted': withOpacity('text-accent-inverted'),
+                    'error': withOpacity('text-error'),
+                    'error-inverted': withOpacity('text-error-inverted'),
+                    'success': withOpacity('text-success'),
+                    'success-inverted': withOpacity('text-success-inverted'),
+                    'link': withOpacity('text-link'),
+                    'link-inverted': withOpacity('text-link-inverted'),
+                },
             },
             backgroundColor: {
                 skin: {
-                    'base': withOpacity('var(--bg-base)'),
-                    'muted': withOpacity('var(--bg-muted)'),
-                    'primary': withOpacity('var(--bg-primary)'),
-                    'secondary': withOpacity('var(--bg-secondary)'),
-                    'accent': withOpacity('var(--bg-accent)'),
-                    'inverted': withOpacity('var(--bg-inverted)'),
-                    'overlay': withOpacity('var(--bg-overlay)'),
-                }
+                    'base': withOpacity('bg-base'),
+                    'base-inverted': withOpacity('bg-base-inverted'),
+                    'muted': withOpacity('bg-muted'),
+                    'muted-inverted': withOpacity('bg-muted-inverted'),
+                    'primary': withOpacity('bg-primary'),
+                    'primary-inverted': withOpacity('bg-primary-inverted'),
+                    'secondary': withOpacity('bg-secondary'),
+                    'secondary-inverted': withOpacity('bg-secondary-inverted'),
+                    'accent': withOpacity('bg-accent'),
+                    'accent-inverted': withOpacity('bg-accent-inverted'),
+                    'inverted': withOpacity('bg-inverted'),
+                    'overlay': withOpacity('bg-overlay'),
+                    'overlay-inverted': withOpacity('bg-overlay-inverted'),
+                    'fill-base': withOpacity('fill-base'),
+                    'fill-base-inverted': withOpacity('fill-base-inverted'),
+                    'fill-muted': withOpacity('fill-muted'),
+                    'fill-muted-inverted': withOpacity('fill-muted-inverted'),
+                    'fill-primary': withOpacity('fill-primary'),
+                    'fill-primary-inverted': withOpacity('fill-primary-inverted'),
+                    'fill-secondary': withOpacity('fill-secondary'),
+                    'fill-secondary-inverted': withOpacity('fill-secondary-inverted'),
+                    'fill-accent': withOpacity('fill-accent'),
+                    'fill-accent-inverted': withOpacity('fill-accent-inverted'),
+                    'fill-error': withOpacity('fill-error'),
+                    'fill-error-inverted': withOpacity('fill-error-inverted'),
+                    'fill-success': withOpacity('fill-success'),
+                    'fill-success-inverted': withOpacity('fill-success-inverted'),
+                },
             },
-            border: {
+            borderColor: {
                 skin: {
-                    'base': withOpacity('var(--border-base)'),
-                    'muted': withOpacity('var(--border-muted)'),
-                    'primary': withOpacity('var(--border-primary)'),
-                    'secondary': withOpacity('var(--border-secondary)'),
-                    'accent': withOpacity('var(--border-accent)'),
-                    'inverted': withOpacity('var(--border-inverted)'),
-                    'error': withOpacity('var(--border-error)'),
-                    'success': withOpacity('var(--border-success)'),
-                }
+                    'base': withOpacity('border-base'),
+                    'base-inverted': withOpacity('border-base-inverted'),
+                    'muted': withOpacity('border-muted'),
+                    'muted-inverted': withOpacity('border-muted-inverted'),
+                    'primary': withOpacity('border-primary'),
+                    'primary-inverted': withOpacity('border-primary-inverted'),
+                    'secondary': withOpacity('border-secondary'),
+                    'secondary-inverted': withOpacity('border-secondary-inverted'),
+                    'accent': withOpacity('border-accent'),
+                    'accent-inverted': withOpacity('border-accent-inverted'),
+                    'inverted': withOpacity('border-inverted'),
+                    'error': withOpacity('border-error'),
+                    'error-inverted': withOpacity('border-error-inverted'),
+                    'success': withOpacity('border-success'),
+                    'success-inverted': withOpacity('border-success-inverted'),
+                },
             },
             fill: {
                 skin: {
-                    'base': withOpacity('var(--fill-base)'),
-                    'muted': withOpacity('var(--fill-muted)'),
-                    'primary': withOpacity('var(--fill-primary)'),
-                    'secondary': withOpacity('var(--fill-secondary)'),
-                    'accent': withOpacity('var(--fill-accent)'),
-                    'inverted': withOpacity('var(--fill-inverted)'),
-                    'error': withOpacity('var(--fill-error)'),
-                    'success': withOpacity('var(--fill-success)'),
-                }
-            }
+                    'base': withOpacity('fill-base'),
+                    'base-inverted': withOpacity('fill-base-inverted'),
+                    'muted': withOpacity('fill-muted'),
+                    'muted-inverted': withOpacity('fill-muted-inverted'),
+                    'primary': withOpacity('fill-primary'),
+                    'primary-inverted': withOpacity('fill-primary-inverted'),
+                    'secondary': withOpacity('fill-secondary'),
+                    'secondary-inverted': withOpacity('fill-secondary-inverted'),
+                    'accent': withOpacity('fill-accent'),
+                    'accent-inverted': withOpacity('fill-accent-inverted'),
+                    'inverted': withOpacity('fill-inverted'),
+                    'error': withOpacity('fill-error'),
+                    'error-inverted': withOpacity('fill-error-inverted'),
+                    'success': withOpacity('fill-success'),
+                    'success-inverted': withOpacity('fill-success-inverted'),
+                },
+            },
         },
         transitionDuration: {
             '1500': '1500ms',

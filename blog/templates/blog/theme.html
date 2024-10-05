@@ -2,21 +2,262 @@
 {% block section_links %}{% endblock %}
 {% block head_title %}Theme{% endblock %}
 {% block content %}
-    <div class="w-6xl">
-        <h1 class="text-6xl font-thin">CSS Display Cheatsheet</h1>
-        <div class="grid grid-cols-3 gap-4">
-            <c-blog.card title="display: inline"><c-chip>content-wdith</c-chip></c-blog.card>
-            <c-blog.card title="display: block"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: inline block"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: flex"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: inline flex"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: grid"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: inline grid"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: table"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: table row"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: table cell"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: list item"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: hidden"><c-chip>x</c-chip></c-blog.card>
-            <c-blog.card title="display: none"><c-chip>x</c-chip></c-blog.card>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">CSS Display Properties Cheatsheet</h1>
+        <div class="overflow-x-auto">
+            <table class="min-w-full border border-gray-200 divide-y divide-gray-200 rounded-lg">
+                <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Display Type</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Width/Height</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Padding/Margin</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Border</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Box Shadow</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Text Shadow</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Full Width</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Wraps Inline</th>
+                    <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700">Vertical Align</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Common Uses</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Default HTML Tags</th>
+                </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Inline -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">inline</td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Cannot set</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Vertical limited</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">May overlap</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Not reliable</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Content width</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Flows inline</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can align</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Text styling</li>
+                            <li>Emphasis</li>
+                            <li>Links</li>
+                            <li>Highlights</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <!-- Using c-blog.badge component -->
+                        <div class="flex flex-wrap gap-2">
+                            <c-blog.badge color="blue">span</c-blog.badge>
+                            <c-blog.badge color="blue">a</c-blog.badge>
+                            <c-blog.badge color="blue">em</c-blog.badge>
+                            <c-blog.badge color="blue">strong</c-blog.badge>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Block -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">block</td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can set</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">All sides</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Expands</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Starts new line</span>
+                    </td>
+                    <td class="text-center text-sm text-gray-500"><c-icons.minus /><br><span
+                            class="text-xs text-gray-500">N/A</span></td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Layout containers</li>
+                            <li>Sections</li>
+                            <li>Cards</li>
+                            <li>Articles</li>
+                            <li>Modals</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <div class="flex flex-wrap gap-2">
+                            <c-blog.badge color="green">div</c-blog.badge>
+                            <c-blog.badge color="green">p</c-blog.badge>
+                            <c-blog.badge color="green">h1-h6</c-blog.badge>
+                            <c-blog.badge color="green">ul</c-blog.badge>
+                            <c-blog.badge color="green">li</c-blog.badge>
+                            <c-blog.badge color="green">section</c-blog.badge>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Inline-block -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">inline-block</td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can set</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">All sides</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Content width</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Flows inline</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can align</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Buttons</li>
+                            <li>Badges</li>
+                            <li>Images</li>
+                            <li>Icons</li>
+                            <li>Chips</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <div class="flex flex-wrap gap-2">
+                            <c-blog.badge color="purple">img</c-blog.badge>
+                            <c-blog.badge color="purple">button</c-blog.badge>
+                            <c-blog.badge color="purple">input</c-blog.badge>
+                            <c-blog.badge color="purple">select</c-blog.badge>
+                            <c-blog.badge color="purple">textarea</c-blog.badge>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Flex -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">flex</td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can set</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">All sides</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Expands</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Starts new line</span>
+                    </td>
+                    <td class="text-center text-sm text-blue-500"><c-icons.code /><br><span class="text-xs text-gray-500">Flex align</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Navigation bars</li>
+                            <li>Carousels</li>
+                            <li>Responsive grids</li>
+                            <li>Toolbars</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                    </td>
+                </tr>
+                <!-- Inline-flex -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">inline-flex</td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can set</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">All sides</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Content width</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Flows inline</span>
+                    </td>
+                    <td class="text-center text-sm text-blue-500"><c-icons.code /><br><span class="text-xs text-gray-500">Flex align</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Inline menus</li>
+                            <li>Button groups</li>
+                            <li>Tags</li>
+                            <li>Chips</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                    </td>
+                </tr>
+                <!-- Grid -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">grid</td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can set</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">All sides</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Expands</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Starts new line</span>
+                    </td>
+                    <td class="text-center text-sm text-blue-500"><c-icons.grid /><br><span class="text-xs text-gray-500">Grid align</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Photo galleries</li>
+                            <li>Dashboards</li>
+                            <li>Complex layouts</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                    </td>
+                </tr>
+                <!-- Inline-grid -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900">inline-grid</td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Can set</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">All sides</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Works</span>
+                    </td>
+                    <td class="text-center text-sm text-red-500"><c-icons.x /><br><span class="text-xs text-gray-500">Content width</span>
+                    </td>
+                    <td class="text-center text-sm text-green-600"><c-icons.check /><br><span class="text-xs text-gray-500">Flows inline</span>
+                    </td>
+                    <td class="text-center text-sm text-blue-500"><c-icons.grid /><br><span class="text-xs text-gray-500">Grid align</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                        <ul class="list-disc list-inside">
+                            <li>Embedded widgets</li>
+                            <li>Inline grids</li>
+                        </ul>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-700">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+
+
 {% endblock %}
