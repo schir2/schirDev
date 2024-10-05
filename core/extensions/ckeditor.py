@@ -12,5 +12,10 @@ CKEDITOR_CONFIGS = {
             ['Source'],
         ],
         'extraPlugins': ','.join(['uploadimage']),  # Enable image upload button
+
+        'allowedContent': True,  # Allow all HTML tags and attributes
+        'extraAllowedContent': '{% * %}; {{ * }}; {# * #}',  # Allow Django template tags
+        'forcePasteAsPlainText': False,
+        'removePlugins': 'stylesheetparser',
     }
 }

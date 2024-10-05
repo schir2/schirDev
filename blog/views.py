@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST, require_GET
+from django.template import Template, Context
+from django_cotton.cotton_loader import Loader, CottonCompiler
 
 from blog.forms import ArticleForm
 from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
@@ -41,13 +43,25 @@ def article_list_view(request):
 def article_detail_view(request, slug):
     template_name = 'blog/article_detail.html'
     context = {}
+
     article = get_object_or_404(
         Article.objects.select_related('creator', 'topic').prefetch_related('tags', 'interactions'),
-        slug=slug)
+        slug=slug
+    )
+
     article.increment_view_count(request)
+
+    cotton_compiler = CottonCompiler()
+    processed_content = cotton_compiler.process(article.content, template_name)
+
+    # Render the content using Django's Template class
+    rendered_content = Template(processed_content).render(Context({}))
+
     context["article"] = article
+    context["content"] = rendered_content
     context["user_has_liked"] = article.user_has_liked(request.user)
     context["user_has_disliked"] = article.user_has_disliked(request.user)
+
     return render(request, template_name=template_name, context=context)
 
 
