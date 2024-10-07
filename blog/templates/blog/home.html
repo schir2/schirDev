@@ -21,7 +21,7 @@
                         <li class="border-b border-gray-200 pb-2 last:border-b-0">
                             <a href="{% url 'blog:article_detail' slug=article.slug %}"
                                class="block hover:bg-gray-50 transition duration-150 ease-in-out">
-                                <h3 class="text-sm font-medium text-gray-900 mb-1">{{ article.title }}</h3>
+                                <h3 class="text-sm font-medium text-skin-base mb-1">{{ article.title }}</h3>
                                 <p class="text-xs text-gray-500 mb-1">{{ article.safe_excerpt|truncatechars:100 }}</p>
                                 <div class="flex justify-between items-center text-xs text-gray-400">
                                     <span>By {{ article.creator.username }}</span>
