@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/ydaisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     {% tailwind_css %}
     <script src="{% static 'js/htmx.min.js' %}"></script>
@@ -22,7 +21,7 @@
         {% endblock %}
     </c-slot>
 </c-blog.navbar>
-<main class="pt-20 mx-auto min-h-nav-offset">
+<main class="pt-16 mx-auto min-h-nav-offset">
     {% block content %}{% endblock %}
 </main>
 {% block javascript %}
