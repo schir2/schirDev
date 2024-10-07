@@ -50,10 +50,28 @@ module.exports = {
          */
         // '../../**/*.py'
     ],
+    safelist: [
+        {
+            pattern: /.*/,  // Match every class pattern to include all styles
+        },
+    ],
     theme: {
         extend: {
+
+            writingMode: {
+                'vertical-rl': 'vertical-rl',
+                'vertical-lr': 'vertical-lr',
+                'vertical-tb': 'vertical-up',
+            },
             minHeight: {
                 'nav-offset': 'calc(100vh - 5rem)',
+                'screen-4': 'calc(100vh - 1rem)',
+                'screen-8': 'calc(100vh - 2rem)',
+                'screen-12': 'calc(100vh - 3rem)',
+                'screen-16': 'calc(100vh - 4rem)',
+                'screen-20': 'calc(100vh - 5rem)',
+                'screen-24': 'calc(100vh - 6rem)',
+
             },
             textColor: {
                 skin: {
@@ -153,13 +171,27 @@ module.exports = {
         },
     },
     plugins: [
-        /**
-         * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
-         * for forms. If you don't like it or have own styling for forms,
-         * comment the line below to disable '@tailwindcss/forms'.
-         */
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
+        function ({addUtilities}) {
+            addUtilities({
+                '.writing-mode-vertical-rl': {
+                    'writing-mode': 'vertical-rl',
+                    'text-orientation': 'mixed',
+                },
+                '.writing-mode-vertical-lr': {
+                    'writing-mode': 'vertical-lr',
+                    'text-orientation': 'mixed',
+                    'transform': 'rotate(180deg)',
+                },
+                '.writing-mode-vertical-up': {
+                    'writing-mode': 'vertical-rl',
+                    'transform': 'rotate(180deg)',
+                    'text-orientation': 'upright',
+                },
+            });
+        },
+
     ],
 }
