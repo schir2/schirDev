@@ -58,6 +58,13 @@ module.exports = {
     theme: {
         extend: {
 
+            transitionDuration: {
+                '1500': '1500ms',
+                '2000': '2000ms',
+                '2500': '2500ms',
+                '3000': '3000ms',
+            },
+
             writingMode: {
                 'vertical-rl': 'vertical-rl',
                 'vertical-lr': 'vertical-lr',
@@ -162,12 +169,6 @@ module.exports = {
                     'success-inverted': withOpacity('fill-success-inverted'),
                 },
             },
-        },
-        transitionDuration: {
-            '1500': '1500ms',
-            '2000': '2000ms',
-            '2500': '2500ms',
-            '3000': '3000ms',
         },
     },
     plugins: [
