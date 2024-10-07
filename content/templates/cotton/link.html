@@ -1,6 +1,6 @@
 {% load active_link_tags %}
 <a href="{{ href }}"
-   class="{% active_link href %} mt-2 lg:mt-0 lg:mx-4 hover:text-gray-900 transition ease-in-out hover:-translate-y-1 hover:scale-120 duration-200">
+   class="{% active_link href %} text-skin-link hover:text-skin-link-inverted font-semibold ease-in-out duration-500 transition-all {{ extra_classes }}">
     {% if icon %}
         <c-component is="icons.{{ icon }}"/>
     {% endif %}
