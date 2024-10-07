@@ -1,17 +1,17 @@
 from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template import Template, Context
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST, require_GET
-from django.template import Template, Context
-from django_cotton.cotton_loader import Loader, CottonCompiler
+from django_cotton.cotton_loader import CottonCompiler
 
 from blog.forms import ArticleForm
 from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
 
 
-def theme_view(request):
-    template_name = 'blog/theme.html'
+def css_display_cheatsheet_view(request):
+    template_name = 'blog/resources/css_display_cheatsheet.html'
     context = dict()
     return render(request, template_name=template_name, context=context)
 
