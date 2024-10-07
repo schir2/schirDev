@@ -1,28 +1,21 @@
 {% load static %}
-<nav x-data="{ isOpen: false }" class="bg-slate-50 fixed top-0 z-50 w-screen shadow-md opacity-95">
-    <div class="container px-6 py-4 mx-auto">
-        <div class="lg:flex lg:items-center">
-            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
-                 class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
-                <div class="flex flex-col lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center text-lg">
-                    {{ section_links }}
-                    {% for page in navbar_items %}
-                        <c-link href="#{{ page.slug }}">{{ page.title }}</c-link>
-                    {% endfor %}
-                    <c-link href="{% url 'content:home' %}">Portfolio</c-link>
-                    <c-link href="{% url 'blog:index' %}" icon="external-link">Articles</c-link>
-                </div>
-
-                <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
-
-                    <a href="https://github.com/schir2"
-                       class="mx-2 transition-colors duration-300 transform"
-                       aria-label="Github">
-
-                        <c-icons.github class="w-5 h-5"/>
-                    </a>
-                </div>
-            </div>
+<nav class="bg-slate-500 fixed top-0 z-50 shadow-md opacity-95 h-16 w-screen flex justify-center align-middle">
+    <div class="container flex justify-between align-middle my-auto">
+        <div>
+            {{ section_links }}
+            {% for page in navbar_items %}
+                <c-link href="#{{ page.slug }}">{{ page.title }}</c-link>
+            {% endfor %}
+            <c-link href="{% url 'content:home' %}">Portfolio</c-link>
+            <c-link href="{% url 'blog:index' %}" icon="external-link">Articles</c-link>
+        <div>
+            <a href="{% url 'blog:css_display_cheatsheet' %}">CSS Display Cheatsheet</a>
         </div>
+        </div>
+        <a href="https://github.com/schir2" class="transition-colors duration-300 transform inline-block"
+           aria-label="Github">
+            <c-icons.github extra_classes=
+"w-5 h-5"/>
+        </a>
     </div>
 </nav>
