@@ -1,21 +1,26 @@
 {% load static %}
-<nav class="bg-slate-500 fixed top-0 z-50 shadow-md opacity-95 h-16 w-screen flex justify-center align-middle">
+<nav class="bg-skin-base fixed top-0 z-50 shadow-md opacity-95 h-16 w-screen flex justify-center align-middle">
     <div class="container flex justify-between align-middle my-auto">
-        <div>
-            {{ section_links }}
+        <div class="space-x-3">
+            {{ left }}
             {% for page in navbar_items %}
                 <c-link href="#{{ page.slug }}">{{ page.title }}</c-link>
             {% endfor %}
             <c-link href="{% url 'content:home' %}">Portfolio</c-link>
             <c-link href="{% url 'blog:index' %}" icon="external-link">Articles</c-link>
+        </div>
         <div>
-            <a href="{% url 'blog:css_display_cheatsheet' %}">CSS Display Cheatsheet</a>
+            {{ middle }}
+            <c-link href="{% url 'blog:css_display_cheatsheet' %}">CSS Display Cheatsheet</c-link>
         </div>
+        <div class="flex justify-end align-middle gap-3">
+            {{ right }}
+            <c-link variant="nav" href="{% url 'blog:article_create' %}">
+                <c-icons.plus/>
+            </c-link>
+            <c-link variant="nav" href="https://github.com/schir2">
+                <c-icons.github/>
+            </c-link>
         </div>
-        <a href="https://github.com/schir2" class="transition-colors duration-300 transform inline-block"
-           aria-label="Github">
-            <c-icons.github extra_classes=
-"w-5 h-5"/>
-        </a>
     </div>
 </nav>
