@@ -58,6 +58,10 @@ module.exports = {
     theme: {
         extend: {
 
+            screens: {
+                '3xl': '1600px',
+            },
+
             transitionDuration: {
                 '1500': '1500ms',
                 '2000': '2000ms',
