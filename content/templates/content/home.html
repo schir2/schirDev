@@ -12,7 +12,7 @@
     {% include 'content/partials/projects.html' %}
     {% for page in pages %}
         <section id="{{ page.slug }}" class="m-auto md:p-20 w-screen">
-            <div class="prose md:prose-lg lg:prose-2xl text-black mx-auto max-w-5xl p-12 md:p-20 bg-slate-50 shadow-lg">
+            <div class="prose md:prose-lg lg:prose-2xl text-black mx-auto max-w-5xl p-12 md:p-20 bg-skin-base shadow-lg">
                 <h2>{{ page.title }}</h2>
                 {{ page.content|safe }}
             </div>
