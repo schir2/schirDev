@@ -1,14 +1,14 @@
 {% load static %}
 
 <div id="article{{ article.pk }}"
-     class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-gray-50 col-span-12 md:col-span-6 xxl:col-span-4 flex flex-col h-full
+     class="bg-skin-surface rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-skin-surface-hover col-span-12 md:col-span-6 xxl:col-span-4 flex flex-col h-full
      {% if article.featured %}
      border-l-4
      {% endif %}
-{% if article.featured.featured_reason == 'editor_choice' %}border-yellow-500
-    {% elif article.featured.featured_reason == 'staff_pick' %}border-blue-500
-    {% elif article.featured.featured_reason == 'topic_highlight' %}border-green-500
-    {% elif article.featured.featured_reason == 'popular_article' %}border-purple-500{% endif %}
+{% if article.featured.featured_reason == 'editor_choice' %}border-skin-warning
+    {% elif article.featured.featured_reason == 'staff_pick' %}border-skin-primary
+    {% elif article.featured.featured_reason == 'topic_highlight' %}border-skin-success
+    {% elif article.featured.featured_reason == 'popular_article' %}border-skin-error{% endif %}
 ">
     <div class="relative">
         {% if article.image %}
