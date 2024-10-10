@@ -1,74 +1,38 @@
 {% load static %}
-
-
-<div class="flex items-start bg-white space-x-4 p-4 {% if not forloop.last %}border-b border-gray-200{% endif %}">
-    <div class="flex-shrink-0 w-12 text-center">
-        {% if article.is_featured %}
-            {% if article.featured_reason == 'editor_choice' %}
-                <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-6 w-6 mx-auto text-yellow-500" fill="none"
-                     viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-                </svg>
-            {% elif article.featured_reason == 'popular' %}
-                <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-6 w-6 mx-auto text-purple-500" fill="none"
-                     viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                </svg>
-            {% endif %}
-        {% else %}
-            <span class="text-2xl font-bold text-gray-300">{{ forloop.counter }}</span>
-        {% endif %}
-    </div>
+<div class="p-4 shadow-md rounded-md bg-skin-base">
     <div class="flex-grow">
-        <h3 class="text-lg font-semibold text-skin-base mb-1">
+        <h3 class="text-lg font-semibold text-skin-link mb-1">
             <a href="{% url 'blog:article_detail' slug=article.slug %}"
-               class="hover:text-purple-600 transition-colors duration-200">
+               class="hover:text-skin-link-inverted transition-colors duration-200">
                 {{ article.title }}
             </a>
         </h3>
-        <div class="flex flex-wrap items-center text-sm text-gray-500 gap-2 mb-2">
-          <span class="bg-violet-500 text-white px-2 py-1 rounded-full text-xs">
-            {{ article.topic.name }}
-          </span>
-            <span>by {{ article.author.username }}</span>
+        <div class="flex flex-wrap items-center text-sm text-skin-muted gap-2 mb-2">
+            <c-blog.badge>{{ article.topic.name }}</c-blog.badge>
+            <span>by {{ article.creator.username }}</span>
             <span>{{ article.created_at|date:"M d, Y" }}</span>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-sm text-skin-muted">
-            <div class="flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                    <path fill-rule="evenodd"
-                          d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                          clip-rule="evenodd"/>
-                </svg>
+            <span>
+                <c-icons.eye/>
                 <span>{{ article.view_count }}</span>
-            </div>
-            <div class="flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
-                </svg>
-                <span>{{ article.upvotes }}</span>
-            </div>
-            <div class="flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
-                </svg>
+            </span>
+            <span class="flex items-center">
+                <c-icons.thumbs-up/>
+                <span>{{ article.likes.count }}</span>
+            </span>
+            <span>
+                <c-icons.thumbs-down/>
+                <span>{{ article.dislikes.count }}</span>
+            </span>
+            <span>
+                <c-icons.message-square/>
                 <span>{{ article.comments.count }}</span>
-            </div>
-            <div class="flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                </svg>
+            </span>
+            <span>
+                <c-icons.trending-up/>
                 <span>{{ article.popularity_score }}</span>
-            </div>
+            </span>
         </div>
     </div>
 </div>
