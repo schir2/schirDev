@@ -7,87 +7,75 @@
 
     :root {
         [data-theme="light"] {
-            /* Text Colors */
-            --text-base: 0, 0, 0;
-            --text-muted: 107, 114, 128;
-            --text-primary: 126, 34, 206;
-            --text-secondary: 217, 119, 6;
-            --text-accent: 2, 132, 199;
-            --text-error: 220, 38, 38;
-            --text-success: 5, 150, 105;
-            --text-link: 79, 70, 229;
-            --text-link-hover: 99, 102, 241;
-            --text-link-active: 59, 54, 219;
 
-            /* Background Colors */
-            --bg-base: 255, 255, 255;
-            --bg-muted: 243, 244, 246;
-            --bg-primary: 237, 233, 254;
-            --bg-secondary: 254, 243, 199;
-            --bg-accent: 219, 234, 254;
-            --bg-surface: 250, 250, 250;
+            --text-base: 33, 33, 33;
+            --text-muted: 97, 97, 97;
+            --text-primary: 25, 118, 210;
+            --text-secondary: 245, 127, 23;
+            --text-tertiary: 66, 165, 245;
+            --text-accent: 233, 30, 99;
+            --text-error: 211, 47, 47;
+            --text-success: 56, 142, 60;
+            --text-link: 25, 118, 210;
+            --text-link-hover: 66, 165, 245;
+            --text-link-active: 21, 101, 192;
+
+
+            --bg-base: 250, 250, 250;
+            --bg-muted: 238, 238, 238;
+            --bg-primary: 224, 224, 224;
+            --bg-secondary: 232, 234, 246;
+            --bg-tertiary: 240, 240, 240;
+            --bg-accent: 245, 245, 245;
+            --bg-surface: 255, 255, 255;
             --bg-surface-hover: 245, 245, 245;
             --bg-overlay: 0, 0, 0, 0.5;
 
-            /* Border Colors */
-            --border-base: 209, 213, 219;
-            --border-muted: 229, 231, 235;
-            --border-primary: 126, 34, 206;
-            --border-secondary: 217, 119, 6;
-            --border-accent: 2, 132, 199;
-            --border-error: 220, 38, 38;
-            --border-success: 5, 150, 105;
 
-            /* Icon Colors */
-            --icon-base: 31, 41, 55;
-            --icon-muted: 107, 114, 128;
-            --icon-primary: 126, 34, 206;
-            --icon-secondary: 217, 119, 6;
-            --icon-accent: 2, 132, 199;
-            --icon-error: 220, 38, 38;
-            --icon-success: 5, 150, 105;
+            --border-base: 200, 200, 200;
+            --border-muted: 220, 220, 220;
+            --border-primary: 25, 118, 210;
+            --border-secondary: 245, 127, 23;
+            --border-tertiary: 66, 165, 245;
+            --border-accent: 233, 30, 99;
+            --border-error: 211, 47, 47;
+            --border-success: 56, 142, 60;
         }
 
         [data-theme="dark"] {
-            /* Text Colors */
-            --text-base: 224, 214, 200;
-            --text-muted: 148, 141, 127;
-            --text-primary: 129, 221, 49;
-            --text-secondary: 38, 136, 249;
-            --text-accent: 253, 123, 56;
-            --text-error: 35, 217, 217;
-            --text-success: 250, 105, 150;
-            --text-link: 176, 185, 26;
-            --text-link-hover: 196, 205, 36;
-            --text-link-active: 156, 165, 16;
 
-            /* Background Colors */
-            --bg-base: 0, 0, 0;
-            --bg-muted: 12, 11, 9;
-            --bg-primary: 18, 22, 1;
-            --bg-secondary: 1, 12, 56;
-            --bg-accent: 36, 21, 1;
-            --bg-surface: 5, 5, 5;
-            --bg-surface-hover: 10, 10, 10;
-            --bg-overlay: 255, 255, 255, 0.5;
+            --text-base: 235, 235, 235;
+            --text-muted: 180, 180, 180;
+            --text-primary: 88, 166, 255;
+            --text-secondary: 255, 203, 107;
+            --text-tertiary: 130, 177, 255;
+            --text-accent: 255, 138, 128;
+            --text-error: 255, 85, 85;
+            --text-success: 105, 240, 174;
+            --text-link: 88, 166, 255;
+            --text-link-hover: 130, 177, 255;
+            --text-link-active: 70, 154, 239;
 
-            /* Border Colors */
-            --border-base: 46, 42, 36;
-            --border-muted: 26, 24, 20;
-            --border-primary: 129, 221, 49;
-            --border-secondary: 38, 136, 249;
-            --border-accent: 253, 123, 56;
-            --border-error: 35, 217, 217;
-            --border-success: 250, 105, 150;
 
-            /* Icon Colors */
-            --icon-base: 224, 214, 200;
-            --icon-muted: 148, 141, 127;
-            --icon-primary: 129, 221, 49;
-            --icon-secondary: 38, 136, 249;
-            --icon-accent: 253, 123, 56;
-            --icon-error: 35, 217, 217;
-            --icon-success: 250, 105, 150;
+            --bg-base: 24, 24, 24;
+            --bg-muted: 34, 34, 34;
+            --bg-primary: 48, 48, 48;
+            --bg-secondary: 40, 40, 40;
+            --bg-tertiary: 50, 50, 50;
+            --bg-accent: 60, 60, 60;
+            --bg-surface: 30, 30, 30;
+            --bg-surface-hover: 40, 40, 40;
+            --bg-overlay: 0, 0, 0, 0.7;
+
+
+            --border-base: 58, 58, 58;
+            --border-muted: 48, 48, 48;
+            --border-primary: 88, 166, 255;
+            --border-secondary: 255, 203, 107;
+            --border-tertiary: 130, 177, 255;
+            --border-accent: 255, 138, 128;
+            --border-error: 255, 85, 85;
+            --border-success: 105, 240, 174;
         }
     }
 }
