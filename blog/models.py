@@ -101,35 +101,11 @@ class Article(BaseModel):
         return hasattr(self, 'featured')
 
     def user_has_liked(self, user: Union[User, None]) -> bool:
-        """
-        Check if the given user has liked this article.
-
-        Args:
-            user (User): The user to check for a like interaction.
-
-        Returns:
-            bool: True if the user has liked the article, False otherwise.
-
-        Note:
-            If the user is None (anonymous user), this will always return False.
-        """
         if user is None or user.is_anonymous:
             return False
         return self.interactions.filter(creator=user, interaction_type='like').exists()
 
     def user_has_disliked(self, user: Union[User, None]) -> bool:
-        """
-        Check if the given user has disliked this article.
-
-        Args:
-            user (User): The user to check for a dislike interaction.
-
-        Returns:
-            bool: True if the user has disliked the article, False otherwise.
-
-        Note:
-            If the user is None (anonymous user), this will always return False.
-        """
         if user is None or user.is_anonymous:
             return False
         return self.interactions.filter(creator=user, interaction_type='dislike').exists()
