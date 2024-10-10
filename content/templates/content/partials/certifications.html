@@ -6,7 +6,7 @@
         {% regroup skills by category as skills_by_category %}
         <div class="grid grid-cols-1 xl:grid-cols-2">
             {% for skill_category in skill_categories %}
-                <div class="bg-white p-3 m-3 shadow-lg rounded-2xl opacity-85">
+                <div class="bg-skin-base p-3 m-3 shadow-lg rounded-2xl opacity-85">
                     <div class="flex items-center mx-3">
                         {% if skill_category.icon %}
                             <img src="{{ skill_category.icon.url }}" alt="{{ skill_category.name }}"

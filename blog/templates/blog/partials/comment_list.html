@@ -24,12 +24,12 @@
             <div class="w-10 h-10 rounded-full bg-gray-300"></div>
           {% endif %}
           <div class="min-w-0 flex-1">
-            <div class="border-b border-gray-200 focus-within:border-purple-600">
+            <div class="border-b border-gray-200 focus-within:border-skin-primary">
               <textarea
                 rows="3"
                 name="content"
                 id="comment"
-                class="block w-full resize-none border-0 border-b border-transparent p-0 pb-2 text-skin-base placeholder:text-skin-muted focus:border-purple-600 focus:ring-0 sm:text-sm sm:leading-6"
+                class="block w-full resize-none border-0 bg-skin-muted border-b border-transparent p-0 pb-2 text-skin-base placeholder:text-skin-muted focus:border-purple-600 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="Add a comment..."
               ></textarea>
             </div>
@@ -38,17 +38,15 @@
         <div class="mt-2 flex justify-end">
           <button
             type="submit"
-            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-skin-base bg-skin-primary hover:bg-skin-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" {{ attrs }} class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-            </svg>
+            <c-icons.send/>
             Post
           </button>
         </div>
       </form>
     {% else %}
-      <p class="mt-8 text-skin-base-subtle">Please <a href="{% url 'login' %}" class="text-purple-600 hover:text-purple-800">log in</a> to add a comment.</p>
+      <p class="mt-8 text-skin-base">Please <a href="{% url 'login' %}" class="text-skin-link hover:text-skin-link-active">log in</a> to add a comment.</p>
     {% endif %}
   </section>
 </div>
