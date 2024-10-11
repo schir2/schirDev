@@ -16,12 +16,15 @@ def css_display_cheatsheet_view(request):
     return render(request, template_name=template_name, context=context)
 
 
+def theme_view(request):
+    template_name = 'blog/theme.html'
+    context = dict()
+    return render(request, template_name=template_name, context=context)
+
 def home_view(request):
     context = {}
     template_name = 'blog/home.html'
-    latest_articles = Article.objects.order_by('-created_at')[:3]
-    popular_articles = Article.objects.order_by('-popularity_score')[:10]
-    featured_articles = FeaturedArticle.objects.order_by('-created_at')[:2]
+    latest_articles = Article.objects.order_by('-created_at')[:20]
     tags = Tag.objects.all()
     topics = Topic.objects.all()
     context['latest_articles'] = latest_articles

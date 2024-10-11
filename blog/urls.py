@@ -5,12 +5,13 @@ from blog.views import article_list_view, article_detail_view, home_view, articl
     tag_detail_view, tag_create_view, tag_edit_view, tag_delete_view, topic_list_view, topic_create_view, \
     topic_detail_view, topic_edit_view, topic_delete_view, article_like_count_view, article_dislike_count_view, \
     toggle_dislike_view, toggle_like_view, article_archive_view, article_edit_view, article_view_count_view, \
-    article_comments_view, article_add_comment_view, css_display_cheatsheet_view
+    article_comments_view, article_add_comment_view, css_display_cheatsheet_view, theme_view
 
 app_name = 'blog'
 
 urlpatterns = [
     path('', home_view, name='index'),
+    path('theme', theme_view, name='theme'),
     path('articles/', include([
         path('', article_list_view, name='article_list'),
         path('create', article_create_view, name='article_create'),
