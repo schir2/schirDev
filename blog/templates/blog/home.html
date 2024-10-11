@@ -7,14 +7,6 @@
 
         <!-- Content -->
         <div class="col-span-12 lg:col-span-9">
-            <section id="featuredArticles">
-                <div class="grid gap-3 grid-cols-12">
-                    {% for featured_article in featured_articles %}
-                        {% include 'blog/partials/article_card.html' with article=featured_article.article %}
-                    {% endfor %}
-
-                </div>
-            </section>
             <section id="latestArticles">
                 <div class="grid gap-3 grid-cols-12">
                     {% for article in latest_articles %}

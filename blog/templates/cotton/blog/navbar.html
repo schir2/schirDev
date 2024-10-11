@@ -21,6 +21,8 @@
             <c-link variant="nav" href="https://github.com/schir2">
                 <c-icons.github/>
             </c-link>
+            <c-icons.sun extra_classes="text-yellow-500 cursor-pointer" x-show="theme == 'dark'" @click="theme = 'light'"/>
+            <c-icons.moon extra_classes="text-purple-500 cursor-pointer" x-show="theme == 'light'" @click="theme = 'dark'"/>
         </div>
     </div>
 </nav>

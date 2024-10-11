@@ -24,9 +24,7 @@ def home_view(request):
     featured_articles = FeaturedArticle.objects.order_by('-created_at')[:2]
     tags = Tag.objects.all()
     topics = Topic.objects.all()
-    context['popular_articles'] = popular_articles
     context['latest_articles'] = latest_articles
-    context['featured_articles'] = featured_articles
     context['topics'] = topics
     context['tags'] = tags
     return render(request, template_name=template_name, context=context)
@@ -102,19 +100,6 @@ def article_view_count_view(request, slug: str):
 
 @require_GET
 def article_comments_view(request, slug):
-    """
-    Fetch and render comments for a specific article.
-
-    This view is designed to be called via HTMX for lazy loading of comments.
-    It renders a partial template with the comments for the specified article.
-
-    Args:
-        request (HttpRequest): The HTTP request object.
-        slug (str): The slug of the article to fetch comments for.
-
-    Returns:
-        HttpResponse: Rendered HTML of the comments.
-    """
     article = get_object_or_404(Article, slug=slug)
     comments = article.comments.all().select_related('creator').order_by('-created_at')
 
