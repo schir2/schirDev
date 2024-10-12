@@ -7,7 +7,7 @@ from django.views.decorators.http import require_POST, require_GET
 from django_cotton.cotton_loader import CottonCompiler
 
 from blog.forms import ArticleForm
-from blog.models import Article, Topic, FeaturedArticle, Tag, ArticleInteraction
+from blog.models import Article, Topic, Tag, ArticleInteraction
 
 
 def css_display_cheatsheet_view(request):
@@ -20,6 +20,7 @@ def theme_view(request):
     template_name = 'blog/theme.html'
     context = dict()
     return render(request, template_name=template_name, context=context)
+
 
 def home_view(request):
     context = {}
@@ -88,7 +89,19 @@ def article_archive_view(request, slug: str):
 
 
 def article_edit_view(request, slug: str):
-    return
+    template_name = 'blog/article_edit.html'
+    context = dict()
+    article = get_object_or_404(Article, slug=slug)
+    if request.method == "POST":
+        form = ArticleForm(request.POST, instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:article_detail', slug=article.slug)
+
+    form = ArticleForm(instance=article)
+    context['article'] = article
+    context['form'] = form
+    return render(request, template_name=template_name, context=context)
 
 
 def article_delete_view(request, slug: str):
