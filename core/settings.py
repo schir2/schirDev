@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django_components.safer_staticfiles',
     'widget_tweaks',
     'django_htmx',
+    'django_filters',
     'django_recaptcha',
     'django_browser_reload',
     'active_link',
@@ -33,11 +34,13 @@ INSTALLED_APPS = [
     'theme',
     'ckeditor',
     'ckeditor_uploader',
+    'import_export',
     'users',
     'tinymce',
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
-    "blog.apps.BlogConfig"
+    "blog.apps.BlogConfig",
+    "arcus.apps.ArcusConfig"
 ]
 
 MIDDLEWARE = [
