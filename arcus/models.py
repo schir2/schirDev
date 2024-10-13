@@ -42,6 +42,7 @@ class Project(BaseModel):
     end_date = models.DateTimeField(null=True, blank=True, verbose_name=_('End Date'))
     status = models.CharField(max_length=32, choices=StatusChoices.choices, default=StatusChoices.NOT_STARTED, verbose_name=_('Status'))
     priority = models.CharField(max_length=10, choices=PriorityChoices.choices, default=PriorityChoices.MEDIUM, verbose_name=_('Priority'))
+    starred = models.BooleanField(default=False, verbose_name=_('Starred'))
 
     class Meta:
         verbose_name = _('Project')

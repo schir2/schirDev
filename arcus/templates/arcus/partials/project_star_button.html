@@ -1,0 +1,13 @@
+<!-- arcus/partials/project_star_button.html -->
+<button
+    id="project-star-button-{{ project.pk }}"
+    hx-post="{% url 'arcus:project_toggle_star' project.pk %}"
+    hx-swap="outerHTML"
+    type="button"
+>
+    {% if project.starred %}
+        <c-icons.star class="text-skin-primary"/>
+    {% else %}
+        <c-icons.star class="text-skin-muted"/>
+    {% endif %}
+</button>

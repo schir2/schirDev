@@ -1,5 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.decorators.http import require_POST
+from django_htmx.http import trigger_client_event
 
 from arcus.filters import ProjectFilter
 from arcus.forms import ProjectForm
@@ -80,3 +83,20 @@ def project_delete_view(request, pk):
         return redirect('project_list')
 
     return render(request, 'arcus/partials/project_confirm_delete.html', {'project': project})
+
+
+@login_required
+@require_POST
+def project_toggle_star(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    project.starred = not project.starred
+    project.save()
+    response = render(request, 'arcus/partials/project_star_button.html', {'project': project})
+    trigger_client_event(response, 'project_star_toggle')
+    return response
+
+
+def project_starred_list_sidenav(request):
+    starred_projects = Project.objects.filter(starred=True)
+    context = {'starred_projects': starred_projects}
+    return render(request, template_name='arcus/partials/project_starred_list_sidenav.html', context=context)

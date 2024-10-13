@@ -6,14 +6,14 @@ from .models import Project, Section, Task, Tag
 
 @admin.register(Project)
 class ProjectAdmin(ImportExportModelAdmin):
-    list_display = ('name', 'status', 'priority', 'start_date', 'end_date', 'created_at', 'edited_at', 'creator', 'editor')
-    list_filter = ('status', 'priority', 'start_date', 'end_date')
-    search_fields = ('name', 'description')
+    list_display = ('name', 'status', 'priority','starred', 'start_date', 'end_date', 'created_at', 'edited_at', 'creator', 'editor')
+    list_filter = ('status', 'priority', 'start_date', 'end_date', 'starred')
+    search_fields = ('name', 'description', 'starred',)
     ordering = ('name', 'start_date')
     readonly_fields = ('created_at', 'edited_at')
     fieldsets = (
         (None, {
-            'fields': ('name', 'description', 'start_date', 'end_date', 'status', 'priority')
+            'fields': ('name', 'description', 'start_date', 'end_date', 'status', 'priority', 'starred')
         }),
         ('Metadata', {
             'fields': ('created_at', 'edited_at', 'creator', 'editor')

@@ -8,6 +8,7 @@ def dashboard_view(request):
     context = {}
     # Get the recent projects and tasks
     recent_projects = Project.objects.order_by('-created_at')[:5]
+    starred_projects = Project.objects.filter(starred=True)[:5]
     recent_tasks = Task.objects.order_by('-created_at')[:5]
 
     # Collect overall statistics
@@ -18,6 +19,7 @@ def dashboard_view(request):
 
     # Add data to the context
     context['recent_projects'] = recent_projects
+    context['starred_projects'] = starred_projects
     context['recent_tasks'] = recent_tasks
     context['total_projects'] = total_projects
     context['total_tasks'] = total_tasks
