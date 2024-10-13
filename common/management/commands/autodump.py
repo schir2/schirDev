@@ -2,9 +2,11 @@ from django.core.management import call_command, BaseCommand
 
 models_to_export = [
     'auth',
-    'users',
+    'arcus',
+    'blog',
     'common',
     'content',
+    'users',
 ]
 
 

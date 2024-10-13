@@ -1,8 +1,1109 @@
-[{
+[
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "add_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "change_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "delete_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "view_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "add_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "change_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "delete_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "view_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "view_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "add_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "change_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "delete_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "view_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "add_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "change_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "delete_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "view_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "add_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "change_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "delete_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "view_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "add_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "change_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "delete_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "view_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "add_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "change_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "delete_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "view_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "add_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "change_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "delete_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "view_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "add_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "change_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "delete_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "view_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "add_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "change_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "delete_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "view_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "add_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "change_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "delete_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "view_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "add_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "change_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "delete_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "view_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "add_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "change_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "delete_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "view_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "add_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "change_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "delete_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "view_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "view_project"
+    }
+},
+{
     "model": "users.user",
     "fields": {
         "password": "pbkdf2_sha256$720000$jn2FDfCcMkhGpjBzMp584E$AgmhupuraHDhfPRs9RtzCSzsLt2lqBaHbiJn7yhITBM=",
-        "last_login": "2024-09-10T01:00:55.806Z",
+        "last_login": "2024-10-12T23:24:21.782Z",
         "is_superuser": true,
         "username": "schir2",
         "first_name": "",
@@ -25,208 +1126,88 @@
     }
 },
 {
-    "model": "content.project",
+    "model": "content.skillcategory",
     "pk": 1,
     "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:04:56.000Z",
+        "created_at": "2024-09-16T23:13:40.937Z",
+        "edited_at": "2024-09-18T00:33:49.005Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Vehicle GPS Alerting System for Field Service Workers",
-        "description": "Developed a comprehensive system to track field service workers' locations relative to their assigned jobs, start times, and end times. Integrated Vehicle GPS data via REST API with Field Service Management Software, utilizing Microsoft SQL Server and MySQL for data storage. Implemented a real-time dashboard map hosted with PHP, using JavaScript and Google Maps API for asynchronous location updates. Automated the system with Python scripts and Linux-based cron jobs.",
-        "company": 1,
-        "year": 2022,
-        "image": "projects/2024/09/11/high-angle-woman-holding-laptop.jpg",
-        "skills": [
-            25,
-            24,
-            4,
-            5,
-            6,
-            2,
-            3
-        ]
+        "name": "Programming Languages",
+        "icon": "",
+        "order": 1
     }
 },
 {
-    "model": "content.project",
+    "model": "content.skillcategory",
     "pk": 2,
     "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:10:46.513Z",
+        "created_at": "2024-09-16T23:13:59.173Z",
+        "edited_at": "2024-09-18T00:33:40.188Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Automated User Lookup and Reporting System",
-        "description": "Developed a web scraping system to parse emails, look up users on a popular review site, and report findings via email alerts and MySQL database entries. Initially built a real-time dashboard with PHP, MySQL, later transitioned to Python Django. Automated with Python scripts and cron jobs on a remote Linux machine, using the Gmail API for email parsing and alerts. Significantly improved business ratings with timely user information.",
-        "company": 1,
-        "year": 2009,
-        "image": "projects/2024/09/10/pexels-pixabay-276452.jpg",
-        "skills": [
-            25,
-            1,
-            24,
-            4,
-            5
-        ]
+        "name": "Frameworks and Libraries",
+        "icon": "",
+        "order": 2
     }
 },
 {
-    "model": "content.project",
+    "model": "content.skillcategory",
     "pk": 3,
     "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:06:21.594Z",
+        "created_at": "2024-09-16T23:14:35.201Z",
+        "edited_at": "2024-09-18T00:33:58.570Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Visual Lead Inspection Job Tracking System",
-        "description": "Developed a mobile web application for scheduling and tracking lead inspection jobs. The system managed job assignments, tracked completion, and calculated bonuses based on job completion. It also identified duplication errors from vendors to ensure correct payments. Integrated with QuickBooks Online via REST API. Hosted on DigitalOcean droplets using a Linux server with Nginx, the application was built with Django, PostgreSQL, Python, and HTMX for asynchronous interactions and HTML.",
-        "company": 1,
-        "year": 2021,
-        "image": "",
-        "skills": [
-            7,
-            25,
-            1,
-            24,
-            11,
-            6,
-            14,
-            3
-        ]
+        "name": "Front-End Technologies",
+        "icon": "",
+        "order": 3
     }
 },
 {
-    "model": "content.project",
+    "model": "content.skillcategory",
     "pk": 4,
     "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:09:12.452Z",
+        "created_at": "2024-09-18T00:02:31.271Z",
+        "edited_at": "2024-09-18T00:33:44.867Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Field Service Management System Extension",
-        "description": "Developed an extension to the existing field service management system, integrating various software applications including the current field service management software and FreePBX for phone calls. This extension provided easier access to data, improved speed of access, and generated custom reports. The application was built with Django and Python, utilizing multiple databases (Microsoft SQL, MySQL). It was run on an Apache web server with HTML, HTMX, and JavaScript for the front end.",
-        "company": 1,
-        "year": 2017,
-        "image": "",
-        "skills": [
-            7,
-            25,
-            1,
-            15,
-            22,
-            24,
-            19,
-            13,
-            4,
-            5,
-            21,
-            6,
-            3
-        ]
+        "name": "Other",
+        "icon": "",
+        "order": 10
     }
 },
 {
-    "model": "content.project",
+    "model": "content.skillcategory",
     "pk": 5,
     "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:08:29.517Z",
+        "created_at": "2024-09-18T00:03:55.010Z",
+        "edited_at": "2024-09-18T00:33:33.523Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Field Service Management API",
-        "description": "Developed an API for the field service management application running on Microsoft SQL Server. Utilized Python with Django and Django Rest Framework to expose API endpoints, enabling Vue and React applications to access the server.",
-        "company": 1,
-        "year": 2021,
-        "image": "",
-        "skills": [
-            1,
-            4,
-            6,
-            10,
-            28
-        ]
-    }
-},
-{
-    "model": "content.project",
-    "pk": 6,
-    "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:03:59.205Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "name": "Lead Analyzer Reporting Platform",
-        "description": "Developed a platform to extract data from XRF Lead Analyzers, parse CSV files, and generate reports. Implemented multi-step data import wizards for validation and processing. Generated reports in Excel and PDF formats, submitted to a NYC government agency. Built with Django, HTML, HTMX, and JavaScript, using PostgreSQL for storage and running on a Windows server.",
-        "company": 1,
-        "year": 2023,
-        "image": "projects/2024/09/11/paint-rough-concrete-wall-surface.jpg",
-        "skills": [
-            7,
-            25,
-            1,
-            24,
-            19,
-            13,
-            11,
-            14,
-            3
-        ]
-    }
-},
-{
-    "model": "content.project",
-    "pk": 7,
-    "fields": {
-        "created_at": "2024-09-12T23:59:08.613Z",
-        "edited_at": "2024-09-18T01:11:17.450Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "name": "Customer Quoting Application",
-        "description": "Developed a customer-facing quoting application used for collecting customer information and generating quotes with conditional logic. The backend was built using Django and Django Rest Framework with PostgreSQL for data storage. The frontend was created using Nuxt3 and Vuetify.",
-        "company": 1,
-        "year": 2024,
-        "image": "projects/2024/09/10/pexels-tima-miroshnichenko-7567303.jpg",
-        "skills": [
-            7,
-            25,
-            1,
-            24,
-            19,
-            21,
-            18,
-            16,
-            10,
-            17,
-            3
-        ]
+        "name": "Databases",
+        "icon": "",
+        "order": 4
     }
 },
 {
@@ -698,88 +1679,208 @@
     }
 },
 {
-    "model": "content.skillcategory",
+    "model": "content.project",
     "pk": 1,
     "fields": {
-        "created_at": "2024-09-16T23:13:40.937Z",
-        "edited_at": "2024-09-18T00:33:49.005Z",
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:04:56Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Programming Languages",
-        "icon": "",
-        "order": 1
+        "name": "Vehicle GPS Alerting System for Field Service Workers",
+        "description": "Developed a comprehensive system to track field service workers' locations relative to their assigned jobs, start times, and end times. Integrated Vehicle GPS data via REST API with Field Service Management Software, utilizing Microsoft SQL Server and MySQL for data storage. Implemented a real-time dashboard map hosted with PHP, using JavaScript and Google Maps API for asynchronous location updates. Automated the system with Python scripts and Linux-based cron jobs.",
+        "company": 1,
+        "year": 2022,
+        "image": "projects/2024/09/11/high-angle-woman-holding-laptop.jpg",
+        "skills": [
+            25,
+            24,
+            4,
+            5,
+            6,
+            2,
+            3
+        ]
     }
 },
 {
-    "model": "content.skillcategory",
+    "model": "content.project",
     "pk": 2,
     "fields": {
-        "created_at": "2024-09-16T23:13:59.173Z",
-        "edited_at": "2024-09-18T00:33:40.188Z",
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:10:46.513Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Frameworks and Libraries",
-        "icon": "",
-        "order": 2
+        "name": "Automated User Lookup and Reporting System",
+        "description": "Developed a web scraping system to parse emails, look up users on a popular review site, and report findings via email alerts and MySQL database entries. Initially built a real-time dashboard with PHP, MySQL, later transitioned to Python Django. Automated with Python scripts and cron jobs on a remote Linux machine, using the Gmail API for email parsing and alerts. Significantly improved business ratings with timely user information.",
+        "company": 1,
+        "year": 2009,
+        "image": "projects/2024/09/10/pexels-pixabay-276452.jpg",
+        "skills": [
+            25,
+            1,
+            24,
+            4,
+            5
+        ]
     }
 },
 {
-    "model": "content.skillcategory",
+    "model": "content.project",
     "pk": 3,
     "fields": {
-        "created_at": "2024-09-16T23:14:35.201Z",
-        "edited_at": "2024-09-18T00:33:58.570Z",
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:06:21.594Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Front-End Technologies",
-        "icon": "",
-        "order": 3
+        "name": "Visual Lead Inspection Job Tracking System",
+        "description": "Developed a mobile web application for scheduling and tracking lead inspection jobs. The system managed job assignments, tracked completion, and calculated bonuses based on job completion. It also identified duplication errors from vendors to ensure correct payments. Integrated with QuickBooks Online via REST API. Hosted on DigitalOcean droplets using a Linux server with Nginx, the application was built with Django, PostgreSQL, Python, and HTMX for asynchronous interactions and HTML.",
+        "company": 1,
+        "year": 2021,
+        "image": "",
+        "skills": [
+            7,
+            25,
+            1,
+            24,
+            11,
+            6,
+            14,
+            3
+        ]
     }
 },
 {
-    "model": "content.skillcategory",
+    "model": "content.project",
     "pk": 4,
     "fields": {
-        "created_at": "2024-09-18T00:02:31.271Z",
-        "edited_at": "2024-09-18T00:33:44.867Z",
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:09:12.452Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Other",
-        "icon": "",
-        "order": 10
+        "name": "Field Service Management System Extension",
+        "description": "Developed an extension to the existing field service management system, integrating various software applications including the current field service management software and FreePBX for phone calls. This extension provided easier access to data, improved speed of access, and generated custom reports. The application was built with Django and Python, utilizing multiple databases (Microsoft SQL, MySQL). It was run on an Apache web server with HTML, HTMX, and JavaScript for the front end.",
+        "company": 1,
+        "year": 2017,
+        "image": "",
+        "skills": [
+            7,
+            25,
+            1,
+            15,
+            22,
+            24,
+            19,
+            13,
+            4,
+            5,
+            21,
+            6,
+            3
+        ]
     }
 },
 {
-    "model": "content.skillcategory",
+    "model": "content.project",
     "pk": 5,
     "fields": {
-        "created_at": "2024-09-18T00:03:55.010Z",
-        "edited_at": "2024-09-18T00:33:33.523Z",
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:08:29.517Z",
         "creator": [
             "schir2"
         ],
         "editor": [
             "schir2"
         ],
-        "name": "Databases",
-        "icon": "",
-        "order": 4
+        "name": "Field Service Management API",
+        "description": "Developed an API for the field service management application running on Microsoft SQL Server. Utilized Python with Django and Django Rest Framework to expose API endpoints, enabling Vue and React applications to access the server.",
+        "company": 1,
+        "year": 2021,
+        "image": "",
+        "skills": [
+            1,
+            4,
+            6,
+            10,
+            28
+        ]
+    }
+},
+{
+    "model": "content.project",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:03:59.205Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Lead Analyzer Reporting Platform",
+        "description": "Developed a platform to extract data from XRF Lead Analyzers, parse CSV files, and generate reports. Implemented multi-step data import wizards for validation and processing. Generated reports in Excel and PDF formats, submitted to a NYC government agency. Built with Django, HTML, HTMX, and JavaScript, using PostgreSQL for storage and running on a Windows server.",
+        "company": 1,
+        "year": 2023,
+        "image": "projects/2024/09/11/paint-rough-concrete-wall-surface.jpg",
+        "skills": [
+            7,
+            25,
+            1,
+            24,
+            19,
+            13,
+            11,
+            14,
+            3
+        ]
+    }
+},
+{
+    "model": "content.project",
+    "pk": 7,
+    "fields": {
+        "created_at": "2024-09-12T23:59:08.613Z",
+        "edited_at": "2024-09-18T01:11:17.450Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Customer Quoting Application",
+        "description": "Developed a customer-facing quoting application used for collecting customer information and generating quotes with conditional logic. The backend was built using Django and Django Rest Framework with PostgreSQL for data storage. The frontend was created using Nuxt3 and Vuetify.",
+        "company": 1,
+        "year": 2024,
+        "image": "projects/2024/09/10/pexels-tima-miroshnichenko-7567303.jpg",
+        "skills": [
+            7,
+            25,
+            1,
+            24,
+            19,
+            21,
+            18,
+            16,
+            10,
+            17,
+            3
+        ]
     }
 },
 {
@@ -882,6 +1983,2111 @@
         "editor": null,
         "name": "MMPC",
         "url": "https://www.mandmpestcontrol.com"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Python",
+        "slug": "python"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Django",
+        "slug": "django"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Algorithms",
+        "slug": "algorithms"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Data Structures",
+        "slug": "data-structures"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "REST API",
+        "slug": "rest-api"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Design Patterns",
+        "slug": "design-patterns"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 7,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Code Optimization",
+        "slug": "code-optimization"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 8,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "HTML",
+        "slug": "html"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 9,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "CSS",
+        "slug": "css"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 10,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "JavaScript",
+        "slug": "javascript"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 11,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "React",
+        "slug": "react"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 12,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Vue.js",
+        "slug": "vue.js"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 13,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Tailwind CSS",
+        "slug": "tailwind-css"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 14,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Responsive Design",
+        "slug": "responsive-design"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 15,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Machine Learning",
+        "slug": "machine-learning"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 16,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Data Visualization",
+        "slug": "data-visualization"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 17,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Pandas",
+        "slug": "pandas"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 18,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "NumPy",
+        "slug": "numpy"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 19,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Scikit-Learn",
+        "slug": "scikit-learn"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 20,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Matplotlib",
+        "slug": "matplotlib"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 21,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-29T22:03:51.773Z",
+        "creator": null,
+        "editor": [
+            "schir2"
+        ],
+        "name": "CI/CD",
+        "slug": "cicd"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 22,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Docker",
+        "slug": "docker"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 23,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Kubernetes",
+        "slug": "kubernetes"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 24,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Ansible",
+        "slug": "ansible"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 25,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Terraform",
+        "slug": "terraform"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 26,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Cloud",
+        "slug": "cloud"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 27,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Jenkins",
+        "slug": "jenkins"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 28,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Networking",
+        "slug": "networking"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 29,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Firewalls",
+        "slug": "firewalls"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 30,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "VPN",
+        "slug": "vpn"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 31,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Security",
+        "slug": "security"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 32,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Linux",
+        "slug": "linux"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 33,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Windows Server",
+        "slug": "windows-server"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 34,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Troubleshooting",
+        "slug": "troubleshooting"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 35,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "IT Support",
+        "slug": "it-support"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 36,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Helpdesk",
+        "slug": "helpdesk"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 37,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "SysAdmin",
+        "slug": "sysadmin"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 38,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Scripting",
+        "slug": "scripting"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 39,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Bouldering",
+        "slug": "bouldering"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 40,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Sport Climbing",
+        "slug": "sport-climbing"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 41,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Trad Climbing",
+        "slug": "trad-climbing"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 42,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Training",
+        "slug": "training"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 43,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Gear Reviews",
+        "slug": "gear-reviews"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 44,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Marathon",
+        "slug": "marathon"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 45,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "5K",
+        "slug": "5k"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 46,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "10K",
+        "slug": "10k"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 47,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Training Plans",
+        "slug": "training-plans"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 48,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Gear",
+        "slug": "gear"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 49,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Trail Running",
+        "slug": "trail-running"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 50,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Strength Training",
+        "slug": "strength-training"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 51,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Flexibility",
+        "slug": "flexibility"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 52,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Cardio",
+        "slug": "cardio"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 53,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "HIIT",
+        "slug": "hiit"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 54,
+    "fields": {
+        "created_at": "2024-09-28T15:44:13Z",
+        "edited_at": "2024-09-28T15:44:13Z",
+        "creator": null,
+        "editor": null,
+        "name": "Yoga",
+        "slug": "yoga"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 55,
+    "fields": {
+        "created_at": "2024-10-12T23:26:16.138Z",
+        "edited_at": "2024-10-12T23:26:16.138Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Financial Planning",
+        "slug": "financial-planning"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 56,
+    "fields": {
+        "created_at": "2024-10-12T23:27:01.854Z",
+        "edited_at": "2024-10-12T23:27:01.854Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Personal Finance",
+        "slug": "personal-finance"
+    }
+},
+{
+    "model": "blog.tag",
+    "pk": 57,
+    "fields": {
+        "created_at": "2024-10-13T00:37:15.592Z",
+        "edited_at": "2024-10-13T00:37:15.592Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Project Management",
+        "slug": "project-management"
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "Software Development",
+        "slug": "software-development",
+        "description": "Articles about programming concepts, software design patterns, tutorials, and code samples."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "Web Development",
+        "slug": "web-development",
+        "description": "Focused on frontend and backend web development, covering topics like HTML, CSS, JavaScript, Django, and APIs."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "Data Science & Analytics",
+        "slug": "data-science-analytics",
+        "description": "Data analysis, machine learning, and insights on handling and visualizing data with Python or other tools."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "DevOps & Automation",
+        "slug": "devops-automation",
+        "description": "Content on CI/CD, Docker, Kubernetes, server automation, and configuration management."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "IT Infrastructure",
+        "slug": "it-infrastructure",
+        "description": "Topics on networking, servers, security, and infrastructure management."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "IT Operations & Support",
+        "slug": "it-operations-support",
+        "description": "Day-to-day IT operations, troubleshooting, and support tips for both on-premises and cloud systems."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 7,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "Climbing",
+        "slug": "climbing",
+        "description": "Personal experiences, climbing techniques, training tips, and gear recommendations for bouldering and climbing."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 8,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "Running",
+        "slug": "running",
+        "description": "Articles covering running routines, training plans, race experiences, and gear reviews."
+    }
+},
+{
+    "model": "blog.topic",
+    "pk": 9,
+    "fields": {
+        "created_at": "2024-09-25T12:00:00Z",
+        "edited_at": "2024-09-25T12:00:00Z",
+        "creator": null,
+        "editor": null,
+        "name": "Fitness",
+        "slug": "fitness",
+        "description": "General fitness tips, strength training routines, flexibility exercises, and maintaining overall health."
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 11,
+    "fields": {
+        "created_at": "2024-10-05T04:53:05.582Z",
+        "edited_at": "2024-10-05T19:50:34.026Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "CSS Display Properties Cheatsheet",
+        "slug": "css-display-properties-cheatsheet",
+        "content": "<div class=\"container mx-auto px-4 sm:px-6 lg:px-8 py-8\">\r\n<h1 class=\"text-4xl font-bold mb-8 text-center\">&nbsp;</h1>\r\n&nbsp;\r\n\r\n<div class=\"overflow-x-auto\">\r\n<table class=\"min-w-full border border-gray-200 divide-y divide-gray-200 rounded-lg\">\r\n\t<thead class=\"bg-gray-50\">\r\n\t\t<tr>\r\n\t\t\t<th class=\"px-4 py-3 text-left text-sm font-semibold text-gray-700\">Display Type</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Width/Height</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Padding/Margin</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Border</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Box Shadow</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Text Shadow</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Full Width</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Wraps Inline</th>\r\n\t\t\t<th class=\"px-4 py-3 text-center text-sm font-semibold text-gray-700\">Vertical Align</th>\r\n\t\t\t<th class=\"px-4 py-3 text-left text-sm font-semibold text-gray-700\">Common Uses</th>\r\n\t\t\t<th class=\"px-4 py-3 text-left text-sm font-semibold text-gray-700\">Default HTML Tags</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody class=\"bg-white divide-y divide-gray-200\"><!-- Inline -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">inline</td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Cannot set</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Vertical limited</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">May overlap</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Not reliable</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Content width</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Flows inline</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can align</span> </c-icons.check></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Text styling</li>\r\n\t\t\t\t<li>Emphasis</li>\r\n\t\t\t\t<li>Links</li>\r\n\t\t\t\t<li>Highlights</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\"><!-- Using c-blog.badge component -->\r\n\t\t\t<div class=\"flex flex-wrap gap-2\"><c-blog.badge color=\"blue\">span</c-blog.badge> <c-blog.badge color=\"blue\">a</c-blog.badge> <c-blog.badge color=\"blue\">em</c-blog.badge> <c-blog.badge color=\"blue\">strong</c-blog.badge></div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<!-- Block -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">block</td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can set</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">All sides</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Expands</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Starts new line</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-gray-500\"><c-icons.minus><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">N/A</span></c-icons.minus></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Layout containers</li>\r\n\t\t\t\t<li>Sections</li>\r\n\t\t\t\t<li>Cards</li>\r\n\t\t\t\t<li>Articles</li>\r\n\t\t\t\t<li>Modals</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<div class=\"flex flex-wrap gap-2\"><c-blog.badge color=\"green\">div</c-blog.badge> <c-blog.badge color=\"green\">p</c-blog.badge> <c-blog.badge color=\"green\">h1-h6</c-blog.badge> <c-blog.badge color=\"green\">ul</c-blog.badge> <c-blog.badge color=\"green\">li</c-blog.badge> <c-blog.badge color=\"green\">section</c-blog.badge></div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<!-- Inline-block -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">inline-block</td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can set</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">All sides</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Content width</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Flows inline</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can align</span> </c-icons.check></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Buttons</li>\r\n\t\t\t\t<li>Badges</li>\r\n\t\t\t\t<li>Images</li>\r\n\t\t\t\t<li>Icons</li>\r\n\t\t\t\t<li>Chips</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<div class=\"flex flex-wrap gap-2\"><c-blog.badge color=\"purple\">img</c-blog.badge> <c-blog.badge color=\"purple\">button</c-blog.badge> <c-blog.badge color=\"purple\">input</c-blog.badge> <c-blog.badge color=\"purple\">select</c-blog.badge> <c-blog.badge color=\"purple\">textarea</c-blog.badge></div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<!-- Flex -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">flex</td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can set</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">All sides</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Expands</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Starts new line</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-blue-500\"><c-icons.code><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Flex align</span> </c-icons.code></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Navigation bars</li>\r\n\t\t\t\t<li>Carousels</li>\r\n\t\t\t\t<li>Responsive grids</li>\r\n\t\t\t\t<li>Toolbars</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">&nbsp;</td>\r\n\t\t</tr>\r\n\t\t<!-- Inline-flex -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">inline-flex</td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can set</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">All sides</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Content width</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Flows inline</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-blue-500\"><c-icons.code><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Flex align</span> </c-icons.code></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Inline menus</li>\r\n\t\t\t\t<li>Button groups</li>\r\n\t\t\t\t<li>Tags</li>\r\n\t\t\t\t<li>Chips</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">&nbsp;</td>\r\n\t\t</tr>\r\n\t\t<!-- Grid -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">grid</td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can set</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">All sides</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Expands</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Starts new line</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-blue-500\"><c-icons.grid><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Grid align</span> </c-icons.grid></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Photo galleries</li>\r\n\t\t\t\t<li>Dashboards</li>\r\n\t\t\t\t<li>Complex layouts</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">&nbsp;</td>\r\n\t\t</tr>\r\n\t\t<!-- Inline-grid -->\r\n\t\t<tr class=\"hover:bg-gray-50\">\r\n\t\t\t<td class=\"px-4 py-4 text-sm font-medium text-gray-900\">inline-grid</td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Can set</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">All sides</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Works</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-red-500\"><c-icons.x><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Content width</span> </c-icons.x></td>\r\n\t\t\t<td class=\"text-center text-sm text-green-600\"><c-icons.check><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Flows inline</span> </c-icons.check></td>\r\n\t\t\t<td class=\"text-center text-sm text-blue-500\"><c-icons.grid><br />\r\n\t\t\t<span class=\"text-xs text-gray-500\">Grid align</span> </c-icons.grid></td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">\r\n\t\t\t<ul class=\"list-disc list-inside\">\r\n\t\t\t\t<li>Embedded widgets</li>\r\n\t\t\t\t<li>Inline grids</li>\r\n\t\t\t</ul>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"px-4 py-4 text-sm text-gray-700\">&nbsp;</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>",
+        "topic": 2,
+        "image": "",
+        "is_published": true,
+        "view_count": 24,
+        "popularity_score": 0.0,
+        "tags": [
+            9
+        ]
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 12,
+    "fields": {
+        "created_at": "2024-10-12T22:28:26.245Z",
+        "edited_at": "2024-10-12T22:47:17.240Z",
+        "creator": null,
+        "editor": null,
+        "title": "Retirmenet Calculator Research",
+        "slug": "retirmenet-calculator-research",
+        "content": "<h3>Age &amp; Year</h3>\r\n\r\n<ul>\r\n\t<li><strong>Age</strong>: Your age for each year of the projection.</li>\r\n\t<li><strong>Year</strong>: The year for that particular projection row.</li>\r\n</ul>\r\n\r\n<h3>Portfolio-related Values</h3>\r\n\r\n<ul>\r\n\t<li><strong>Total Taxable Portfolios</strong>: This refers to the total value of your taxable accounts (such as brokerage accounts) that are subject to capital gains taxes.</li>\r\n\t<li><strong>Total Retirement Portfolios</strong>: This is the total value of your retirement accounts, such as IRAs or 401(k)s, which are tax-advantaged.</li>\r\n\t<li><strong>Total Gross Portfolio Value</strong>: The sum of both your taxable and retirement portfolios, showing the total value of your investments.</li>\r\n</ul>\r\n\r\n<h3>Tax-Adjusted Values</h3>\r\n\r\n<ul>\r\n\t<li><strong>Estimated After-Tax Value</strong>: The net value of your total portfolio after accounting for taxes. It&rsquo;s often less than the total gross portfolio value due to taxes that may be owed upon withdrawals from certain accounts.</li>\r\n\t<li><strong>Estimated Annual Income</strong>: This seems to be your projected income for that year, potentially coming from the withdrawals of the portfolios or other sources of income.</li>\r\n</ul>\r\n\r\n<h3>Withdrawal-Related Values</h3>\r\n\r\n<ul>\r\n\t<li><strong>4% Withdrawal</strong>: This represents different scenarios for withdrawing 4% of your total gross portfolio, typically used as a rule of thumb for sustainable withdrawal rates in retirement.</li>\r\n\t<li><strong>5% Withdrawal</strong>: Similar to the above but assuming you withdraw 5% of your total portfolio, which is generally considered a higher-risk strategy for portfolio sustainability.</li>\r\n</ul>\r\n\r\n<h3>Savings and Investment Contributions</h3>\r\n\r\n<ul>\r\n\t<li><strong>Pre-Tax Savings</strong>: Amount you are contributing to your tax-deferred retirement accounts (like a 401(k)) for that year.</li>\r\n\t<li><strong>After-Tax Savings</strong>: Savings contributions to accounts that do not have tax benefits, like taxable brokerage accounts.</li>\r\n</ul>\r\n\r\n<h3>Investment Growth</h3>\r\n\r\n<ul>\r\n\t<li><strong>Investment Rate of Return</strong>: This is the assumed growth rate of your portfolio for that year, reflecting the performance of your investments.</li>\r\n</ul>\r\n\r\n<h3>Spending and Earnings</h3>\r\n\r\n<ul>\r\n\t<li><strong>Annual Spending</strong>: Your projected annual expenses for each year.</li>\r\n\t<li><strong>Annual Savings</strong>: The amount you are saving from your income each year, which is contributing to your portfolio growth.</li>\r\n\t<li><strong>Post-Tax Earnings</strong>: This shows your income after taxes, available for spending or saving.</li>\r\n\t<li><strong>Estimated Pre-Tax Earnings</strong>: This is your earnings before taxes are deducted, including any salary or other income sources.</li>\r\n\t<li><strong>Estimated Taxes</strong>: The total estimated taxes you owe for that year based on your income, portfolio, and withdrawals.</li>\r\n</ul>\r\n\r\n<h3>&nbsp;</h3>\r\n\r\n<h3>Additional Considerations:</h3>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Inflation</strong>: While you included a basic inflation rate, retirement calculators should account for how inflation affects both expenses and portfolio growth. You may want to allow users to adjust the inflation rate and model how it compounds over time, affecting both savings and spending.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Life Expectancy</strong>: Users should be able to input their life expectancy to estimate how long their retirement savings need to last. Including a default value based on average life expectancy could help, but this should be customizable based on the user&#39;s health and family history.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Social Security or Pension Income</strong>: Include the option for users to input expected Social Security benefits, pensions, or any other regular income they&rsquo;ll receive in retirement. This would reduce the amount they need to withdraw from their retirement portfolios.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Tax Rates</strong>: Different accounts (taxable, tax-deferred, tax-exempt) will have different withdrawal tax implications. Users may want to factor in both their expected income tax rates in retirement and the tax treatment of various accounts. This can get complicated but having an option to input an estimated tax rate would help.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Investment Returns</strong>: While you&rsquo;ve included an investment rate of return, it&rsquo;s essential to allow users to adjust this based on their own portfolio and risk tolerance. A range for conservative, moderate, and aggressive portfolios might also be useful.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Retirement Age</strong>: Allow users to input different potential retirement ages to see how it impacts their savings and withdrawal rates. Early retirees might have a lower Social Security benefit or a longer withdrawal period, for example.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Healthcare Costs</strong>: Healthcare expenses, including potential long-term care, can be a significant and unpredictable cost in retirement. Adding a placeholder for estimated healthcare costs could be crucial, particularly since these costs often increase with age.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Withdrawal Strategy</strong>: Different withdrawal strategies (like the 4% rule) affect how long a portfolio will last. Users might want to try different withdrawal rates (3%, 4%, 5%) or adopt dynamic withdrawal strategies (i.e., reducing withdrawals in down markets).</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Required Minimum Distributions (RMDs)</strong>: For tax-deferred accounts, users should consider RMDs after a certain age (e.g., 73 in the US). Users should be able to account for this, as they must start withdrawing a minimum amount whether they need the income or not.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Spousal Retirement Planning</strong>: Some users may have spouses or partners with their own income, retirement accounts, and social security benefits. A joint retirement planning feature would allow for more comprehensive planning.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Debt</strong>: Include an option for users to input outstanding debt (e.g., mortgage, student loans, credit card debt) and planned debt pay-off strategies, as this affects both savings and spending power in retirement.</p>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Customizable Variables for Users:</h3>\r\n\r\n<ul>\r\n\t<li><strong>Annual Spending</strong>: Allow users to input and adjust their expected retirement spending, which will have a huge impact on when they can retire.</li>\r\n\t<li><strong>Pre- and After-Tax Savings</strong>: Let users adjust their savings contributions pre-tax (e.g., 401k, IRA) and after-tax (e.g., brokerage accounts) to see how additional savings affect their timeline.</li>\r\n\t<li><strong>Rate of Return on Investments</strong>: Offer users the ability to choose between conservative, moderate, and aggressive investment portfolios to project future growth.</li>\r\n\t<li><strong>Tax Rates</strong>: Input an estimated tax rate, which users can adjust based on their own situation.</li>\r\n\t<li><strong>Social Security/Pension Benefits</strong>: Allow users to input their expected benefit amounts and start dates to reduce withdrawals from savings.</li>\r\n\t<li><strong>Life Expectancy</strong>: Let users adjust the expected life expectancy, so they can see how it affects the longevity of their retirement funds.</li>\r\n\t<li><strong>Withdrawal Strategy</strong>: Let users choose different strategies, such as fixed-percentage withdrawals or dynamic withdrawals (based on market conditions).</li>\r\n\t<li><strong>Healthcare Costs</strong>: Include a section where users can estimate annual healthcare costs and increase that over time to account for aging.</li>\r\n</ul>\r\n\r\n<p><strong>Debt Repayment</strong>: Allow users to factor in when debts will be paid off, as this will impact their spending and savings rate pre-retirement.<br />\r\n<br />\r\n&nbsp;</p>\r\n\r\n<h3>Key Elements to Consider for Your Approach:</h3>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Starting with High-Level Goals</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Your idea to ask for retirement goals is a solid foundation. Some potential goals you might ask about could include:\r\n\t\t<ul>\r\n\t\t\t<li>Early retirement (before traditional retirement age).</li>\r\n\t\t\t<li>Comfortable retirement (maintaining current lifestyle).</li>\r\n\t\t\t<li>High spending in retirement (e.g., for travel or large expenses).</li>\r\n\t\t\t<li>Minimizing risk and having a sustainable income stream.</li>\r\n\t\t\t<li>Maximizing legacy (leaving money to heirs).</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li>Offering preset choices or custom options will help users feel guided while allowing for flexibility.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Step-by-Step Breakdown of Values</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>After determining their goal, you can ask them for key values in small chunks so it doesn&rsquo;t feel overwhelming:\r\n\t\t<ul>\r\n\t\t\t<li><strong>Current Savings</strong>: Taxable and retirement.</li>\r\n\t\t\t<li><strong>Expected Income</strong>: Current and any changes they expect (e.g., raises or drops).</li>\r\n\t\t\t<li><strong>Savings Rate</strong>: Current and planned future contributions.</li>\r\n\t\t\t<li><strong>Estimated Spending</strong>: Current and anticipated retirement spending.</li>\r\n\t\t\t<li><strong>Retirement Age</strong>: When do they want to retire?</li>\r\n\t\t\t<li><strong>Expected Rate of Return</strong>: Offering them ranges based on their risk tolerance (conservative, moderate, aggressive).</li>\r\n\t\t\t<li><strong>Tax Rates</strong>: You can offer defaults, but allow them to input custom rates if they have specific knowledge.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Allow Adjustments</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Before showing results, allow the user to tweak assumptions, such as:\r\n\t\t<ul>\r\n\t\t\t<li><strong>Risk Tolerance</strong>: Let them adjust between conservative, moderate, and aggressive investment portfolios.</li>\r\n\t\t\t<li><strong>Retirement Age Scenarios</strong>: What happens if they retire 5 years earlier or later?</li>\r\n\t\t\t<li><strong>Withdrawal Strategies</strong>: Allow them to try different withdrawal rates (3%, 4%, 5%).</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Interactive Education</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>You want the tool to be a learning resource, which is fantastic. You can incorporate explanations alongside each prompt:\r\n\t\t<ul>\r\n\t\t\t<li><strong>Tooltips or Popups</strong>: When asking for each input (e.g., income, savings rate), provide concise explanations on why it matters.</li>\r\n\t\t\t<li><strong>Scenario Examples</strong>: Show them how different choices (like retiring early vs. late) might impact their financial health.</li>\r\n\t\t\t<li><strong>Educational Resources</strong>: After giving results, provide resources like articles or videos on how to improve their savings or optimize taxes.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Alternative Approaches to Consider:</h3>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Pre-filled Data for Newbies</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>For users with no financial knowledge, you could have an option for &quot;pre-filled defaults.&quot; For example, you could suggest default values for income growth, inflation, savings rates, and investment returns based on typical data. This allows users to adjust things later after they see results and learn more.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Gamified Exploration</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>You could add a gamification aspect by letting users explore &quot;What if&quot; scenarios. For example:\r\n\t\t<ul>\r\n\t\t\t<li>What if they increased savings by $200/month?</li>\r\n\t\t\t<li>What if they retired at 62 instead of 67?</li>\r\n\t\t\t<li>This allows users to see the immediate impact of changes in an interactive way, motivating them to engage more deeply with their financial future.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Dashboard-like Interface</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Instead of a linear prompt approach, you might offer a dashboard with several sections (goals, income, savings, retirement age, risk tolerance, etc.), allowing users to fill in information in any order. This could make it feel less restrictive and give users more control over the process.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Visuals and Graphs Throughout</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Rather than waiting until the end, you might consider showing smaller graphs throughout the process. For example:\r\n\t\t<ul>\r\n\t\t\t<li>After entering their savings rate, show them a projected savings growth graph.</li>\r\n\t\t\t<li>After inputting their retirement age and expected returns, display a preliminary graph showing how long their money could last.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Risk Profiles</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Along with risk tolerance (aggressive vs. conservative), you could implement a simple risk profile quiz upfront. It would ask about the user&rsquo;s preferences, and the calculator could adjust assumptions and give warnings accordingly (e.g., &quot;Based on your risk profile, a 5% withdrawal rate might be too aggressive&quot;).</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Summary and Sensitivity Analysis</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Once the user inputs everything, show them a summary page with key numbers (when they can retire, how much they can withdraw, etc.) and allow them to tweak one or two values while dynamically showing how that changes their results.</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Conclusion Step:</h3>\r\n\r\n<ul>\r\n\t<li><strong>Graphical Results</strong>: Offer users graphs and visual representations of their financial journey. Some potential graphs:\r\n\r\n\t<ul>\r\n\t\t<li><strong>Portfolio Growth</strong>: Showing how their portfolio will grow over time, pre- and post-retirement.</li>\r\n\t\t<li><strong>Spending vs. Income</strong>: A graph that shows their projected spending versus withdrawal income, illustrating sustainability.</li>\r\n\t\t<li><strong>Scenario Comparisons</strong>: If they try different retirement ages or savings rates, side-by-side comparisons can show how much longer their money will last.</li>\r\n\t</ul>\r\n\t</li>\r\n</ul>\r\n\r\n<h3>Final Thoughts:</h3>\r\n\r\n<p>This interactive, user-friendly, and educational approach would help users not only determine when they can retire but also teach them about financial planning. Starting with prompts to gauge their needs is a strong foundation. Additionally, giving users flexibility, showing interim results, and offering tools to tweak inputs or view alternative scenarios will make the tool even more powerful. Combining this with graphs, simple explanations, and educational resources will enhance user experience for people with varying levels of financial knowledge.</p>",
+        "topic": null,
+        "image": "",
+        "is_published": true,
+        "view_count": 4,
+        "popularity_score": 0.0,
+        "tags": []
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 13,
+    "fields": {
+        "created_at": "2024-10-12T22:52:59.933Z",
+        "edited_at": "2024-10-12T22:57:23.497Z",
+        "creator": null,
+        "editor": null,
+        "title": "Financial Calculator MVP",
+        "slug": "financial-calculator-mvp",
+        "content": "<h3>Minimum Viable Product (MVP)</h3>\r\n\r\n<p>The goal of the MVP is to create a working version of the calculator that allows users to input and adjust variables directly. Here are the core components to focus on:</p>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Core Functionality</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Input Form</strong>: Build a simple, clean form where users can input key variables, such as:\r\n\r\n\t\t<ul>\r\n\t\t\t<li>Current savings (taxable and retirement accounts)</li>\r\n\t\t\t<li>Monthly/Annual savings contributions</li>\r\n\t\t\t<li>Expected investment rate of return</li>\r\n\t\t\t<li>Desired retirement age</li>\r\n\t\t\t<li>Estimated annual spending in retirement</li>\r\n\t\t\t<li>Life expectancy</li>\r\n\t\t\t<li>Withdrawal rate (4%, 5%, etc.)</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li><strong>Backend Logic</strong>: Implement the core calculations for:\r\n\t\t<ul>\r\n\t\t\t<li>Projecting portfolio growth (considering savings and returns)</li>\r\n\t\t\t<li>Calculating how long savings will last given spending rates</li>\r\n\t\t\t<li>Determining whether retirement goals are achievable with the given variables</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>User Interface</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Keep the UI minimal and focused:\r\n\t\t<ul>\r\n\t\t\t<li><strong>Form</strong>: Use Django and Tailwind to create an intuitive form layout.</li>\r\n\t\t\t<li><strong>Results Section</strong>: Display results in a simple, easy-to-read format, such as:\r\n\t\t\t<ul>\r\n\t\t\t\t<li>Projected retirement age</li>\r\n\t\t\t\t<li>How long the savings will last</li>\r\n\t\t\t\t<li>Graph showing the balance over time (consider using a lightweight graphing library like Chart.js)</li>\r\n\t\t\t</ul>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Graphing and Visualization</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Graphs for Visualization</strong>: Add basic graphs to visually show:\r\n\r\n\t\t<ul>\r\n\t\t\t<li>Portfolio growth over time</li>\r\n\t\t\t<li>Withdrawals versus spending</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li>Consider using <strong>Chart.js</strong> or <strong>Plotly</strong> for graphing, as these are lightweight and work well with Django.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Basic Styling and Interactivity</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Use <strong>Tailwind CSS</strong> for a responsive layout.</li>\r\n\t\t<li>Use <strong>Alpine.js</strong> for light interactive features, such as adjusting withdrawal rates dynamically and updating calculations without a page refresh.</li>\r\n\t\t<li><strong>Anime.js</strong> could be used sparingly to make the transitions or interactions feel smooth.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Testing and Validation</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Focus on accuracy in the calculations.</li>\r\n\t\t<li>Ensure the form handles different types of inputs (e.g., zero values, negative values, incorrect formats).</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Future Add-ons (After MVP)</h3>\r\n\r\n<p>Once the core calculator is working well, you can enhance it with additional features to improve user experience and make it more educational.</p>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Guided User Setup (Educational Version)</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>User Goals Prompt</strong>: Start with a series of prompts to ask users what their retirement goals are (e.g., early retirement, comfortable lifestyle).</li>\r\n\t\t<li><strong>Step-by-Step Form</strong>: Break down inputs into smaller, more manageable questions, each with explanations.</li>\r\n\t\t<li><strong>Interactive Explanations</strong>: Add tooltips, popovers, or even small info videos for users to understand each variable (using <strong>Alpine.js</strong> for interactivity).</li>\r\n\t\t<li><strong>Examples and Pre-filled Data</strong>: Provide examples with pre-filled values to make it easier for beginners.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Advanced Graphing and Scenario Analysis</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Scenario Comparison</strong>: Allow users to compare different scenarios side-by-side (e.g., different retirement ages, savings rates).</li>\r\n\t\t<li><strong>Monte Carlo Simulation</strong>: If you want to get advanced, add a Monte Carlo simulation to show the probability of success for various withdrawal strategies. This could be implemented with Python libraries like <strong>NumPy</strong> and visualized using <strong>Plotly</strong>.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Save User Data and Profiles</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Let users save their data and scenarios for future reference. Implement a login system (using Django&rsquo;s authentication system).</li>\r\n\t\t<li><strong>Dashboard</strong>: Create a dashboard where users can see their saved scenarios and track progress.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Mobile Responsiveness and UX Enhancements</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Ensure the calculator is mobile-friendly, as many users may access it on the go.</li>\r\n\t\t<li>Use <strong>Anime.js</strong> for subtle animations that make the interface more engaging without being overwhelming.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Incorporate Educational Resources</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>After users get their results, link them to relevant educational resources, like articles or videos on improving savings, optimizing tax strategies, or understanding investments.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Risk Assessment and Personalization</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Implement a risk assessment feature to gauge the user&#39;s risk tolerance and suggest appropriate rates of return.</li>\r\n\t\t<li>Provide customized recommendations based on user inputs (e.g., if they want high spending in retirement, suggest increased savings).</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Suggested Implementation Plan</h3>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Phase 1: Core Calculator (MVP)</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Implement the form to gather necessary inputs.</li>\r\n\t\t<li>Write the backend logic for retirement calculations.</li>\r\n\t\t<li>Display results in a basic text and graphical form.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Phase 2: Add Visualization and Interactivity</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Integrate graphs to show portfolio growth, withdrawals, etc.</li>\r\n\t\t<li>Add interactivity (using Alpine.js) to make the calculator more engaging.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Phase 3: Guided User Setup and Educational Flow</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Create the beginner-friendly version with prompts.</li>\r\n\t\t<li>Add educational content alongside input fields.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Phase 4: Advanced Features and Scenario Analysis</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Implement advanced features like scenario comparisons and Monte Carlo simulations.</li>\r\n\t\t<li>Add a user profile and save/load functionality.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Phase 5: Deployment and User Testing</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Deploy the application to gather user feedback.</li>\r\n\t\t<li>Conduct usability testing to ensure both the advanced and educational versions meet user needs.</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Tooling Considerations</h3>\r\n\r\n<ul>\r\n\t<li><strong>Graphing</strong>: Chart.js is lightweight, easy to integrate, and a good starting point for simple graphs. If you want more advanced graphing capabilities, Plotly can be an option later.</li>\r\n\t<li><strong>Backend Calculations</strong>: Use Python&rsquo;s numerical libraries (like NumPy) for efficient calculations.</li>\r\n\t<li><strong>Styling</strong>: You&rsquo;re already using Tailwind, which is great for maintaining a clean and responsive UI.</li>\r\n\t<li><strong>Interactivity</strong>: Alpine.js is perfect for keeping things lightweight while allowing interactivity.</li>\r\n</ul>\r\n\r\n<p>Your current approach of starting with the advanced calculator is well thought out, as it will ensure the core functionality is robust before moving into more guided, user-friendly features. Once you have confidence in the calculations, expanding to include educational aspects will make the tool more approachable for all users.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3>Updated MVP Scope</h3>\r\n\r\n<p>The revised minimum viable product (MVP) would still focus on the advanced version, but with added guidance and suggestions based on user inputs. Here&#39;s how the MVP can be expanded:</p>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Core Inputs and Calculations</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Allow users to input key variables such as:\r\n\t\t<ul>\r\n\t\t\t<li><strong>Current Savings</strong> (taxable, retirement accounts)</li>\r\n\t\t\t<li><strong>Savings Contributions</strong> (monthly/annual, pre-tax and after-tax)</li>\r\n\t\t\t<li><strong>Expected Rate of Return</strong></li>\r\n\t\t\t<li><strong>Desired Retirement Age</strong></li>\r\n\t\t\t<li><strong>Expected Spending</strong> in retirement</li>\r\n\t\t\t<li><strong>Life Expectancy</strong></li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li>Implement core calculations:\r\n\t\t<ul>\r\n\t\t\t<li><strong>Portfolio Growth</strong> projections.</li>\r\n\t\t\t<li><strong>Withdrawal Projections</strong> (e.g., 4% withdrawal strategy).</li>\r\n\t\t\t<li><strong>Duration of Savings</strong> based on retirement spending.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Suggestions and Smart Guidance</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Withdrawal Rate Recommendations</strong>: Analyze user data (e.g., savings, spending needs, age) and suggest a sustainable withdrawal rate. For example:\r\n\r\n\t\t<ul>\r\n\t\t\t<li>If user savings are insufficient for a 4% withdrawal rate, suggest increasing savings or delaying retirement.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li><strong>Contribution Guidance</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Analyze whether users are maximizing contributions to pre-tax accounts.</li>\r\n\t\t\t<li>Suggest balancing pre-tax vs. after-tax contributions for optimal tax efficiency.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li><strong>Risk Tolerance Suggestions</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Use the user&rsquo;s income, age, and financial status to suggest a risk profile (conservative, moderate, aggressive).</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li><strong>Tax Awareness</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Highlight potential tax pitfalls, such as reaching higher tax brackets in retirement based on withdrawal amounts.</li>\r\n\t\t\t<li><strong>Withdrawal Strategy Suggestions</strong>: Suggest starting pre-tax withdrawals early to avoid higher tax brackets later. Include tips to optimize tax brackets, such as Roth conversions or balancing withdrawals between different account types.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>User Interface and Results</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Input Form</strong>: Develop an intuitive form for all variables.</li>\r\n\t\t<li><strong>Results Display</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Show a summary of projected retirement readiness.</li>\r\n\t\t\t<li>Include graphs to visualize savings growth and income vs. spending.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li><strong>Graphing</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Use <strong>Chart.js</strong> or <strong>Plotly</strong> to visualize portfolio growth, tax impact, and potential withdrawal scenarios.</li>\r\n\t\t\t<li>Integrate tax brackets into graphs to visually show the effect of different withdrawal rates on taxable income.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t\t<li><strong>Tooltips and Contextual Help</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Include small explanations next to input fields to guide users on the importance of each variable.</li>\r\n\t\t\t<li>Use <strong>Alpine.js</strong> to implement these tooltips or collapsible help messages.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Add-Ons for Future Versions (Beyond MVP)</h3>\r\n\r\n<p>Once the MVP is complete, consider adding the following to create more user-friendly, personalized versions:</p>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Guided Beginner-Friendly Version</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Create an educational version where users are guided step-by-step, with educational materials at each stage.</li>\r\n\t\t<li>Offer scenarios and suggest goals to help users who have less financial knowledge.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Tailored Version for Specific Needs</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Personalized Profiles</strong>: Allow users to create profiles and save their scenarios.</li>\r\n\t\t<li><strong>Tailored Suggestions</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Based on their state of residence, use an API to pull state-specific tax information and adjust calculations accordingly.</li>\r\n\t\t\t<li>Suggest specific financial actions, such as Roth conversions, based on tax bracket projections.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Risk Profiling and Scenario Exploration</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>Risk Assessment Quiz</strong>: Develop a short quiz to assess the user&rsquo;s risk tolerance and guide them accordingly.</li>\r\n\t\t<li><strong>Scenario Comparison</strong>:\r\n\t\t<ul>\r\n\t\t\t<li>Allow users to easily switch between scenarios (e.g., early retirement vs. delayed retirement, conservative vs. aggressive growth) and compare the impact visually.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Tax Integration</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Integrate an API to get real-time tax rates based on the user&rsquo;s location and income level. This could be particularly useful for users residing in the U.S., where state taxes vary.</li>\r\n\t\t<li>Highlight tax implications of different withdrawal strategies.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Machine Learning Insights (Future Phase)</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>If feasible, use machine learning to provide deeper insights into users&rsquo; retirement readiness. For example:\r\n\t\t<ul>\r\n\t\t\t<li>Predict the probability of portfolio success based on historical data.</li>\r\n\t\t\t<li>Use clustering to identify which financial habits lead to better retirement outcomes and suggest these to users.</li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Multi-Version Approach</h3>\r\n\r\n<p>Since you mentioned considering different versions of the calculator, here&rsquo;s a potential approach:</p>\r\n\r\n<ol>\r\n\t<li>\r\n\t<p><strong>Simple Version</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Provides a straightforward calculator for those wanting a quick estimate.</li>\r\n\t\t<li>Limited options, no deep analysis&mdash;perfect for users who just want a quick idea of how they&#39;re doing.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Advanced Version</strong> (MVP):</p>\r\n\r\n\t<ul>\r\n\t\t<li>Allows users to adjust every variable and see detailed results.</li>\r\n\t\t<li>Provides smart suggestions and insights based on the user&rsquo;s data, helping optimize their strategy.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Tailored Educational Version</strong>:</p>\r\n\r\n\t<ul>\r\n\t\t<li>Begins with prompts to understand users&#39; financial goals.</li>\r\n\t\t<li>Guides users through step-by-step data entry with educational content.</li>\r\n\t\t<li>Provides actionable insights to help users make informed decisions and understand key concepts.</li>\r\n\t</ul>\r\n\t</li>\r\n</ol>\r\n\r\n<h3>Keeping It Manageable</h3>\r\n\r\n<p>The features you&#39;ve suggested are great for making the calculator comprehensive, but here are some strategies to keep the project manageable:</p>\r\n\r\n<ul>\r\n\t<li><strong>Prioritize MVP Features</strong>: Focus first on creating the advanced version, ensuring that core calculations and visualization are functional.</li>\r\n\t<li><strong>Modular Development</strong>: Build features as modular components (e.g., tax guidance, withdrawal suggestions) that you can add incrementally without reworking the entire app.</li>\r\n\t<li><strong>Phased Approach</strong>: Roll out features in phases. After validating the core functionality in the MVP, proceed to add smart suggestions, guided inputs, etc., one by one.</li>\r\n\t<li><strong>Feedback Loop</strong>: Deploy the MVP and gather user feedback to understand which additional features users find most valuable, helping you prioritize future development.</li>\r\n</ul>\r\n\r\n<p>Your vision for a comprehensive retirement calculator is ambitious, and by breaking it into phases&mdash;starting with a functional advanced version and then adding personalized features&mdash;you can manage scope while still delivering immense value to users.</p>\r\n\r\n<p>Let me know if you&rsquo;d like help with planning out any specific phase in more detail or implementing particular features!</p>",
+        "topic": null,
+        "image": "",
+        "is_published": true,
+        "view_count": 2,
+        "popularity_score": 0.0,
+        "tags": []
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 14,
+    "fields": {
+        "created_at": "2024-10-12T23:24:02.098Z",
+        "edited_at": "2024-10-12T23:27:10.766Z",
+        "creator": null,
+        "editor": [
+            "schir2"
+        ],
+        "title": "Building a Retirement Calculator",
+        "slug": "building-a-retirement-calculator",
+        "content": "<p>## OkayBuilding a Retirement Calculator: Project Documentation</p>\r\n\r\n<p>The calculator is designed to help users answer critical financial questions like &quot;When can I retire?&quot; and &quot;How long will my savings last?&quot; We will start with a Minimum Viable Product (MVP) that allows users to directly input key variables, and expand into a more guided, educational version in the future. This documentation will focus primarily on building out the core calculator and understanding the tools used.</p>\r\n\r\n<p>### Project Overview</p>\r\n\r\n<p>The goal of this project is to create a retirement calculator that helps users determine when they can retire and how long they can live comfortably off their savings. The calculator will be developed in two phases:</p>\r\n\r\n<p>1. **Advanced Version** (MVP): Users enter all the key variables directly, and the calculator produces results.<br />\r\n2. **Educational Version** (Future Scope): A guided version that educates users about financial concepts while asking for inputs, providing tailored suggestions to improve their retirement readiness.</p>\r\n\r\n<p>The project is built using Django, Tailwind, Alpine.js, and Animate.css for a lightweight and responsive experience.</p>\r\n\r\n<p>### Tools and Technologies</p>\r\n\r\n<p>- **Backend**: Django for building a robust backend, handling calculations, and storing user data.<br />\r\n&nbsp; - [Django Documentation](https://docs.djangoproject.com/): Comprehensive guides on building models, views, and deploying Django applications.<br />\r\n- **Frontend**: Tailwind CSS for styling, Alpine.js for interactions, Animate.css for subtle animations.<br />\r\n&nbsp; - [Tailwind CSS Documentation](https://tailwindcss.com/docs): A guide to using Tailwind for creating responsive UI.<br />\r\n&nbsp; - [Alpine.js Documentation](https://alpinejs.dev/start): A lightweight JavaScript framework for adding interactivity.<br />\r\n&nbsp; - [Animate.css Documentation](https://animate.style/): A guide to using Animate.css for adding animations to enhance user experience.<br />\r\n- **Graphing Libraries**: Chart.js or Plotly for visualizing retirement growth and spending projections.<br />\r\n&nbsp; - [Chart.js Documentation](https://www.chartjs.org/docs/): A resource for integrating Chart.js into your web application.<br />\r\n&nbsp; - [Plotly Documentation](https://plotly.com/javascript/): A comprehensive guide for using Plotly to create interactive graphs.<br />\r\n- **Database**: A SQL-based database for storing user inputs and results.</p>\r\n\r\n<p>### Minimum Viable Product (MVP) - Advanced Version</p>\r\n\r\n<p>The MVP will focus on delivering a functional retirement calculator that allows users to input data and receive projections. Below are the main components of the MVP:</p>\r\n\r\n<p>#### Core Functionality</p>\r\n\r\n<p>1. **Create User Input Form**</p>\r\n\r\n<p>&nbsp; &nbsp;- Develop a user-friendly input form for variables such as current savings, expected rate of return, retirement age, and estimated spending. The form should be intuitive and well-labeled to make data entry easy.</p>\r\n\r\n<p>2. **Backend Logic for Core Calculations**</p>\r\n\r\n<p>&nbsp; &nbsp;- Implement core calculations to project retirement savings, withdrawal strategies, and overall retirement readiness. This will include functions for portfolio growth based on user inputs.</p>\r\n\r\n<p>3. **Validation of User Input**</p>\r\n\r\n<p>&nbsp; &nbsp;- Add validation for the input fields to ensure users enter valid data, such as positive numbers for savings and expected rates of return.</p>\r\n\r\n<p>4. **Graph Integration for Visualization**</p>\r\n\r\n<p>&nbsp; &nbsp;- Integrate a graphing library (Chart.js or Plotly) to visualize projections, including portfolio growth and spending versus income. These visualizations will make it easier for users to understand their financial future.</p>\r\n\r\n<p>5. **Withdrawal Rate Recommendations**</p>\r\n\r\n<p>&nbsp; &nbsp;- Develop logic to suggest an optimal withdrawal rate based on user input, life expectancy, and savings levels. The aim is to ensure users can maintain their desired lifestyle without running out of money.</p>\r\n\r\n<p>6. **Set Up Django Application Deployment**</p>\r\n\r\n<p>&nbsp; &nbsp;- Prepare the Django application for deployment, including server setup, configuration, and ensuring that the application runs smoothly in a production environment.<br />\r\n&nbsp; &nbsp;- [DigitalOcean Deployment Guide](https://www.digitalocean.com/community/tutorial_series/django-applications): A detailed guide to deploying Django apps.</p>\r\n\r\n<p>7. **Write Basic User Guide**</p>\r\n\r\n<p>&nbsp; &nbsp;- Document a simple guide explaining how to use the calculator, including details about the inputs and how they impact the calculations.</p>\r\n\r\n<p>### Future Enhancements - Educational and Guided Version</p>\r\n\r\n<p>After completing the MVP, we can focus on expanding the tool to provide a more educational experience:</p>\r\n\r\n<p>#### Guided User Setup (Educational Version)</p>\r\n\r\n<p>- **User Goals Prompt**</p>\r\n\r\n<p>&nbsp; - Implement prompts that guide users through the process of defining their retirement goals. Questions will focus on whether users want to retire early, maintain a specific lifestyle, or have high spending in retirement.</p>\r\n\r\n<p>- **Educational Content for Inputs**</p>\r\n\r\n<p>&nbsp; - Add tooltips and explanations to each input field to help users understand why each variable matters. This is especially helpful for users with limited financial knowledge.</p>\r\n\r\n<p>#### Enhanced Features and Personalization</p>\r\n\r\n<p>- **Scenario Comparison**</p>\r\n\r\n<p>&nbsp; - Allow users to create multiple scenarios and compare them. This feature helps users see the impact of different decisions, like retiring at different ages or increasing their savings rate.</p>\r\n\r\n<p>- **Tax Integration**</p>\r\n\r\n<p>&nbsp; - Integrate an API to pull real-time federal and state tax data. This will help users understand how taxes affect their retirement and adjust their withdrawal strategy accordingly.</p>\r\n\r\n<p>- **Monte Carlo Simulation**</p>\r\n\r\n<p>&nbsp; - Develop a Monte Carlo simulation to provide a probabilistic view of the retirement plan, showing users the range of possible outcomes based on different market conditions.</p>\r\n\r\n<p>### Additional Resources</p>\r\n\r\n<p>#### Financial Learning Resources</p>\r\n\r\n<p>- **Investopedia**: [Retirement Planning Guide](https://www.investopedia.com/retirement/): Covers key topics like retirement strategies, tax considerations, and financial planning tips.<br />\r\n- **Bogleheads Forum**: [Bogleheads Investing Forum](https://www.bogleheads.org/forum/): A great community for discussing financial planning, investment strategies, and retirement considerations.<br />\r\n- **NerdWallet**: [Retirement Planning Tools](https://www.nerdwallet.com/c/investing/retirement-planning): Practical advice on how to save for retirement, invest, and manage tax obligations.</p>\r\n\r\n<p>#### Technical Learning Resources</p>\r\n\r\n<p>- **Django Documentation**: [Django Documentation](https://docs.djangoproject.com/): Essential for understanding how to build the backend, create models, views, and configure deployment.<br />\r\n- **Chart.js and Plotly**: [Chart.js Documentation](https://www.chartjs.org/docs/), [Plotly Documentation](https://plotly.com/javascript/): Guides on integrating visualizations for displaying portfolio and spending projections.<br />\r\n- **DigitalOcean Deployment Guide**: [DigitalOcean Deployment Guide](https://www.digitalocean.com/community/tutorial_series/django-applications): Helpful for deploying your Django app to production.</p>\r\n\r\n<p>### Project Breakdown Summary</p>\r\n\r\n<p>This project documentation provides a clear and focused pathway to building a retirement calculator. By starting with the advanced MVP and focusing on the core calculation engine, you can ensure accurate and meaningful results for users. Future versions will enhance the educational value of the tool, providing more guidance and personalized insights.</p>\r\n\r\n<p>The next steps are to build out the core features, test the calculator, and deploy the MVP to start gathering user feedback. This documentation can serve as both a guide and a reference to keep track of the entire project from inception to completion, ensuring all goals are met along the way.<br />\r\n&nbsp;</p>",
+        "topic": 2,
+        "image": "",
+        "is_published": true,
+        "view_count": 2,
+        "popularity_score": 0.0,
+        "tags": [
+            55,
+            56
+        ]
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 15,
+    "fields": {
+        "created_at": "2024-10-13T00:37:22.544Z",
+        "edited_at": "2024-10-13T00:38:57.877Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Arcus Application - Project Scope and Implementation Guide",
+        "slug": "arcus-application-project-scope-and-implementation-guide",
+        "content": "<h2>Overview</h2>\r\n<p>Arcus is a custom-built project planning application tailored specifically for software development projects, such as the Retirement Calculator project. The name \"Arcus\" signifies a streamlined approach to managing tasks, organizing projects, and keeping track of progress efficiently, providing a centralized workspace for planning and executing all aspects of software development.</p>\r\n<p>The primary goal of Arcus is to offer flexibility and usability for solo developers or small teams, allowing you to break down complex projects into manageable tasks, create dependencies, and efficiently manage your workflow. By providing a task-oriented and structured approach, Arcus helps enhance productivity while ensuring that all project requirements are clearly defined, easily accessible, and organized.</p>\r\n\r\n<h2>Key Features</h2>\r\n<ul>\r\n  <li><strong>Task Management</strong>: Allows users to create, update, and organize tasks for various projects, assign them to users, and monitor their progress.</li>\r\n  <li><strong>Sections for Task Grouping</strong>: Each project can contain multiple sections that help in grouping tasks logically, enhancing the clarity of larger projects.</li>\r\n  <li><strong>Customizable Tags</strong>: Tags can be applied to tasks to allow easier categorization, filtering, and identification. Tags include areas such as Frontend, Backend, Testing, Deployment, Documentation, etc.</li>\r\n  <li><strong>Task Dependencies</strong>: Users can set dependencies between tasks, ensuring that certain tasks are completed before others begin.</li>\r\n  <li><strong>User Assignment</strong>: Tasks can be assigned to specific users, allowing better collaboration if multiple users are working on the same project.</li>\r\n  <li><strong>Prioritization</strong>: Assign different priority levels to tasks (e.g., High, Medium, Low), ensuring the most critical tasks are completed first.</li>\r\n</ul>\r\n\r\n<h2>How to Use Arcus</h2>\r\n<ol>\r\n  <li><strong>Create a Project</strong>: Start by creating a new project. Provide a name and a description to outline the scope of the project. Set a start and an expected end date to monitor progress.</li>\r\n  <li><strong>Add Sections</strong>: Use sections to logically group tasks within a project. For example, you can create sections like \"Frontend Development,\" \"Backend Development,\" and \"Testing\" to organize tasks.</li>\r\n  <li><strong>Add Tasks</strong>: Break down the project into smaller, actionable tasks. Each task can have a title, description, due date, priority, status, tags, and be assigned to a user. Tasks can be further organized within sections.</li>\r\n  <li><strong>Order Tasks</strong>: Use the ordering functionality to prioritize tasks within a section or a project, ensuring a logical workflow.</li>\r\n  <li><strong>Set Dependencies</strong>: Define task dependencies to ensure that the workflow follows a sequence. For example, make sure certain backend calculations are done before starting on frontend visualizations.</li>\r\n  <li><strong>Track Progress</strong>: Update the task status as you complete work. Use the priority settings to focus on critical tasks first.</li>\r\n</ol>\r\n\r\n<h2>Project Scope</h2>\r\n<p>Arcus aims to streamline software project management for developers. The key components are as follows:</p>\r\n\r\n<h3>1. Project Management</h3>\r\n<ul>\r\n  <li><strong>Project Model</strong>: Represents a software project, including attributes like name, description, start and end dates, status, and creator.</li>\r\n  <li><strong>Ordering</strong>: Projects are ordered by their start date, with active projects listed first.</li>\r\n</ul>\r\n\r\n<h3>2. Section Management</h3>\r\n<ul>\r\n  <li><strong>Sections</strong>: Projects are divided into logical sections, enabling better categorization of tasks. For example, a project could have \"MVP Development\" and \"Future Enhancements\" sections.</li>\r\n  <li><strong>Ordering</strong>: Sections can be ordered to control the progression of tasks across phases.</li>\r\n</ul>\r\n\r\n<h3>3. Task Management</h3>\r\n<ul>\r\n  <li><strong>Task Model</strong>: Tasks are individual pieces of work that make up a project. Attributes include title, description, due date, priority, tags, assigned user, section, and dependencies.</li>\r\n  <li><strong>Self-referential Relationships</strong>: Tasks can reference other tasks to establish dependencies. This ensures that tasks needing prior completion are clearly defined.</li>\r\n  <li><strong>Ordering Tasks</strong>: Tasks can be ordered within sections to reflect their priority and logical sequence, ensuring a smooth workflow.</li>\r\n</ul>\r\n\r\n<h3>4. Tags and Categorization</h3>\r\n<ul>\r\n  <li><strong>Tags</strong>: Tags provide flexible categorization for tasks, helping in filtering tasks by categories like \"Frontend\" or \"Testing.\"</li>\r\n  <li><strong>Colors for Tags</strong>: Tags are assigned colors to make identification easier.</li>\r\n</ul>\r\n\r\n<h2>Implementation Steps</h2>\r\n<h3>Step 1: Setting Up Arcus</h3>\r\n<ol>\r\n  <li><strong>Clone the Repository</strong>: Clone the Arcus repository from the appropriate source control location.</li>\r\n  <li><strong>Install Dependencies</strong>: Ensure you have Django installed, along with other dependencies such as <code>django-import-export</code> for importing tasks and <code>django-rest-framework</code> for API support.</li>\r\n  <li><strong>Set Up the Database</strong>: Run migrations to set up the required database tables:</li>\r\n  <pre><code>python manage.py migrate</code></pre>\r\n  <li><strong>Create a Superuser</strong>: To access the admin panel and set up the initial data, create a superuser:</li>\r\n  <pre><code>python manage.py createsuperuser</code></pre>\r\n</ol>\r\n\r\n<h3>Step 2: Configuring the Application</h3>\r\n<ol>\r\n  <li><strong>Add Projects and Sections</strong>: Use the Django admin interface to add initial projects and sections.</li>\r\n  <li><strong>Import Tasks</strong>: Use the <code>django-import-export</code> library to import tasks from a CSV file for quicker setup.</li>\r\n  <li><strong>Assign Tags and Priorities</strong>: Make sure tasks are assigned appropriate tags and priorities for better organization.</li>\r\n</ol>\r\n\r\n<h3>Step 3: Using the Admin Interface</h3>\r\n<ul>\r\n  <li><strong>Admin Features</strong>: The admin interface allows you to manage projects, sections, and tasks with all the bells and whistles that Django provides.</li>\r\n  <li><strong>Ordering</strong>: Use the ordering feature to establish a clear sequence for tasks and sections.</li>\r\n</ul>\r\n\r\n<h3>Step 4: Deploying Arcus</h3>\r\n<ul>\r\n  <li><strong>Configure Settings</strong>: Update settings for production, including database, allowed hosts, and static files.</li>\r\n  <li><strong>Deploy</strong>: Use tools such as Docker or Gunicorn with Nginx to deploy Arcus to your desired hosting provider.</li>\r\n</ul>\r\n\r\n<h2>Conclusion</h2>\r\n<p>Arcus is designed to be an efficient tool for managing software development projects, providing a customizable, developer-friendly interface for organizing tasks, tracking progress, and maintaining a logical workflow. By offering functionality such as self-referential tasks, detailed categorization with tags, and flexible sectioning, Arcus aims to enhance productivity and project management efficiency.</p>\r\n<p>Arcus can be extended to fit various development workflows, from solo projects to small collaborative teams. This documentation should provide a solid foundation for understanding the application, how to implement it, and how to make the most of its features for effective project planning and execution.</p>",
+        "topic": 2,
+        "image": "",
+        "is_published": true,
+        "view_count": 1,
+        "popularity_score": 0.0,
+        "tags": [
+            57
+        ]
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 16,
+    "fields": {
+        "created_at": "2024-10-13T15:25:01.482Z",
+        "edited_at": "2024-10-13T15:25:01.482Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "HTMX Other Update",
+        "slug": "htmx-other-update",
+        "content": "<h2>hx-oob</h2>\r\n\r\n<h3>Initial Element</h3>\r\n\r\n<pre>\r\n&lt;div id=swappedContent&quot;\r\nhx-post=&quot;update&quot;\r\n&gt;Initial&lt;/div&gt;\r\n</pre>\r\n\r\n<h3>Partial Element</h3>\r\n\r\n<pre>\r\n&lt;div id=swappedContent&quot;&gt;\r\nhx=post=&quot;update&quot;\r\nhx-oob-swap=&quot;true&quot;\r\n&lt;/div&gt;</pre>",
+        "topic": null,
+        "image": "",
+        "is_published": true,
+        "view_count": 1,
+        "popularity_score": 0.0,
+        "tags": []
+    }
+},
+{
+    "model": "arcus.tag",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-10-13T00:14:17.331Z",
+        "edited_at": "2024-10-13T00:14:17.331Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Deployment",
+        "color": "#464acc"
+    }
+},
+{
+    "model": "arcus.tag",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-10-13T00:14:17.337Z",
+        "edited_at": "2024-10-13T00:14:17.337Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Backend",
+        "color": "#220d06"
+    }
+},
+{
+    "model": "arcus.tag",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-10-13T00:14:17.340Z",
+        "edited_at": "2024-10-13T00:14:17.340Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "User Experience",
+        "color": "#ca7f2d"
+    }
+},
+{
+    "model": "arcus.tag",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-10-13T00:14:17.343Z",
+        "edited_at": "2024-10-13T00:14:17.343Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Testing",
+        "color": "#d28a22"
+    }
+},
+{
+    "model": "arcus.tag",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-10-13T00:14:17.345Z",
+        "edited_at": "2024-10-13T00:14:17.345Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Documentation",
+        "color": "#f82585"
+    }
+},
+{
+    "model": "arcus.tag",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-10-13T00:14:17.348Z",
+        "edited_at": "2024-10-13T00:14:17.348Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Frontend",
+        "color": "#d93c99"
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.784Z",
+        "edited_at": "2024-10-13T00:28:17.784Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Create User Input Form",
+        "description": "Develop a user-friendly input form where users can enter all necessary variables such as current savings, expected rate of return, retirement age, etc. Ensure fields are well labeled and intuitive.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.799Z",
+        "edited_at": "2024-10-13T00:28:17.799Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Backend Logic for Core Calculations",
+        "description": "Implement the core retirement calculations, including portfolio growth projections, withdrawal calculations, and retirement readiness analysis based on user inputs.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-10-13T14:00:00Z",
+        "edited_at": "2024-10-13T00:28:17.809Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Validation of User Input",
+        "description": "Add validation checks for user inputs to ensure data is within reasonable ranges, handles negative values, and maintains the accuracy of calculations.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 4,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.824Z",
+        "edited_at": "2024-10-13T00:28:17.824Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Design Basic UI for Input Form",
+        "description": "Create a simple, responsive user interface for the input form using Tailwind CSS, ensuring ease of navigation and usability on various devices.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 5,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.837Z",
+        "edited_at": "2024-10-13T00:28:17.837Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Graph Integration for Visualization",
+        "description": "Integrate a graphing library (such as Chart.js or Plotly) to visualize portfolio growth over time, providing users with a clear picture of their financial trajectory.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 6,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.849Z",
+        "edited_at": "2024-10-13T00:28:17.849Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Graph for Spending vs. Income",
+        "description": "Add a graph to illustrate the user’s income versus spending throughout retirement, helping them understand the sustainability of their retirement plan.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 7,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.859Z",
+        "edited_at": "2024-10-13T00:28:17.859Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Withdrawal Rate Recommendations",
+        "description": "Develop logic that provides recommendations for an optimal withdrawal rate based on user data, ensuring a sustainable retirement income without prematurely depleting savings.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 8,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.868Z",
+        "edited_at": "2024-10-13T00:28:17.868Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Contribution Optimization Logic",
+        "description": "Create logic to analyze user contributions and recommend changes to pre-tax and after-tax savings for better tax efficiency and retirement readiness.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 9,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.877Z",
+        "edited_at": "2024-10-13T00:28:17.877Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Risk Tolerance Analysis",
+        "description": "Implement analysis to determine the user's risk tolerance based on their age, income, and financial situation, and provide appropriate investment suggestions (e.g., conservative, moderate, aggressive).",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 10,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.892Z",
+        "edited_at": "2024-10-13T00:28:17.892Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Unit Testing for Calculations",
+        "description": "Write unit tests for all core calculations to ensure accuracy and consistency of results across various input scenarios.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            4
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 11,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.908Z",
+        "edited_at": "2024-10-13T00:28:17.908Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "User Interface Testing",
+        "description": "Perform UI testing to validate form behavior, responsiveness, and graph integration across different devices and browsers.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            4
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 12,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.920Z",
+        "edited_at": "2024-10-13T00:28:17.920Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Set Up Django Application Deployment",
+        "description": "Prepare the Django application for deployment, including server setup, configuration, and testing to ensure proper functioning in a production environment.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            1
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 13,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.931Z",
+        "edited_at": "2024-10-13T00:28:17.931Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Write Basic User Guide",
+        "description": "Develop a user guide that explains how to use the calculator, detailing each variable and how it impacts the overall retirement plan.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            5
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 14,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.938Z",
+        "edited_at": "2024-10-13T00:28:17.938Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Create Home Page",
+        "description": "Design the home page for the retirement calculator, including an introduction to the tool and clear navigation options to get started.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 15,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.949Z",
+        "edited_at": "2024-10-13T00:28:17.949Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Create Results Page for Displaying Calculations",
+        "description": "Develop a results page that presents users with their retirement projections, graphs, and insights in a clear, organized manner.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 16,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.957Z",
+        "edited_at": "2024-10-13T00:28:17.957Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Create Graph Display Components",
+        "description": "Implement reusable graph components to visualize various data points such as savings growth, spending vs. income, and portfolio depletion.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 17,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.968Z",
+        "edited_at": "2024-10-13T00:28:17.968Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Create Backend Models for User Inputs",
+        "description": "Create Django models to store user input data, ensuring data integrity and availability for calculations and future enhancements.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 18,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.979Z",
+        "edited_at": "2024-10-13T00:28:17.979Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Implement API Endpoints for Data Submission",
+        "description": "Develop API endpoints to handle user data submission, ensuring security and efficient data processing.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 19,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.987Z",
+        "edited_at": "2024-10-13T00:28:17.988Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Set Up Database for Storing User Inputs and Results",
+        "description": "Configure the database to store user inputs, calculated results, and other necessary data for the retirement calculator.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 20,
+    "fields": {
+        "created_at": "2024-10-13T00:28:17.996Z",
+        "edited_at": "2024-10-13T00:28:17.996Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Develop Error Handling for User Input Validation",
+        "description": "Implement error handling to provide meaningful feedback to users when incorrect or invalid data is entered, improving user experience.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 21,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.003Z",
+        "edited_at": "2024-10-13T00:28:18.003Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Implement Responsive Design for Forms and Pages",
+        "description": "Ensure that all forms and pages are responsive, providing a seamless experience on mobile, tablet, and desktop devices.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 22,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.010Z",
+        "edited_at": "2024-10-13T00:28:18.010Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Design User Goals Prompt",
+        "description": "Create a series of prompts to gather information on user retirement goals (e.g., early retirement, comfortable lifestyle) to provide more tailored suggestions.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6,
+            3
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 23,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.020Z",
+        "edited_at": "2024-10-13T00:28:18.021Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Educational Content for Inputs",
+        "description": "Add educational content and tooltips next to input fields to help users understand the importance of each variable and its impact on their retirement.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6,
+            3
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 24,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.028Z",
+        "edited_at": "2024-10-13T00:28:18.028Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Personalized User Profiles",
+        "description": "Develop the ability for users to create and manage personalized profiles, enabling them to save scenarios and track their retirement planning progress over time.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 25,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.036Z",
+        "edited_at": "2024-10-13T00:28:18.036Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Scenario Comparison",
+        "description": "Allow users to compare different retirement scenarios side-by-side, showing how changes to variables like retirement age or spending affect their financial outlook.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 26,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.043Z",
+        "edited_at": "2024-10-13T00:28:18.043Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "API Integration for Tax Bracket Data",
+        "description": "Integrate an API to fetch real-time federal and state tax bracket data, providing users with accurate information for tax planning in retirement.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 27,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.051Z",
+        "edited_at": "2024-10-13T00:28:18.051Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Withdrawal Strategy Suggestion Logic",
+        "description": "Implement logic to suggest withdrawal strategies that minimize tax impact, such as early withdrawals from pre-tax accounts to avoid higher tax brackets later.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 28,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.058Z",
+        "edited_at": "2024-10-13T00:28:18.058Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Add Monte Carlo Simulation for Projections",
+        "description": "Develop a Monte Carlo simulation to provide probabilistic projections of portfolio success, helping users understand potential outcomes under varying market conditions.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 29,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.066Z",
+        "edited_at": "2024-10-13T00:28:18.066Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Visualize Tax Impact on Graphs",
+        "description": "Enhance graphs to visually demonstrate the impact of taxes on withdrawals, helping users see how different strategies affect their net income.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 30,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.073Z",
+        "edited_at": "2024-10-13T00:28:18.073Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Risk Assessment Quiz",
+        "description": "Create a simple quiz to assess the user's risk tolerance and provide corresponding recommendations for investment strategies.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6,
+            3
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 31,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.081Z",
+        "edited_at": "2024-10-13T00:28:18.081Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Save and Load Scenarios",
+        "description": "Allow users to save their retirement planning scenarios and load them later for review or adjustment, improving personalization.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 32,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.088Z",
+        "edited_at": "2024-10-13T00:28:18.088Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Create Dashboard Page for Saved Scenarios",
+        "description": "Develop a dashboard page where users can view and manage all their saved retirement scenarios in one place.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 33,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.096Z",
+        "edited_at": "2024-10-13T00:28:18.096Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Develop User Authentication System",
+        "description": "Implement a user authentication system to allow users to create accounts, securely save their data, and access it from different devices.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 34,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.104Z",
+        "edited_at": "2024-10-13T00:28:18.104Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Integrate User Notifications for Key Milestones",
+        "description": "Add notifications to inform users of key milestones or important updates, such as reaching a savings target or changes in tax laws.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            2,
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 35,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.111Z",
+        "edited_at": "2024-10-13T00:28:18.111Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Implement Mobile-Friendly Design Enhancements",
+        "description": "Refine the mobile design to ensure all features are easily accessible and usable on mobile devices, improving overall user experience.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 36,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.118Z",
+        "edited_at": "2024-10-13T00:28:18.118Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Add Feature to Export Results as PDF",
+        "description": "Allow users to export their retirement planning results as a PDF for easy sharing and record-keeping.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 37,
+    "fields": {
+        "created_at": "2024-10-13T00:28:18.126Z",
+        "edited_at": "2024-10-13T00:28:18.126Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Add Interactive Tutorials for New Users",
+        "description": "Develop interactive tutorials to guide new users through the process of using the retirement calculator, making it easier for them to understand and use effectively.",
+        "due_date": null,
+        "priority": "Low",
+        "status": "Not Started",
+        "assigned_to": null,
+        "parent_task": null,
+        "project": 1,
+        "section": 1,
+        "tags": [
+            6,
+            3
+        ],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.section",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-10-13T00:11:06.234Z",
+        "edited_at": "2024-10-13T00:11:06.235Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "MVP",
+        "order": 0,
+        "project": 1
+    }
+},
+{
+    "model": "arcus.section",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-10-13T00:11:26.039Z",
+        "edited_at": "2024-10-13T00:11:26.039Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Future Enhacements",
+        "order": 1,
+        "project": 1
+    }
+},
+{
+    "model": "arcus.project",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-10-13T00:06:07.113Z",
+        "edited_at": "2024-10-13T16:10:12.861Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Retirement Calculator",
+        "description": "A project to develop a financial retirement calculator, covering both MVP and advanced features. The calculator will help users determine when they can retire, how long they can live off their savings, and provide suggestions on optimizing their retirement strategy based on their inputs and goals.",
+        "start_date": "2024-10-13T00:04:48Z",
+        "end_date": null,
+        "status": "Not Started",
+        "priority": "Medium",
+        "starred": false
     }
 }
 ]
