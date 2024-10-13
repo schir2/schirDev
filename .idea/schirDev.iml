@@ -24,6 +24,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="aos" level="application" />
     <orderEntry type="library" name="animate.css" level="application" />
+    <orderEntry type="library" name="htmx.org" level="application" />
+    <orderEntry type="library" name="@alpinejs/persist" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
