@@ -1,0 +1,79 @@
+{% extends "arcus/base.html" %}
+
+{% block head_title %}
+    Arcus Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="flex">
+        <!-- Sidebar Section -->
+        <aside class="w-64 bg-skin-surface p-4 hidden md:block" x-data="{ open: true }" :class="open ? 'block' : 'hidden'">
+            <div class="mb-6">
+                <button @click="open = !open" class="text-skin-link hover:text-skin-link-hover">
+                    <c-icons.menu class="inline-block mr-2"/>
+                    Toggle Sidebar
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li class="mb-4">
+                        <c-arcus.link href="{% url 'arcus:project_list' %}">
+                            <c-icons.folder class="inline-block mr-2"/>
+                            Projects
+                        </c-arcus.link>
+                    </li>
+                    <li class="mb-4">
+                        <c-arcus.link href="{% url 'arcus:task_list' %}">
+                            <c-icons.list class="inline-block mr-2"/>
+                            Tasks
+                        </c-arcus.link>
+                    </li>
+                    <!-- Add more navigation links as needed -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <!-- Recent Projects Section -->
+            <section class="mb-12">
+                <h2 class="text-skin-primary text-3xl font-bold mb-4">Recent Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for project in recent_projects %}
+                        <c-arcus.card>
+                            <c-slot name="title">{{ project.name }}</c-slot>
+                            <c-slot name="description">{{ project.description }}</c-slot>
+                            <c-slot name="link">
+                                <c-arcus.link href="{% url 'arcus:project_detail' project.pk %}">
+                                    View Project
+                                    <c-icons.arrow-right class="ml-1"/>
+                                </c-arcus.link>
+                            </c-slot>
+                        </c-arcus.card>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!-- Recent Tasks Section -->
+            <section class="mb-12">
+                <h2 class="text-skin-primary text-3xl font-bold mb-4">Recent Tasks</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for task in recent_tasks %}
+                        <c-arcus.link href="{% url 'arcus:task_detail' task.pk %}">{{ task.title }}<c-icons.arrow-right class="ml-1"/></c-arcus.link>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!-- Project Statistics Section -->
+            <section class="mb-12">
+                <h2 class="text-skin-primary text-3xl font-bold mb-4">Project Statistics</h2>
+                <div class="flex flex-wrap gap-6">
+                    <c-arcus.chip>Total Projects: {{ total_projects }}</c-arcus.chip>
+                    <c-arcus.chip>Total Tasks: {{ total_tasks }}</c-arcus.chip>
+                    <c-arcus.chip>Tasks in Progress: {{ tasks_in_progress }}</c-arcus.chip>
+                    <c-arcus.chip>Overdue Tasks: {{ overdue_tasks }}</c-arcus.chip>
+                </div>
+            </section>
+        </main>
+    </div>
+{% endblock %}

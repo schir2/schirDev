@@ -1,0 +1,83 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <title>{% block head_title %}Arcus{% endblock %}</title>
+    <link rel="icon" href="{% static 'content/img/logos/logo.gif' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    {% tailwind_css %}
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    {% block head %}{% endblock %}
+    {% block styles %}{% endblock %}
+</head>
+
+<body class="bg-skin-base text-lg text-skin-base" :data-theme="theme" x-data="{ theme : 'light'}">
+
+    {% include 'arcus/partials/navbar.html' %}
+
+    <main class="pt-16 mx-auto min-h-nav-offset">
+        {% block before_content %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block javascript %}{% endblock %}
+    {% block footer_scripts %}{% endblock %}
+
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                const progressBars = document.querySelectorAll('.progress-bar');
+
+                const options = {
+                    threshold: 0.1,
+                };
+
+                const observer = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            const progressBar = entry.target;
+                            const percentage = progressBar.getAttribute('data-percentage');
+                            progressBar.style.width = percentage;
+                            observer.unobserve(progressBar); // Stop observing after animation
+                        }
+                    });
+                }, options);
+
+                progressBars.forEach(function (progressBar) {
+                    observer.observe(progressBar);
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const navbarHeight = document.querySelector('nav').offsetHeight;
+
+                // Adjust scrolling to each anchor section
+                document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - navbarHeight, // Adjust by navbar height
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+
+            document.body.addEventListener('htmx:configRequest', (event) => {
+                event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+            })
+        })();
+    </script>
+</body>
+</html>
