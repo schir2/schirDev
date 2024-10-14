@@ -143,8 +143,6 @@ FIXTURE_DIRS = (os.path.join(BASE_DIR, 'fixtures'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ACTIVE_LINK_CSS_CLASS = 'font-semibold'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
