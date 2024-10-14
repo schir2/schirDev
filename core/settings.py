@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
     "blog.apps.BlogConfig",
-    "arcus.apps.ArcusConfig"
+    "arcus.apps.ArcusConfig",
+    "tools.apps.ToolsConfig"
 ]
 
 MIDDLEWARE = [
