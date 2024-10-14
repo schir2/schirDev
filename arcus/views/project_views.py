@@ -99,4 +99,4 @@ def project_toggle_star(request, pk):
 def project_starred_list_sidenav(request):
     starred_projects = Project.objects.filter(starred=True)
     context = {'starred_projects': starred_projects}
-    return render(request, template_name='arcus/partials/project_starred_list_sidenav.html', context=context)
+    return render(request, template_name='arcus/partials/project_list_sidenav.html', context=context)
