@@ -3,11 +3,18 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_currentuser.db.models import CurrentUserField
 
+from common.utils import get_registered_icons
+
 User = get_user_model()
 
 
+def get_icon_choices():
+    icons = get_registered_icons()
+    return [(icon, icon) for icon in icons]
+
+
 class BaseModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Created An'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Created At'))
     edited_at = models.DateTimeField(auto_now=True, verbose_name=_('Edited At'))
     creator = CurrentUserField(User, on_delete=models.SET_NULL, null=True, related_name='%(class)s_created', verbose_name=_('Creator'))
     editor = CurrentUserField(User, on_delete=models.SET_NULL, null=True, related_name='%(class)s_edited', verbose_name=_('Editor'))
@@ -43,6 +50,14 @@ class Project(BaseModel):
     status = models.CharField(max_length=32, choices=StatusChoices.choices, default=StatusChoices.NOT_STARTED, verbose_name=_('Status'))
     priority = models.CharField(max_length=10, choices=PriorityChoices.choices, default=PriorityChoices.MEDIUM, verbose_name=_('Priority'))
     starred = models.BooleanField(default=False, verbose_name=_('Starred'))
+    icon = models.CharField(
+        max_length=50,
+        choices=get_icon_choices(),
+        blank=True,
+        null=True,
+        verbose_name="Project Icon",
+        default='folder'
+    )
 
     class Meta:
         verbose_name = _('Project')
