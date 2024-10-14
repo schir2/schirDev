@@ -1,0 +1,14 @@
+<ul     class="ml-6 space-y-2"
+        x-show="expandStarredProjects"
+        hx-trigger="project_star_toggle from:body"
+        hx-swap="outerHTML"
+        hx-get="{% url 'arcus:project_starred_list_sidenav'%}">
+    {% for project in starred_projects %}
+        <li>
+            <c-link extra_classes="text-sm" href="{% url 'arcus:project_detail' pk=project.pk %}">
+                <c-component is="icons.{{ project.icon }}"/>
+                <span x-show="expandSidebar">{{ project.name }}</span>
+            </c-link>
+        </li>
+    {% endfor %}
+</ul>

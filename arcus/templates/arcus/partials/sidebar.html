@@ -1,0 +1,42 @@
+<aside class="bg-skin-surface p-4 h-screen flex-shrink-0 transition-all duration-300"
+       x-data="{
+       expandSidebar: $persist(true),
+       expandStarredProjects: $persist(true)
+       }"
+       :class="expandSidebar ? 'w-64' : 'w-16'">
+    <div class="mb-6">
+        <button @click="expandSidebar = !expandSidebar" class="text-skin-link hover:text-skin-link-hover">
+            <c-icons.menu class="inline-block mr-2"/>
+        </button>
+    </div>
+    <nav>
+        <ul>
+            <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+                <c-arcus.link href="{% url 'arcus:dashboard' %}">
+                    <c-icons.home class="inline-block mr-2"/>
+                    <span x-show="expandSidebar">Home</span>
+                </c-arcus.link>
+            </li>
+            <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+                <span>
+                    <c-icons.star class="inline-block mr-2"/>
+                    <span x-show="expandSidebar" @click="expandStarredProjects=!expandStarredProjects">Starred</span>
+                </span>
+                {% include 'arcus/partials/project_list_sidenav.html' with starred_projects=starred_projects %}
+            </li>
+            <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+                <c-arcus.link href="{% url 'arcus:project_list' %}" class="flex items-center">
+                    <c-icons.folder class="inline-block mr-2"/>
+                    <span x-show="expandSidebar">Projects</span>
+                </c-arcus.link>
+            </li>
+            <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+                <c-arcus.link href="{% url 'arcus:task_list' %}" class="flex items-center">
+                    <c-icons.list class="inline-block mr-2"/>
+                    <span x-show="expandSidebar">Tasks</span>
+                </c-arcus.link>
+            </li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+</aside>

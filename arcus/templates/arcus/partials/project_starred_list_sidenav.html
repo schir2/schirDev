@@ -1,5 +1,0 @@
-<ul hx-trigger="project_star_toggle from:body" hx-swap="outerHTML" hx-get="{% url 'arcus:project_starred_list_sidenav' %}">
-    {% for starred_project in starred_projects %}
-        <li>{{ starred_project.name }}</li>
-    {% endfor %}
-</ul>
