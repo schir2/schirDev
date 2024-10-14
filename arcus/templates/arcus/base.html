@@ -21,10 +21,16 @@
 
 {% include 'arcus/partials/navbar.html' %}
 
-<main class="pt-16 mx-auto min-h-nav-offset">
-    {% block before_content %}{% endblock %}
-    {% block content %}{% endblock %}
-</main>
+<div class="flex flex-col md:flex-row h-screen pt-16">
+    <!-- Sidebar -->
+    {% include 'arcus/partials/sidebar.html' %}
+
+    <!-- Main Content -->
+    <main class="flex-1 container mx-auto px-4 py-8 overflow-y-auto">
+        {% block before_content %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+</div>
 
 {% block javascript %}{% endblock %}
 

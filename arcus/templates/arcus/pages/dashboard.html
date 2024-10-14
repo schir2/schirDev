@@ -6,58 +6,10 @@
 
 {% block content %}
     <div class="flex">
-    <!-- Sidebar Section -->
-    <div class="flex">
-        <!-- Sidebar Section -->
-        <aside class="w-64 bg-skin-surface p-4 h-screen transition-all duration-300" x-data="{ open: true }"
-               :class="open ? 'w-64' : 'w-16'">
-            <div class="mb-6">
-                <button @click="open = !open" class="text-skin-link hover:text-skin-link-hover">
-                    <c-icons.menu class="inline-block mr-2"/>
-                </button>
-            </div>
-            <nav>
-                <ul>
-                    <li class="mb-4" :class="open ? 'ml-2' : 'ml-0'">
-                        <c-arcus.link href="{% url 'arcus:dashboard' %}" class="flex items-center">
-                            <c-icons.home class="inline-block mr-2"/>
-                            <span x-show="open">Home</span>
-                        </c-arcus.link>
-                    </li>
-                    <li class="mb-4" :class="open ? 'ml-2' : 'ml-0'">
-                        <span class="flex items-center">
-                            <c-icons.star class="inline-block mr-2"/>
-                            <span x-show="open">Starred</span>
-                            {% include 'arcus/partials/project_starred_list_sidenav.html' with starred_projects=starred_projects %}
-
-                        </span>
-                    </li>
-                    <li class="mb-4" :class="open ? 'ml-2' : 'ml-0'">
-                        <c-arcus.link href="{% url 'arcus:project_list' %}" class="flex items-center">
-                            <c-icons.folder class="inline-block mr-2"/>
-                            <span x-show="open">Projects</span>
-                        </c-arcus.link>
-                    </li>
-                    <li class="mb-4" :class="open ? 'ml-2' : 'ml-0'">
-                        <c-arcus.link href="{% url 'arcus:task_list' %}" class="flex items-center">
-                            <c-icons.list class="inline-block mr-2"/>
-                            <span x-show="open">Tasks</span>
-                        </c-arcus.link>
-                    </li>
-                    <!-- Add more navigation links as needed -->
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Dashboard Content -->
         <main class="flex-grow container mx-auto px-4 py-8">
-            <!-- Recent Projects Section -->
             <section class="mb-12">
                 <h2 class="text-skin-primary text-3xl font-bold mb-4">Recent Projects</h2>
-                {% for project in recent_projects %}
-                    <c-arcus.link href="{% url 'arcus:project_detail' project.pk %}">{{ project.name }}</c-arcus.link>
-                    {% include 'arcus/partials/project_star_button.html' %}
-                {% endfor %}
+                {% include 'arcus/partials/project_list_partial.html' with projects=recent_projects %}
             </section>
 
             <!-- Recent Tasks Section -->
