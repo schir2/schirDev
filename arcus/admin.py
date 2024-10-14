@@ -13,7 +13,7 @@ class ProjectAdmin(ImportExportModelAdmin):
     readonly_fields = ('created_at', 'edited_at')
     fieldsets = (
         (None, {
-            'fields': ('name', 'description', 'start_date', 'end_date', 'status', 'priority', 'starred')
+            'fields': ('name', 'icon', 'description', 'start_date', 'end_date', 'status', 'priority', 'starred')
         }),
         ('Metadata', {
             'fields': ('created_at', 'edited_at', 'creator', 'editor')
