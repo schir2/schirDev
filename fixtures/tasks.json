@@ -1,0 +1,1061 @@
+[
+  {
+    "model": "arcus.task",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.784Z",
+      "edited_at": "2024-10-13T00:28:17.784Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Create User Input Form",
+      "description": "Develop a user-friendly input form where users can enter all necessary variables such as current savings, expected rate of return, retirement age, etc. Ensure fields are well labeled and intuitive.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.799Z",
+      "edited_at": "2024-10-13T00:28:17.799Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Backend Logic for Core Calculations",
+      "description": "Implement the core retirement calculations, including portfolio growth projections, withdrawal calculations, and retirement readiness analysis based on user inputs.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-10-13T14:00:00Z",
+      "edited_at": "2024-10-13T00:28:17.809Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Validation of User Input",
+      "description": "Add validation checks for user inputs to ensure data is within reasonable ranges, handles negative values, and maintains the accuracy of calculations.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.824Z",
+      "edited_at": "2024-10-13T00:28:17.824Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Design Basic UI for Input Form",
+      "description": "Create a simple, responsive user interface for the input form using Tailwind CSS, ensuring ease of navigation and usability on various devices.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.837Z",
+      "edited_at": "2024-10-13T00:28:17.837Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Graph Integration for Visualization",
+      "description": "Integrate a graphing library (such as Chart.js or Plotly) to visualize portfolio growth over time, providing users with a clear picture of their financial trajectory.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.849Z",
+      "edited_at": "2024-10-13T00:28:17.849Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Graph for Spending vs. Income",
+      "description": "Add a graph to illustrate the user’s income versus spending throughout retirement, helping them understand the sustainability of their retirement plan.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.859Z",
+      "edited_at": "2024-10-13T00:28:17.859Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Withdrawal Rate Recommendations",
+      "description": "Develop logic that provides recommendations for an optimal withdrawal rate based on user data, ensuring a sustainable retirement income without prematurely depleting savings.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.868Z",
+      "edited_at": "2024-10-13T00:28:17.868Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Contribution Optimization Logic",
+      "description": "Create logic to analyze user contributions and recommend changes to pre-tax and after-tax savings for better tax efficiency and retirement readiness.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 9,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.877Z",
+      "edited_at": "2024-10-13T00:28:17.877Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Risk Tolerance Analysis",
+      "description": "Implement analysis to determine the user's risk tolerance based on their age, income, and financial situation, and provide appropriate investment suggestions (e.g., conservative, moderate, aggressive).",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 10,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.892Z",
+      "edited_at": "2024-10-13T00:28:17.892Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Unit Testing for Calculations",
+      "description": "Write unit tests for all core calculations to ensure accuracy and consistency of results across various input scenarios.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        4
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 11,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.908Z",
+      "edited_at": "2024-10-13T00:28:17.908Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "User Interface Testing",
+      "description": "Perform UI testing to validate form behavior, responsiveness, and graph integration across different devices and browsers.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        4
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 12,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.920Z",
+      "edited_at": "2024-10-13T00:28:17.920Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Set Up Django Application Deployment",
+      "description": "Prepare the Django application for deployment, including server setup, configuration, and testing to ensure proper functioning in a production environment.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        1
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 13,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.931Z",
+      "edited_at": "2024-10-13T00:28:17.931Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Write Basic User Guide",
+      "description": "Develop a user guide that explains how to use the calculator, detailing each variable and how it impacts the overall retirement plan.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        5
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 14,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.938Z",
+      "edited_at": "2024-10-13T00:28:17.938Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Create Home Page",
+      "description": "Design the home page for the retirement calculator, including an introduction to the tool and clear navigation options to get started.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 15,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.949Z",
+      "edited_at": "2024-10-13T00:28:17.949Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Create Results Page for Displaying Calculations",
+      "description": "Develop a results page that presents users with their retirement projections, graphs, and insights in a clear, organized manner.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 16,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.957Z",
+      "edited_at": "2024-10-13T00:28:17.957Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Create Graph Display Components",
+      "description": "Implement reusable graph components to visualize various data points such as savings growth, spending vs. income, and portfolio depletion.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 17,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.968Z",
+      "edited_at": "2024-10-13T00:28:17.968Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Create Backend Models for User Inputs",
+      "description": "Create Django models to store user input data, ensuring data integrity and availability for calculations and future enhancements.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 18,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.979Z",
+      "edited_at": "2024-10-13T00:28:17.979Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Implement API Endpoints for Data Submission",
+      "description": "Develop API endpoints to handle user data submission, ensuring security and efficient data processing.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 19,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.987Z",
+      "edited_at": "2024-10-13T00:28:17.988Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Set Up Database for Storing User Inputs and Results",
+      "description": "Configure the database to store user inputs, calculated results, and other necessary data for the retirement calculator.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 20,
+    "fields": {
+      "created_at": "2024-10-13T00:28:17.996Z",
+      "edited_at": "2024-10-13T00:28:17.996Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Develop Error Handling for User Input Validation",
+      "description": "Implement error handling to provide meaningful feedback to users when incorrect or invalid data is entered, improving user experience.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 21,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.003Z",
+      "edited_at": "2024-10-13T00:28:18.003Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Implement Responsive Design for Forms and Pages",
+      "description": "Ensure that all forms and pages are responsive, providing a seamless experience on mobile, tablet, and desktop devices.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 22,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.010Z",
+      "edited_at": "2024-10-13T00:28:18.010Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Design User Goals Prompt",
+      "description": "Create a series of prompts to gather information on user retirement goals (e.g., early retirement, comfortable lifestyle) to provide more tailored suggestions.",
+      "due_date": null,
+      "priority": "High",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6,
+        3
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 23,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.020Z",
+      "edited_at": "2024-10-13T00:28:18.021Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Educational Content for Inputs",
+      "description": "Add educational content and tooltips next to input fields to help users understand the importance of each variable and its impact on their retirement.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6,
+        3
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 24,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.028Z",
+      "edited_at": "2024-10-13T00:28:18.028Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Personalized User Profiles",
+      "description": "Develop the ability for users to create and manage personalized profiles, enabling them to save scenarios and track their retirement planning progress over time.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 25,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.036Z",
+      "edited_at": "2024-10-13T00:28:18.036Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Scenario Comparison",
+      "description": "Allow users to compare different retirement scenarios side-by-side, showing how changes to variables like retirement age or spending affect their financial outlook.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 26,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.043Z",
+      "edited_at": "2024-10-13T00:28:18.043Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "API Integration for Tax Bracket Data",
+      "description": "Integrate an API to fetch real-time federal and state tax bracket data, providing users with accurate information for tax planning in retirement.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 27,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.051Z",
+      "edited_at": "2024-10-13T00:28:18.051Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Withdrawal Strategy Suggestion Logic",
+      "description": "Implement logic to suggest withdrawal strategies that minimize tax impact, such as early withdrawals from pre-tax accounts to avoid higher tax brackets later.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 28,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.058Z",
+      "edited_at": "2024-10-13T00:28:18.058Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Add Monte Carlo Simulation for Projections",
+      "description": "Develop a Monte Carlo simulation to provide probabilistic projections of portfolio success, helping users understand potential outcomes under varying market conditions.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 29,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.066Z",
+      "edited_at": "2024-10-13T00:28:18.066Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Visualize Tax Impact on Graphs",
+      "description": "Enhance graphs to visually demonstrate the impact of taxes on withdrawals, helping users see how different strategies affect their net income.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 30,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.073Z",
+      "edited_at": "2024-10-13T00:28:18.073Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Risk Assessment Quiz",
+      "description": "Create a simple quiz to assess the user's risk tolerance and provide corresponding recommendations for investment strategies.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6,
+        3
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 31,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.081Z",
+      "edited_at": "2024-10-13T00:28:18.081Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Save and Load Scenarios",
+      "description": "Allow users to save their retirement planning scenarios and load them later for review or adjustment, improving personalization.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 32,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.088Z",
+      "edited_at": "2024-10-13T00:28:18.088Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Create Dashboard Page for Saved Scenarios",
+      "description": "Develop a dashboard page where users can view and manage all their saved retirement scenarios in one place.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 33,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.096Z",
+      "edited_at": "2024-10-13T00:28:18.096Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Develop User Authentication System",
+      "description": "Implement a user authentication system to allow users to create accounts, securely save their data, and access it from different devices.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 34,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.104Z",
+      "edited_at": "2024-10-13T00:28:18.104Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Integrate User Notifications for Key Milestones",
+      "description": "Add notifications to inform users of key milestones or important updates, such as reaching a savings target or changes in tax laws.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        2,
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 35,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.111Z",
+      "edited_at": "2024-10-13T00:28:18.111Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Implement Mobile-Friendly Design Enhancements",
+      "description": "Refine the mobile design to ensure all features are easily accessible and usable on mobile devices, improving overall user experience.",
+      "due_date": null,
+      "priority": "Medium",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 36,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.118Z",
+      "edited_at": "2024-10-13T00:28:18.118Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Add Feature to Export Results as PDF",
+      "description": "Allow users to export their retirement planning results as a PDF for easy sharing and record-keeping.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.task",
+    "pk": 37,
+    "fields": {
+      "created_at": "2024-10-13T00:28:18.126Z",
+      "edited_at": "2024-10-13T00:28:18.126Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Add Interactive Tutorials for New Users",
+      "description": "Develop interactive tutorials to guide new users through the process of using the retirement calculator, making it easier for them to understand and use effectively.",
+      "due_date": null,
+      "priority": "Low",
+      "status": "Not Started",
+      "assigned_to": null,
+      "parent_task": null,
+      "project": 1,
+      "section": 1,
+      "tags": [
+        6,
+        3
+      ],
+      "dependencies": []
+    }
+  },
+  {
+    "model": "arcus.section",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-10-13T00:11:06.234Z",
+      "edited_at": "2024-10-13T00:11:06.235Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "MVP",
+      "order": 0,
+      "project": 1
+    }
+  },
+  {
+    "model": "arcus.section",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-10-13T00:11:26.039Z",
+      "edited_at": "2024-10-13T00:11:26.039Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "title": "Future Enhacements",
+      "order": 1,
+      "project": 1
+    }
+  },
+  {
+    "model": "arcus.project",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-10-13T00:06:07.113Z",
+      "edited_at": "2024-10-13T16:10:12.861Z",
+      "creator": [
+        "schir2"
+      ],
+      "editor": [
+        "schir2"
+      ],
+      "name": "Retirement Calculator",
+      "description": "A project to develop a financial retirement calculator, covering both MVP and advanced features. The calculator will help users determine when they can retire, how long they can live off their savings, and provide suggestions on optimizing their retirement strategy based on their inputs and goals.",
+      "start_date": "2024-10-13T00:04:48Z",
+      "end_date": null,
+      "status": "Not Started",
+      "priority": "Medium",
+      "starred": false
+    }
+  }
+]
