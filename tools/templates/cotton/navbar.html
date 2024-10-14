@@ -7,12 +7,14 @@
                 <c-link href="#{{ page.slug }}">{{ page.title }}</c-link>
             {% endfor %}
             <c-link href="{% url 'content:index' %}">Portfolio</c-link>
-            <c-link href="{% url 'blog:index' %}" icon="external-link">Articles</c-link>
+        
+            <c-link href="{% url 'arcus:index' %}" icon="check-circle">Arcus</c-link>
+            <c-link href="{% url 'blog:index' %}" icon="align-left">Blog</c-link>
+            <c-link href="{% url 'content:index' %}" icon="user">Portfolio</c-link>
+            <c-link href="{% url 'tools:index' %}" icon="tool">Tools</c-link>
         </div>
         <div class="space-x-3">
             {{ middle }}
-            <c-link href="{% url 'blog:css_display_cheatsheet' %}">CSS Display Cheatsheet</c-link>
-            <c-link href="{% url 'blog:theme' %}">Theme</c-link>
         </div>
         <div class="flex justify-end align-middle gap-3">
             {{ right }}

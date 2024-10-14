@@ -4,7 +4,7 @@ from .views import (
     project_list_view, project_detail_view, project_create_view, project_edit_view, project_delete_view,
     task_list_view, task_detail_view, task_create_view, task_edit_view, task_delete_view,
     tag_list_view, tag_detail_view, tag_create_view, tag_edit_view, tag_delete_view,
-    section_list_view, section_detail_view, section_create_view, section_edit_view, section_delete_view, dashboard_view,
+    section_list_view, section_detail_view, section_create_view, section_edit_view, section_delete_view, index_view,
     project_toggle_star, project_starred_list_sidenav
 )
 
@@ -54,7 +54,7 @@ section_patterns = ([
 ])
 
 urlpatterns = [
-    path('', dashboard_view, name='dashboard'),
+    path('', index_view, name='index'),
     path('projects/', include(project_patterns)),
     path('tasks/', include(task_patterns)),
     path('tags/', include(tag_patterns)),

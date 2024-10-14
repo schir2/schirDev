@@ -5,7 +5,7 @@ from content.forms.contact_message_forms import ContactMessageForm
 from content.models import Project, SkillCategory, Page
 
 
-def home_view(request):
+def index_view(request):
     context = {}
     form = ContactMessageForm
     projects = Project.objects.all()

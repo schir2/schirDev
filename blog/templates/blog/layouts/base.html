@@ -16,12 +16,12 @@
 </head>
 
 <body class="bg-skin-base text-lg text-skin-base" :data-theme="theme" x-data="{ theme : $persist('light')}">
-<c-blog.navbar>
+<c-navbar>
     <c-slot name="section_links">
         {% block section_links %}
         {% endblock %}
     </c-slot>
-</c-blog.navbar>
+</c-navbar>
 <main class="pt-16 mx-auto min-h-nav-offset">
     {% block content %}{% endblock %}
 </main>

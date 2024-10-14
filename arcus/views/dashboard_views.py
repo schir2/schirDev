@@ -4,7 +4,7 @@ from django.utils import timezone
 from arcus.models import Project, Task
 
 
-def dashboard_view(request):
+def index_view(request):
     context = {}
     # Get the recent projects and tasks
     recent_projects = Project.objects.order_by('-created_at')[:5]
@@ -26,4 +26,4 @@ def dashboard_view(request):
     context['tasks_in_progress'] = tasks_in_progress
     context['overdue_tasks'] = overdue_tasks
 
-    return render(request, 'arcus/pages/dashboard.html', context)
+    return render(request, 'arcus/pages/index.html', context)
