@@ -123,6 +123,17 @@ module.exports = {
                     'success': withOpacity('border-success'),
                 },
             },
+            ringColor: {
+                skin: {
+                    'base': withOpacity('border-base'),
+                    'muted': withOpacity('border-muted'),
+                    'primary': withOpacity('border-primary'),
+                    'secondary': withOpacity('border-secondary'),
+                    'accent': withOpacity('border-accent'),
+                    'error': withOpacity('border-error'),
+                    'success': withOpacity('border-success'),
+                },
+            },
             fill: {
                 skin: {
                     'base': withOpacity('icon-base'),
