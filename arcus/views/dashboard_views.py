@@ -5,6 +5,8 @@ from arcus.models import Project, Task
 
 
 def index_view(request):
+    CAPITAL_GAINS_TAX=0.8
+
     context = {}
     # Get the recent projects and tasks
     recent_projects = Project.objects.order_by('-created_at')[:5]

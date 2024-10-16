@@ -45,6 +45,22 @@ class RetirementCalculatorForm(forms.Form):
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 50000'})
     )
 
+    current_tax_exempt_savings = forms.IntegerField(
+        min_value=0,
+        initial=30000,
+        label="Current Tax-Exempt Savings",
+        help_text="Your current savings in tax-exempt accounts (e.g., Roth IRA).",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 30000'})
+    )
+
+    current_bank_savings = forms.IntegerField(
+        min_value=0,
+        initial=20000,
+        label="Current Bank Savings",
+        help_text="Your current bank savings (e.g., checking, savings accounts).",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 20000'})
+    )
+
     monthly_taxable_contribution = forms.IntegerField(
         min_value=0,
         initial=500,
@@ -59,6 +75,22 @@ class RetirementCalculatorForm(forms.Form):
         label="Monthly Tax-Deferred Contribution",
         help_text="Your monthly contribution to tax-deferred accounts.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 1000'})
+    )
+
+    monthly_tax_exempt_contribution = forms.IntegerField(
+        min_value=0,
+        initial=500,
+        label="Monthly Tax-Exempt Contribution",
+        help_text="Your monthly contribution to tax-exempt accounts (e.g., Roth IRA).",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 500'})
+    )
+
+    monthly_bank_contribution = forms.IntegerField(
+        min_value=0,
+        initial=200,
+        label="Monthly Bank Savings Contribution",
+        help_text="Your monthly contribution to bank savings accounts.",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 200'})
     )
 
     annual_expenses = forms.IntegerField(

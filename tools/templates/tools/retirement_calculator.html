@@ -1,133 +1,99 @@
 {% extends 'tools/base.html' %}
-{% load cotton %}
-
 {% block head_title %}Retirement Calculator{% endblock %}
-
 {% block content %}
-<div class="container mx-auto p-4" x-data="retirementCalculator()">
-    <h1 class="text-2xl font-bold mb-4">Retirement Calculator</h1>
-    <div class="flex flex-col md:flex-row gap-8">
-        <form @submit.prevent="calculateRetirement" class="space-y-8 md:w-1/2">
-            {% csrf_token %}
-            
-            <div class="space-y-4">
-                <h2 class="text-lg font-semibold">Personal Information</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <c-input :field="form.current_age" x_model="formData.current_age" />
-                    <c-input :field="form.retirement_age" x_model="formData.retirement_age" />
-                    <c-input :field="form.life_expectancy" x_model="formData.life_expectancy" />
-                </div>
+    <h1 class="text-4xl font-semibold mb-6">Retirement Calculator</h1>
+    <div x-data="retirementCalculator()" class="grid grid-cols-2">
+    <div class="space-y-3">
+        <div class="p-3 border">
+            <h2 class="text-2xl font-semibold">Personal Information</h2>
+            <div class="grid grid-cols-3 gap-3">
+                <c-input :field="form.current_age" x-model="formData.current_age"/>
+                <c-input :field="form.retirement_age" x-model="formData.retirement_age"/>
+                <c-input :field="form.life_expectancy" x-model="formData.life_expectancy"/>
             </div>
+        </div>
 
-            <div class="space-y-4">
-                <h2 class="text-lg font-semibold">Savings</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <c-input :field="form.current_tax_deferred_savings" x_model="formData.current_tax_deferred_savings" />
-                    <c-input :field="form.current_taxable_savings" x_model="formData.current_taxable_savings" />
-                    <c-input :field="form.monthly_tax_deferred_contribution" x_model="formData.monthly_tax_deferred_contribution" />
-                    <c-input :field="form.monthly_taxable_contribution" x_model="formData.monthly_taxable_contribution" />
-                </div>
+        <div class="p-3 border">
+            <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <c-input :field="form.annual_earning_pre_taxed" x-model="formData.annual_earning_pre_taxed"/>
+                <c-input :field="form.annual_expenses" x-model="formData.annual_expenses"/>
+                <c-input :field="form.target_annual_retirement_spending_pre_taxed"
+                         x-model="formData.target_annual_retirement_spending_pre_taxed"/>
+                <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model="formData.target_end_of_life_savings_pre_taxed"/>
             </div>
+        </div>
 
-            <div class="space-y-4">
-                <h2 class="text-lg font-semibold">Income and Expenses</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <c-input :field="form.annual_earning_pre_taxed" x_model="formData.annual_earning_pre_taxed" />
-                    <c-input :field="form.annual_expenses" x_model="formData.annual_expenses" />
-                    <c-input :field="form.target_annual_retirement_spending_pre_taxed" x_model="formData.target_annual_retirement_spending_pre_taxed" />
-                    <c-input :field="form.target_end_of_life_savings_pre_taxed" x_model="formData.target_end_of_life_savings_pre_taxed" />
-                </div>
-            </div>
+        <div class="p-3 border">
+            <h2 class="text-2xl font-semibold mb-3">Savings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h3 class="text-xl font-semibold col-span-2">Bank</h3>
+                <p class="text-sm text-skin-muted col-span-2">Accounts such as checking and savings grow with minimal interest and are taxed
+                    annually.</p>
+                <c-input :field="form.current_bank_savings" x-model="formData.current_bank_savings"/>
+                <c-input :field="form.monthly_bank_contribution" x-model="formData.monthly_bank_contribution"/>
 
-{#            <div class="space-y-4">#}
-{#                <h2 class="text-lg font-semibold">Rates</h2>#}
-{#                <div class="grid grid-cols-1 gap-4">#}
-{#                    <c-slider :field="form.inflation_rate" x_model="formData.inflation_rate" />#}
-{#                    <c-slider :field="form.taxable_savings_growth_rate" x_model="formData.taxable_savings_growth_rate" />#}
-{#                    <c-slider :field="form.tax_deferred_growth_rate" x_model="formData.tax_deferred_growth_rate" />#}
-{#                    <c-input :field="form.tax_rate" x_model="formData.tax_rate" />#}
-{#                </div>#}
-{#            </div>#}
+                <h3 class="text-xl font-semibold col-span-2">Tax Deferred</h3>
+                <p class="text-sm text-skin-muted col-span-2">These grow tax-free until retirement, but withdrawals are taxed (e.g., 401(k),
+                    Traditional IRA)..</p>
+                <c-input :field="form.current_tax_deferred_savings" x-model="formData.current_tax_deferred_savings"/>
+                <c-input :field="form.monthly_tax_deferred_contribution" x-model="formData.monthly_tax_deferred_contribution"/>
 
-            <div class="mt-4">
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-skin-button-accent hover:bg-skin-button-accent-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-skin-accent">
-                    Calculate Retirement
-                </button>
-            </div>
-        </form>
+                <h3 class="text-xl font-semibold col-span-2">Taxable</h3>
+                <p class="text-sm text-skin-muted col-span-2">Brokerage accounts where you pay taxes on capital gains, dividends, and
+                    interest as they are realized.</p>
+                <c-input :field="form.current_taxable_savings" x-model="formData.current_taxable_savings"/>
+                <c-input :field="form.monthly_taxable_contribution" x-model="formData.monthly_taxable_contribution"/>
 
-        <div class="md:w-1/2">
-            <div class="bg-skin-fill p-4 rounded-md">
-                <h2 class="text-xl font-bold mb-4">Current Values (x_model demo)</h2>
-                <div class="space-y-2">
-                    <h3 class="font-semibold mt-4">Personal Information</h3>
-                    <p><strong>Current Age:</strong> <span x-text="formData.current_age"></span></p>
-                    <p><strong>Retirement Age:</strong> <span x-text="formData.retirement_age"></span></p>
-                    <p><strong>Life Expectancy:</strong> <span x-text="formData.life_expectancy"></span></p>
+                <h3 class="text-xl font-semibold col-span-2">Tax Exempt</h3>
+                <p class="text-sm text-skin-muted col-span-2">These are funded with post-tax dollars and can be withdrawn tax-free in
+                    retirement (e.g., Roth IRA).</p>
+                <c-input :field="form.current_tax_exempt_savings" x-model="formData.current_tax_exempt_savings"/>
+                <c-input :field="form.monthly_tax_exempt_contribution" x-model="formData.monthly_tax_exempt_contribution"/>
 
-                    <h3 class="font-semibold mt-4">Savings</h3>
-                    <p><strong>Current Tax-Deferred Savings:</strong> $<span x-text="formData.current_tax_deferred_savings"></span></p>
-                    <p><strong>Current Taxable Savings:</strong> $<span x-text="formData.current_taxable_savings"></span></p>
-                    <p><strong>Monthly Tax-Deferred Contribution:</strong> $<span x-text="formData.monthly_tax_deferred_contribution"></span></p>
-                    <p><strong>Monthly Taxable Contribution:</strong> $<span x-text="formData.monthly_taxable_contribution"></span></p>
-
-                    <h3 class="font-semibold mt-4">Income and Expenses</h3>
-                    <p><strong>Annual Pre-Tax Earnings:</strong> $<span x-text="formData.annual_earning_pre_taxed"></span></p>
-                    <p><strong>Annual Expenses:</strong> $<span x-text="formData.annual_expenses"></span></p>
-                    <p><strong>Target Annual Retirement Spending (Pre-Tax):</strong> $<span x-text="formData.target_annual_retirement_spending_pre_taxed"></span></p>
-                    <p><strong>Target End-of-Life Savings (Pre-Tax):</strong> $<span x-text="formData.target_end_of_life_savings_pre_taxed"></span></p>
-
-                    <h3 class="font-semibold mt-4">Rates</h3>
-                    <p><strong>Inflation Rate:</strong> <span x-text="formData.inflation_rate.toFixed(1)"></span>%</p>
-                    <p><strong>Taxable Savings Growth Rate:</strong> <span x-text="formData.taxable_savings_growth_rate.toFixed(1)"></span>%</p>
-                    <p><strong>Tax-Deferred Growth Rate:</strong> <span x-text="formData.tax_deferred_growth_rate.toFixed(1)"></span>%</p>
-                    <p><strong>Tax Rate:</strong> <span x-text="formData.tax_rate.toFixed(1)"></span>%</p>
-                </div>
             </div>
         </div>
     </div>
 
-    <div x-show="results" class="mt-8">
-        <h2 class="text-xl font-bold mb-4">Retirement Projection Results</h2>
-        <pre x-text="JSON.stringify(results, null, 2)" class="bg-skin-fill p-4 rounded-md overflow-auto"></pre>
-    </div>
-</div>
 {% endblock %}
 
 {% block javascript %}
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script>
-    function retirementCalculator() {
-        return {
-            formData: {
-                current_age: 30,
-                retirement_age: 65,
-                life_expectancy: 85,
-                current_tax_deferred_savings: 100000,
-                current_taxable_savings: 50000,
-                monthly_tax_deferred_contribution: 1000,
-                monthly_taxable_contribution: 500,
-                annual_expenses: 40000,
-                inflation_rate: 2.0,
-                taxable_savings_growth_rate: 6.0,
-                tax_deferred_growth_rate: 7.0,
-                tax_rate: 25.0,
-                annual_earning_pre_taxed: 75000,
-                target_annual_retirement_spending_pre_taxed: 50000,
-                target_end_of_life_savings_pre_taxed: 100000,
-            },
-            results: null,
-            calculateRetirement() {
-                // Here you would typically make an AJAX call to your backend
-                // For demonstration, we'll just set some dummy results
-                this.results = {
-                    yearsUntilRetirement: this.formData.retirement_age - this.formData.current_age,
-                    totalSavingsAtRetirement: (this.formData.current_tax_deferred_savings + this.formData.current_taxable_savings) *
-                        Math.pow(1 + (this.formData.tax_deferred_growth_rate / 100), this.formData.retirement_age - this.formData.current_age),
-                    // Add more calculated fields here
-                };
+    <script>
+        function retirementCalculator() {
+            return {
+                formData: {
+                    current_age: 30,
+                    retirement_age: 65,
+                    life_expectancy: 85,
+                    current_tax_deferred_savings: null,
+                    current_taxable_savings: null,
+                    current_tax_exempt_savings: null,
+                    current_bank_savings: null,
+                    monthly_tax_deferred_contribution: null,
+                    monthly_taxable_contribution: null,
+                    monthly_tax_exempt_contribution: null,
+                    monthly_bank_contribution: null,
+                    annual_expenses: null,
+                    inflation_rate: 2.0,
+                    taxable_savings_growth_rate: 6.0,
+                    tax_deferred_growth_rate: 7.0,
+                    tax_rate: 25.0,
+                    annual_earning_pre_taxed: null,
+                    target_annual_retirement_spending_pre_taxed: null,
+                    target_end_of_life_savings_pre_taxed: null,
+                },
+                results: null,
+                calculateRetirement() {
+                    // Here you would typically make an AJAX call to your backend
+                    // For demonstration, we'll just set some dummy results
+                    this.results = {
+                        yearsUntilRetirement: this.formData.retirement_age - this.formData.current_age,
+                        totalSavingsAtRetirement: (this.formData.current_tax_deferred_savings + this.formData.current_taxable_savings) *
+                            Math.pow(1 + (this.formData.tax_deferred_growth_rate / 100), this.formData.retirement_age - this.formData.current_age),
+                        // Add more calculated fields here
+                    };
+                }
             }
         }
-    }
-</script>
+    </script>
 {% endblock %}

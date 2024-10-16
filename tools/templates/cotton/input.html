@@ -9,8 +9,7 @@
             {{ field.label }}
         </label>
     {% endif %}
-
-    {% render_field field class="w-full border rounded shadow px-3 py-1.5 text-skin-base focus:outline-none focus:ring-2 focus:ring-skin-accent"|add:extra_input_classes x-model=x_model %}
+    {% render_field field class="border rounded shadow px-3 py-1.5 text-skin-base bg-skin-base focus:outline-none focus:ring-2 focus:ring-skin-accent w-full"|add:extra_input_classes x-model=x_model %}
 
     {% if field.help_text %}
         <p class="mt-1 text-sm text-skin-muted {{ extra_help_text_classes }}">{{ field.help_text }}</p>
