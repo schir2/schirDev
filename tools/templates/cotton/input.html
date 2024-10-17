@@ -1,15 +1,24 @@
-{% comment %}components/c-input.html{% endcomment %}
 {% load widget_tweaks %}
 
-<c-vars field x-model extra_input_classes="" extra_label_classes="" extra_help_text_classes="" />
-
+<c-vars field x-model extra_input_classes="" extra_label_classes="" extra_help_text_classes=""/>
 <div class="form-group">
     {% if field.label %}
         <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-skin-base mb-1 {{ extra_label_classes }}">
             {{ field.label }}
         </label>
     {% endif %}
-    {% render_field field class="border rounded shadow px-3 py-1.5 text-skin-base bg-skin-base focus:outline-none focus:ring-2 focus:ring-skin-accent w-full"|add:extra_input_classes x-model=x_model %}
+
+    <input
+            type="{{ type }}"
+            name="{{ field.html_name }}"
+            id="{{ field.auto_id }}"
+            value="{{ field.value|default:'' }}"
+            class="border rounded shadow px-3 py-1.5 text-skin-base bg-skin-base focus:outline-none focus:ring-2 focus:ring-skin-accent w-full {{ extra_input_classes }}"
+    {% for name, value in field.field.widget.attrs.items %}
+        {% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}
+    {% endfor %}
+    {{ attrs }}
+    >
 
     {% if field.help_text %}
         <p class="mt-1 text-sm text-skin-muted {{ extra_help_text_classes }}">{{ field.help_text }}</p>
