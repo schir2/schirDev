@@ -2,96 +2,307 @@
 {% block head_title %}Retirement Calculator{% endblock %}
 {% block content %}
     <h1 class="text-4xl font-semibold mb-6">Retirement Calculator</h1>
-    <div x-data="retirementCalculator()" class="grid grid-cols-2">
-    <div class="space-y-3">
-        <div class="p-3 border">
-            <h2 class="text-2xl font-semibold">Personal Information</h2>
-            <div class="grid grid-cols-3 gap-3">
-                <c-input :field="form.current_age" x-model="formData.current_age"/>
-                <c-input :field="form.retirement_age" x-model="formData.retirement_age"/>
-                <c-input :field="form.life_expectancy" x-model="formData.life_expectancy"/>
+    <div x-data="setupFormData()" class="grid grid-cols-2">
+        <h2 class="text-2xl font-semibold mb-4"></h2>
+        <table>
+            <thead>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="space-y-3">
+            <div class="p-3 border">
+                <h2 class="text-2xl font-semibold">Personal Information</h2>
+                <div class="grid grid-cols-3 gap-3">
+                    <c-input :field="form.current_age" x-model="formData.currentAge"/>
+                    <c-input :field="form.retirement_age" x-model="formData.retirementAge"/>
+                    <c-input :field="form.life_expectancy" x-model="formData.lifeExpectancy"/>
+                </div>
             </div>
-        </div>
 
-        <div class="p-3 border">
-            <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <c-input :field="form.annual_earning_pre_taxed" x-model="formData.annual_earning_pre_taxed"/>
-                <c-input :field="form.annual_expenses" x-model="formData.annual_expenses"/>
-                <c-input :field="form.target_annual_retirement_spending_pre_taxed"
-                         x-model="formData.target_annual_retirement_spending_pre_taxed"/>
-                <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model="formData.target_end_of_life_savings_pre_taxed"/>
+            <div class="p-3 border">
+                <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <c-input :field="form.annual_earning_pre_taxed" x-model="formData.annualEarningPreTaxed"/>
+                    <c-input :field="form.annual_expenses" x-model="formData.annualExpenses"/>
+                    <c-input :field="form.targetAnnualRetirementSpendingPreTaxed"
+                             x-model="formData.targetAnnualRetirementSpendingPreTaxed"/>
+                    <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model="formData.targetEndOfLifeSavingsPreTaxed"/>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <label class="block">
+                        <span class="text-gray-700">Income Growth Strategy</span>
+                        <select x-model="formData.incomeGrowthStrategy" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                            <option value="fixed">Fixed</option>
+                            <option value="percentage_increase">Percentage Increase</option>
+                            <option value="custom_growth">Custom Growth Rate</option>
+                        </select>
+                    </label>
+
+                    <!-- Supplementary field for Percentage Increase -->
+                    <div x-show="formData.incomeGrowthStrategy === 'percentage_increase'" class="col-span-2">
+                        <c-input :field="form.percentage_increase" x-model="formData.percentageIncrease"
+                                 placeholder="Enter percentage increase"/>
+                    </div>
+
+                    <!-- Supplementary field for Custom Growth Rate -->
+                    <div x-show="formData.incomeGrowthStrategy === 'custom_growth'" class="col-span-2">
+                        <c-input :field="form.custom_growth_rate" x-model="formData.customGrowthRate"
+                                 placeholder="Enter custom growth rate"/>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="p-3 border">
-            <h2 class="text-2xl font-semibold mb-3">Savings</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <h3 class="text-xl font-semibold col-span-2">Bank</h3>
-                <p class="text-sm text-skin-muted col-span-2">Accounts such as checking and savings grow with minimal interest and are taxed
-                    annually.</p>
-                <c-input :field="form.current_bank_savings" x-model="formData.current_bank_savings"/>
-                <c-input :field="form.monthly_bank_contribution" x-model="formData.monthly_bank_contribution"/>
+            <div class="p-3 border">
+                <h2 class="text-2xl font-semibold mb-3">Savings</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <h3 class="text-xl font-semibold col-span-2">Bank</h3>
+                    <p class="text-sm text-skin-muted col-span-2">Accounts such as checking and savings grow with minimal interest and are
+                        taxed
+                        annually.</p>
+                    <c-input :field="form.current_bank_savings" x-model="formData.currentBankSavings"/>
+                    <c-input :field="form.annual_bank_contribution" x-model="formData.annualBankContribution"/>
+                    <label class="block col-span-2">
+                        <span class="text-gray-700">Bank Contribution Strategy</span>
+                        <select x-model="formData.bankContributionStrategy" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                            <option value="fixed">Fixed Contribution</option>
+                            <option value="percent_income">Percentage of Income</option>
+                            <option value="until_goal">Until Goal Met</option>
+                        </select>
+                    </label>
 
-                <h3 class="text-xl font-semibold col-span-2">Tax Deferred</h3>
-                <p class="text-sm text-skin-muted col-span-2">These grow tax-free until retirement, but withdrawals are taxed (e.g., 401(k),
-                    Traditional IRA)..</p>
-                <c-input :field="form.current_tax_deferred_savings" x-model="formData.current_tax_deferred_savings"/>
-                <c-input :field="form.monthly_tax_deferred_contribution" x-model="formData.monthly_tax_deferred_contribution"/>
+                    <!-- Supplementary field for Percentage of Income -->
+                    <div x-show="formData.bankContributionStrategy === 'percent_income'" class="col-span-2">
+                        <c-input :field="form.bank_contribution_percentage" x-model="formData.bankContributionPercentage"
+                                 placeholder="Enter percentage of income"/>
+                    </div>
 
-                <h3 class="text-xl font-semibold col-span-2">Taxable</h3>
-                <p class="text-sm text-skin-muted col-span-2">Brokerage accounts where you pay taxes on capital gains, dividends, and
-                    interest as they are realized.</p>
-                <c-input :field="form.current_taxable_savings" x-model="formData.current_taxable_savings"/>
-                <c-input :field="form.monthly_taxable_contribution" x-model="formData.monthly_taxable_contribution"/>
+                    <h3 class="text-xl font-semibold col-span-2">Tax Deferred</h3>
+                    <p class="text-sm text-skin-muted col-span-2">These grow tax-free until retirement, but withdrawals are taxed (e.g.,
+                        401(k),
+                        Traditional IRA).</p>
+                    <c-input :field="form.current_tax_deferred_savings" x-model="formData.currentTaxDeferredSavings"/>
+                    <c-input :field="form.annual_tax_deferred_contribution" x-model="formData.annualTaxDeferredContribution"/>
+                    <label class="block col-span-2">
+                        <span class="text-gray-700">Tax Deferred Contribution Strategy</span>
+                        <select x-model="formData.taxDeferredContributionStrategy"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                            <option value="fixed">Fixed Contribution</option>
+                            <option value="percent_income">Percentage of Income</option>
+                            <option value="until_goal">Until Goal Met</option>
+                            <option value="until_company_match">Until Company Match Met</option>
+                            <option value="until_max">Until Max Contribution</option>
+                        </select>
+                    </label>
 
-                <h3 class="text-xl font-semibold col-span-2">Tax Exempt</h3>
-                <p class="text-sm text-skin-muted col-span-2">These are funded with post-tax dollars and can be withdrawn tax-free in
-                    retirement (e.g., Roth IRA).</p>
-                <c-input :field="form.current_tax_exempt_savings" x-model="formData.current_tax_exempt_savings"/>
-                <c-input :field="form.monthly_tax_exempt_contribution" x-model="formData.monthly_tax_exempt_contribution"/>
+                    <!-- Supplementary field for Percentage of Income -->
+                    <div x-show="formData.taxDeferredContributionStrategy === 'percent_income'" class="col-span-2">
+                        <c-input :field="form.tax_deferred_percentage" x-model="formData.taxDeferredPercentage"
+                                 placeholder="Enter percentage of income"/>
+                    </div>
 
+                    <h3 class="text-xl font-semibold col-span-2">Taxable</h3>
+                    <p class="text-sm text-skin-muted col-span-2">Brokerage accounts where you pay taxes on capital gains, dividends, and
+                        interest as they are realized.</p>
+                    <c-input :field="form.current_taxable_savings" x-model="formData.currentTaxableSavings"/>
+                    <c-input :field="form.annual_taxable_contribution" x-model="formData.annualTaxableContribution"/>
+                    <label class="block col-span-2">
+                        <span class="text-gray-700">Taxable Contribution Strategy</span>
+                        <select x-model="formData.taxableContributionStrategy"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                            <option value="fixed">Fixed Contribution</option>
+                            <option value="percent_income">Percentage of Income</option>
+                            <option value="until_goal">Until Goal Met</option>
+                        </select>
+                    </label>
+
+                    <!-- Supplementary field for Percentage of Income -->
+                    <div x-show="formData.taxableContributionStrategy === 'percent_income'" class="col-span-2">
+                        <c-input :field="form.taxable_percentage" x-model="formData.taxablePercentage"
+                                 placeholder="Enter percentage of income"/>
+                    </div>
+
+                    <h3 class="text-xl font-semibold col-span-2">Tax Exempt</h3>
+                    <p class="text-sm text-skin-muted col-span-2">These are funded with post-tax dollars and can be withdrawn tax-free in
+                        retirement (e.g., Roth IRA).</p>
+                    <c-input :field="form.current_tax_exempt_savings" x-model="formData.currentTaxExemptSavings"/>
+                    <c-input :field="form.annual_tax_exempt_contribution" x-model="formData.annualTaxExemptContribution"/>
+                    <label class="block col-span-2">
+                        <span class="text-gray-700">Tax Exempt Contribution Strategy</span>
+                        <select x-model="formData.taxExemptContributionStrategy"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                            <option value="fixed">Fixed Contribution</option>
+                            <option value="percent_income">Percentage of Income</option>
+                            <option value="until_goal">Until Goal Met</option>
+                        </select>
+                    </label>
+
+                    <!-- Supplementary field for Percentage of Income -->
+                    <div x-show="formData.taxExemptContributionStrategy === 'percent_income'" class="col-span-2">
+                        <c-input :field="form.tax_exempt_percentage" x-model="formData.taxExemptPercentage"
+                                 placeholder="Enter percentage of income"/>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
+
+
 
 {% endblock %}
 
 {% block javascript %}
     <script>
-        function retirementCalculator() {
+        const contributionStrategies = {
+            fixed: () => (formData, row) => {
+                return initialContribution;
+            },
+            untilGoalMet: (goal) => (formData, row) => {
+                let totalSavings = row.taxDeferredSavings + row.taxableSavings + row.taxExemptSavings;
+                return totalSavings < goal ? totalSavings * 0.1 : 0;
+            },
+            percentOfIncome: (percentage) => (formData, row) => {
+                return formData.annualEarningPreTaxed * (percentage / 100);
+            },
+            companyMatch: (matchLimit) => (formData, row) => {
+                return row.annualTaxDeferredContribution < matchLimit ? row.annualTaxDeferredContribution : matchLimit;
+            },
+            rothIRAMax: (annualLimit) => (formData, row) => {
+                return row.annualTaxExemptContribution < annualLimit ? row.annualTaxExemptContribution : 0;
+            },
+            escalating: (initialContribution, escalationRate) => (formData, row) => {
+                return initialContribution * (1 + (escalationRate / 100) * (row.age - formData.currentAge));
+            },
+            bankMaintenance: (minAmount) => (formData, row) => {
+                return row.bankSavings < minAmount ? minAmount - row.bankSavings : 0;
+            }
+        };
+        const inflationGrowthStrategies = {
+            fixed: () => (formData, row) => formData.inflationRate,
+            percentageIncrease: (growthRate) => (formData, row) => row.inflationRate * (1 + growthRate / 100),
+        };
+
+        const taxRateGrowthStrategies = {
+            fixed: () => (formData, row) => formData.taxRate,
+            percentageIncrease: (growthRate) => (formData, row) => row.taxRate * (1 + growthRate / 100),
+        };
+
+        const incomeGrowthStrategies = {
+            fixed: () => (formData, row) => formData.annualEarningPreTaxed,
+            percentageIncrease: (growthRate) => (formData, row) => row.annualEarningPreTaxed * (1 + growthRate / 100),
+        };
+
+        function setupFormData() {
             return {
+                init() {
+                    this.$watch('formData', () => {this.fillTable()});
+                    this.$watch('formData.taxDeferredContributionStrategy', (value) => this.formData.taxDeferredContributionStrategy = contributionStrategies[value]);
+                    this.$watch('formData.taxableContributionStrategy', (value) => this.formData.taxableContributionStrategy = contributionStrategies[value]);
+                    this.$watch('formData.taxExemptContributionStrategy', (value) => this.formData.taxExemptContributionStrategy = contributionStrategies[value]);
+                    this.$watch('formData.bankContributionStrategy', (value) => this.formData.bankContributionStrategy = contributionStrategies[value]);
+                },
                 formData: {
-                    current_age: 30,
-                    retirement_age: 65,
-                    life_expectancy: 85,
-                    current_tax_deferred_savings: null,
-                    current_taxable_savings: null,
-                    current_tax_exempt_savings: null,
-                    current_bank_savings: null,
-                    monthly_tax_deferred_contribution: null,
-                    monthly_taxable_contribution: null,
-                    monthly_tax_exempt_contribution: null,
-                    monthly_bank_contribution: null,
-                    annual_expenses: null,
-                    inflation_rate: 2.0,
-                    taxable_savings_growth_rate: 6.0,
-                    tax_deferred_growth_rate: 7.0,
-                    tax_rate: 25.0,
-                    annual_earning_pre_taxed: null,
-                    target_annual_retirement_spending_pre_taxed: null,
-                    target_end_of_life_savings_pre_taxed: null,
+                    currentAge: 30,
+                    retirementAge: 65,
+                    lifeExpectancy: 85,
+                    currentTaxDeferredSavings: null,
+                    currentTaxableSavings: null,
+                    currentTaxExemptSavings: null,
+                    currentBankSavings: null,
+                    annualTaxDeferredContribution: null,
+                    annualTaxableContribution: null,
+                    annualTaxExemptContribution: null,
+                    annualBankContribution: null,
+                    annualExpenses: null,
+                    inflationRate: 2.0,
+                    taxableSavingsGrowthRate: 6.0,
+                    taxDeferredGrowthRate: 7.0,
+                    taxRate: 25.0,
+                    annualEarningPreTaxed: null,
+                    incomeGrowthRate: 2.0,
+                    targetAnnualRetirementSpendingPreTaxed: null,
+                    targetEndOfLifeSavingsPreTaxed: null,
+                    bankGoal: 10000,
+                    rothIRAMax: 7000,
+
+
+                    taxDeferredContributionStrategy: contributionStrategies.companyMatch(),
+                    taxableContributionStrategy: contributionStrategies.fixed(),
+                    taxExemptContributionStrategy: contributionStrategies.rothIRAMax(),
+                    bankContributionStrategy: contributionStrategies.untilGoalMet(),
+
+                    inflationGrowthStrategy: inflationGrowthStrategies.fixed(),
+                    taxRateGrowthStrategy: taxRateGrowthStrategies.fixed(),
+                    incomeGrowthStrategy: incomeGrowthStrategies.percentageIncrease(),
                 },
                 results: null,
-                calculateRetirement() {
-                    // Here you would typically make an AJAX call to your backend
-                    // For demonstration, we'll just set some dummy results
-                    this.results = {
-                        yearsUntilRetirement: this.formData.retirement_age - this.formData.current_age,
-                        totalSavingsAtRetirement: (this.formData.current_tax_deferred_savings + this.formData.current_taxable_savings) *
-                            Math.pow(1 + (this.formData.tax_deferred_growth_rate / 100), this.formData.retirement_age - this.formData.current_age),
-                        // Add more calculated fields here
-                    };
+                fillTable() {
+                    let table = [
+                        {
+                            age: this.currentAge,
+                            taxDeferredSavings: this.currentTaxDeferredSavings,
+                            taxableSavings: this.currentTaxableSavings,
+                            taxExemptSavings: this.currentTaxExemptSavings,
+                            bankSavings: this.currentBankSavings,
+                            annualTaxDeferredContribution: this.annualTaxDeferredContribution,
+                            annualTaxableContribution: this.annualTaxableContribution,
+                            annualTaxExemptContribution: this.annualTaxExemptContribution,
+                            annualBankContribution: this.annualBankContribution,
+                            annualExpenses: this.annualExpenses,
+                            inflationRate: this.inflationRate,
+                            taxableSavingsGrowthRate: this.taxableSavingsGrowthRate,
+                            taxDeferredGrowthRate: this.taxDeferredGrowthRate,
+                            taxRate: this.taxRate,
+                            annualEarningPreTaxed: this.annualEarningPreTaxed,
+                            totalGrossPortfolioValue: this.currentTaxDeferredSavings + this.currentTaxExemptSavings + this.currentTaxableSavings
+
+                        }
+                    ]
+                    for (let i = 0; i <= this.retirementAge - this.currentAge; i++) {
+                        let age = this.currentAge + i;
+                        let previousRow = i === 0 ? formData : table[i - 1];  // Use formData for the first row
+
+                        // Get contributions based on the selected strategy for each savings type
+                        let taxDeferredContribution = this.taxDeferredContributionStrategy(this.formData, previousRow);
+                        let taxableContribution = this.taxableContributionStrategy(this.formData, previousRow);
+                        let taxExemptContribution = this.taxExemptContributionStrategy(this.formData, previousRow);
+                        let bankContribution = this.bankContributionStrategy(this.formData, previousRow);
+
+                        // Calculate the new savings for the current row
+                        let newTaxDeferredSavings = previousRow.taxDeferredSavings + taxDeferredContribution;
+                        let newTaxableSavings = previousRow.taxableSavings + taxableContribution;
+                        let newTaxExemptSavings = previousRow.taxExemptSavings + taxExemptContribution;
+                        let newBankSavings = previousRow.bankSavings + bankContribution;
+
+
+                        let inflationRate = this.inflationGrowthStrategy(this.formData, previousRow);
+                        let taxRate = this.taxRateGrowthStrategy(this.formData, previousRow);
+                        let annualIncome = this.incomeGrowthStrategy(this.formData, previousRow);
+
+                        table.push({
+                            age: age,
+                            taxDeferredSavings: newTaxDeferredSavings,
+                            taxableSavings: newTaxableSavings,
+                            taxExemptSavings: newTaxExemptSavings,
+                            bankSavings: newBankSavings,
+                            monthlyTaxDeferredContribution: taxDeferredContribution,
+                            monthlyTaxableContribution: taxableContribution,
+                            monthlyTaxExemptContribution: taxExemptContribution,
+                            monthlyBankContribution: bankContribution,
+
+
+                            inflationRate: inflationRate,
+                            taxRate: taxRate,
+                            annualEarningPreTaxed: annualIncome,
+
+                            taxableSavingsGrowthRate: previousRow.taxableSavingsGrowthRate,
+                            taxDeferredGrowthRate: previousRow.taxDeferredGrowthRate,
+                            totalGrossPortfolioValue: newTaxDeferredSavings + newTaxableSavings + newTaxExemptSavings + newBankSavings
+
+                        })
+                    }
                 }
             }
         }

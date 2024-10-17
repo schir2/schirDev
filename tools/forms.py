@@ -2,6 +2,19 @@ from django import forms
 
 
 class RetirementCalculatorForm(forms.Form):
+    GROWTH_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed'),
+        ('percentage_increase', 'Percentage Increase'),
+    ]
+
+    CONTRIBUTION_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed Contribution'),
+        ('percent_income', 'Percentage of Income'),
+        ('until_goal', 'Until Goal Met'),
+        ('until_company_match', 'Until Company Match Met'),
+        ('until_max', 'Until Max Contribution'),
+    ]
+
     current_age = forms.IntegerField(
         min_value=0,
         max_value=100,
@@ -61,35 +74,35 @@ class RetirementCalculatorForm(forms.Form):
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 20000'})
     )
 
-    monthly_taxable_contribution = forms.IntegerField(
+    annual_taxable_contribution = forms.IntegerField(
         min_value=0,
         initial=500,
-        label="Monthly Taxable Contribution",
-        help_text="Your monthly contribution to taxable savings accounts.",
+        label="Annual Taxable Contribution",
+        help_text="Your annual contribution to taxable savings accounts.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 500'})
     )
 
-    monthly_tax_deferred_contribution = forms.IntegerField(
+    annual_tax_deferred_contribution = forms.IntegerField(
         min_value=0,
         initial=1000,
-        label="Monthly Tax-Deferred Contribution",
-        help_text="Your monthly contribution to tax-deferred accounts.",
+        label="Annual Tax-Deferred Contribution",
+        help_text="Your annual contribution to tax-deferred accounts.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 1000'})
     )
 
-    monthly_tax_exempt_contribution = forms.IntegerField(
+    annual_tax_exempt_contribution = forms.IntegerField(
         min_value=0,
         initial=500,
-        label="Monthly Tax-Exempt Contribution",
-        help_text="Your monthly contribution to tax-exempt accounts (e.g., Roth IRA).",
+        label="Annual Tax-Exempt Contribution",
+        help_text="Your annual contribution to tax-exempt accounts (e.g., Roth IRA).",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 500'})
     )
 
-    monthly_bank_contribution = forms.IntegerField(
+    annual_bank_contribution = forms.IntegerField(
         min_value=0,
         initial=200,
-        label="Monthly Bank Savings Contribution",
-        help_text="Your monthly contribution to bank savings accounts.",
+        label="Annual Bank Savings Contribution",
+        help_text="Your annual contribution to bank savings accounts.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 200'})
     )
 
@@ -147,4 +160,46 @@ class RetirementCalculatorForm(forms.Form):
         label="Target End-of-Life Savings (Pre-Tax)",
         help_text="The amount you aim to have saved at the end of your life, before taxes.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 100000'})
+    )
+
+    inflation_strategy = forms.ChoiceField(
+        choices=GROWTH_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Inflation Growth Strategy"
+    )
+
+    tax_rate_growth_strategy = forms.ChoiceField(
+        choices=GROWTH_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Tax Rate Growth Strategy"
+    )
+
+    income_growth_strategy = forms.ChoiceField(
+        choices=GROWTH_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Income Growth Strategy"
+    )
+
+    taxable_contribution_strategy = forms.ChoiceField(
+        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Taxable Contribution Strategy"
+    )
+
+    tax_deferred_contribution_strategy = forms.ChoiceField(
+        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Tax-Deferred Contribution Strategy"
+    )
+
+    tax_exempt_contribution_strategy = forms.ChoiceField(
+        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Tax-Exempt Contribution Strategy"
+    )
+
+    bank_contribution_strategy = forms.ChoiceField(
+        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Bank Contribution Strategy"
     )
