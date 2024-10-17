@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django_htmx',
     'django_filters',
     'django_recaptcha',
-    'django_browser_reload',
     'active_link',
     'tailwind',
     'theme',
@@ -52,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
     'django_currentuser.middleware.ThreadLocalUserMiddleware',
     "django_htmx.middleware.HtmxMiddleware",
 ]

@@ -14,9 +14,6 @@
             id="{{ field.auto_id }}"
             value="{{ field.value|default:'' }}"
             class="border rounded shadow px-3 py-1.5 text-skin-base bg-skin-base focus:outline-none focus:ring-2 focus:ring-skin-accent w-full {{ extra_input_classes }}"
-    {% for name, value in field.field.widget.attrs.items %}
-        {% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}
-    {% endfor %}
     {{ attrs }}
     >
 

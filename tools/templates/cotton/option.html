@@ -1,0 +1,6 @@
+<!-- templates/cotton/option.html -->
+<option value="{{ widget.value|stringformat:'s' }}"
+        class="{{ extra_option_classes }}"
+        {% include "cotton/attrs.html" %}>
+    {{ widget.label }}
+</option>
