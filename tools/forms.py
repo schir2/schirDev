@@ -7,12 +7,25 @@ class RetirementCalculatorForm(forms.Form):
         ('percentage_increase', 'Percentage Increase'),
     ]
 
-    CONTRIBUTION_STRATEGY_CHOICES = [
+    BANK_CONTRIBUTION_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed'),
+        ('percent_income', 'Percent of Income'),
+    ]
+
+    TAX_DEFERRED_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed Contribution'),
         ('percent_income', 'Percentage of Income'),
-        ('until_goal', 'Until Goal Met'),
         ('until_company_match', 'Until Company Match Met'),
-        ('until_max', 'Until Max Contribution'),
+    ]
+
+    TAXABLE_CONTRIBUTION_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed Contribution'),
+        ('percent_income', 'Percentage of Income'),
+    ]
+
+    TAX_EXEMPT_CONTRIBUTION_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed Contribution'),
+        ('percent_income', 'Percentage of Income'),
     ]
 
     current_age = forms.IntegerField(
@@ -181,25 +194,25 @@ class RetirementCalculatorForm(forms.Form):
     )
 
     taxable_contribution_strategy = forms.ChoiceField(
-        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        choices=TAXABLE_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Taxable Contribution Strategy"
     )
 
     tax_deferred_contribution_strategy = forms.ChoiceField(
-        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        choices=TAX_DEFERRED_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Tax-Deferred Contribution Strategy"
     )
 
     tax_exempt_contribution_strategy = forms.ChoiceField(
-        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        choices=TAX_EXEMPT_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Tax-Exempt Contribution Strategy"
     )
 
     bank_contribution_strategy = forms.ChoiceField(
-        choices=CONTRIBUTION_STRATEGY_CHOICES,
+        choices=BANK_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Bank Contribution Strategy"
     )
