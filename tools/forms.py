@@ -2,37 +2,45 @@ from django import forms
 
 
 class RetirementCalculatorForm(forms.Form):
-    GROWTH_STRATEGY_CHOICES = [
+    INFLATION_GROWTH_STRATEGY_CHOICES = [
         ('fixed', 'Fixed'),
         ('percentage_increase', 'Percentage Increase'),
+    ]
+    EXPENSE_GROWTH_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed'),
+        ('percent_of_income', 'Percentage of Income'),
+    ]
+    INCOME_GROWTH_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed'),
+        ('percent_of_income', 'Percentage of Income'),
     ]
 
     BANK_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed'),
-        ('percent_income', 'Percent of Income'),
+        ('percent_of_income', 'Percent of Income'),
     ]
 
     TAX_DEFERRED_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed Contribution'),
-        ('percent_income', 'Percentage of Income'),
+        ('percent_of_income', 'Percentage of Income'),
         ('until_company_match', 'Until Company Match Met'),
     ]
 
     TAXABLE_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed Contribution'),
-        ('percent_income', 'Percentage of Income'),
+        ('percent_of_income', 'Percentage of Income'),
     ]
 
     TAX_EXEMPT_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed Contribution'),
-        ('percent_income', 'Percentage of Income'),
+        ('percent_of_income', 'Percentage of Income'),
     ]
 
-    current_age = forms.IntegerField(
+    age = forms.IntegerField(
         min_value=0,
         max_value=100,
         initial=30,
-        label="Current Age",
+        label="Age",
         help_text="Your current age in years.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 30'})
     )
@@ -55,34 +63,34 @@ class RetirementCalculatorForm(forms.Form):
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 85'})
     )
 
-    current_tax_deferred_savings = forms.IntegerField(
+    tax_deferred_savings = forms.IntegerField(
         min_value=0,
         initial=100000,
-        label="Current Tax-Deferred Savings",
+        label="Tax-Deferred Savings",
         help_text="Your current savings in tax-deferred accounts (e.g., 401(k), Traditional IRA).",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 100000'})
     )
 
-    current_taxable_savings = forms.IntegerField(
+    taxable_savings = forms.IntegerField(
         min_value=0,
         initial=50000,
-        label="Current Taxable Savings",
+        label="Taxable Savings",
         help_text="Your current savings in taxable accounts.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 50000'})
     )
 
-    current_tax_exempt_savings = forms.IntegerField(
+    tax_exempt_savings = forms.IntegerField(
         min_value=0,
         initial=30000,
-        label="Current Tax-Exempt Savings",
+        label="Tax-Exempt Savings",
         help_text="Your current savings in tax-exempt accounts (e.g., Roth IRA).",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 30000'})
     )
 
-    current_bank_savings = forms.IntegerField(
+    cash = forms.IntegerField(
         min_value=0,
         initial=20000,
-        label="Current Bank Savings",
+        label="Cash",
         help_text="Your current bank savings (e.g., checking, savings accounts).",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 20000'})
     )
@@ -103,20 +111,47 @@ class RetirementCalculatorForm(forms.Form):
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 1000'})
     )
 
+    tax_deferred_contribution_percentage = forms.FloatField(
+        min_value=0,
+        max_value=100,
+        initial=5.0,
+        label="Tax-Deferred Contribution Percentage",
+        help_text="The percentage of your pre-tax income to contribute to tax-deferred accounts.",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 5.0', 'step': '0.1'})
+    )
+
+    tax_exempt_contribution_percentage = forms.FloatField(
+        min_value=0,
+        max_value=100,
+        initial=5.0,
+        label="Tax-Exempt Contribution Percentage",
+        help_text="The percentage of your pre-tax income to contribute to tax-exempt accounts (e.g., Roth IRA).",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 5.0', 'step': '0.1'})
+    )
+
+    taxable_contribution_percentage = forms.FloatField(
+        min_value=0,
+        max_value=100,
+        initial=5.0,
+        label="Taxable Contribution Percentage",
+        help_text="The percentage of your pre-tax income to contribute to taxable accounts.",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 5.0', 'step': '0.1'})
+    )
+
+    company_match_limit = forms.IntegerField(
+        min_value=0,
+        initial=5000,
+        label="Company Match Limit",
+        help_text="The maximum amount your company will match for tax-deferred contributions.",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 5000'})
+    )
+
     annual_tax_exempt_contribution = forms.IntegerField(
         min_value=0,
         initial=500,
         label="Annual Tax-Exempt Contribution",
         help_text="Your annual contribution to tax-exempt accounts (e.g., Roth IRA).",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 500'})
-    )
-
-    annual_bank_contribution = forms.IntegerField(
-        min_value=0,
-        initial=200,
-        label="Annual Bank Savings Contribution",
-        help_text="Your annual contribution to bank savings accounts.",
-        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 200'})
     )
 
     annual_expenses = forms.IntegerField(
@@ -151,11 +186,11 @@ class RetirementCalculatorForm(forms.Form):
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 7.0', 'step': '0.1'})
     )
 
-    annual_earning_pre_taxed = forms.IntegerField(
+    income_pre_taxed = forms.IntegerField(
         min_value=0,
-        initial=75000,
-        label="Annual Pre-Tax Earnings",
-        help_text="Your current annual earnings before taxes.",
+        initial=60000,
+        label="Annual Pre-Tax Income",
+        help_text="Your current annual income before taxes.",
         widget=forms.NumberInput(attrs={'placeholder': 'e.g., 75000'})
     )
 
@@ -176,19 +211,13 @@ class RetirementCalculatorForm(forms.Form):
     )
 
     inflation_strategy = forms.ChoiceField(
-        choices=GROWTH_STRATEGY_CHOICES,
+        choices=INFLATION_GROWTH_STRATEGY_CHOICES,
         initial='fixed',
         label="Inflation Growth Strategy"
     )
 
-    tax_rate_growth_strategy = forms.ChoiceField(
-        choices=GROWTH_STRATEGY_CHOICES,
-        initial='fixed',
-        label="Tax Rate Growth Strategy"
-    )
-
     income_growth_strategy = forms.ChoiceField(
-        choices=GROWTH_STRATEGY_CHOICES,
+        choices=INCOME_GROWTH_STRATEGY_CHOICES,
         initial='fixed',
         label="Income Growth Strategy"
     )
@@ -215,4 +244,12 @@ class RetirementCalculatorForm(forms.Form):
         choices=BANK_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Bank Contribution Strategy"
+    )
+
+    income_growth_rate = forms.FloatField(
+        min_value=0,
+        initial=2.0,
+        label="Income Growth Rate (%)",
+        help_text="The percentage by which your income will grow annually.",
+        widget=forms.NumberInput(attrs={'placeholder': 'e.g., 2.0', 'step': '0.1'})
     )

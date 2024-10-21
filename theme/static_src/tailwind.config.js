@@ -60,6 +60,7 @@ module.exports = {
 
             screens: {
                 '3xl': '1600px',
+                '6xl': '1900px',
             },
 
             transitionDuration: {
