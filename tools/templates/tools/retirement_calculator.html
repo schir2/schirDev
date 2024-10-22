@@ -2,71 +2,100 @@
 {% block head_title %}Retirement Calculator{% endblock %}
 {% block content %}
     <h1 class="text-4xl font-semibold mb-6">Retirement Calculator</h1>
-    <div x-data="setupFormData()" class="grid grid-cols-3">
+    <div x-data="setupFormData()" class="grid grid-cols-2 gap-3">
         <div class="space-y-3 col-span-1">
             <h2 class="text-2xl font-semibold mb-4"></h2>
             <div class="p-3 border">
                 <h2 class="text-2xl font-semibold">Personal Information</h2>
                 <div class="grid grid-cols-3 gap-3">
-                    <c-input :field="form.age" x-model="formData.age"/>
-                    <c-input :field="form.retirement_age" x-model="formData.retirementAge"/>
-                    <c-input :field="form.life_expectancy" x-model="formData.lifeExpectancy"/>
+                    <c-input :field="form.age" x-model.number="formData.age"/>
+                    <c-input :field="form.retirement_age" x-model.number="formData.retirementAge"/>
+                    <c-input :field="form.life_expectancy" x-model.number="formData.lifeExpectancy"/>
                 </div>
             </div>
 
             <div class="p-3 border">
                 <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <c-input :field="form.income_pre_taxed" x-model="formData.incomePreTaxed"/>
-                    <c-input :field="form.income_growth_rate" x-model="formData.incomeGrowthRate"
-                             placeholder="Enter percentage increase"/>
-                    <c-input :field="form.annual_expenses" x-model="formData.annualExpenses"/>
-                    <c-select :field="form.income_growth_strategy" x-model="formData.incomeGrowthStrategy"/>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="col-span-1">
+                        <c-input :field="form.income_pre_taxed" x-model.number="formData.incomePreTaxed"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-input :field="form.income_growth_rate" x-model.number="formData.incomeGrowthRate"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-input :field="form.annual_expenses" x-model.number="formData.annualExpenses"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-select :field="form.income_growth_strategy" x-model.number="formData.incomeGrowthStrategy"/>
+                    </div>
                 </div>
             </div>
 
             <div class="p-3 border">
                 <h2 class="text-2xl font-semibold mb-3">Savings</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <c-input :field="form.cash" x-model="formData.cash"/>
-                    <c-input :field="form.tax_deferred_savings" x-model="formData.taxDeferredSavings"/>
-                    <c-input :field="form.taxable_savings" x-model="formData.taxableSavings"/>
-                    <c-input :field="form.tax_exempt_savings" x-model="formData.taxExemptSavings"/>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="col-span-1">
+                        <c-input :field="form.cash" x-model.number="formData.cash"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-input :field="form.tax_deferred_savings" x-model.number="formData.taxDeferredInitialSavings"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-input :field="form.taxable_savings" x-model.number="formData.taxableSavings"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-input :field="form.tax_exempt_savings" x-model.number="formData.taxExemptSavings"/>
+                    </div>
                 </div>
             </div>
             <div class="p-3 border">
-                <h2 class="text-2xl font-semibold mb-3">Contributions</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <h3 class="text-xl font-semibold col-span-2">Tax Deferred</h3>
-                    <p class="text-sm text-skin-muted col-span-2">These grow tax-free until retirement, but withdrawals are taxed (e.g.,
-                        401(k),
-                        Traditional IRA).</p>
-                    <c-input :field="form.annual_tax_deferred_contribution" x-model="formData.annualTaxDeferredContribution"/>
-                    <c-input :field="form.company_match_limit" x-model="formData.companyMatchLimit"/>
-                    <c-select :field="form.tax_deferred_contribution_strategy" x-model="formData.taxDeferredContributionStrategy"/>
-                    <c-input :field="form.tax_deferred_contribution_percentage" x-model="formData.taxDeferredContributionPercentage"/>
-                    <h3 class="text-xl font-semibold col-span-2">Taxable</h3>
-                    <p class="text-sm text-skin-muted col-span-2">Brokerage accounts where you pay taxes on capital gains, dividends, and
-                        interest as they are realized.</p>
-                    <c-input :field="form.annual_taxable_contribution" x-model="formData.annualTaxableContribution"/>
+                <h2 class="text-2xl font-semibold mb-3">Tax Deferred Contributions</h2>
+                <p class="text-sm text-skin-muted">These grow tax-free until retirement, but withdrawals are taxed (e.g.,
+                    401(k),
+                    Traditional IRA).</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="col-span-1">
+                        <c-select :field="form.tax_deferred_contribution_strategy" x-model="formData.taxDeferredContributionStrategy"/>
+                    </div>
+                    <div class="col-span-1">
+                        <c-input :field="form.company_match_limit" x-model.number="formData.taxDeferredCompanyMatchLimit"/>
+                    </div>
+                    <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'fixed'">
+                        <c-input :field="form.annual_tax_deferred_contribution"
+                                 x-model.number="formData.annualTaxDeferredContribution"/>
+                    </div>
+                    <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'percent_of_income'">
+                        <c-input :field="form.tax_deferred_contribution_percentage"
+                                 x-model.number="formData.taxDeferredContributionPercentage"/>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 border">
+                <h2 class="text-2xl font-semibold mb-3">Taxable</h2>
+                <p class="text-sm text-skin-muted">Brokerage accounts where you pay taxes on capital gains, dividends, and
+                    interest as they are realized.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
                     <c-select :field="form.taxable_contribution_strategy" x-model="formData.taxableContributionStrategy"/>
-
-                    <c-input :field="form.taxable_contribution_percentage" x-model="formData.taxableContributionPercentage"
-                             placeholder="Enter percentage of income"/>
-
-                    <h3 class="text-xl font-semibold col-span-2">Tax Exempt</h3>
-                    <p class="text-sm text-skin-muted col-span-2">These are funded with post-tax dollars and can be withdrawn tax-free in
-                        retirement (e.g., Roth IRA).</p>
-                    <c-input :field="form.annual_tax_exempt_contribution" x-model="formData.annualTaxExemptContribution"/>
-
-                    <c-select :field="form.tax_exempt_contribution_strategy" x-model="formData.taxExemptContributionStrategy"/>
-                    <div x-show="formData.taxExemptContributionStrategy === 'percent_of_income'" class="col-span-2">
-                        <c-input :field="form.tax_exempt_percentage" x-model="formData.taxExemptPercentage"
-                                 placeholder="Enter percentage of income"/>
+                    <c-input :field="form.annual_taxable_contribution" x-model.number="formData.annualTaxableContribution"/>
+                    <c-input :field="form.taxable_contribution_percentage" x-model.number="formData.taxableContributionPercentage"/>
+                </div>
+            </div>
+            <div class="p-3 border">
+                <h2 class="text-xl font-semibold">Tax Exempt</h2>
+                <p class="text-sm text-skin-muted">These are funded with post-tax dollars and can be withdrawn tax-free in
+                    retirement (e.g., Roth IRA).</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="col-span-1">
+                        <c-select :field="form.tax_exempt_contribution_strategy" x-model="formData.taxExemptContributionStrategy"/>
                     </div>
-
+                    <div x-show="formData.taxExemptContributionStrategy === 'fixed'" class="col-span-1">
+                        <c-input :field="form.annual_tax_exempt_contribution" x-model.number="formData.annualTaxExemptContribution"/>
+                    </div>
+                    <div x-show="formData.taxExemptContributionStrategy === 'percent_of_income'" class="col-span-2">
+                        <c-input :field="form.tax_exempt_percentage" x-model.number="formData.taxExemptPercentage"/>
+                    </div>
                 </div>
             </div>
 
@@ -75,30 +104,21 @@
                 <h2 class="text-2xl font-semibold mb-3">Targets</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <c-input :field="form.target_annual_retirement_spending_pre_taxed"
-                             x-model="formData.targetAnnualRetirementSpendingPreTaxed"/>
-                    <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model="formData.targetEndOfLifeSavingsPreTaxed"/>
+                             x-model.number="formData.targetAnnualRetirementSpendingPreTaxed"/>
+                    <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model.number="formData.targetEndOfLifeSavingsPreTaxed"/>
                 </div>
             </div>
         </div>
-        <div class="col-span-2">
-            <table>
+        <div class="col-span-1">
+            <table class="text-xs">
                 <thead>
-                <tr class="text-s
-                 m">
+                <tr>
                     <th class="text-start">Age</th>
-                    <th class="text-end">Tax Deferred</th>
+                    <th class="text-end">Tax Deferred (SOY)</th>
                     <th class="text-end">Contribution</th>
-                    <th class="text-end">Taxable</th>
-                    <th class="text-end">Contribution</th>
-                    <th class="text-end">Tax-Exempt</th>
-                    <th class="text-end">Contribution</th>
-                    <th class="text-end">Expenses</th>
-                    <th class="text-end">Inflation</th>
-                    <th class="text-end">Taxes</th>
-                    <th class="text-end">Income</th>
-                    <th class="text-end">Total Savings</th>
-                    <th class="text-end">Cash</th>
-                    <th class="text-end">Tax</th>
+                    <th class="text-end">Employer Contribution</th>
+                    <th class="text-end">Total Contribution</th>
+                    <th class="text-end">Tax Deferred (EOY)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -106,32 +126,20 @@
                     <tr>
                         <td><span x-text="row.age"></span></td>
                         <td class="text-end"><span
-                                x-text="row.taxDeferredSavings.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span
-                                x-text="row.annualTaxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                                x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="text-end"><span
-                                x-text="row.taxableSavings.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span
-                                x-text="row.annualTaxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                                x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="text-end"><span
-                                x-text="row.taxExemptSavings.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span
-                                x-text="row.annualTaxExemptContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                                x-text="row.taxDeferredCompanyContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="text-end"><span
-                                x-text="row.annualExpenses.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.inflationRate"></span></td>
-                        <td class="text-end"><span x-text="row.taxRate"></span></td>
+                                x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
                         <td class="text-end"><span
-                                x-text="row.incomePreTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span
-                                x-text="row.totalSavings.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span
-                                x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-
-                        <td class="text-end"><span x-text="row.taxRate"></span></td>
+                                x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
                     </tr>
                 </template>
                 </tbody>
@@ -164,11 +172,16 @@
                     targetAnnualRetirementSpendingPreTaxed: 0,
                     targetEndOfLifeSavingsPreTaxed: 0,
 
-                    taxDeferredSavings: 40000,
+                    taxDeferredInitialSavings: 40000,
                     annualTaxDeferredContribution: 5000,
+                    taxDeferredSavingsStartOfYear: 0,
+                    taxDeferredSavingsEndOfYear: 0,
+                    taxDeferredContribution: 0,
+                    taxDeferredCompanyContribution: 0,
+                    taxDeferredContributionTotal: 0,
                     taxDeferredContributionStrategy: 'percent_of_income',
                     taxDeferredContributionPercentage: 6,
-                    companyMatchLimit: 3,
+                    taxDeferredCompanyMatchLimit: 3,
                     taxDeferredGrowthRate: 6.0,
 
                     taxableSavings: 23000,
@@ -193,15 +206,13 @@
 
                     incomeTaxed: null,
                     incomeGrowthStrategy: 'percentage_increase',
-                    incomeGrowthRate: 0,
+                    incomeGrowthRate: 0, 
+                    taxDeferredGrowthStrategy: 'start'
 
 
                 },
                 results: null,
                 init() {
-                    this.formData.totalSavings = this.calculateTaxedSavings(this.formData)
-                    this.castFieldsToNumbers()
-                    this.formData.incomeTaxed = this.formData.incomePreTaxed * (1 - this.formData.taxRate / 100)
                     this.$watch('formData', () => {
                         this.fillTable()
                     });
@@ -216,47 +227,16 @@
                     this.$watch('formData.incomeGrowthStrategy', (value) => this.incomeGrowthStrategy = value);
                     this.fillTable();
                 },
-                castFieldsToNumbers() {
-                    this.formData.age = Number(this.formData.age);
-                    this.formData.retirementAge = Number(this.formData.retirementAge);
-                    this.formData.lifeExpectancy = Number(this.formData.lifeExpectancy);
-
-                    this.formData.cash = Number(this.formData.cash);
-                    this.formData.bankSavings = Number(this.formData.bankSavings);
-
-                    this.formData.targetAnnualRetirementSpendingPreTaxed = Number(this.formData.targetAnnualRetirementSpendingPreTaxed);
-                    this.formData.targetEndOfLifeSavingsPreTaxed = Number(this.formData.targetEndOfLifeSavingsPreTaxed);
-
-                    this.formData.taxDeferredSavings = Number(this.formData.taxDeferredSavings);
-                    this.formData.annualTaxDeferredContribution = Number(this.formData.annualTaxDeferredContribution);
-                    this.formData.taxDeferredContributionPercentage = Number(this.formData.taxDeferredContributionPercentage);
-                    this.formData.companyMatchLimit = Number(this.formData.companyMatchLimit);
-                    this.formData.taxDeferredGrowthRate = Number(this.formData.taxDeferredGrowthRate);
-
-                    this.formData.taxableSavings = Number(this.formData.taxableSavings);
-                    this.formData.annualTaxableContribution = Number(this.formData.annualTaxableContribution);
-                    this.formData.taxableContributionPercentage = Number(this.formData.taxableContributionPercentage);
-                    this.formData.taxableSavingsGrowthRate = Number(this.formData.taxableSavingsGrowthRate);
-
-                    this.formData.taxExemptSavings = Number(this.formData.taxExemptSavings);
-                    this.formData.annualTaxExemptContribution = Number(this.formData.annualTaxExemptContribution);
-                    this.formData.taxExemptContributionPercentage = Number(this.formData.taxExemptContributionPercentage);
-                    this.formData.taxExemptSavingsGrowthRate = Number(this.formData.taxExemptSavingsGrowthRate);
-
-                    this.formData.annualExpenses = Number(this.formData.annualExpenses);
-                    this.formData.expenseRate = Number(this.formData.expenseRate);
-
-                    this.formData.inflationRate = Number(this.formData.inflationRate);
-                    this.formData.taxRate = Number(this.formData.taxRate);
-                    this.formData.incomePreTaxed = Number(this.formData.incomePreTaxed);
-                    this.formData.incomeGrowthRate = Number(this.formData.incomeGrowthRate);
-                },
-
 
                 TaxDeferredContributionStrategies: {
-                    fixed: (row) => row.annualTaxDeferredContribution + Math.min(row.incomePreTaxed * (1 - row.companyMatchLimit / 100), row.annualTaxDeferredContribution),
-                    percent_of_income: (row) => row.incomePreTaxed * ((row.taxDeferredContributionPercentage + Math.min(row.taxDeferredContributionPercentage, row.companyMatchLimit)) / 100),
-                    company_match: (row) => row.incomePreTaxed * (1 + row.companyMatchLimit * 2 / 100),
+                    fixed: (row) => row.annualTaxDeferredContribution,
+                    percent_of_income: (row) => row.incomePreTaxed * (row.taxDeferredContributionPercentage / 100),
+                    until_company_match: (row) => row.taxDeferredCompanyMatchLimit * row.incomePreTaxed / 100,
+                },
+                
+                TaxDeferredGrowthStrategy: {
+                    start: (row) => row.taxDeferredSavingsStartOfYear * (row.taxDeferredGrowthRate / 100),
+                    end: (row) => row.taxDeferredSavingsEndOfYear * (row.taxDeferredGrowthRate / 100),
                 },
 
 
@@ -294,23 +274,46 @@
                     },
                     percentage_increase: (row) => row.incomePreTaxed * (1 + row.incomeGrowthRate / 100),
                 },
+                getAnnualCompanyTaxDeferredContribution(row) {
+                    return Math.min(row.annualTaxDeferredContribution, row.incomePreTaxed * row.taxDeferredCompanyMatchLimit / 100);
+                },
+                getTaxDeferredContributionTotal(row) {
+                    return row.taxDeferredContribution + row.taxDeferredCompanyContribution;
+                },
+                getTaxDeferredSavingsEndOfYear(row) {
+                    return row.taxDeferredSavingsStartOfYear + row.taxDeferredContributionTotal + row.taxDeferredGrowthAmount;
+                }, 
                 fillTable() {
+
+                    this.formData.incomeTaxed = this.formData.incomePreTaxed * (1 - this.formData.taxRate / 100)
+                    
+                    this.formData.taxDeferredSavingsStartOfYear = this.formData.taxDeferredInitialSavings
+                    this.formData.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](this.formData)
+                    this.formData.taxDeferredCompanyContribution = this.getAnnualCompanyTaxDeferredContribution(this.formData)
+                    this.formData.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(this.formData)
+                    this.formData.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](this.formData)
+                    this.formData.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(this.formData)
                     let table = [this.formData];
 
                     for (let i = 1; i <= this.formData.retirementAge - this.formData.age; i++) {
                         let curRow = JSON.parse(JSON.stringify(table[i - 1]));
                         curRow.age += 1
 
-
                         curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
                         curRow.annualExpenses = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
                         curRow.cash = this.calculateCash(curRow)
 
-
-                        curRow.annualTaxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
-                        curRow.annualTaxExemptContribution = this.TaxExemptContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
-                        curRow.annualTaxableContribution = this.TaxableContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
-                        curRow.taxDeferredSavings = curRow.taxDeferredSavings * (1 + curRow.taxDeferredGrowthRate / 100) + curRow.annualTaxDeferredContribution
+                        curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
+                        curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
+                        curRow.taxDeferredCompanyContribution = this.getAnnualCompanyTaxDeferredContribution(curRow)
+                        curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
+                        curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](curRow)
+                        curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
+                        
+                        
+                        curRow.annualTaxExemptContribution = this.TaxExemptContributionStrategies[this.formData.taxExemptContributionStrategy](curRow)
+                        curRow.annualTaxableContribution = this.TaxableContributionStrategies[this.formData.taxableContributionStrategy](curRow)
+                        curRow.taxDeferredInitialSavings = curRow.taxDeferredInitialSavings * (1 + curRow.taxDeferredGrowthRate / 100) + curRow.annualTaxDeferredContribution
                         curRow.taxExemptSavings = curRow.taxExemptSavings * (1 + curRow.taxExemptSavingsGrowthRate / 100) + curRow.annualTaxExemptContribution
                         curRow.taxableSavings = curRow.taxableSavings * (1 + curRow.taxableSavingsGrowthRate / 100) + curRow.annualTaxableContribution
                         curRow.taxRate = this.TaxRateGrowthStrategies[this.formData.taxRateGrowthStrategy](curRow)
@@ -325,9 +328,6 @@
                 calculateCash(curRow) {
                     return curRow.cash + curRow.incomeTaxed - curRow.annualExpenses - curRow.annualTaxDeferredContribution - curRow.annualTaxExemptContribution - curRow.annualTaxableContribution
                 },
-                calculateTaxedSavings(formData) {
-                    return
-                }
             }
         }
     </script>

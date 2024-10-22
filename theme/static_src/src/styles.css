@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    td, th {
+        @apply p-1
+    }
     :root {
         [data-theme="light"] {
 
