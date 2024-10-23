@@ -3,41 +3,6 @@
 {% block content %}
     <h1 class="text-4xl font-semibold mb-6">Retirement Calculator</h1>
     <div x-data="setupFormData()" class="grid grid-cols-2 gap-3">
-    
-        <div class="col-span-2">
-            <table class="text-xs">
-                <thead>
-                <tr>
-                    <th class="text-start">Age</th>
-                    <th class="text-end">Tax Deferred (SOY)</th>
-                    <th class="text-end">Contribution</th>
-                    <th class="text-end">Employer Contribution</th>
-                    <th class="text-end">Total Contribution</th>
-                    <th class="text-end">Contribution</th>
-                    <th class="text-end">Total Contribution</th>
-                    <th class="text-end">Contribution</th>
-                    <th class="text-end">Total Contribution</th>
-                    <th class="text-end">Tax Deferred (EOY)</th>
-                </tr>
-                </thead>
-                <tbody>
-                <template x-for="(row, index) in results">
-                    <tr>
-                        <td><span x-text="row.age"></span></td>
-                        <td class="text-end"><span x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxDeferredCompanyContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxExemptContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxExemptContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxExemptContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end"><span x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                    </tr>
-                </template>
-                </tbody>
-            </table>
-        </div>
         <div class="space-y-3 col-span-1">
             <h2 class="text-2xl font-semibold mb-4"></h2>
             <div class="p-3 border">
@@ -129,7 +94,7 @@
                         <c-input :field="form.annual_tax_exempt_contribution" x-model.number="formData.taxExemptContribution"/>
                     </div>
                     <div x-show="formData.taxExemptContributionStrategy === 'percent_of_income'" class="col-span-2">
-                        <c-input :field="form.tax_exempt_contribution_percentage" x-model.number="formData.taxExemptContributionPercentage"/>
+                        <c-input :field="form.tax_exempt_percentage" x-model.number="formData.taxExemptPercentage"/>
                     </div>
                 </div>
             </div>
@@ -143,6 +108,42 @@
                     <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model.number="formData.targetEndOfLifeSavingsPreTaxed"/>
                 </div>
             </div>
+        </div>
+        <div class="col-span-1">
+            <table class="text-xs">
+                <thead>
+                <tr>
+                    <th class="text-start">Age</th>
+                    <th class="text-end">Tax Deferred (SOY)</th>
+                    <th class="text-end">Contribution</th>
+                    <th class="text-end">Employer Contribution</th>
+                    <th class="text-end">Total Contribution</th>
+                    <th class="text-end">Tax Deferred (EOY)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <template x-for="(row, index) in results">
+                    <tr>
+                        <td><span x-text="row.age"></span></td>
+                        <td class="text-end"><span
+                                x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
+                        <td class="text-end"><span
+                                x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
+                        <td class="text-end"><span
+                                x-text="row.taxDeferredCompanyContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
+                        <td class="text-end"><span
+                                x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
+                        <td class="text-end"><span
+                                x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                        </td>
+                    </tr>
+                </template>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -158,7 +159,7 @@
                 formData: {
                     /* Profile */
                     age: 30,
-                    retirementAge: 35,
+                    retirementAge: 55,
                     lifeExpectancy: 85,
 
                     /* Initial Values */
@@ -187,7 +188,7 @@
                     taxDeferredContributionLimit: 22500,
                     taxDeferredContributionCatchUpLimit: 7500,
 
-                    taxExemptInitialSavings: 7000,
+                    taxExemptInitialSavings: 0,
                     annualTaxExemptContribution: 7000,
                     taxExemptContribution: 0,
                     taxExemptContributionStrategy: 'fixed',
@@ -201,7 +202,7 @@
                     taxExemptContributionCatchUpLimit: 8000,
 
                     taxableInitialSavings: 23000,
-                    annualTaxableContribution: 7000,
+                    annualTaxableContribution: 5000,
                     taxableContribution: 0,
                     taxableContributionStrategy: 'fixed',
                     taxableSavingsStartOfYear: 0,
@@ -232,7 +233,6 @@
                     this.$watch('formData', () => {
                         this.fillTable()
                     });
-                    this.fillTable();
                 },
 
                 TaxDeferredContributionStrategies: {
@@ -323,36 +323,34 @@
                     return row.cashStartOfYear + row.incomeTaxed - row.annualExpenses - row.taxDeferredContribution - row.taxExemptContribution - row.taxableContribution
                 },
                 fillTable() {
-                    let curRow = JSON.parse(JSON.stringify(this.formData));
-                    curRow.cashStartOfYear = this.cashInitial
-                    curRow.incomeTaxed = this.formData.incomePreTaxed * (1 - this.formData.taxRate / 100)
+                    this.formData.cashStartOfYear = this.cashInitial
+                    this.formData.incomeTaxed = this.formData.incomePreTaxed * (1 - this.formData.taxRate / 100)
                     
 
-                    curRow.taxDeferredSavingsStartOfYear = this.formData.taxDeferredInitialSavings
-                    curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](this.formData)
-                    curRow.taxDeferredCompanyContribution = this.getAnnualCompanyTaxDeferredContribution(this.formData)
-                    curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(this.formData)
-                    curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](this.formData)
-                    curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(this.formData)
-                    
-                    curRow.taxableSavingsStartOfYear = this.formData.taxableInitialSavings
-                    curRow.taxableContribution = this.TaxableContributionStrategies[this.formData.taxableContributionStrategy](this.formData)
-                    curRow.taxableContributionTotal = this.getTaxableContributionTotal(this.formData)
-                    curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[this.formData.taxableGrowthStrategy](this.formData)
-                    curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(this.formData)
+                    this.formData.taxDeferredSavingsStartOfYear = this.formData.taxDeferredInitialSavings
+                    this.formData.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](this.formData)
+                    this.formData.taxDeferredCompanyContribution = this.getAnnualCompanyTaxDeferredContribution(this.formData)
+                    this.formData.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(this.formData)
+                    this.formData.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](this.formData)
+                    this.formData.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(this.formData)
+                    this.formData.taxableSavingsStartOfYear = this.formData.taxableInitialSavings
+                    this.formData.taxableContribution = this.TaxableContributionStrategies[this.formData.taxableContributionStrategy](this.formData)
+                    this.formData.taxableContributionTotal = this.getTaxableContributionTotal(this.formData)
+                    this.formData.taxableGrowthAmount = this.TaxableGrowthStrategy[this.formData.taxableGrowthStrategy](this.formData)
+                    this.formData.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(this.formData)
 
-                    curRow.taxExemptSavingsStartOfYear = this.formData.taxExemptInitialSavings
-                    curRow.taxExemptContribution = this.TaxExemptContributionStrategies[this.formData.taxExemptContributionStrategy](this.formData)
-                    curRow.taxExemptContributionTotal = this.getTaxExemptContributionTotal(this.formData)
-                    curRow.taxExemptGrowthAmount = this.TaxExemptGrowthStrategy[this.formData.taxExemptGrowthStrategy](this.formData)
-                    curRow.taxExemptSavingsEndOfYear = this.getTaxExemptSavingsEndOfYear(this.formData)
+                    this.formData.taxExemptSavingsStartOfYear = this.formData.taxExemptInitialSavings
+                    this.formData.taxExemptContribution = this.TaxExemptContributionStrategies[this.formData.taxExemptContributionStrategy](this.formData)
+                    this.formData.taxExemptContributionTotal = this.getTaxExemptContributionTotal(this.formData)
+                    this.formData.taxExemptGrowthAmount = this.TaxExemptGrowthStrategy[this.formData.taxExemptGrowthStrategy](this.formData)
+                    this.formData.taxExemptSavingsEndOfYear = this.getTaxExemptSavingsEndOfYear(this.formData)
 
-                    curRow.savingsStartOfYear = this.getSavingsStartOfYear(this.formData)
-                    curRow.savingsEndOfYear = this.getSavingsEndOfYear(this.formData)
+                    this.formData.savingsStartOfYear = this.getSavingsStartOfYear(this.formData)
+                    this.formData.savingsEndOfYear = this.getSavingsEndOfYear(this.formData)
 
-                    curRow.cashEndOfYear = this.getEndOfYearCash(this.formData)
+                    this.formData.cashEndOfYear = this.getEndOfYearCash(this.formData)
 
-                    let table = [curRow];
+                    let table = [this.formData];
 
                     for (let i = 1; i <= this.formData.retirementAge - this.formData.age; i++) {
                         let curRow = JSON.parse(JSON.stringify(table[i - 1]));
