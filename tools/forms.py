@@ -31,9 +31,10 @@ class RetirementCalculatorForm(forms.Form):
         ('percent_of_income', 'Percentage of Income'),
     ]
 
-    TAX_EXEMPT_CONTRIBUTION_STRATEGY_CHOICES = [
+    IRA_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed Contribution'),
         ('percent_of_income', 'Percentage of Income'),
+        ('max', 'Max Out')
     ]
 
     age = forms.IntegerField(
@@ -74,7 +75,7 @@ class RetirementCalculatorForm(forms.Form):
         help_text="Your current savings in taxable accounts.",
     )
 
-    tax_exempt_savings = forms.IntegerField(
+    ira_savings = forms.IntegerField(
         min_value=0,
         initial=30000,
         label="Tax-Exempt Savings",
@@ -110,7 +111,7 @@ class RetirementCalculatorForm(forms.Form):
         help_text="The percentage of your pre-tax income to contribute to tax-deferred accounts.",
     )
 
-    tax_exempt_contribution_percentage = forms.FloatField(
+    ira_contribution_percentage = forms.FloatField(
         min_value=0,
         max_value=100,
         initial=5.0,
@@ -133,7 +134,7 @@ class RetirementCalculatorForm(forms.Form):
         help_text="The maximum amount your company will match for tax-deferred contributions.",
     )
 
-    annual_tax_exempt_contribution = forms.IntegerField(
+    annual_ira_contribution = forms.IntegerField(
         min_value=0,
         initial=500,
         label="Annual Tax-Exempt Contribution",
@@ -213,8 +214,8 @@ class RetirementCalculatorForm(forms.Form):
         label="Tax-Deferred Contribution Strategy"
     )
 
-    tax_exempt_contribution_strategy = forms.ChoiceField(
-        choices=TAX_EXEMPT_CONTRIBUTION_STRATEGY_CHOICES,
+    ira_contribution_strategy = forms.ChoiceField(
+        choices=IRA_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Tax-Exempt Contribution Strategy"
     )
