@@ -1,0 +1,17 @@
+<table class="p-8 bg-skin-muted">
+    <thead>
+    <tr>
+        <th class="text-start"></th>
+        <th class="text-start">Name</th>
+        <th class="text-start">Priority</th>
+        <th class="text-start">Due</th>
+        <th class="text-start">Tags</th>
+        <th class="text-start">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+            {% include 'arcus/partials/task_table_row.html' %}
+        {% endfor %}
+    </tbody>
+</table>

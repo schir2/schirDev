@@ -1,5 +1,5 @@
 <ul     class="ml-6 space-y-2"
-        x-show="expandStarredProjects"
+        x-show="expandStarredProjects & expandSidebar"
         hx-trigger="project_star_toggle from:body"
         hx-swap="outerHTML"
         hx-get="{% url 'arcus:project_starred_list_sidenav'%}">

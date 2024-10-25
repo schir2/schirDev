@@ -1,0 +1,14 @@
+<tr>
+    <td>{% include 'arcus/partials/task_complete_button.html' %}</td>
+    <td>{{ task.title }}</td>
+    <td>{{ task.priority }}</td>
+    <td>{{ task.due_date|default_if_none:'' }}</td>
+    <td>
+        <span class="space-x-2 bg-skin-success">
+            {% for tag in task.tags.all %}
+                <c-arcus.chip>{{ tag }}</c-arcus.chip>
+            {% endfor %}
+        </span>
+    </td>
+    <td>{{ task.status }}</td>
+</tr>

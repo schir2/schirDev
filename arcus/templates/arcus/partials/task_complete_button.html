@@ -1,0 +1,7 @@
+{% if task %}
+    {% if task.status == task.StatusChoices.COMPLETED %}
+        <c-icons.check-square/>
+    {% else %}
+        <c-icons.square/>
+    {% endif %}
+{% endif %}

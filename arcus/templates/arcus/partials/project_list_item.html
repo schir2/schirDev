@@ -1,2 +1,4 @@
-<c-arcus.link href={% url 'arcus:project_detail' project.pk %}">{{ project.name }}</c-arcus.link>
+<div>
+    <c-arcus.link href="{% url 'arcus:project_detail' project.pk %}">{{ project.name }}</c-arcus.link>
 {% include 'arcus/partials/project_star_button.html' %}
+</div>
