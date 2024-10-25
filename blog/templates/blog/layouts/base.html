@@ -23,7 +23,9 @@
     </c-slot>
 </c-navbar>
 <main class="pt-16 mx-auto min-h-nav-offset">
-    {% block content %}{% endblock %}
+    <main class="flex-grow container mx-auto bg-skin-surface rounded-md space-y-12">
+        {% block content %}{% endblock %}
+    </main>
 </main>
 {% block javascript %}
 {% endblock %}

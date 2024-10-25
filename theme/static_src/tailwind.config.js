@@ -52,8 +52,33 @@ module.exports = {
     ],
     safelist: [
         {
-            pattern: /.*/,  // Match every class pattern to include all styles
+            pattern: /text-skin-(base|muted|primary|secondary|tertiary|accent|error|success|warning|info|link|link-hover|link-active)/,
+            variants: ['hover', 'focus', 'active', 'disabled', 'group-hover']
         },
+        // Background colors
+        {
+            pattern: /bg-skin-(base|muted|primary|secondary|tertiary|accent|error|success|warning|info|surface|surface-hover|overlay)/,
+            variants: ['hover', 'focus', 'active', 'disabled', 'group-hover']
+        },
+        // Border colors
+        {
+            pattern: /border-skin-(base|muted|primary|secondary|tertiary|accent|error|success|warning|info)/,
+            variants: ['hover', 'focus', 'active', 'disabled', 'group-hover']
+        },
+        // Ring colors
+        {
+            pattern: /ring-skin-(base|muted|primary|secondary|tertiary|accent|error|success|warning|info)/,
+            variants: ['hover', 'focus', 'active', 'disabled', 'group-hover']
+        },
+        // Fill colors for SVGs
+        {
+            pattern: /fill-skin-(base|muted|primary|secondary|tertiary|accent|error|success|warning|info)/,
+            variants: ['hover', 'focus', 'active', 'disabled', 'group-hover']
+        },
+        // Opacity variations for the withOpacity function
+        {
+            pattern: /opacity-\d+/,
+        }
     ],
     theme: {
         extend: {
@@ -85,6 +110,12 @@ module.exports = {
                 'screen-24': 'calc(100vh - 6rem)',
 
             },
+
+            gridTemplateColumns: {
+                '13': 'repeat(13, minmax(0, 1fr))',
+                '14': 'repeat(14, minmax(0, 1fr))',
+                '15': 'repeat(15, minmax(0, 1fr))',
+            },
             textColor: {
                 skin: {
                     'base': withOpacity('text-base'),
@@ -95,6 +126,8 @@ module.exports = {
                     'accent': withOpacity('text-accent'),
                     'error': withOpacity('text-error'),
                     'success': withOpacity('text-success'),
+                    'warning': withOpacity('text-warning'),
+                    'info': withOpacity('text-info'),
                     'link': withOpacity('text-link'),
                     'link-hover': withOpacity('text-link-hover'),
                     'link-active': withOpacity('text-link-active'),
@@ -108,6 +141,10 @@ module.exports = {
                     'secondary': withOpacity('bg-secondary'),
                     'tertiary': withOpacity('bg-tertiary'),
                     'accent': withOpacity('bg-accent'),
+                    'error': withOpacity('bg-error'),
+                    'success': withOpacity('bg-success'),
+                    'warning': withOpacity('bg-warning'),
+                    'info': withOpacity('bg-info'),
                     'surface': withOpacity('bg-surface'),
                     'surface-hover': withOpacity('bg-surface-hover'),
                     'overlay': withOpacity('bg-overlay'),
@@ -119,9 +156,12 @@ module.exports = {
                     'muted': withOpacity('border-muted'),
                     'primary': withOpacity('border-primary'),
                     'secondary': withOpacity('border-secondary'),
+                    'tertiary': withOpacity('border-tertiary'),
                     'accent': withOpacity('border-accent'),
                     'error': withOpacity('border-error'),
                     'success': withOpacity('border-success'),
+                    'warning': withOpacity('border-warning'),
+                    'info': withOpacity('border-info'),
                 },
             },
             ringColor: {
@@ -130,9 +170,12 @@ module.exports = {
                     'muted': withOpacity('border-muted'),
                     'primary': withOpacity('border-primary'),
                     'secondary': withOpacity('border-secondary'),
+                    'tertiary': withOpacity('border-tertiary'),
                     'accent': withOpacity('border-accent'),
                     'error': withOpacity('border-error'),
                     'success': withOpacity('border-success'),
+                    'warning': withOpacity('border-warning'),
+                    'info': withOpacity('border-info'),
                 },
             },
             fill: {
@@ -141,9 +184,12 @@ module.exports = {
                     'muted': withOpacity('icon-muted'),
                     'primary': withOpacity('icon-primary'),
                     'secondary': withOpacity('icon-secondary'),
+                    'tertiary': withOpacity('icon-tertiary'),
                     'accent': withOpacity('icon-accent'),
                     'error': withOpacity('icon-error'),
                     'success': withOpacity('icon-success'),
+                    'warning': withOpacity('icon-warning'),
+                    'info': withOpacity('icon-info'),
                 },
             },
         },

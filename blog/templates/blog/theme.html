@@ -1,203 +1,42 @@
 {% extends 'blog/layouts/base.html' %}
 {% block content %}
-    <h1 class="text-3xl font-bold mb-6">Theme Color Palette</h1>
-
-    <!-- Color Palette -->
-    <div class="p-6 grid grid-cols-3 md:grid-cols-3 gap-6">
-        <!-- Text Colors -->
-        <div>
-            <h2 class="text-2xl font-semibold mb-4">Text Colors</h2>
-            <div class="space-y-4">
-                <!-- Base -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-base border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-base font-medium">Base</div>
-                        <div class="text-sm text-gray-600">text-skin-base</div>
-                    </div>
-                </div>
-                <!-- Muted -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-muted border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-muted font-medium">Muted</div>
-                        <div class="text-sm text-gray-600">text-skin-muted</div>
-                    </div>
-                </div>
-                <!-- Primary -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-primary border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-primary font-medium">Primary</div>
-                        <div class="text-sm text-gray-600">text-skin-primary</div>
-                    </div>
-                </div>
-                <!-- Secondary -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-secondary border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-secondary font-medium">Secondary</div>
-                        <div class="text-sm text-gray-600">text-skin-secondary</div>
-                    </div>
-                </div>
-                <!-- Tertiary -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-tertiary border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-tertiary font-medium">Tertiary</div>
-                        <div class="text-sm text-gray-600">text-skin-tertiary</div>
-                    </div>
-                </div>
-                <!-- Accent -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-accent border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-accent font-medium">Accent</div>
-                        <div class="text-sm text-gray-600">text-skin-accent</div>
-                    </div>
-                </div>
-                <!-- Error -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-error border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-error font-medium">Error</div>
-                        <div class="text-sm text-gray-600">text-skin-error</div>
-                    </div>
-                </div>
-                <!-- Success -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-success border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-success font-medium">Success</div>
-                        <div class="text-sm text-gray-600">text-skin-success</div>
-                    </div>
-                </div>
-                <!-- Link -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-link border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-link font-medium">Link</div>
-                        <div class="text-sm text-gray-600">text-skin-link</div>
-                    </div>
-                </div>
-                <!-- Link Hover -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-link-hover border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-link-hover font-medium">Link Hover</div>
-                        <div class="text-sm text-gray-600">text-skin-link-hover</div>
-                    </div>
-                </div>
-                <!-- Link Active -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-link-active border"></div>
-                    <div class="ml-4">
-                        <div class="text-skin-link-active font-medium">Link Active</div>
-                        <div class="text-sm text-gray-600">text-skin-link-active</div>
+    <div class="bg-skin-surface p-16 space-y-8">
+        <h1 class="text-3xl font-bold">Theme Color Palette</h1>
+        {% for theme in themes %}
+            <div class="bg-skin-base p-8 shadow-lg rounded-2xl" data-theme="{{ theme }}">
+            <h2 class="text-2x font-bold mb-4 text-skin-base">{{ theme|title }} Theme</h2>
+                <div class="p-8 bg-skin-surface rounded-md shadow-lg">
+                    <div class="grid grid-cols-[repeat(14,minmax(0,1fr))] gap-4">
+                        <div class="space-y-4">
+                            <div class="h-8"><h1 class="text-xl text-skin-base font-medium capitalize"></h1></div>
+                            <div class="h-16"><h1 class="text-xl text-skin-base font-medium capitalize">Shadow</h1></div>
+                            <div class="h-16"><h1 class="text-xl text-skin-base font-medium capitalize">Border</h1></div>
+                            <div class="h-16"><h1 class="text-xl text-skin-base font-medium capitalize">Ring</h1></div>
+                            <div class="h-16"><h1 class="text-xl text-skin-base font-medium capitalize">BorderRing</h1></div>
+                        </div>
+                        {% for color in colors %}
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-skin-{{ color }} font-medium capitalize">{{ color }}</div>
+                                    <div class="text-sm text-skin-base text-skin-{{ color }}"></div>
+                                </div>
+                                <div class="p-4 h-16 bg-skin-{{ color }} shadow shadow-md rounded-md">
+                                    <h1 class="self-center text-xl text-skin-{{ color }} font-medium capitalize">Aa</h1>
+                                </div>
+                                <div class="p-4 h-16 bg-skin-{{ color }} border border-skin-{{ color }} rounded-md">
+                                    <h1 class="text-xl text-skin-{{ color }} font-medium capitalize">Aa</h1>
+                                </div>
+                                <div class="p-4 h-16 bg-skin-{{ color }} ring-2 ring-skin-{{ color }} rounded-md">
+                                    <h1 class="text-xl text-skin-{{ color }} font-medium capitalize">Aa</h1>
+                                </div>
+                                <div class="p-4 h-16 bg-skin-{{ color }} border border-skin-{{ color }} ring-2 ring-skin-{{ color }} rounded-md">
+                                    <h1 class="text-xl text-skin-{{ color }} font-medium capitalize">Aa</h1>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Background Colors -->
-        <div>
-            <h2 class="text-2xl font-semibold mb-4">Background Colors</h2>
-            <div class="space-y-4">
-                <!-- Base -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-base border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Base</div>
-                        <div class="text-sm text-gray-600">bg-skin-base</div>
-                    </div>
-                </div>
-                <!-- Muted -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-muted border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Muted</div>
-                        <div class="text-sm text-gray-600">bg-skin-muted</div>
-                    </div>
-                </div>
-                <!-- Primary -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-primary border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Primary</div>
-                        <div class="text-sm text-gray-600">bg-skin-primary</div>
-                    </div>
-                </div>
-                <!-- Secondary -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-secondary border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Secondary</div>
-                        <div class="text-sm text-gray-600">bg-skin-secondary</div>
-                    </div>
-                </div>
-                <!-- Tertiary -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-tertiary border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Tertiary</div>
-                        <div class="text-sm text-gray-600">bg-skin-tertiary</div>
-                    </div>
-                </div>
-                <!-- Accent -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-accent border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Accent</div>
-                        <div class="text-sm text-gray-600">bg-skin-accent</div>
-                    </div>
-                </div>
-                <!-- Surface -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-surface border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Surface</div>
-                        <div class="text-sm text-gray-600">bg-skin-surface</div>
-                    </div>
-                </div>
-                <!-- Surface Hover -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-surface-hover border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Surface Hover</div>
-                        <div class="text-sm text-gray-600">bg-skin-surface-hover</div>
-                    </div>
-                </div>
-                <!-- Overlay -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-skin-overlay border"></div>
-                    <div class="ml-4">
-                        <div class="font-medium">Overlay</div>
-                        <div class="text-sm text-gray-600">bg-skin-overlay</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Examples -->
-        <div>
-            <h2 class="text-2xl font-semibold mb-4">Examples</h2>
-            <div class="space-y-6">
-                <!-- Example 1 -->
-                <div class="p-4 bg-skin-primary text-skin-base rounded">
-                    <h3 class="text-xl font-bold">Primary Background</h3>
-                    <p>This is an example of using <code>bg-skin-primary</code> with <code>text-skin-base</code>.</p>
-                </div>
-                <!-- Example 2 -->
-                <div class="p-4 bg-skin-secondary text-skin-muted rounded">
-                    <h3 class="text-xl font-bold">Secondary Background</h3>
-                    <p>This is an example of using <code>bg-skin-secondary</code> with <code>text-skin-muted</code>.</p>
-                </div>
-                <!-- Example 3 -->
-                <div class="p-4 bg-skin-accent text-skin-base rounded">
-                    <h3 class="text-xl font-bold">Accent Background</h3>
-                    <p>This is an example of using <code>bg-skin-accent</code> with <code>text-skin-base</code>.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
