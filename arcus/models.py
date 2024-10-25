@@ -86,6 +86,13 @@ class Section(BaseModel):
 
 
 class Task(BaseModel):
+    class StatusChoices(models.TextChoices):
+        NOT_STARTED = 'Not Started', _('Not Started')
+        IN_PROGRESS = 'In Progress', _('In Progress')
+        COMPLETED = 'Completed', _('Completed')
+        PAUSED = 'Paused', _('Paused')
+        BLOCKED = 'Blocked', _('Blocked')
+        WAITING = 'Waiting on Dependency', _('Waiting on Dependency')
     """
     Represents a task, which may belong to a project and optionally to a section.
     """
