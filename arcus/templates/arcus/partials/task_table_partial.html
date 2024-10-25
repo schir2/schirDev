@@ -1,17 +1,18 @@
-<table class="p-8 bg-skin-muted">
-    <thead>
-    <tr>
-        <th class="text-start"></th>
-        <th class="text-start">Name</th>
-        <th class="text-start">Priority</th>
-        <th class="text-start">Due</th>
-        <th class="text-start">Tags</th>
-        <th class="text-start">Status</th>
-    </tr>
-    </thead>
-    <tbody>
+
+    <table class="w-full bg-skin-base rounded-xl border-collapse [&_td]:border [&_th]:border">
+        <thead>
+        <tr>
+            <th class="text-start px-4 py-2"></th>
+            <th class="text-start px-4 py-2">Name</th>
+            <th class="text-start px-4 py-2">Priority</th>
+            <th class="text-start px-4 py-2">Due</th>
+            <th class="text-start px-4 py-2">Tags</th>
+            <th class="text-end px-4 py-2">Status</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for task in tasks %}
             {% include 'arcus/partials/task_table_row.html' %}
         {% endfor %}
-    </tbody>
-</table>
+        </tbody>
+    </table>

@@ -1,3 +1,4 @@
-<span class="{{ attrs }} px-2 py-1 text-sm font-semibold text-normal transition-colors duration-300 transform bg-skin-primary {{ border_radius }} cursor-pointer hover:bg-skin-accent">
+<c-vars color="primary" />
+<span class="{{ attrs }} text-skin-{{ color }} px-2 py-1 text-sm font-semibold text-normal transition-colors duration-300 transform bg-skin-{{ color }} {{ border_radius }} cursor-pointer hover:bg-skin-{{ color }}/60">
     {{ slot }}
 </span>

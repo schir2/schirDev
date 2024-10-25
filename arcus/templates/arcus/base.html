@@ -17,7 +17,7 @@
     {% block styles %}{% endblock %}
 </head>
 
-<body class="bg-skin-base text-lg text-skin-base" :data-theme="theme"
+<body class="bg-skin-primary text-lg text-skin-base" :data-theme="theme"
       x-data="{
             theme : $persist('light'),
            expandSidebar: $persist(true),
@@ -25,16 +25,14 @@
        }">
 
 {% include 'arcus/partials/navbar.html' %}
-
-<div class="flex flex-col md:flex-row h-screen pt-16">
     <!-- Sidebar -->
     {% include 'arcus/partials/sidebar.html' %}
 
     <!-- Main Content -->
-    <main class="flex-1 container mx-auto px-4 py-8" x-transition :class="expandSidebar ? 'ps-64' : 'ps-16'">
+    <main class="container px-4 py-8 mx-auto" x-transition :class="expandSidebar ? 'ps-64' : 'ps-16'">
         {% block before_content %}{% endblock %}
 
-        <main class="flex-grow container mx-auto p-16 bg-skin-surface rounded-md space-y-12">
+        <main class="flex-grow container p-16 bg-skin-surface shadow-md rounded-md space-y-12">
             {% block content %}{% endblock %}
         </main>
     </main>

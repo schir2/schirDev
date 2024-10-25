@@ -1,14 +1,14 @@
 <tr>
-    <td>{% include 'arcus/partials/task_complete_button.html' %}</td>
-    <td>{{ task.title }}</td>
-    <td>{{ task.priority }}</td>
-    <td>{{ task.due_date|default_if_none:'' }}</td>
-    <td>
-        <span class="space-x-2 bg-skin-success">
+    <td class="px-4 py-2">{% include 'arcus/partials/task_complete_button.html' %}</td>
+    <td class="px-4 py-2">{{ task.title }}</td>
+    <td class="px-4 py-2">{{ task.priority }}</td>
+    <td class="px-4 py-2">{{ task.due_date|default_if_none:'' }}</td>
+    <td class="px-4 py-2">
+        <span class="space-x-2">
             {% for tag in task.tags.all %}
-                <c-arcus.chip>{{ tag }}</c-arcus.chip>
+                <c-arcus.chip color="info">{{ tag }}</c-arcus.chip>
             {% endfor %}
         </span>
     </td>
-    <td>{{ task.status }}</td>
+    <td class="px-4 py-2 text-end">{{ task.status }}</td>
 </tr>
