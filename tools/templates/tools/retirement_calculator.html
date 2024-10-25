@@ -13,96 +13,96 @@
             <table>
                 <thead class="text-xs">
                 <tr>
-                    <th class="text-left font-semibold text-base bg-red-300" colspan="4">Profile</th>
-                    <th class="text-left font-semibold text-base bg-lime-300" colspan="4">IRA</th>
-                    <th class="text-left font-semibold text-base bg-purple-300" colspan="5">Tax Deferred</th>
-                    <th class="text-left font-semibold text-base bg-orange-300" colspan="4">Taxable</th>
-                    <th class="text-left font-semibold text-base bg-green-300" colspan="3">Savings</th>
+                    <th class="text-left font-semibold text-base bg-skin-tertiary" colspan="4">Profile</th>
+                    <th class="text-left font-semibold text-base bg-skin-primary" colspan="4">IRA</th>
+                    <th class="text-left font-semibold text-base bg-skin-secondary" colspan="5">Tax Deferred</th>
+                    <th class="text-left font-semibold text-base bg-skin-tertiary" colspan="4">Taxable</th>
+                    <th class="text-left font-semibold text-base bg-skin-primary" colspan="3">Savings</th>
                 </tr>
                 <tr>
-                    <th class="text-start bg-red-200">Age</th>
-                    <th class="text-end bg-red-200">Income(Pre-Tax)</th>
-                    <th class="text-end bg-red-200">Income(Taxed)</th>
-                    <th class="text-end bg-red-200">Expenses(Taxed)</th>
-                    <th class="text-end bg-lime-200">Savings (SOY)</th>
-                    <th class="text-end bg-lime-200">Contribution</th>
-                    <th class="text-end bg-lime-200">Total Contribution</th>
-                    <th class="text-end bg-lime-200">Savings (EOY)</th>
-                    <th class="text-end bg-purple-200">Tax Deferred (SOY)</th>
-                    <th class="text-end bg-purple-200">Contribution</th>
-                    <th class="text-end bg-purple-200">Employer Contribution</th>
-                    <th class="text-end bg-purple-200">Total Contribution</th>
-                    <th class="text-end bg-purple-200">Tax Deferred (EOY)</th>
-                    <th class="text-end bg-orange-200">Savings (SOY)</th>
-                    <th class="text-end bg-orange-200">Contribution</th>
-                    <th class="text-end bg-orange-200">Total Contribution</th>
-                    <th class="text-end bg-orange-200">Savings (EOY)</th>
-                    <th class="text-end bg-green-200">Cash</th>
-                    <th class="text-end bg-green-200">Savings (SOY)</th>
-                    <th class="text-end bg-green-200">Savings (EOY)</th>
+                    <th class="text-start  bg-skin-tertiary/60">Age</th>
+                    <th class="text-end  bg-skin-tertiary/60">Income(Pre-Tax)</th>
+                    <th class="text-end  bg-skin-tertiary/60">Income(Taxed)</th>
+                    <th class="text-end  bg-skin-tertiary/60">Expenses(Taxed)</th>
+                    <th class="text-end  bg-skin-primary/60">Savings (SOY)</th>
+                    <th class="text-end  bg-skin-primary/60">Contribution</th>
+                    <th class="text-end  bg-skin-primary/60">Total Contribution</th>
+                    <th class="text-end  bg-skin-primary/60">Savings (EOY)</th>
+                    <th class="text-end  bg-skin-secondary/60">Tax Deferred (SOY)</th>
+                    <th class="text-end  bg-skin-secondary/60">Contribution</th>
+                    <th class="text-end  bg-skin-secondary/60">Employer Contribution</th>
+                    <th class="text-end  bg-skin-secondary/60">Total Contribution</th>
+                    <th class="text-end  bg-skin-secondary/60">Tax Deferred (EOY)</th>
+                    <th class="text-end  bg-skin-tertiary/60">Savings (SOY)</th>
+                    <th class="text-end  bg-skin-tertiary/60">Contribution</th>
+                    <th class="text-end  bg-skin-tertiary/60">Total Contribution</th>
+                    <th class="text-end  bg-skin-tertiary/60">Savings (EOY)</th>
+                    <th class="text-end  bg-skin-primary/60">Cash</th>
+                    <th class="text-end  bg-skin-primary/60">Savings (SOY)</th>
+                    <th class="text-end  bg-skin-primary/60">Savings (EOY)</th>
                 </tr>
                 </thead>
                 <tbody class="text-sm">
                 <template x-for="(row, index) in results">
                     <tr>
-                        <td class="bg-red-50"><span x-text="row.age"></span></td>
-                        <td class="text-end bg-red-50"><span
+                        <td class="bg-skin-tertiary"><span x-text="row.age"></span></td>
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.incomePreTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end bg-red-50"><span
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.incomeTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="text-end bg-red-50"><span
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.expensesTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
 
 
-                        <td class="text-end bg-lime-50"><span
+                        <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.iraSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-lime-50"><span
+                        <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.iraContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-lime-50"><span
+                        <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.iraContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-lime-50"><span
+                        <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.iraSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
 
 
-                        <td class="text-end bg-purple-50"><span
+                        <td class="text-end bg-skin-secondary/40"><span
                                 x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-purple-50"><span
+                        <td class="text-end bg-skin-secondary/40"><span
                                 x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-purple-50"><span
+                        <td class="text-end bg-skin-secondary/40"><span
                                 x-text="row.taxDeferredCompanyContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-purple-50"><span
+                        <td class="text-end bg-skin-secondary/40"><span
                                 x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-purple-50"><span
+                        <td class="text-end bg-skin-secondary/40"><span
                                 x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
 
-                        <td class="text-end bg-orange-50"><span
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.taxableSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-orange-50"><span
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.taxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-orange-50"><span
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.taxableContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-orange-50"><span
+                        <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.taxableSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-green-50"><span :class="row.cash < 0 && 'text-skin-error'"
+                        <td class="text-end bg-skin-primary/40"><span :class="row.cash < 0 && 'text-skin-error'"
                                                    x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-green-50"><span
+                        <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.savingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
-                        <td class="text-end bg-green-50"><span
+                        <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.savingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                     </tr>
@@ -112,7 +112,7 @@
         </div>
         <div class="col-span-2 grid grid-cols-2 gap-3">
             <div class="space-y-3">
-                <div class="p-3 border bg-red-50 shadow-sm shadow-red-200 rounded">
+                <div class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
                     <h2 class="text-2xl font-semibold mb-3">Personal Information</h2>
                     <div class="grid grid-cols-3 gap-3">
                         <c-input :field="form.age" x-model.number="formData.age"/>
@@ -159,7 +159,7 @@
             </div>
 
             <div class="space-y-3">
-                <div class="p-3 bg-purple-50 shadow-sm shadow-purple-200 rounded">
+                <div class="p-3 bg-skin-secondary shadow-sm shadow-purple-200 rounded">
                     <h2 class="text-2xl font-semibold mb-3">Tax Deferred Contributions</h2>
                     <p class="text-sm text-skin-muted">These grow tax-free until retirement, but withdrawals are taxed (e.g.,
                         401(k),
@@ -181,7 +181,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-3 border bg-orange-50 shadow-sm rounded shadow-orange-200">
+                <div class="p-3 border bg-skin-tertiary shadow-sm rounded shadow-orange-200">
                     <h2 class="text-2xl font-semibold mb-3">Taxable</h2>
                     <p class="text-sm text-skin-muted">Brokerage accounts where you pay taxes on capital gains, dividends, and
                         interest as they are realized.</p>
@@ -192,7 +192,7 @@
                         <c-input :field="form.taxable_contribution_percentage" x-model.number="formData.taxableContributionPercentage"/>
                     </div>
                 </div>
-                <div class="p-3 border shadow-sm shadow-lime-200 bg-lime-50">
+                <div class="p-3 border shadow-sm shadow-lime-200 bg-skin-primary">
                     <h2 class="text-2xl font-semibold">IRA</h2>
                     <p class="text-sm text-skin-muted">These are funded with post-tax dollars and can be withdrawn tax-free in
                         retirement (e.g., Roth Ira).</p>
