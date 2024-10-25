@@ -13,7 +13,7 @@ def task_list_view(request):
     context['tasks'] = task_filter.qs
 
     if request.htmx:
-        return render(request, 'arcus/partials/task_list_partial.html', context)
+        return render(request, 'arcus/partials/task_table_partial.html', context)
     return render(request, 'arcus/pages/task_list.html', context)
 
 
