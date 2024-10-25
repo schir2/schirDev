@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'content.context_processors.navbar_items',
+                'arcus.context_processors.starred_projects',
             ],
             'loaders': [(
                 'django.template.loaders.cached.Loader', [
