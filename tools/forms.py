@@ -15,6 +15,18 @@ class RetirementCalculatorForm(forms.Form):
         ('percent_of_income', 'Percentage of Income'),
     ]
 
+    INCOME_TAX_STRATEGY_CHOICES = [
+        ('simple', 'Simple'),
+        ('bracket', 'Bracket'),
+    ]
+
+    FILING_STATUS_CHOICES = [
+        ('single', 'Single'),
+        ('married_joint', 'Married Filing Jointly'),
+        ('married_separate', 'Married Filing Separately'),
+        ('head_household', 'Head of Household'),
+    ]
+
     BANK_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed'),
         ('percent_of_income', 'Percent of Income'),
@@ -231,4 +243,39 @@ class RetirementCalculatorForm(forms.Form):
         initial=2.0,
         label="Income Growth Rate (%)",
         help_text="The percentage by which your income will grow annually.",
+    )
+
+    income_tax_strategy = forms.ChoiceField(
+        choices=INCOME_TAX_STRATEGY_CHOICES,
+        initial='simple',
+        label="Income Tax Strategy"
+    )
+
+    income_tax_rate = forms.FloatField(
+        min_value=0,
+        max_value=100,
+        initial=22.0,
+        label="Income Tax Rate (%)",
+        help_text="Simple flat tax rate as a percentage (used if simple tax strategy is selected).",
+    )
+
+    filing_status = forms.ChoiceField(
+        choices=FILING_STATUS_CHOICES,
+        initial='single',
+        label="Filing Status",
+        help_text="Your tax filing status.",
+    )
+
+    number_of_dependents = forms.IntegerField(
+        min_value=0,
+        initial=0,
+        label="Number of Dependents",
+        help_text="Number of qualifying dependents.",
+    )
+
+    is_blind = forms.BooleanField(
+        required=False,
+        initial=False,
+        label="Is Blind",
+        help_text="Check if you qualify for blind person's tax credit.",
     )

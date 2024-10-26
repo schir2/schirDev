@@ -22,6 +22,7 @@
                 <tr>
                     <th class="text-start  bg-skin-tertiary/60">Age</th>
                     <th class="text-end  bg-skin-tertiary/60">Income(Pre-Tax)</th>
+                    <th class="text-end  bg-skin-tertiary/60">Income(Taxable)</th>
                     <th class="text-end  bg-skin-tertiary/60">Income(Taxed)</th>
                     <th class="text-end  bg-skin-tertiary/60">Expenses(Taxed)</th>
                     <th class="text-end  bg-skin-primary/60">Savings (SOY)</th>
@@ -48,6 +49,8 @@
                         <td class="bg-skin-tertiary"><span x-text="row.age"></span></td>
                         <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.incomePreTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td class="text-end bg-skin-tertiary/40"><span
+                                x-text="row.incomeTaxable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td class="text-end bg-skin-tertiary/40"><span
                                 x-text="row.incomeTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td class="text-end bg-skin-tertiary/40"><span
@@ -97,7 +100,7 @@
                                 x-text="row.taxableSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="text-end bg-skin-primary/40"><span :class="row.cash < 0 && 'text-skin-error'"
-                                                   x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                                                                      x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="text-end bg-skin-primary/40"><span
                                 x-text="row.savingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
@@ -135,6 +138,27 @@
                         </div>
                         <div class="col-span-1">
                             <c-select :field="form.income_growth_strategy" x-model.number="formData.incomeGrowthStrategy"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 border">
+                    <h2 class="text-2xl font-semibold mb-3">Taxes</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="col-span-1">
+                            <c-select :field="form.income_tax_strategy" x-model="formData.incomeTaxStrategy"/>
+                        </div>
+                        <div class="col-span-1">
+                            <c-input :field="form.income_tax_rate" x-model.number="formData.incomeTaxRate"/>
+                        </div>
+                        <div class="col-span-1">
+                            <c-select :field="form.filing_status" x-model="formData.filingStatus"/>
+                        </div>
+                        <div class="col-span-1">
+                            <c-input :field="form.number_of_dependents" x-model.number="formData.numberOfDependents"/>
+                        </div>
+                        <div class="col-span-1">
+                            <c-input :field="form.is_blind" x-model.number="formData.isBlind"/>
                         </div>
                     </div>
                 </div>
@@ -242,10 +266,27 @@
                     cashInitial: 27000,
                     cash: 0,
 
+
+                    /* Income */
                     initialIncomePreTaxed: 100000,
                     incomePreTaxed: 0,
+                    incomeTaxable: 0,
+                    incomeTaxAmount: 0,
+                    incomeTaxRate: 30.0,
+                    incomeTaxStrategy: 'simple',
+                    filingStatus: 'single',
+                    numberOfDependents: '0',
+
+                    incomeTaxed: 0,
+                    incomeGrowthStrategy: 'percentage_increase',
+                    incomeGrowthRate: 0,
+                    incomeGrowthAmount: 0,
+
+
                     initialExpensesTaxed: 50000,
                     expensesTaxed: 50000,
+
+
                     /* Goals */
                     targetAnnualRetirementSpendingPreTaxed: 0,
                     targetEndOfLifeSavingsPreTaxed: 0,
@@ -279,7 +320,7 @@
                     iraContributionCatchUpLimit: 8000,
 
                     taxableInitialSavings: 23000,
-                    initialTaxableContribution: 7000,
+                    initialTaxableContribution: 0,
                     taxableContribution: 0,
                     taxableContributionStrategy: 'fixed',
                     taxableSavingsStartOfYear: 0,
@@ -295,13 +336,6 @@
 
                     inflationRate: 2.0,
                     inflationGrowthStrategy: 'fixed',
-
-                    taxRate: 30.0,
-                    taxRateGrowthStrategy: 'fixed',
-
-                    incomeTaxed: 0,
-                    incomeGrowthStrategy: 'percentage_increase',
-                    incomeGrowthRate: 0,
 
 
                 },
@@ -348,7 +382,6 @@
                     fixed: (row) => row.iraContribution,
                     percent_of_income: (row) => row.incomePreTaxed * (row.iraContributionPercentage / 100),
                     max: (row) => {
-                        console.log(row.age, row.iraContributionCatchUpLimit, row.iraContributionLimit)
                         return Number(row.age) >= 50 ? row.iraContributionCatchUpLimit : row.iraContributionLimit
                     }
                 },
@@ -359,9 +392,9 @@
                     percentage_increase: (row) => row.inflationRate * (1 + row.inflationRate / 100),
                 },
 
-                TaxRateGrowthStrategies: {
-                    fixed: (row) => row.taxRate,
-                    percentage_increase: (row) => row.taxRate * (1 + row.taxRate / 100),
+                IncomeTaxStrategies: {
+                    simple: (row) => row.incomeTaxable * row.incomeTaxRate / 100,
+                    bracket: (row) => row.incomeTaxable * row.incomeTaxRate / 100,
                 },
 
                 IncomeGrowthStrategies: {
@@ -405,16 +438,20 @@
                     return row.taxDeferredSavingsEndOfYear + row.taxableSavingsEndOfYear + row.iraSavingsEndOfYear;
                 },
                 getCash(row) {
-                    return row.cash + row.incomeTaxed - row.expensesTaxed - row.taxDeferredContribution - row.iraContribution - row.taxableContribution
+                    return row.cash + row.incomeTaxed - row.expensesTaxed - row.iraContribution - row.taxableContribution
                 },
                 getIncomeTaxed(row) {
-                    return row.incomePreTaxed * (1 - row.taxRate / 100);
-                }, fillTable() {
+                    return row.incomeTaxable - row.incomeTaxAmount;
+                },
+                getIncomeTaxable(row) {
+                    return row.incomePreTaxed - row.taxDeferredContribution;
+                },
+                fillTable() {
                     let curRow = JSON.parse(JSON.stringify(this.formData));
+
                     curRow.cash = curRow.cashInitial
-                    curRow.incomePreTaxed = curRow.initialIncomePreTaxed
-                    curRow.expensesTaxed = curRow.initialExpensesTaxed
-                    curRow.incomeTaxed = this.getIncomeTaxed(curRow)
+                    curRow.incomePreTaxed = this.formData.initialIncomePreTaxed
+                    curRow.expensesTaxed = this.formData.initialExpensesTaxed
 
 
                     curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredInitialSavings
@@ -426,22 +463,25 @@
                     curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
 
                     curRow.taxableSavingsStartOfYear = curRow.taxableInitialSavings
-                    curRow.taxableContribution = curRow.initialTaxableContribution
+                    curRow.taxableContribution = this.formData.initialTaxableContribution
                     curRow.taxableContribution = this.TaxableContributionStrategies[curRow.taxableContributionStrategy](curRow)
                     curRow.taxableContributionTotal = this.getTaxableContributionTotal(curRow)
                     curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[curRow.taxableGrowthStrategy](curRow)
                     curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(curRow)
 
-                    curRow.iraSavingsStartOfYear = curRow.iraInitialSavings
-                    curRow.iraContribution = curRow.initialIraContribution
-                    curRow.iraContribution = this.IraContributionStrategies[curRow.iraContributionStrategy](curRow)
+                    curRow.iraSavingsStartOfYear = this.formData.iraInitialSavings
+                    curRow.iraContribution = this.formData.initialIraContribution
+                    curRow.iraContribution = this.IraContributionStrategies[this.formData.iraContributionStrategy](curRow)
                     curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
-                    curRow.iraGrowthAmount = this.IraGrowthStrategy[curRow.iraGrowthStrategy](curRow)
+                    curRow.iraGrowthAmount = this.IraGrowthStrategy[this.formData.iraGrowthStrategy](curRow)
                     curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
 
                     curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
                     curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
 
+                    curRow.incomeTaxable = this.getIncomeTaxable(curRow)
+                    curRow.incomeTaxAmount = this.IncomeTaxStrategies[this.formData.incomeTaxStrategy](curRow)
+                    curRow.incomeTaxed = this.getIncomeTaxed(curRow)
                     curRow.cash = this.getCash(curRow)
 
                     let table = [curRow];
@@ -449,11 +489,7 @@
                     for (let i = 1; i <= this.formData.retirementAge - this.formData.age; i++) {
                         let curRow = JSON.parse(JSON.stringify(table[i - 1]));
                         curRow.age += 1
-
-                        curRow.taxRate = this.TaxRateGrowthStrategies[this.formData.taxRateGrowthStrategy](curRow)
                         curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
-                        curRow.incomeTaxed = this.getIncomeTaxed(curRow)
-                        curRow.expensesTaxed = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
 
                         curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
                         curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
@@ -478,6 +514,10 @@
                         curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
 
 
+                        curRow.expensesTaxed = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
+                        curRow.incomeTaxable = this.getIncomeTaxable(curRow)
+                        curRow.incomeTaxAmount = this.IncomeTaxStrategies[this.formData.incomeTaxStrategy](curRow)
+                        curRow.incomeTaxed = this.getIncomeTaxed(curRow)
                         curRow.cash = this.getCash(curRow)
 
 
