@@ -1,5 +1,1105 @@
 [
 {
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "users",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "add_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "change_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "delete_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view profile",
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "codename": "view_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "add_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "change_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "delete_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view page",
+        "content_type": [
+            "content",
+            "page"
+        ],
+        "codename": "view_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view project",
+        "content_type": [
+            "content",
+            "project"
+        ],
+        "codename": "view_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "add_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "change_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "delete_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view company",
+        "content_type": [
+            "content",
+            "company"
+        ],
+        "codename": "view_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "add_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "change_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "delete_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view contact message",
+        "content_type": [
+            "content",
+            "contactmessage"
+        ],
+        "codename": "view_contactmessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "add_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "change_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "delete_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view skill",
+        "content_type": [
+            "content",
+            "skill"
+        ],
+        "codename": "view_skill"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "add_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "change_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "delete_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view skill category",
+        "content_type": [
+            "content",
+            "skillcategory"
+        ],
+        "codename": "view_skillcategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view tag",
+        "content_type": [
+            "common",
+            "tag"
+        ],
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "add_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "change_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "delete_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view article category",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "view_articlecategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "add_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "change_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "delete_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Article",
+        "content_type": [
+            "blog",
+            "article"
+        ],
+        "codename": "view_article"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "add_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "change_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "delete_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Comment",
+        "content_type": [
+            "blog",
+            "comment"
+        ],
+        "codename": "view_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view tag",
+        "content_type": [
+            "blog",
+            "tag"
+        ],
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "add_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "change_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "delete_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Featured Article",
+        "content_type": [
+            "blog",
+            "featuredarticle"
+        ],
+        "codename": "view_featuredarticle"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "add_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "change_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "delete_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Interaction",
+        "content_type": [
+            "blog",
+            "articleinteraction"
+        ],
+        "codename": "view_articleinteraction"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "add_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "change_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "delete_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Topic",
+        "content_type": [
+            "blog",
+            "topic"
+        ],
+        "codename": "view_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "add_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "change_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "delete_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Section",
+        "content_type": [
+            "arcus",
+            "section"
+        ],
+        "codename": "view_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "add_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "change_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "delete_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Task",
+        "content_type": [
+            "arcus",
+            "task"
+        ],
+        "codename": "view_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Tag",
+        "content_type": [
+            "arcus",
+            "tag"
+        ],
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view Project",
+        "content_type": [
+            "arcus",
+            "project"
+        ],
+        "codename": "view_project"
+    }
+},
+{
     "model": "users.user",
     "fields": {
         "password": "pbkdf2_sha256$720000$jn2FDfCcMkhGpjBzMp584E$AgmhupuraHDhfPRs9RtzCSzsLt2lqBaHbiJn7yhITBM=",
@@ -1584,6 +2684,22 @@
     }
 },
 {
+    "model": "blog.tag",
+    "pk": 58,
+    "fields": {
+        "created_at": "2024-10-25T22:19:04.197Z",
+        "edited_at": "2024-10-25T22:19:04.197Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Research",
+        "slug": "research"
+    }
+},
+{
     "model": "blog.topic",
     "pk": 1,
     "fields": {
@@ -1701,6 +2817,23 @@
     }
 },
 {
+    "model": "blog.topic",
+    "pk": 10,
+    "fields": {
+        "created_at": "2024-10-25T22:18:49.993Z",
+        "edited_at": "2024-10-25T22:18:49.993Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "name": "Financial Planning",
+        "slug": "financial-planning",
+        "description": ""
+    }
+},
+{
     "model": "blog.article",
     "pk": 11,
     "fields": {
@@ -1739,7 +2872,7 @@
         "topic": null,
         "image": "",
         "is_published": true,
-        "view_count": 4,
+        "view_count": 5,
         "popularity_score": 0.0,
         "tags": []
     }
@@ -1779,7 +2912,7 @@
         "topic": 2,
         "image": "",
         "is_published": true,
-        "view_count": 2,
+        "view_count": 4,
         "popularity_score": 0.0,
         "tags": [
             55,
@@ -1805,7 +2938,7 @@
         "topic": 2,
         "image": "",
         "is_published": true,
-        "view_count": 1,
+        "view_count": 2,
         "popularity_score": 0.0,
         "tags": [
             57
@@ -1830,9 +2963,82 @@
         "topic": null,
         "image": "",
         "is_published": true,
-        "view_count": 1,
+        "view_count": 2,
         "popularity_score": 0.0,
         "tags": []
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 17,
+    "fields": {
+        "created_at": "2024-10-25T22:58:36.248Z",
+        "edited_at": "2024-10-25T23:01:58.653Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Calculating Effecte Tax Rates and Brackets",
+        "slug": "calculating-effecte-tax-rates-and-brackets",
+        "content": "<h2>1. <strong>Understand Marginal vs. Effective Tax Rates</strong></h2>\r\n\r\n<ul>\r\n\t<li><strong>Marginal Tax Rate</strong>: This is the rate applied to your last dollar earned. In a progressive system like in the U.S., your income is divided across brackets, each taxed at different rates. For instance, income up to a certain threshold might be taxed at 10%, then income above that at 12%, and so on.</li>\r\n\t<li><strong>Effective Tax Rate</strong>: This is the average rate at which your total income is taxed. To find it, divide total tax paid by your gross income. This gives a more accurate picture of the tax burden than the marginal rate since not all income is taxed at the highest rate you fall into.</li>\r\n</ul>\r\n\r\n<h2>2. <strong>Calculating Effective Tax Rate</strong></h2>\r\n\r\n<p>To get an effective tax rate, sum up taxes owed for each bracket portion of your income, then divide that total by your gross income. For example, if you&rsquo;re a single filer with a taxable income of $115,000, the first $11,000 might be taxed at 10%, the next portion at 12%, and so on, progressively adding to your tax owed. This average rate will generally be lower than your highest (marginal) tax rate because of the tiered structure.</p>\r\n\r\n<h2>3. <strong>Consider Tax Deductions and Credits</strong></h2>\r\n\r\n<ul>\r\n\t<li><strong>Deductions</strong> (like standard or itemized deductions) reduce taxable income, potentially lowering both marginal and effective rates. Contributing to retirement accounts or deducting mortgage interest are common methods.</li>\r\n\t<li><strong>Credits</strong> (e.g., earned income tax credit) reduce your tax liability directly, which can notably impact the after-tax income calculation. Credits are subtracted from the total tax owed after calculations from marginal rates</li>\r\n</ul>\r\n\r\n<h2>4. Resources</h2>\r\n\r\n<ul>\r\n\t<li>Federal Taxes:&nbsp;<a href=\"https://taxfoundation.org/data/all/federal/2024-tax-brackets/\">https://taxfoundation.org/data/all/federal/2024-tax-brackets/</a></li>\r\n\t<li>State Taxes:&nbsp;<a href=\"https://taxfoundation.org/data/all/state/state-income-tax-rates-2024/\">https://taxfoundation.org/data/all/state/state-income-tax-rates-2024/</a></li>\r\n</ul>",
+        "topic": 10,
+        "image": "",
+        "is_published": true,
+        "view_count": 1,
+        "popularity_score": 0.0,
+        "tags": [
+            58
+        ]
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 18,
+    "fields": {
+        "created_at": "2024-10-25T23:08:22.305Z",
+        "edited_at": "2024-10-26T00:25:39.158Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Part 1: Marginal vs. Effective Tax Rates",
+        "slug": "part-1-marginal-vs-effective-tax-rates",
+        "content": "<section>\r\n<h2>Part 1: Marginal vs. Effective Tax Rates</h2>\r\n\r\n<p>Understanding tax rates is essential when calculating after-tax income, especially for a financial calculator. This section will explore the concepts of marginal and effective tax rates, providing clarity on how each affects taxpayers.</p>\r\n\r\n<h3>Marginal Tax Rate</h3>\r\n\r\n<p>The marginal tax rate is the rate applied to the last dollar earned. In the U.S., a progressive tax system means income is divided across several brackets, each taxed at different rates. Here&rsquo;s a simplified overview:</p>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Tax Bracket</th>\r\n\t\t\t<th>Tax Rate</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>$0 - $11,000</td>\r\n\t\t\t<td>10%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>$11,001 - $44,725</td>\r\n\t\t\t<td>12%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>$44,726 - $95,375</td>\r\n\t\t\t<td>22%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>$95,376 - $182,100</td>\r\n\t\t\t<td>24%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>$182,101 - $231,250</td>\r\n\t\t\t<td>32%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>$231,251 - $578,125</td>\r\n\t\t\t<td>35%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>$578,126 and above</td>\r\n\t\t\t<td>37%</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>To find the tax owed for a given income level, apply the marginal rate to the income in each bracket.</p>\r\n\r\n<p><strong>Example:</strong> If someone has a taxable income of $50,000:</p>\r\n\r\n<ul>\r\n\t<li>The first $11,000 is taxed at 10% = $1,100</li>\r\n\t<li>The next $33,725 ($44,725 - $11,000) is taxed at 12% = $4,047</li>\r\n\t<li>The remaining $5,275 ($50,000 - $44,725) is taxed at 22% = $1,161.50</li>\r\n</ul>\r\n\r\n<p><strong>Total tax =</strong> $1,100 + $4,047 + $1,161.50 = <strong>$6,308.50</strong></p>\r\n\r\n<h3>Effective Tax Rate</h3>\r\n\r\n<p>The effective tax rate provides an average rate at which a taxpayer&#39;s income is taxed. It is calculated using the formula:</p>\r\n\r\n<p><strong>Effective Tax Rate = Total Tax Paid / Gross Income</strong></p>\r\n\r\n<p>Using the previous example, if the gross income is $50,000 and the total tax paid is $6,308.50:</p>\r\n\r\n<p><strong>Effective Tax Rate = 6,308.50 / 50,000 = 0.1262 or 12.62%</strong></p>\r\n\r\n<h3>Conclusion</h3>\r\n\r\n<p>Understanding these rates is crucial for accurate financial planning and tax calculations. As you build your financial calculator, incorporating both the marginal and effective tax rates will help users better understand their tax burdens.</p>\r\n\r\n<h3>Educational Resources</h3>\r\n\r\n<ul>\r\n\t<li><a href=\"https://www.irs.gov\" rel=\"noopener noreferrer\" target=\"_blank\">IRS Tax Brackets</a></li>\r\n\t<li><a href=\"https://taxfoundation.org\" rel=\"noopener noreferrer\" target=\"_blank\">Tax Foundation Overview</a></li>\r\n</ul>\r\n</section>\r\n\r\n<section>\r\n<h2>Part 2: Understanding Deductions and Tax Credits</h2>\r\n\r\n<h3>Deductions</h3>\r\n\r\n<p>Deductions reduce the amount of income subject to tax. There are two types: the <strong>Standard Deduction</strong> and <strong>Itemized Deductions</strong>.</p>\r\n\r\n<h4>Standard Deduction (for 2024):</h4>\r\n\r\n<ul>\r\n\t<li>Single: $14,600</li>\r\n\t<li>Married Filing Jointly: $29,200</li>\r\n\t<li>Head of Household: $21,300</li>\r\n</ul>\r\n\r\n<h4>Formula for Taxable Income:</h4>\r\n\r\n<p><strong>Taxable Income = Gross Income - Deductions</strong></p>\r\n\r\n<h4>Example:</h4>\r\n\r\n<p>If a single filer has a gross income of $50,000 and takes the standard deduction:</p>\r\n\r\n<p><strong>Taxable Income = 50,000 - 14,600 = 35,400</strong></p>\r\n\r\n<h3>Tax Credits</h3>\r\n\r\n<p>Tax credits directly reduce the amount of tax owed. Unlike deductions, which lower taxable income, credits can significantly decrease the total tax bill.</p>\r\n\r\n<h4>Common Tax Credits:</h4>\r\n\r\n<ul>\r\n\t<li>Earned Income Tax Credit (EITC)</li>\r\n\t<li>Child Tax Credit</li>\r\n\t<li>Education Credits</li>\r\n</ul>\r\n\r\n<h4>Example:</h4>\r\n\r\n<p>If a taxpayer owes $6,000 in taxes and qualifies for a $2,000 tax credit:</p>\r\n\r\n<p><strong>Total Tax Due = 6,000 - 2,000 = 4,000</strong></p>\r\n\r\n<h3>Conclusion</h3>\r\n\r\n<p>Both deductions and credits are crucial for tax calculations. Understanding their differences and how they affect taxable income and tax owed will enhance the functionality of your financial calculator.</p>\r\n\r\n<h3>Educational Resources</h3>\r\n\r\n<ul>\r\n\t<li><a href=\"https://www.irs.gov/credits-deductions\" rel=\"noopener noreferrer\" target=\"_blank\">IRS Deductions Overview</a></li>\r\n\t<li><a href=\"https://taxfoundation.org\" rel=\"noopener noreferrer\" target=\"_blank\">Tax Credits Explained</a></li>\r\n</ul>\r\n</section>\r\n\r\n<section>\r\n<h2>Part 3: Incorporating State and Local Taxes (SALT)</h2>\r\n\r\n<h3>Understanding State Taxes</h3>\r\n\r\n<p>State income taxes can vary widely. Some states have a flat rate, while others employ a progressive tax system similar to the federal government. Here&rsquo;s a sample of state tax rates:</p>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>State</th>\r\n\t\t\t<th>Flat Rate</th>\r\n\t\t\t<th>Progressive Rates</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>California</td>\r\n\t\t\t<td>N/A</td>\r\n\t\t\t<td>1% - 13.3%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Texas</td>\r\n\t\t\t<td>0%</td>\r\n\t\t\t<td>N/A</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>New York</td>\r\n\t\t\t<td>N/A</td>\r\n\t\t\t<td>4% - 10.9%</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Florida</td>\r\n\t\t\t<td>0%</td>\r\n\t\t\t<td>N/A</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h4>Formula for Total Tax Liability Including State Tax:</h4>\r\n\r\n<p><strong>Total Tax = Federal Tax + State Tax + Local Tax</strong></p>\r\n\r\n<h4>Example:</h4>\r\n\r\n<p>If a taxpayer has a federal tax of $6,000 and a state tax of $1,200:</p>\r\n\r\n<p><strong>Total Tax = 6,000 + 1,200 = 7,200</strong></p>\r\n\r\n<h3>Conclusion</h3>\r\n\r\n<p>Incorporating state and local taxes into your financial calculator will provide users with a more accurate picture of their overall tax liability.</p>\r\n\r\n<h3>Educational Resources</h3>\r\n\r\n<ul>\r\n\t<li><a href=\"https://taxfoundation.org\" rel=\"noopener noreferrer\" target=\"_blank\">State Tax Rate Information</a></li>\r\n</ul>\r\n</section>",
+        "topic": 10,
+        "image": "",
+        "is_published": true,
+        "view_count": 2,
+        "popularity_score": 0.0,
+        "tags": []
+    }
+},
+{
+    "model": "blog.article",
+    "pk": 20,
+    "fields": {
+        "created_at": "2024-10-26T15:09:46.471Z",
+        "edited_at": "2024-10-26T15:09:46.471Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Tax Deferred Contribution Limits",
+        "slug": "tax-deferred-contribution-limits",
+        "content": "<p><strong>1. Understanding Tax-Deferred Accounts (e.g., 401(k))</strong></p>\r\n\r\n<p>Tax-deferred accounts like 401(k) plans allow employees to save for retirement by contributing a portion of their salary before taxes are applied. These contributions reduce the employee&#39;s taxable income for the year, resulting in immediate tax savings. The investments grow tax-deferred until withdrawals are made during retirement, at which point they are taxed as ordinary income.</p>\r\n\r\n<p><strong>2. Contribution Limits</strong></p>\r\n\r\n<p>The IRS sets annual limits on how much an individual can contribute to tax-deferred accounts. These limits are in place to ensure fairness and to prevent high-income individuals from sheltering too much income from taxes.</p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p><strong>Elective Deferral Limit (Employee Contribution Limit):</strong> This is the maximum amount an employee can contribute to their 401(k) plan in a given year.</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>For 2023:</strong> $22,500</li>\r\n\t\t<li><strong>Catch-Up Contribution (Age 50 and over):</strong> An additional $7,500, bringing the total to $30,000.</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<p><strong>Total Contribution Limit (Employee + Employer Contributions):</strong> This is the combined maximum limit for all contributions made to the plan, including employee contributions, employer matching, and any other employer contributions.</p>\r\n\r\n\t<ul>\r\n\t\t<li><strong>For 2023:</strong> $66,000</li>\r\n\t\t<li><strong>Including Catch-Up Contributions:</strong> $73,500</li>\r\n\t</ul>\r\n\t</li>\r\n</ul>\r\n\r\n<p><strong>3. How Limits are Applied</strong></p>\r\n\r\n<ul>\r\n\t<li><strong>Employee Contributions:</strong> Limited to the elective deferral limit. Any contribution strategy should ensure that the employee&#39;s total annual contribution does not exceed this limit.</li>\r\n\t<li><strong>Employer Contributions:</strong> Combined with employee contributions, should not exceed the total contribution limit.</li>\r\n\t<li><strong>Excess Contributions:</strong> If contributions exceed the limits, penalties may apply, and excess amounts must be corrected.</li>\r\n</ul>",
+        "topic": 10,
+        "image": "",
+        "is_published": true,
+        "view_count": 1,
+        "popularity_score": 0.0,
+        "tags": [
+            55
+        ]
     }
 },
 {
@@ -1931,7 +3137,6 @@
         "color": "#d93c99"
     }
 },
-
 {
     "model": "arcus.task",
     "pk": 1,
@@ -1955,33 +3160,6 @@
         "section": 1,
         "tags": [
             6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 2,
-    "fields": {
-        "created_at": "2024-10-13T00:28:17.799Z",
-        "edited_at": "2024-10-13T00:28:17.799Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Backend Logic for Core Calculations",
-        "description": "Implement the core retirement calculations, including portfolio growth projections, withdrawal calculations, and retirement readiness analysis based on user inputs.",
-        "due_date": null,
-        "priority": "High",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2
         ],
         "dependencies": []
     }
@@ -2231,33 +3409,6 @@
 },
 {
     "model": "arcus.task",
-    "pk": 12,
-    "fields": {
-        "created_at": "2024-10-13T00:28:17.920Z",
-        "edited_at": "2024-10-13T00:28:17.920Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Set Up Django Application Deployment",
-        "description": "Prepare the Django application for deployment, including server setup, configuration, and testing to ensure proper functioning in a production environment.",
-        "due_date": null,
-        "priority": "High",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            1
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
     "pk": 13,
     "fields": {
         "created_at": "2024-10-13T00:28:17.931Z",
@@ -2312,33 +3463,6 @@
 },
 {
     "model": "arcus.task",
-    "pk": 15,
-    "fields": {
-        "created_at": "2024-10-13T00:28:17.949Z",
-        "edited_at": "2024-10-13T00:28:17.949Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Create Results Page for Displaying Calculations",
-        "description": "Develop a results page that presents users with their retirement projections, graphs, and insights in a clear, organized manner.",
-        "due_date": null,
-        "priority": "High",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
     "pk": 16,
     "fields": {
         "created_at": "2024-10-13T00:28:17.957Z",
@@ -2360,60 +3484,6 @@
         "section": 1,
         "tags": [
             6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 17,
-    "fields": {
-        "created_at": "2024-10-13T00:28:17.968Z",
-        "edited_at": "2024-10-13T00:28:17.968Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Create Backend Models for User Inputs",
-        "description": "Create Django models to store user input data, ensuring data integrity and availability for calculations and future enhancements.",
-        "due_date": null,
-        "priority": "High",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 18,
-    "fields": {
-        "created_at": "2024-10-13T00:28:17.979Z",
-        "edited_at": "2024-10-13T00:28:17.979Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Implement API Endpoints for Data Submission",
-        "description": "Develop API endpoints to handle user data submission, ensuring security and efficient data processing.",
-        "due_date": null,
-        "priority": "High",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2
         ],
         "dependencies": []
     }
@@ -2584,60 +3654,6 @@
 },
 {
     "model": "arcus.task",
-    "pk": 25,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.036Z",
-        "edited_at": "2024-10-13T00:28:18.036Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Scenario Comparison",
-        "description": "Allow users to compare different retirement scenarios side-by-side, showing how changes to variables like retirement age or spending affect their financial outlook.",
-        "due_date": null,
-        "priority": "Low",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 26,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.043Z",
-        "edited_at": "2024-10-13T00:28:18.043Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "API Integration for Tax Bracket Data",
-        "description": "Integrate an API to fetch real-time federal and state tax bracket data, providing users with accurate information for tax planning in retirement.",
-        "due_date": null,
-        "priority": "Medium",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
     "pk": 27,
     "fields": {
         "created_at": "2024-10-13T00:28:18.051Z",
@@ -2747,115 +3763,6 @@
 },
 {
     "model": "arcus.task",
-    "pk": 31,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.081Z",
-        "edited_at": "2024-10-13T00:28:18.081Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Save and Load Scenarios",
-        "description": "Allow users to save their retirement planning scenarios and load them later for review or adjustment, improving personalization.",
-        "due_date": null,
-        "priority": "Low",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 32,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.088Z",
-        "edited_at": "2024-10-13T00:28:18.088Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Create Dashboard Page for Saved Scenarios",
-        "description": "Develop a dashboard page where users can view and manage all their saved retirement scenarios in one place.",
-        "due_date": null,
-        "priority": "Medium",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 33,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.096Z",
-        "edited_at": "2024-10-13T00:28:18.096Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Develop User Authentication System",
-        "description": "Implement a user authentication system to allow users to create accounts, securely save their data, and access it from different devices.",
-        "due_date": null,
-        "priority": "Medium",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 34,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.104Z",
-        "edited_at": "2024-10-13T00:28:18.104Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Integrate User Notifications for Key Milestones",
-        "description": "Add notifications to inform users of key milestones or important updates, such as reaching a savings target or changes in tax laws.",
-        "due_date": null,
-        "priority": "Low",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            2,
-            6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
     "pk": 35,
     "fields": {
         "created_at": "2024-10-13T00:28:18.111Z",
@@ -2870,33 +3777,6 @@
         "description": "Refine the mobile design to ensure all features are easily accessible and usable on mobile devices, improving overall user experience.",
         "due_date": null,
         "priority": "Medium",
-        "status": "Not Started",
-        "assigned_to": null,
-        "parent_task": null,
-        "project": 1,
-        "section": 1,
-        "tags": [
-            6
-        ],
-        "dependencies": []
-    }
-},
-{
-    "model": "arcus.task",
-    "pk": 36,
-    "fields": {
-        "created_at": "2024-10-13T00:28:18.118Z",
-        "edited_at": "2024-10-13T00:28:18.118Z",
-        "creator": [
-            "schir2"
-        ],
-        "editor": [
-            "schir2"
-        ],
-        "title": "Add Feature to Export Results as PDF",
-        "description": "Allow users to export their retirement planning results as a PDF for easy sharing and record-keeping.",
-        "due_date": null,
-        "priority": "Low",
         "status": "Not Started",
         "assigned_to": null,
         "parent_task": null,
@@ -2937,6 +3817,141 @@
     }
 },
 {
+    "model": "arcus.task",
+    "pk": 38,
+    "fields": {
+        "created_at": "2024-10-25T22:13:52.377Z",
+        "edited_at": "2024-10-25T22:13:52.377Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Research Tax Implications for Retirement Accounts",
+        "description": "Research income tax implications for different types of retirement accounts, focusing on tax-deferred, taxable, and tax-exempt accounts. This includes understanding how contributions, withdrawals, and account growth are taxed across account types and identifying where and how these calculations impact overall retirement projections. The goal is to integrate realistic tax scenarios into the retirement calculator for accurate projections of future balances and distributions.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": [
+            "schir2"
+        ],
+        "parent_task": null,
+        "project": 1,
+        "section": 3,
+        "tags": [],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 39,
+    "fields": {
+        "created_at": "2024-10-25T22:14:42.626Z",
+        "edited_at": "2024-10-25T22:14:42.626Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Define Tax Treatment for Each Account Type",
+        "description": "Tax-Deferred Accounts (e.g., 401(k), Traditional IRA): Research rules on contributions, growth, and withdrawals.\r\nTax-Exempt Accounts (e.g., Roth IRA): Review how post-tax contributions and tax-free growth apply.\r\nTaxable Accounts (e.g., brokerage): Determine how taxes apply to dividends, capital gains, and withdrawals.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": [
+            "schir2"
+        ],
+        "parent_task": 38,
+        "project": 1,
+        "section": 3,
+        "tags": [],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 40,
+    "fields": {
+        "created_at": "2024-10-25T22:15:52.191Z",
+        "edited_at": "2024-10-25T22:15:52.191Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Calculate Effective Tax Rates and Brackets",
+        "description": "Gather information on tax brackets and effective tax rate calculations.\r\nInvestigate any progressive tax implications based on income levels and filing status.",
+        "due_date": null,
+        "priority": "High",
+        "status": "Not Started",
+        "assigned_to": [
+            "schir2"
+        ],
+        "parent_task": 38,
+        "project": 1,
+        "section": 3,
+        "tags": [],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 41,
+    "fields": {
+        "created_at": "2024-10-25T22:16:32.400Z",
+        "edited_at": "2024-10-25T22:17:41.487Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Map Out Tax Calculations for Contributions and Withdrawals",
+        "description": "Determine the tax impact of contributing to each account type.\r\nExplore how taxes affect withdrawals, including early withdrawal penalties and required minimum distributions (RMDs).",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": [
+            "schir2"
+        ],
+        "parent_task": 38,
+        "project": 1,
+        "section": 1,
+        "tags": [],
+        "dependencies": []
+    }
+},
+{
+    "model": "arcus.task",
+    "pk": 42,
+    "fields": {
+        "created_at": "2024-10-25T22:17:08.672Z",
+        "edited_at": "2024-10-25T22:17:08.672Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Document Key Tax Considerations for Users",
+        "description": "Summarize the impact of each account type’s tax treatment and explain how it affects retirement savings.",
+        "due_date": null,
+        "priority": "Medium",
+        "status": "Not Started",
+        "assigned_to": [
+            "schir2"
+        ],
+        "parent_task": 38,
+        "project": 1,
+        "section": 3,
+        "tags": [],
+        "dependencies": []
+    }
+},
+{
     "model": "arcus.section",
     "pk": 1,
     "fields": {
@@ -2971,11 +3986,28 @@
     }
 },
 {
+    "model": "arcus.section",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-10-25T22:13:27.783Z",
+        "edited_at": "2024-10-25T22:13:27.783Z",
+        "creator": [
+            "schir2"
+        ],
+        "editor": [
+            "schir2"
+        ],
+        "title": "Research",
+        "order": 0,
+        "project": 1
+    }
+},
+{
     "model": "arcus.project",
     "pk": 1,
     "fields": {
         "created_at": "2024-10-13T00:06:07.113Z",
-        "edited_at": "2024-10-13T16:10:12.861Z",
+        "edited_at": "2024-10-26T01:17:43.855Z",
         "creator": [
             "schir2"
         ],
@@ -2988,7 +4020,8 @@
         "end_date": null,
         "status": "Not Started",
         "priority": "Medium",
-        "starred": false
+        "starred": true,
+        "icon": "trending_up"
     }
 }
 ]
