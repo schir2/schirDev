@@ -1,4 +1,5 @@
 from django import forms
+from django.utils import timezone
 
 
 class RetirementCalculatorForm(forms.Form):
@@ -55,6 +56,14 @@ class RetirementCalculatorForm(forms.Form):
         initial=30,
         label="Age",
         help_text="Your current age in years.",
+    )
+
+    year = forms.IntegerField(
+        min_value=0,
+        max_value=100,
+        initial=timezone.now().year,
+        label="Year",
+        help_text="Starting Year",
     )
 
     retirement_age = forms.IntegerField(
@@ -146,6 +155,13 @@ class RetirementCalculatorForm(forms.Form):
         help_text="The maximum amount your company will match for tax-deferred contributions.",
     )
 
+    company_match_percentage = forms.IntegerField(
+        min_value=0,
+        initial=100,
+        label="Company Match Percentage",
+        help_text="The percentage at which your company will match for tax-deferred contributions.",
+    )
+
     annual_ira_contribution = forms.IntegerField(
         min_value=0,
         initial=500,
@@ -230,6 +246,13 @@ class RetirementCalculatorForm(forms.Form):
         choices=IRA_CONTRIBUTION_STRATEGY_CHOICES,
         initial='fixed',
         label="Tax-Exempt Contribution Strategy"
+    )
+
+    tax_deferred_contribution_limit_inflation_rate = forms.FloatField(
+        min_value=0,
+        initial=2.5,
+        label="Tax-Deferred Growth Rate (%)",
+        help_text="Expected annual inflation rate as a percentage.",
     )
 
     bank_contribution_strategy = forms.ChoiceField(

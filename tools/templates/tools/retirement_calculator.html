@@ -78,7 +78,7 @@
                                 x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="row.taxDeferredCompanyContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                                x-text="row.employerContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
                                 x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
@@ -100,7 +100,7 @@
                                 x-text="row.taxableSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="px-4 py-1 text-end bg-skin-primary/40"><span :class="row.cash < 0 && 'text-skin-error'"
-                                                                      x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
+                                                                                x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
                         </td>
                         <td class="px-4 py-1 text-end bg-skin-primary/40"><span
                                 x-text="row.savingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
@@ -114,16 +114,21 @@
             </table>
         </div>
         <div class="col-span-2 grid grid-cols-2 gap-3">
+
             <div class="space-y-3">
+
+                <!-- Personal Information -->
                 <div class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
                     <h2 class="text-2xl font-semibold mb-3">Personal Information</h2>
                     <div class="grid grid-cols-3 gap-3">
-                        <c-input :field="form.age" x-model.number="formData.age"/>
+                        <c-input :field="form.year" x-model.number="formData.startingYear"/>
+                        <c-input :field="form.age" x-model.number="formData.startingAge"/>
                         <c-input :field="form.retirement_age" x-model.number="formData.retirementAge"/>
                         <c-input :field="form.life_expectancy" x-model.number="formData.lifeExpectancy"/>
                     </div>
                 </div>
 
+                <!-- Income and Expenses -->
                 <div class="p-3 border">
                     <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -142,6 +147,7 @@
                     </div>
                 </div>
 
+                <!-- Taxes -->
                 <div class="p-3 border">
                     <h2 class="text-2xl font-semibold mb-3">Taxes</h2>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -163,6 +169,7 @@
                     </div>
                 </div>
 
+                <!--Savings-->
                 <div class="p-3 border">
                     <h2 class="text-2xl font-semibold mb-3">Savings</h2>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -183,6 +190,8 @@
             </div>
 
             <div class="space-y-3">
+
+                <!--Tax Deferred Contributions-->
                 <div class="p-3 bg-skin-secondary shadow-sm shadow-purple-200 rounded">
                     <h2 class="text-2xl font-semibold mb-3">Tax Deferred Contributions</h2>
                     <p class="text-sm text-skin-muted">These grow tax-free until retirement, but withdrawals are taxed (e.g.,
@@ -193,7 +202,7 @@
                             <c-select :field="form.tax_deferred_contribution_strategy" x-model="formData.taxDeferredContributionStrategy"/>
                         </div>
                         <div class="col-span-1">
-                            <c-input :field="form.company_match_limit" x-model.number="formData.taxDeferredCompanyMatchLimit"/>
+                            <c-input :field="form.company_match_limit" x-model.number="formData.employerMatchLimit"/>
                         </div>
                         <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'fixed'">
                             <c-input :field="form.annual_tax_deferred_contribution"
@@ -205,8 +214,10 @@
                         </div>
                     </div>
                 </div>
+
+                <!--Taxable Contributions-->
                 <div class="p-3 border bg-skin-tertiary shadow-sm rounded shadow-orange-200">
-                    <h2 class="text-2xl font-semibold mb-3">Taxable</h2>
+                    <h2 class="text-2xl font-semibold mb-3">Taxable Contributions</h2>
                     <p class="text-sm text-skin-muted">Brokerage accounts where you pay taxes on capital gains, dividends, and
                         interest as they are realized.</p>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -216,6 +227,8 @@
                         <c-input :field="form.taxable_contribution_percentage" x-model.number="formData.taxableContributionPercentage"/>
                     </div>
                 </div>
+
+                <!--IRA-->
                 <div class="p-3 border shadow-sm shadow-lime-200 bg-skin-primary">
                     <h2 class="text-2xl font-semibold">IRA</h2>
                     <p class="text-sm text-skin-muted">These are funded with post-tax dollars and can be withdrawn tax-free in
@@ -258,7 +271,10 @@
             return {
                 formData: {
                     /* Profile */
-                    age: 38,
+                    startingAge: 38,
+                    age: 0,
+                    startingYear: 2024,
+                    year: 0,
                     retirementAge: 45,
                     lifeExpectancy: 55,
 
@@ -277,7 +293,7 @@
                     incomeGrowthRate: 0,
                     incomeGrowthAmount: 0,
 
-                    
+
                     /* Income Tax */
                     incomeTaxAmount: 0,
                     incomeTaxRate: 30.0,
@@ -294,7 +310,7 @@
                     /* Goals */
                     targetAnnualRetirementSpendingPreTaxed: 0,
                     targetEndOfLifeSavingsPreTaxed: 0,
-                    
+
                     /* Tax Deferred Savings */
                     taxDeferredInitialSavings: 40000,
                     taxDeferredContributionInitial: 5000,
@@ -302,14 +318,24 @@
                     taxDeferredSavingsStartOfYear: 0,
                     taxDeferredSavingsEndOfYear: 0,
                     taxDeferredContribution: 0,
-                    taxDeferredCompanyContribution: 0,
                     taxDeferredContributionTotal: 0,
                     taxDeferredGrowthStrategy: 'start',
                     taxDeferredContributionPercentage: 6,
-                    taxDeferredCompanyMatchLimit: 3,
                     taxDeferredGrowthRate: 6.0,
-                    taxDeferredContributionLimit: 22500,
+                    taxDeferredContributionElectiveLimit: 22500,
+                    taxDeferredContributionElectiveLimitApplied: 0,
                     taxDeferredContributionCatchUpLimit: 7500,
+                    taxDeferredContributionTotalElectiveLimit: 66000,
+                    taxDeferredContributionTotalElectiveLimitApplied: 0,
+                    taxDeferredContributionElectiveLimitInflationRate: 2.5,
+
+                    /* Employer Contributions */
+                    employerContributionStrategy: 'percentage_of_contribution',
+                    employerContribution: 0,
+                    employerMatchPercentage: 100,
+                    employerMatchPercentageLimit: 3,
+                    employerContributionPercentage: 0,
+                    employerContributionFixedAmount: 0,
 
                     /* IRA Savings */
                     iraSavingsInitial: 7000,
@@ -356,7 +382,8 @@
                     percent_of_income: (row) => {
                         return row.incomePreTaxed * (row.taxDeferredContributionPercentage / 100)
                     },
-                    until_company_match: (row) => row.taxDeferredCompanyMatchLimit * row.incomePreTaxed / 100,
+                    until_company_match: (row) => row.employerMatchLimit * row.incomePreTaxed / 100,
+                    max: (row) => row.taxDeferredContributionElectiveLimit,
                 },
 
                 TaxDeferredGrowthStrategy: {
@@ -413,11 +440,29 @@
                     },
                     percentage_increase: (row) => row.incomePreTaxed * (1 + row.incomeGrowthRate / 100),
                 },
-                getAnnualCompanyTaxDeferredContribution(row) {
-                    return Math.min(row.taxDeferredContribution, row.incomePreTaxed * row.taxDeferredCompanyMatchLimit / 100);
+
+                EmployerContributionStrategies: {
+                    percentage_of_contribution: (row) => {
+                        let employerMatch = row.taxDeferredContribution * (row.employerMatchPercentage / 100);
+                        let maxEmployerMatch = row.incomePreTaxed * row.employerMatchPercentageLimit / 100;
+                        return Math.min(employerMatch, maxEmployerMatch);
+                    },
+                    percentage_of_compensation: (row) => {
+                        return row.incomePreTaxed * (row.employerContributionPercentage / 100);
+                    },
+                    fixed: (row) => {
+                        // Employer contributes a fixed amount
+                        return row.employerContributionFixedAmount;
+                    },
+                },
+                getEmployerContribution(row) {
+                    let employerContribution = this.EmployerContributionStrategies[row.employerContributionStrategy](row);
+                    let remainingTotalLimit = row.taxDeferredContributionTotalElectiveLimitApplied - row.taxDeferredContribution;
+
+                    return Math.min(employerContribution, remainingTotalLimit);
                 },
                 getTaxDeferredContributionTotal(row) {
-                    return row.taxDeferredContribution + row.taxDeferredCompanyContribution;
+                    return row.taxDeferredContribution + row.employerContribution;
                 },
                 getTaxDeferredSavingsEndOfYear(row) {
                     return row.taxDeferredSavingsStartOfYear + row.taxDeferredContributionTotal + row.taxDeferredGrowthAmount;
@@ -441,7 +486,7 @@
                     return row.taxDeferredSavingsEndOfYear + row.taxableSavingsEndOfYear + row.iraSavingsEndOfYear;
                 },
                 getCash(row) {
-                    return row.cash + row.incomeTaxed - row.expensesTaxed - row.iraContribution - row.taxableContribution
+                    return row.cash + row.incomeDisposable - row.iraContribution - row.taxableContribution
                 },
                 getIncomeTaxed(row) {
                     return row.incomeTaxable - row.incomeTaxAmount;
@@ -452,31 +497,83 @@
                 getIncomeDisposable(row) {
                     return row.incomeTaxed - row.expensesTaxed;
                 },
-                fillTable() {
-                    let curRow = JSON.parse(JSON.stringify(this.formData));
+                getTaxDeferredContributionElectiveLimit(row) {
+                    return row.taxDeferredContributionElectiveLimit + (1 + row.taxDeferredContributionElectiveLimitInflationRate / 100);
+                },
+                getTaxDeferredContributionElectiveLimitApplied(row) {
+                    return row.age < 50 ? row.taxDeferredContributionElectiveLimit : row.taxDeferredContributionElectiveLimit + row.taxDeferredContributionCatchUpLimit
+                },
+                getTaxDeferredContributionElectiveTotalLimitApplied(row) {
+                    return row.age < 50 ? row.taxDeferredContributionTotalElectiveLimit : row.taxDeferredContributionTotalElectiveLimit + row.taxDeferredContributionCatchUpLimit
+                },
+                initializeTableRow(formData) {
+                    let curRow = JSON.parse(JSON.stringify(formData));
 
-                    curRow.cash = curRow.cashInitial
-                    curRow.incomePreTaxed = this.formData.incomePreTaxedInitial
-                    curRow.expensesTaxed = this.formData.expensesTaxedInitial
+                    /* Initialization */
+                    curRow.age = formData.startingAge
+                    curRow.year = formData.startingYear
+                    curRow.cash = formData.cashInitial
+                    curRow.incomePreTaxed = formData.incomePreTaxedInitial
+                    curRow.expensesTaxed = formData.expensesTaxedInitial
 
-
-                    curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredInitialSavings
-                    curRow.taxDeferredContribution = curRow.taxDeferredContributionInitial
-                    curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[curRow.taxDeferredContributionStrategy](curRow)
-                    curRow.taxDeferredCompanyContribution = this.getAnnualCompanyTaxDeferredContribution(curRow)
+                    curRow.taxDeferredSavingsStartOfYear = formData.taxDeferredInitialSavings
+                    curRow.taxDeferredContributionElectiveLimit = formData.taxDeferredContributionElectiveLimit
+                    curRow.taxDeferredContribution = formData.taxDeferredContributionInitial
+                    curRow.taxDeferredContributionElectiveLimitApplied = this.getTaxDeferredContributionElectiveLimitApplied(curRow)
+                    curRow.employerContribution = this.getEmployerContribution(curRow)
                     curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
                     curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[curRow.taxDeferredGrowthStrategy](curRow)
                     curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
 
                     curRow.taxableSavingsStartOfYear = curRow.taxableSavingsInitial
-                    curRow.taxableContribution = this.formData.taxableContributionInitial
+                    curRow.taxableContribution = formData.taxableContributionInitial
                     curRow.taxableContribution = this.TaxableContributionStrategies[curRow.taxableContributionStrategy](curRow)
                     curRow.taxableContributionTotal = this.getTaxableContributionTotal(curRow)
                     curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[curRow.taxableGrowthStrategy](curRow)
                     curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(curRow)
 
-                    curRow.iraSavingsStartOfYear = this.formData.iraSavingsInitial
-                    curRow.iraContribution = this.formData.iraContributionInitial
+                    curRow.iraSavingsStartOfYear = formData.iraSavingsInitial
+                    curRow.iraContribution = formData.iraContributionInitial
+                    curRow.iraContribution = this.IraContributionStrategies[formData.iraContributionStrategy](curRow)
+                    curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
+                    curRow.iraGrowthAmount = this.IraGrowthStrategy[formData.iraGrowthStrategy](curRow)
+                    curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
+
+                    curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
+                    curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
+
+                    curRow.incomeTaxable = this.getIncomeTaxable(curRow)
+                    curRow.incomeTaxAmount = this.IncomeTaxStrategies[formData.incomeTaxStrategy](curRow)
+                    curRow.incomeTaxed = this.getIncomeTaxed(curRow)
+                    curRow.incomeDisposable = this.getIncomeDisposable(curRow)
+                    curRow.cash = this.getCash(curRow)
+                    
+                    return curRow;
+                    
+                }, updateRow(previousRow) {
+                    let curRow = JSON.parse(JSON.stringify(previousRow));
+                    curRow.age += 1
+                    curRow.year += 1
+                    curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
+
+                    curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
+                    curRow.taxDeferredContributionElectiveLimit = this.getTaxDeferredContributionElectiveLimit(curRow)
+                    curRow.taxDeferredContributionElectiveLimitApplied = this.getTaxDeferredContributionElectiveLimitApplied(curRow)
+                    curRow.taxDeferredContributionElectiveTotalLimitApplied = this.getTaxDeferredContributionElectiveTotalLimitApplied(curRow)
+
+                    curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
+                    curRow.employerContribution = this.getEmployerContribution(curRow)
+                    curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
+                    curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](curRow)
+                    curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
+
+                    curRow.taxableSavingsStartOfYear = curRow.taxableSavingsEndOfYear
+                    curRow.taxableContribution = this.TaxableContributionStrategies[this.formData.taxableContributionStrategy](curRow)
+                    curRow.taxableContributionTotal = this.getTaxableContributionTotal(curRow)
+                    curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[this.formData.taxableGrowthStrategy](curRow)
+                    curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(curRow)
+
+                    curRow.iraSavingsStartOfYear = curRow.iraSavingsEndOfYear
                     curRow.iraContribution = this.IraContributionStrategies[this.formData.iraContributionStrategy](curRow)
                     curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
                     curRow.iraGrowthAmount = this.IraGrowthStrategy[this.formData.iraGrowthStrategy](curRow)
@@ -485,50 +582,21 @@
                     curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
                     curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
 
+
+                    curRow.expensesTaxed = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
                     curRow.incomeTaxable = this.getIncomeTaxable(curRow)
                     curRow.incomeTaxAmount = this.IncomeTaxStrategies[this.formData.incomeTaxStrategy](curRow)
                     curRow.incomeTaxed = this.getIncomeTaxed(curRow)
                     curRow.incomeDisposable = this.getIncomeDisposable(curRow)
                     curRow.cash = this.getCash(curRow)
+                    return curRow;
+                }, fillTable() {
+                    let firstRow = this.initializeTableRow(this.formData);
+                    let table = [firstRow];
 
-                    let table = [curRow];
-
-                    for (let i = 1; i <= this.formData.retirementAge - this.formData.age; i++) {
-                        let curRow = JSON.parse(JSON.stringify(table[i - 1]));
-                        curRow.age += 1
-                        curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
-
-                        curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
-                        curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
-                        curRow.taxDeferredCompanyContribution = this.getAnnualCompanyTaxDeferredContribution(curRow)
-                        curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
-                        curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](curRow)
-                        curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
-
-                        curRow.taxableSavingsStartOfYear = curRow.taxableSavingsEndOfYear
-                        curRow.taxableContribution = this.TaxableContributionStrategies[this.formData.taxableContributionStrategy](curRow)
-                        curRow.taxableContributionTotal = this.getTaxableContributionTotal(curRow)
-                        curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[this.formData.taxableGrowthStrategy](curRow)
-                        curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(curRow)
-
-                        curRow.iraSavingsStartOfYear = curRow.iraSavingsEndOfYear
-                        curRow.iraContribution = this.IraContributionStrategies[this.formData.iraContributionStrategy](curRow)
-                        curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
-                        curRow.iraGrowthAmount = this.IraGrowthStrategy[this.formData.iraGrowthStrategy](curRow)
-                        curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
-
-                        curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
-                        curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
-
-
-                        curRow.expensesTaxed = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
-                        curRow.incomeTaxable = this.getIncomeTaxable(curRow)
-                        curRow.incomeTaxAmount = this.IncomeTaxStrategies[this.formData.incomeTaxStrategy](curRow)
-                        curRow.incomeTaxed = this.getIncomeTaxed(curRow)
-                        curRow.incomeDisposable = this.getIncomeDisposable(curRow)
-                        curRow.cash = this.getCash(curRow)
-
-
+                    for (let i = 1; i <= this.formData.retirementAge - this.formData.startingAge; i++) {
+                        let previousRow = table[i - 1];
+                        let curRow = this.updateRow(previousRow);
                         table.push(curRow);
                     }
 
