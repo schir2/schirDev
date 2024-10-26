@@ -3,9 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-    td, th {
-        @apply p-1
+
+    .prose-skin table {
+        @apply min-w-full divide-y divide-skin-base;
     }
+
+    .prose-skin table th {
+        @apply px-6 py-4 bg-skin-accent text-left font-medium text-skin-base tracking-wider;
+    }
+
+    .prose-skin table td {
+        @apply px-6 py-4 whitespace-nowrap text-skin-base;
+    }
+
+    .prose-skin table tr:nth-child(even) {
+        @apply bg-skin-base;
+    }
+
     :root {
         [data-theme="light"] {
 
@@ -53,33 +67,33 @@
 
         [data-theme="dark"] {
 
-            --text-base: 235, 235, 235;
-            --text-muted: 180, 180, 180;
-            --text-primary: 88, 166, 255;
-            --text-secondary: 255, 203, 107;
+            --text-base: 235, 235, 235; /* Light gray, maintaining good contrast */
+            --text-muted: 200, 200, 200; /* Increased brightness for improved readability */
+            --text-primary: 88, 166, 255; /* Adjusted to be more visible on lighter bg-primary */
+            --text-secondary: 255, 203, 107; /* Enhanced contrast for secondary text */
             --text-tertiary: 130, 177, 255;
             --text-accent: 255, 138, 128;
-            --text-error: 255, 85, 85;
-            --text-success: 105, 240, 174;
-            --text-warning: 255, 224, 130;
-            --text-info: 129, 212, 250;
+            --text-error: 255, 110, 110; /* Slightly lighter for error clarity */
+            --text-success: 105, 240, 174; /* Bright and noticeable against success backgrounds */
+            --text-warning: 255, 224, 130; /* Slightly more visible against new warning bg */
+            --text-info: 129, 212, 250; /* Brighter to pop on the info background */
             --text-link: 88, 166, 255;
             --text-link-hover: 130, 177, 255;
             --text-link-active: 70, 154, 239;
 
-            --bg-base: 24, 24, 24;
-            --bg-muted: 34, 34, 34;
-            --bg-primary: 48, 48, 48;
-            --bg-secondary: 40, 40, 40;
-            --bg-tertiary: 50, 50, 50;
-            --bg-accent: 60, 60, 60;
-            --bg-error: 255, 85, 85;
-            --bg-success: 56, 142, 60;
-            --bg-warning: 255, 224, 130;
-            --bg-info: 129, 212, 250;
-            --bg-surface: 30, 30, 30;
-            --bg-surface-hover: 40, 40, 40;
-            --bg-overlay: 0, 0, 0, 0.7;
+            --bg-base: 40, 40, 40; /* Lighter than before, close to light theme */
+            --bg-muted: 55, 55, 55; /* Matches light theme's muted feel */
+            --bg-primary: 70, 70, 70; /* Maintains distinction without overpowering text */
+            --bg-secondary: 60, 60, 60; /* A subtle but clear contrast */
+            --bg-tertiary: 75, 75, 75; /* Lighter gray to add contrast and hierarchy */
+            --bg-accent: 85, 85, 85; /* Accents remain subtle but not too dark */
+            --bg-error: 115, 0, 0; /* Matches light theme but with slightly reduced intensity */
+            --bg-success: 0, 102, 0; /* Deep green for readability against text-success */
+            --bg-warning: 130, 110, 0; /* Gold tone without high saturation */
+            --bg-info: 80, 100, 140; /* Subtle blue for info elements */
+            --bg-surface: 48, 48, 48; /* Soft background for surfaces, close to light theme */
+            --bg-surface-hover: 65, 65, 65; /* Hover states slightly more pronounced */
+            --bg-overlay: 10, 10, 10, 0.8; /* Subtle overlay without full darkness */
 
             --border-base: 58, 58, 58;
             --border-muted: 48, 48, 48;

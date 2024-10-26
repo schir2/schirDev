@@ -42,9 +42,7 @@ class SectionAdmin(ImportExportModelAdmin):
 class TaskAdmin(ImportExportModelAdmin):
     list_display = (
     'title', 'project', 'section', 'status', 'priority', 'due_date', 'assigned_to', 'created_at', 'edited_at', 'creator', 'editor')
-    list_filter = ('status', 'priority', 'project', 'section', 'due_date')
-    search_fields = ('title', 'description', 'project__name', 'section__title', 'assigned_to__username')
-    ordering = ('project', 'section', 'title')
+    list_filter = ('status', 'priority', 'project')
     readonly_fields = ('created_at', 'edited_at')
     filter_horizontal = ('tags', 'dependencies')
     fieldsets = (
