@@ -515,7 +515,7 @@
                     let employerContribution = this.EmployerContributionStrategies[row.employerContributionStrategy](row);
                     let remainingTotalLimit = row.taxDeferredContributionElectiveTotalLimitApplied - row.taxDeferredContribution;
 
-                    return Math.min(employerContribution, remainingTotalLimit);
+                    return Math.max(0, Math.min(employerContribution, remainingTotalLimit));
                 },
                 getTaxDeferredContributionTotal(row) {
                     return row.taxDeferredContribution + row.employerContribution;
