@@ -11,9 +11,10 @@ class RetirementCalculatorForm(forms.Form):
         ('fixed', 'Fixed'),
         ('percent_of_income', 'Percentage of Income'),
     ]
+
     INCOME_GROWTH_STRATEGY_CHOICES = [
         ('fixed', 'Fixed'),
-        ('percent_of_income', 'Percentage of Income'),
+        ('percentage_increase', 'Percentage Increase'),
     ]
 
     INCOME_TAX_STRATEGY_CHOICES = [
@@ -36,7 +37,8 @@ class RetirementCalculatorForm(forms.Form):
     TAX_DEFERRED_CONTRIBUTION_STRATEGY_CHOICES = [
         ('fixed', 'Fixed Contribution'),
         ('percent_of_income', 'Percentage of Income'),
-        ('until_company_match', 'Until Company Match Met'),
+        ('until_company_match', 'Until Employer Match Met'),
+        ('max', 'Max Out'),
     ]
 
     TAXABLE_CONTRIBUTION_STRATEGY_CHOICES = [
@@ -48,6 +50,17 @@ class RetirementCalculatorForm(forms.Form):
         ('fixed', 'Fixed Contribution'),
         ('percent_of_income', 'Percentage of Income'),
         ('max', 'Max Out')
+    ]
+
+    EMPLOYER_CONTRIBUTION_STRATEGY_CHOICES = [
+        ('percentage_of_contribution', 'Match Percentage of Contribution'),
+        ('percentage_of_compensation', 'Percentage of Compensation'),
+        ('fixed', 'Fixed Amount'),
+    ]
+
+    EXPENSES_GROWTH_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed'),
+        ('percentage_increase', 'Percentage Increase'),
     ]
 
     age = forms.IntegerField(
@@ -89,6 +102,13 @@ class RetirementCalculatorForm(forms.Form):
         help_text="Your current savings in tax-deferred accounts (e.g., 401(k), Traditional IRA).",
     )
 
+    tax_deferred_growth_rate = forms.FloatField(
+        min_value=0,
+        initial=6.0,
+        label="Tax-Deferred Growth Rate (%)",
+        help_text="Expected annual growth rate for tax-deferred savings as a percentage.",
+    )
+
     taxable_savings = forms.IntegerField(
         min_value=0,
         initial=50000,
@@ -117,7 +137,7 @@ class RetirementCalculatorForm(forms.Form):
         help_text="Your annual contribution to taxable savings accounts.",
     )
 
-    annual_tax_deferred_contribution = forms.IntegerField(
+    tax_deferred_contribution_fixed_amount = forms.IntegerField(
         min_value=0,
         initial=1000,
         label="Annual Tax-Deferred Contribution",
@@ -148,28 +168,30 @@ class RetirementCalculatorForm(forms.Form):
         help_text="The percentage of your pre-tax income to contribute to taxable accounts.",
     )
 
-    company_match_limit = forms.IntegerField(
+    employer_match_percentage_limit = forms.FloatField(
         min_value=0,
-        initial=5000,
-        label="Company Match Limit",
-        help_text="The maximum amount your company will match for tax-deferred contributions.",
+        max_value=100,
+        initial=3.0,
+        label="Employer Match Percentage Limit (%)",
+        help_text="The maximum percentage of your compensation that your employer will match.",
     )
 
-    company_match_percentage = forms.IntegerField(
+    employer_match_percentage = forms.FloatField(
         min_value=0,
-        initial=100,
-        label="Company Match Percentage",
-        help_text="The percentage at which your company will match for tax-deferred contributions.",
+        max_value=100,
+        initial=100.0,
+        label="Employer Match Percentage (%)",
+        help_text="The percentage of your contribution that your employer will match.",
     )
 
-    annual_ira_contribution = forms.IntegerField(
+    ira_contribution_fixed_amount = forms.IntegerField(
         min_value=0,
         initial=500,
         label="Annual Tax-Exempt Contribution",
         help_text="Your annual contribution to tax-exempt accounts (e.g., Roth IRA).",
     )
 
-    annual_expenses = forms.IntegerField(
+    expenses_taxed = forms.IntegerField(
         min_value=0,
         initial=40000,
         label="Annual Expenses",
@@ -190,11 +212,11 @@ class RetirementCalculatorForm(forms.Form):
         help_text="Expected annual growth rate for taxable savings as a percentage.",
     )
 
-    tax_deferred_growth_rate = forms.FloatField(
+    ira_growth_rate = forms.FloatField(
         min_value=0,
-        initial=7.0,
-        label="Tax-Deferred Growth Rate (%)",
-        help_text="Expected annual growth rate for tax-deferred savings as a percentage.",
+        initial=6.0,
+        label="IRA Growth Rate (%)",
+        help_text="Expected annual growth rate for IRA savings as a percentage.",
     )
 
     income_pre_taxed = forms.IntegerField(
@@ -251,8 +273,8 @@ class RetirementCalculatorForm(forms.Form):
     tax_deferred_contribution_limit_inflation_rate = forms.FloatField(
         min_value=0,
         initial=2.5,
-        label="Tax-Deferred Growth Rate (%)",
-        help_text="Expected annual inflation rate as a percentage.",
+        label="Tax-Deferred Contribution Limit Inflation Rate (%)",
+        help_text="Expected annual inflation rate applied to tax-deferred contribution limits.",
     )
 
     bank_contribution_strategy = forms.ChoiceField(
@@ -302,3 +324,48 @@ class RetirementCalculatorForm(forms.Form):
         label="Is Blind",
         help_text="Check if you qualify for blind person's tax credit.",
     )
+
+    employer_contribution_strategy = forms.ChoiceField(
+        choices=EMPLOYER_CONTRIBUTION_STRATEGY_CHOICES,
+        initial='percentage_of_contribution',
+        label="Employer Contribution Strategy",
+        help_text="The strategy your employer uses to contribute to your tax-deferred retirement account.",
+    )
+
+    employer_contribution_percentage = forms.FloatField(
+        min_value=0,
+        max_value=100,
+        initial=5.0,
+        label="Employer Contribution Percentage (%)",
+        help_text="The percentage of your compensation that your employer contributes.",
+    )
+
+    employer_contribution_fixed_amount = forms.FloatField(
+        min_value=0,
+        initial=0.0,
+        label="Employer Contribution Fixed Amount",
+        help_text="The fixed amount your employer contributes annually.",
+    )
+
+    expenses_growth_strategy = forms.ChoiceField(
+        choices=EXPENSES_GROWTH_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Expenses Growth Strategy",
+        help_text="How your expenses are expected to grow over time.",
+    )
+
+    expense_rate = forms.FloatField(
+        min_value=0,
+        initial=2.0,
+        label="Expense Growth Rate (%)",
+        help_text="The percentage by which your expenses will grow annually.",
+    )
+
+    inflation_growth_strategy = forms.ChoiceField(
+        choices=INFLATION_GROWTH_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Inflation Growth Strategy",
+        help_text="How the inflation rate is expected to change over time.",
+    )
+
+
