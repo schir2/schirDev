@@ -53,6 +53,7 @@ class RetirementCalculatorForm(forms.Form):
     ]
 
     EMPLOYER_CONTRIBUTION_STRATEGY_CHOICES = [
+        ('none', 'Does not contribute'),
         ('percentage_of_contribution', 'Match Percentage of Contribution'),
         ('percentage_of_compensation', 'Percentage of Compensation'),
         ('fixed', 'Fixed Amount'),

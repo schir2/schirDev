@@ -498,6 +498,7 @@
                 },
 
                 EmployerContributionStrategies: {
+                    none: (row) => 0,
                     percentage_of_contribution: (row) => {
                         let employerMatch = row.taxDeferredContribution * (row.employerMatchPercentage / 100);
                         let maxEmployerMatch = row.incomePreTaxed * row.employerMatchPercentageLimit / 100;
@@ -553,7 +554,7 @@
                     return row.incomeTaxed - row.expensesTaxed;
                 },
                 getTaxDeferredContributionElectiveLimit(row) {
-                    return row.taxDeferredContributionElectiveLimit + (1 + row.taxDeferredContributionElectiveLimitInflationRate / 100);
+                    return row.taxDeferredContributionElectiveLimit * (1 + row.taxDeferredContributionElectiveLimitInflationRate / 100);
                 },
                 getTaxDeferredContributionElectiveLimitApplied(row) {
                     return row.age < 50 ? row.taxDeferredContributionElectiveLimit : row.taxDeferredContributionElectiveLimit + row.taxDeferredContributionCatchUpLimit
@@ -561,8 +562,12 @@
                 getTaxDeferredContributionElectiveTotalLimitApplied(row) {
                     return row.age < 50 ? row.taxDeferredContributionTotalElectiveLimit : row.taxDeferredContributionTotalElectiveLimit + row.taxDeferredContributionCatchUpLimit
                 },
-                initializeTableRow(formData) {
+                getTaxDeferredContribution(row) {
+                    return Math.min(this.TaxDeferredContributionStrategies[row.taxDeferredContributionStrategy](row), row.taxDeferredContributionElectiveLimitApplied)
+                }, initializeTableRow(formData) {
                     let curRow = JSON.parse(JSON.stringify(formData));
+                    
+                    /* TODO Need to account for employer contribution more than the employee. Goal is to maximize savings */
 
                     /* Initialization */
                     curRow.age = formData.ageInitial
@@ -576,7 +581,7 @@
                     curRow.taxDeferredContributionElectiveLimitApplied = this.getTaxDeferredContributionElectiveLimitApplied(curRow)
                     curRow.taxDeferredContributionElectiveTotalLimitApplied = this.getTaxDeferredContributionElectiveTotalLimitApplied(curRow)
                     curRow.taxDeferredContributionFixedAmount = formData.taxDeferredContributionFixedAmount
-                    curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[curRow.taxDeferredContributionStrategy](curRow)
+                    curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
                     curRow.employerContribution = this.getEmployerContribution(curRow)
                     curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
                     curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[curRow.taxDeferredGrowthStrategy](curRow)
@@ -618,7 +623,7 @@
                     curRow.taxDeferredContributionElectiveLimitApplied = this.getTaxDeferredContributionElectiveLimitApplied(curRow)
                     curRow.taxDeferredContributionElectiveTotalLimitApplied = this.getTaxDeferredContributionElectiveTotalLimitApplied(curRow)
 
-                    curRow.taxDeferredContribution = this.TaxDeferredContributionStrategies[this.formData.taxDeferredContributionStrategy](curRow)
+                    curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
                     curRow.employerContribution = this.getEmployerContribution(curRow)
                     curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
                     curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[this.formData.taxDeferredGrowthStrategy](curRow)
