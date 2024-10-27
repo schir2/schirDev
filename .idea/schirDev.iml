@@ -27,6 +27,7 @@
     <orderEntry type="library" name="htmx.org" level="application" />
     <orderEntry type="library" name="@alpinejs/persist" level="application" />
     <orderEntry type="library" name="@alpinejs/persist" level="application" />
+    <orderEntry type="library" name="mathjax" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
