@@ -1,15 +1,16 @@
-import uuid
-from typing import Union
+from typing import Union, Tuple
 
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
-from django.db import models
+from django.db import models, transaction
+from django.db.models import UniqueConstraint
 from django.utils import timezone
 from django.utils.html import strip_tags
-from django.utils.text import slugify, Truncator
+from django.utils.text import Truncator
 from django.utils.translation import gettext_lazy as _
-from ckeditor_uploader.fields import RichTextUploadingField
 
+from blog.utils.model_utils import generate_slug_from_title
 from common.models import BaseModel
 
 User = get_user_model()
@@ -22,7 +23,7 @@ class InteractionType(models.TextChoices):
 
 class Article(BaseModel):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
-    slug = models.SlugField(verbose_name=_('Slug'), unique=True)
+    slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=200)
     content = RichTextUploadingField(verbose_name=_('Content'), )
     topic = models.ForeignKey('blog.Topic', verbose_name=_('Topic'), related_name='articles',
                               on_delete=models.SET_NULL,
@@ -32,17 +33,17 @@ class Article(BaseModel):
     is_published = models.BooleanField(_('Is published'), default=True)
     view_count = models.PositiveIntegerField(verbose_name=_('View count'), default=0)
     popularity_score = models.FloatField(verbose_name=_('Popularity Score'), default=0.0)
+    series = models.ForeignKey('ArticleSeries', verbose_name=_('Series'), related_name='articles', on_delete=models.SET_NULL, null=True)
+    series_sequence_number = models.PositiveIntegerField(verbose_name=_('Series sequence number'), null=True)
 
     def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
-        base_slug = slugify(self.title)
-        if not self.slug or not self.slug.startswith(base_slug):
-            slug = base_slug
-            if Article.objects.filter(slug=slug).exists():
-                slug = f"{base_slug}-{uuid.uuid4().hex[:8]}"  # Append UUID for uniqueness
-            self.slug = slug
+        if self.series and self.series_sequence_number is None:
+            self.series_sequence_number = self.series.get_next_sequence_number()
+
+        self.slug = generate_slug_from_title(self)
         super().save(*args, **kwargs)
 
     def increment_view_count(self, request):
@@ -86,7 +87,10 @@ class Article(BaseModel):
         ordering = ['-created_at']
         verbose_name = _('Article')
         verbose_name_plural = _('Articles')
-        unique_together = ('title', 'creator',)
+        constraints = (
+            UniqueConstraint(fields=['title', 'creator', ], name='unique_title_creator'),
+            UniqueConstraint(fields=['series', 'series_sequence_number', ], name='unique_series_sequence_number'),
+        )
 
     @property
     def likes(self):
@@ -113,22 +117,17 @@ class Article(BaseModel):
     # ... existing fields ...
 
     def safe_excerpt(self, words=30, char_limit=None):
-        """
-        Generate a safe, plain-text excerpt of the article content.
-
-        Args:
-            words (int): The number of words to include in the excerpt. Defaults to 30.
-            char_limit (int, optional): The maximum number of characters for the excerpt.
-
-        Returns:
-            str: A plain-text excerpt of the article content.
-        """
         plain_text = strip_tags(self.content)
 
         if char_limit:
             return Truncator(plain_text).chars(char_limit, truncate='...')
         else:
             return Truncator(plain_text).words(words, truncate='...')
+
+    def swap_sequence_with(self, other_article: 'Article') -> Tuple['Article', 'Article']:
+        if not self.series:
+            raise ValueError("This article does not belong to a series.")
+        return self.series.swap_article_sequence_numbers(self, other_article)
 
 
 class Topic(BaseModel):
@@ -205,3 +204,35 @@ class ArticleInteraction(BaseModel):
         verbose_name = _('Interaction')
         verbose_name_plural = _('Interactions')
         ordering = ['-created_at']
+
+
+class ArticleSeries(BaseModel):
+    title = models.CharField(verbose_name=_('Title'), max_length=200)
+    slug = models.SlugField(verbose_name=_('Slug'), unique=True)
+    description = models.TextField(verbose_name=_('Description'), blank=True, default='')
+
+    def __str__(self):
+        return f'{self.title}'
+
+    def save(self, *args, **kwargs):
+        self.slug = generate_slug_from_title(self)
+        super().save(*args, **kwargs)
+
+    @transaction.atomic
+    def swap_article_sequence_numbers(self, article_1: 'Article', article_2: 'Article'):
+        # TODO Fix the bug with unique together
+        if article_1.series != article_2.series:
+            raise ValueError("Both articles must belong to this series.")
+
+        article_1.series_sequence_number, article_2.series_sequence_number = article_2.series_sequence_number, article_1.series_sequence_number
+        Article.objects.bulk_update([article_1, article_2], ["series_sequence_number"])
+
+        return article_1.refresh_from_db(), article_2.refresh_from_db()
+
+    def get_next_sequence_number(self) -> int:
+        max_sequence = self.articles.aggregate(max_seq=models.Max('series_sequence_number'))['max_seq']
+        return (max_sequence or 0) + 1
+
+    class Meta:
+        verbose_name = _('Article Series')
+        verbose_name_plural = _('Article Series')

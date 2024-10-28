@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 from factory.django import DjangoModelFactory
 
-from .models import Article, Topic, Tag, Comment, ArticleInteraction
+from .models import Article, Topic, Tag, Comment, ArticleInteraction, ArticleSeries
 
 
 class UserFactory(DjangoModelFactory):
@@ -34,6 +34,15 @@ class TagFactory(DjangoModelFactory):
     slug = factory.LazyAttribute(lambda obj: slugify(obj.name))
 
 
+class ArticleSeriesFactory(DjangoModelFactory):
+    class Meta:
+        model = ArticleSeries
+
+    title = factory.Faker('sentence')
+    slug = factory.LazyAttribute(lambda obj: slugify(obj.title))
+    description = factory.Faker('paragraph')
+
+
 class ArticleFactory(DjangoModelFactory):
     class Meta:
         model = Article
@@ -46,6 +55,8 @@ class ArticleFactory(DjangoModelFactory):
     is_published = True
     view_count = factory.Faker('random_int', min=0, max=1000)
     popularity_score = factory.Faker('pyfloat', left_digits=1, right_digits=2, positive=True, max_value=1)
+    series = None
+    series_sequence_number = None
 
     @factory.post_generation
     def tags(self, create, extracted, **kwargs):

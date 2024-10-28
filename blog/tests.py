@@ -1,12 +1,12 @@
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 
 from django.db import IntegrityError
 from django.test import TestCase, RequestFactory
 from django.utils import timezone
 from django.utils.text import slugify
 
-from blog.factories import create_article_with_interactions, UserFactory, ArticleFactory, TopicFactory, TagFactory
-from blog.models import Article, InteractionType, ArticleInteraction, Comment, FeaturedArticle
+from blog.factories import create_article_with_interactions, UserFactory, ArticleFactory, TopicFactory, TagFactory, ArticleSeriesFactory
+from blog.models import Article, InteractionType, FeaturedArticle, ArticleSeries
 
 
 class ArticleTestCase(TestCase):
@@ -202,3 +202,75 @@ class ArticleTestCase(TestCase):
         articles = Article.objects.all()
         self.assertEqual(articles[0].title, "New Article")
         self.assertEqual(articles[1].title, "Old Article")
+
+    def test_successful_swap_within_same_series(self):
+        series = ArticleSeriesFactory()
+        article_1 = ArticleFactory(series=series)
+        article_2 = ArticleFactory(series=series)
+
+        article_1_sequence_number = article_1.series_sequence_number
+        article_2_sequence_number = article_2.series_sequence_number
+
+        series.swap_article_sequence_numbers(article_1, article_2)
+
+        article_1.refresh_from_db()
+        article_2.refresh_from_db()
+
+        self.assertEqual(article_1.series_sequence_number, article_2_sequence_number)
+        self.assertEqual(article_2.series_sequence_number, article_1_sequence_number)
+
+    def test_error_on_different_series(self):
+        series = ArticleSeriesFactory()
+        different_series = ArticleSeries.objects.create(title="Different Series")
+        article_1 = ArticleFactory(series=series)
+        article_in_different_series = ArticleFactory(series=different_series)
+
+        with self.assertRaises(ValueError):
+            series.swap_article_sequence_numbers(article_1, article_in_different_series)
+
+    def test_proxy_swap_method_on_article(self):
+        series = ArticleSeriesFactory()
+        article_1 = ArticleFactory(series=series)
+        article_2 = ArticleFactory(series=series)
+
+        article_1_sequence_number = article_1.series_sequence_number
+        article_2_sequence_number = article_2.series_sequence_number
+
+        article_1.swap_sequence_with(article_2)
+
+        article_1.refresh_from_db()
+        article_2.refresh_from_db()
+
+        self.assertEqual(article_1.series_sequence_number, article_2_sequence_number)
+        self.assertEqual(article_2.series_sequence_number, article_1_sequence_number)
+
+    def test_proxy_method_error_on_different_series(self):
+        series = self.article.series
+        different_series = ArticleSeries.objects.create(title="Different Series")
+        article_1 = ArticleFactory(series=series)
+        article_in_different_series = ArticleFactory(series=different_series)
+
+        with self.assertRaises(ValueError):
+            article_1.swap_sequence_with(article_in_different_series)
+
+    def test_get_next_sequence_number_in_series(self):
+        series = ArticleSeriesFactory()
+        ArticleFactory(series=series)
+        ArticleFactory(series=series)
+        next_sequence_number = series.get_next_sequence_number()
+        self.assertEqual(next_sequence_number, 3)
+        ArticleFactory(series=series)
+        next_sequence_number = series.get_next_sequence_number()
+        self.assertEqual(next_sequence_number, 4)
+
+    def test_article_save_assigns_next_sequence_number(self):
+        series = ArticleSeriesFactory()
+        first_article = ArticleFactory(series=series)
+        second_article = ArticleFactory(series=series)
+        self.assertEqual(second_article.series_sequence_number - 1, first_article.series_sequence_number)
+        third_article = ArticleFactory(series=series)
+        self.assertEqual(third_article.series_sequence_number - 1, second_article.series_sequence_number)
+
+    def test_article_save_without_series(self):
+        article = ArticleFactory(series=None)
+        self.assertIsNone(article.series_sequence_number)

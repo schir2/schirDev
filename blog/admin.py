@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Article, Topic, Comment, FeaturedArticle, ArticleInteraction
+from .models import Article, Topic, Comment, FeaturedArticle, ArticleInteraction, ArticleSeries
 from .models import Tag
 
 
@@ -17,7 +17,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'topic', 'is_published', 'popularity_score', 'created_at', 'edited_at', 'creator', 'editor')
+        'title', 'series', 'topic', 'is_published', 'popularity_score', 'created_at', 'edited_at', 'creator', 'editor')
     list_filter = ('topic', 'is_published', 'tags', 'created_at')
     search_fields = ('title', 'content', 'topic__name', 'tags__name')
     prepopulated_fields = {'slug': ('title',)}
@@ -73,4 +73,13 @@ class ArticleInteractionAdmin(admin.ModelAdmin):
     list_filter = ('interaction_type', 'created_at', 'article__title')
     search_fields = ('article__title', 'creator__username', 'interaction_type')
     ordering = ['-created_at']
+    readonly_fields = ('created_at', 'edited_at', 'creator', 'editor')
+
+
+@admin.register(ArticleSeries)
+class ArticleSeriesAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'editor', 'edited_at', 'creator', 'created_at',)
+    list_filter = ('created_at',)
+    search_fields = ('title',)
+    prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created_at', 'edited_at', 'creator', 'editor')
