@@ -75,10 +75,9 @@ class RetirementCalculatorForm(forms.Form):
 
     RETIREMENT_STRATEGY_CHOICES = [
         ('age', 'Retire at a Specific Age'),
-        ('four_percent_rule', 'Retire When the 4% Rule Is Met'),
+        ('percent_rule', 'Retire When the % Rule Is Met'),
         ('target_savings', 'Retire When a Target Savings Amount Is Reached'),
         ('debt_free', 'Retire When Debt Is Eliminated'),
-        ('financial_independence', 'Retire When Financial Independence Is Achieved (FIRE Movement)'),
     ]
 
     age = forms.IntegerField(
@@ -96,16 +95,23 @@ class RetirementCalculatorForm(forms.Form):
         help_text='Select the strategy that dictates when you plan to retire and stop investing.',
     )
 
-    annual_retirement_expenses = forms.FloatField(
+    retirement_expenses = forms.FloatField(
         min_value=0,
         label='Annual Retirement Expenses',
         help_text='Your expected annual expenses during retirement.',
     )
 
-    target_savings_amount = forms.FloatField(
+    retirement_savings_amount = forms.FloatField(
         min_value=0,
         label='Target Savings Amount',
         help_text='The total savings amount you aim to reach before retiring.',
+    )
+
+    retirement_withdrawal_rate = forms.FloatField(
+        min_value=0,
+        initial=4.0,
+        label='Retirement Rate of Withdrawal',
+        help_text='Enter the percentage of your retirement savings you plan to withdraw annually (e.g., 4 for 4%).'
     )
 
     year = forms.IntegerField(
@@ -228,7 +234,7 @@ class RetirementCalculatorForm(forms.Form):
         help_text="Your annual contribution to tax-exempt accounts (e.g., Roth IRA).",
     )
 
-    expenses_taxed = forms.IntegerField(
+    expenses = forms.IntegerField(
         min_value=0,
         initial=40000,
         label="Annual Expenses",
@@ -418,3 +424,29 @@ class RetirementCalculatorForm(forms.Form):
         label="Withdrawal Rate (%)",
         help_text="The percent of your total savings that you plan to withdraw annually after retirement"
     )
+
+    debt = forms.DecimalField(
+        min_value=0,
+        max_digits=12,
+        decimal_places=2,
+        label='Current Debt Balance',
+        help_text='Enter the total amount of debt you currently owe.',
+    )
+
+    debt_interest_rate = forms.DecimalField(
+        min_value=0,
+        max_digits=5,
+        decimal_places=2,
+        label='Debt Interest Rate (%)',
+        help_text='Enter the annual interest rate of your debt (as a percentage).',
+    )
+
+    debt_payment = forms.DecimalField(
+        min_value=0,
+        max_digits=12,
+        decimal_places=2,
+        label='Annual Debt Payment',
+        help_text='Enter the amount you plan to pay toward your debt each year.',
+    )
+
+    # TODO Account for student loan
