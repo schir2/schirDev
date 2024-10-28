@@ -21,7 +21,8 @@ class Command(BaseCommand):
             'output': 'fixtures/data.json',
             'exclude': [
                 'contenttypes',
-                'admin'
+                'admin',
+                'auth.permissions',
             ],
         }
         call_command('dumpdata', *models_to_export, **dump_options)
