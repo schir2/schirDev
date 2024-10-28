@@ -64,12 +64,48 @@ class RetirementCalculatorForm(forms.Form):
         ('percentage_increase', 'Percentage Increase'),
     ]
 
+    WITHDRAWAL_STRATEGY_CHOICES = [
+        ('sequential', 'Sequential'),
+        ('proportional', 'Proportional'),
+        ('tax_bracket_management', 'Tax Bracket Management'),
+        ('roth_conversion_ladder', 'Roth Conversion Ladder'),
+        ('bridging', 'Bridging'),
+
+    ]
+
+    RETIREMENT_STRATEGY_CHOICES = [
+        ('age', 'Retire at a Specific Age'),
+        ('four_percent_rule', 'Retire When the 4% Rule Is Met'),
+        ('target_savings', 'Retire When a Target Savings Amount Is Reached'),
+        ('debt_free', 'Retire When Debt Is Eliminated'),
+        ('financial_independence', 'Retire When Financial Independence Is Achieved (FIRE Movement)'),
+    ]
+
     age = forms.IntegerField(
         min_value=0,
         max_value=100,
         initial=30,
         label="Age",
         help_text="Your current age in years.",
+    )
+
+    retirement_strategy = forms.ChoiceField(
+        choices=RETIREMENT_STRATEGY_CHOICES,
+        initial='age',
+        label='Retirement Strategy',
+        help_text='Select the strategy that dictates when you plan to retire and stop investing.',
+    )
+
+    annual_retirement_expenses = forms.FloatField(
+        min_value=0,
+        label='Annual Retirement Expenses',
+        help_text='Your expected annual expenses during retirement.',
+    )
+
+    target_savings_amount = forms.FloatField(
+        min_value=0,
+        label='Target Savings Amount',
+        help_text='The total savings amount you aim to reach before retiring.',
     )
 
     year = forms.IntegerField(
@@ -369,4 +405,16 @@ class RetirementCalculatorForm(forms.Form):
         help_text="How the inflation rate is expected to change over time.",
     )
 
+    withdrawal_strategy = forms.ChoiceField(
+        choices=WITHDRAWAL_STRATEGY_CHOICES,
+        initial='sequential',
+        label='Withdrawal Strategy',
+        help_text=""
+    )
 
+    withdrawal_rate = forms.FloatField(
+        min_value=0,
+        initial=4.0,
+        label="Withdrawal Rate (%)",
+        help_text="The percent of your total savings that you plan to withdraw annually after retirement"
+    )
