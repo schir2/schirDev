@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from blog.utils.mock_data import generate_mock_blog_data
+from blog.utils.mock_data_utils import generate_mock_blog_data
 
 
 class Command(BaseCommand):

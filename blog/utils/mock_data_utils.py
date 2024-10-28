@@ -139,14 +139,9 @@ def generate_mock_blog_data(num_users=100, num_articles=200, num_topics=10, num_
         for article in featured_articles
     ])
     logger.info(f"Featured {len(featured_articles)} articles")
-
-    # Update popularity scores
     for article in articles:
         article.calculate_popularity_score()
     logger.info("Updated popularity scores for all articles")
 
     logger.info(
         f"Mock data generation complete: {num_users} users, {num_articles} articles, {len(topics)} topics, and {len(tags)} tags")
-
-# Usage
-# generate_mock_blog_data(num_users=200, num_articles=500)
