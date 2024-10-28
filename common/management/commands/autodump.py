@@ -22,7 +22,7 @@ class Command(BaseCommand):
             'exclude': [
                 'contenttypes',
                 'admin',
-                'auth.permissions',
+                'auth.permission',
             ],
         }
         call_command('dumpdata', *models_to_export, **dump_options)
