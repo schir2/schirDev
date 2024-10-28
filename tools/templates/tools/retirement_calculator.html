@@ -7,107 +7,91 @@
     <div x-data="setupFormData()" class="grid grid-cols-2 gap-3">
 
         <div class="col-span-2">
+            <nav id="columnFilters">
+                <ul class="flex flex-wrap gap-3">
+                    <li><button @click="columnFilters.age = !columnFilters.age" class="px-2 py-1 rounded-sm border" :class="columnFilters.age ? 'bg-skin-success' : 'bg-skin-muted'">age</button></li>
+                    <li><button @click="columnFilters.incomePreTaxed = !columnFilters.incomePreTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomePreTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomePreTaxed</button></li>
+                    <li><button @click="columnFilters.incomeTaxable = !columnFilters.incomeTaxable" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeTaxable ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxable</button></li>
+                    <li><button @click="columnFilters.incomeTaxed = !columnFilters.incomeTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxed</button></li>
+                    <li><button @click="columnFilters.expensesTaxed = !columnFilters.expensesTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.expensesTaxed ? 'bg-skin-success' : 'bg-skin-muted'">expensesTaxed</button></li>
+                    <li><button @click="columnFilters.incomeDisposable = !columnFilters.incomeDisposable" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeDisposable ? 'bg-skin-success' : 'bg-skin-muted'">incomeDisposable</button></li>
+                    <li><button @click="columnFilters.iraSavingsStartOfYear = !columnFilters.iraSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsStartOfYear</button></li>
+                    <li><button @click="columnFilters.iraContribution = !columnFilters.iraContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContribution ? 'bg-skin-success' : 'bg-skin-muted'">iraContribution</button></li>
+                    <li><button @click="columnFilters.iraContributionTotal = !columnFilters.iraContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">iraContributionTotal</button></li>
+                    <li><button @click="columnFilters.iraSavingsEndOfYear = !columnFilters.iraSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsEndOfYear</button></li>
+                    <li><button @click="columnFilters.taxDeferredSavingsStartOfYear = !columnFilters.taxDeferredSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredSavingsStartOfYear</button></li>
+                    <li><button @click="columnFilters.taxDeferredContribution = !columnFilters.taxDeferredContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContribution</button></li>
+                    <li><button @click="columnFilters.employerContribution = !columnFilters.employerContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.employerContribution ? 'bg-skin-success' : 'bg-skin-muted'">employerContribution</button></li>
+                    <li><button @click="columnFilters.taxDeferredContributionTotal = !columnFilters.taxDeferredContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContributionTotal</button></li>
+                    <li><button @click="columnFilters.taxDeferredSavingsEndOfYear = !columnFilters.taxDeferredSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredSavingsEndOfYear</button></li>
+                    <li><button @click="columnFilters.taxableSavingsStartOfYear = !columnFilters.taxableSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxableSavingsStartOfYear</button></li>
+                    <li><button @click="columnFilters.taxableContribution = !columnFilters.taxableContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxableContribution</button></li>
+                    <li><button @click="columnFilters.taxableContributionTotal = !columnFilters.taxableContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">taxableContributionTotal</button></li>
+                    <li><button @click="columnFilters.taxableSavingsEndOfYear = !columnFilters.taxableSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxableSavingsEndOfYear</button></li>
+                    <li><button @click="columnFilters.cash = !columnFilters.cash" class="px-2 py-1 rounded-sm border" :class="columnFilters.cash ? 'bg-skin-success' : 'bg-skin-muted'">cash</button></li>
+                    <li><button @click="columnFilters.savingsStartOfYear = !columnFilters.savingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.savingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">savingsStartOfYear</button></li>
+                    <li><button @click="columnFilters.savingsEndOfYear = !columnFilters.savingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.savingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">savingsEndOfYear</button></li>
+                </ul>
+            </nav>
             <table class="table-auto border border-collapse">
                 <thead class="text-xs">
+{#                <tr>#}
+{#                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-tertiary" colspan="6">Profile</th>#}
+{#                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-primary" colspan="4">IRA</th>#}
+{#                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-secondary" colspan="5">Tax Deferred</th>#}
+{#                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-tertiary" colspan="4">Taxable</th>#}
+{#                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-primary" colspan="3">Savings</th>#}
+{#                </tr>#}
                 <tr>
-                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-tertiary" colspan="6">Profile</th>
-                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-primary" colspan="4">IRA</th>
-                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-secondary" colspan="5">Tax Deferred</th>
-                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-tertiary" colspan="4">Taxable</th>
-                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-primary" colspan="3">Savings</th>
-                </tr>
-                <tr>
-                    <th class="px-4 py-1 text-start  bg-skin-tertiary/60">Age</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Pre-Tax</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Taxable</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Post-Tax</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Expenses</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Disposable</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred (SOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-secondary/60">Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-secondary/60">Employer Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-secondary/60">Total Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred (EOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (SOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Total Contribution</th>
-                    <th class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (EOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Cash</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
-                    <th class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
+                    <th x-show="columnFilters.age"  class="px-4 py-1 text-start  bg-skin-tertiary/60">Age</th>
+                    <th x-show="columnFilters.incomePreTaxed"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Pre-Tax</th>
+                    <th x-show="columnFilters.incomeTaxable"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Taxable</th>
+                    <th x-show="columnFilters.incomeTaxed"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Post-Tax</th>
+                    <th x-show="columnFilters.expensesTaxed"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Expenses</th>
+                    <th x-show="columnFilters.incomeDisposable"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Disposable</th>
+                    <th x-show="columnFilters.iraSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
+                    <th x-show="columnFilters.iraContribution"  class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
+                    <th x-show="columnFilters.iraContributionTotal"  class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution</th>
+                    <th x-show="columnFilters.iraSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
+                    <th x-show="columnFilters.taxDeferredSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred (SOY)</th>
+                    <th x-show="columnFilters.taxDeferredContribution"  class="px-4 py-1 text-end  bg-skin-secondary/60">Contribution</th>
+                    <th x-show="columnFilters.employerContribution"  class="px-4 py-1 text-end  bg-skin-secondary/60">Employer Contribution</th>
+                    <th x-show="columnFilters.taxDeferredContributionTotal"  class="px-4 py-1 text-end  bg-skin-secondary/60">Total Contribution</th>
+                    <th x-show="columnFilters.taxDeferredSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred (EOY)</th>
+                    <th x-show="columnFilters.taxableSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (SOY)</th>
+                    <th x-show="columnFilters.taxableContribution"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Contribution</th>
+                    <th x-show="columnFilters.taxableContributionTotal"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Total Contribution</th>
+                    <th x-show="columnFilters.taxableSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (EOY)</th>
+                    <th x-show="columnFilters.cash"  class="px-4 py-1 text-end  bg-skin-primary/60">Cash</th>
+                    <th x-show="columnFilters.savingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
+                    <th x-show="columnFilters.savingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
                 </tr>
                 </thead>
                 <tbody class="text-sm">
                 <template x-for="(row, index) in results">
                     <tr class="border-b">
-                        <td class="px-4 py-1 bg-skin-tertiary"><span x-text="row.age"></span></td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.incomePreTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.incomeTaxable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.incomeTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.expensesTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.incomeDisposable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-
-
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="row.iraSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="row.iraContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="row.iraContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="row.iraSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-
-
-                        <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="row.employerContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.taxableSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.taxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.taxableContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.taxableSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span :class="row.cash < 0 && 'text-skin-error'"
-                                                                                x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="row.savingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
-                        <td class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="row.savingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span>
-                        </td>
+                        <td x-show="columnFilters.age" class="px-4 py-1 bg-skin-tertiary"><span x-text="row.age"></span></td>
+                        <td x-show="columnFilters.incomePreTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomePreTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.incomeTaxable" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomeTaxable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.incomeTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomeTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.expensesTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.expensesTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.incomeDisposable" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomeDisposable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.iraSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.iraContribution" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.iraContributionTotal" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.iraSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.employerContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.employerContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredContributionTotal" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxableSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxableContribution" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxableContributionTotal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxableSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.cash" class="px-4 py-1 text-end bg-skin-primary/40"><span :class="row.cash < 0 && 'text-skin-error'" x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.savingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.savingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.savingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.savingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                     </tr>
                 </template>
                 </tbody>
@@ -325,7 +309,7 @@
 
         function setupFormData() {
             return {
-                formData: {
+                formData: Alpine.$persist({
                     /* Profile */
                     ageInitial: 38,
                     age: 0,
@@ -423,7 +407,39 @@
                     inflationGrowthStrategy: 'fixed',
 
 
+                }),
+                getTableHeaders: ()=>{
+                    let headers = []
+                    document.querySelectorAll("table th").forEach(header => headers.push(header.textContent))
+                    console.log(headers)
+                    return headers
+                    
                 },
+                columnFilters: Alpine.$persist({
+                    age: true,
+                    incomePreTaxed: true,
+                    incomeTaxable: true,
+                    incomeTaxed: true,
+                    expensesTaxed: true,
+                    incomeDisposable: true,
+                    iraSavingsStartOfYear: true,
+                    iraContribution: true,
+                    iraContributionTotal: true,
+                    iraSavingsEndOfYear: true,
+                    taxDeferredSavingsStartOfYear: true,
+                    taxDeferredContribution: true,
+                    employerContribution: true,
+                    taxDeferredContributionTotal: true,
+                    taxDeferredSavingsEndOfYear: true,
+                    taxableSavingsStartOfYear: true,
+                    taxableContribution: true,
+                    taxableContributionTotal: true,
+                    taxableSavingsEndOfYear: true,
+                    cash: true,
+                    savingsStartOfYear: true,
+                    savingsEndOfYear: true,
+                    
+                }),
                 results: null,
 
                 init() {
