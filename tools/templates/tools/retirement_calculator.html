@@ -13,8 +13,18 @@
                     <li><button @click="columnFilters.incomePreTaxed = !columnFilters.incomePreTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomePreTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomePreTaxed</button></li>
                     <li><button @click="columnFilters.incomeTaxable = !columnFilters.incomeTaxable" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeTaxable ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxable</button></li>
                     <li><button @click="columnFilters.incomeTaxed = !columnFilters.incomeTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxed</button></li>
-                    <li><button @click="columnFilters.expensesTaxed = !columnFilters.expensesTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.expensesTaxed ? 'bg-skin-success' : 'bg-skin-muted'">expensesTaxed</button></li>
+                    <li><button @click="columnFilters.expenses = !columnFilters.expenses" class="px-2 py-1 rounded-sm border" :class="columnFilters.expenses ? 'bg-skin-success' : 'bg-skin-muted'">expenses</button></li>
                     <li><button @click="columnFilters.incomeDisposable = !columnFilters.incomeDisposable" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeDisposable ? 'bg-skin-success' : 'bg-skin-muted'">incomeDisposable</button></li>
+                    <li><button @click="columnFilters.debt = !columnFilters.debt" class="px-2 py-1 rounded-sm border" :class="columnFilters.debt ? 'bg-skin-success' : 'bg-skin-muted'">debt</button></li>
+                    <li><button @click="columnFilters.debtInterestRate = !columnFilters.debtInterestRate" class="px-2 py-1 rounded-sm border" :class="columnFilters.debtInterestRate ? 'bg-skin-success' : 'bg-skin-muted'">debtInterestRate</button></li>
+                    <li><button @click="columnFilters.debtPayment = !columnFilters.debtPayment" class="px-2 py-1 rounded-sm border" :class="columnFilters.debtPayment ? 'bg-skin-success' : 'bg-skin-muted'">debtPayment</button></li>
+                    <li><button @click="columnFilters.debtPaymentTotal = !columnFilters.debtPaymentTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.debtPaymentTotal ? 'bg-skin-success' : 'bg-skin-muted'">debtPaymentTotal</button></li>
+                    <li><button @click="columnFilters.retirementStrategy = !columnFilters.retirementStrategy" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementStrategy ? 'bg-skin-success' : 'bg-skin-muted'">retirementStrategy</button></li>
+                    <li><button @click="columnFilters.retirementWithdrawalRate = !columnFilters.retirementWithdrawalRate" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementWithdrawalRate ? 'bg-skin-success' : 'bg-skin-muted'">retirementWithdrawalRate</button></li>
+                    <li><button @click="columnFilters.retirementIncomeProjected = !columnFilters.retirementIncomeProjected" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementIncomeProjected ? 'bg-skin-success' : 'bg-skin-muted'">retirementIncomeProjected</button></li>
+                    <li><button @click="columnFilters.retirementIncomeGoal = !columnFilters.retirementIncomeGoal" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementIncomeGoal ? 'bg-skin-success' : 'bg-skin-muted'">retirementIncomeGoal</button></li>
+                    <li><button @click="columnFilters.retirementAge = !columnFilters.retirementAge" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementAge ? 'bg-skin-success' : 'bg-skin-muted'">retirementAge</button></li>
+                    <li><button @click="columnFilters.retirementSavingsAmount = !columnFilters.retirementSavingsAmount" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementSavingsAmount ? 'bg-skin-success' : 'bg-skin-muted'">retirementSavingsAmount</button></li>
                     <li><button @click="columnFilters.iraSavingsStartOfYear = !columnFilters.iraSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsStartOfYear</button></li>
                     <li><button @click="columnFilters.iraContribution = !columnFilters.iraContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContribution ? 'bg-skin-success' : 'bg-skin-muted'">iraContribution</button></li>
                     <li><button @click="columnFilters.iraContributionTotal = !columnFilters.iraContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">iraContributionTotal</button></li>
@@ -47,8 +57,18 @@
                     <th x-show="columnFilters.incomePreTaxed"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Pre-Tax</th>
                     <th x-show="columnFilters.incomeTaxable"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Taxable</th>
                     <th x-show="columnFilters.incomeTaxed"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Post-Tax</th>
-                    <th x-show="columnFilters.expensesTaxed"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Expenses</th>
+                    <th x-show="columnFilters.expenses"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Expenses</th>
                     <th x-show="columnFilters.incomeDisposable"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Disposable</th>
+                    <th x-show="columnFilters.debt"  class="px-4 py-1 text-end  bg-skin-tertiary/60">debt</th>
+                    <th x-show="columnFilters.debtInterestRate"  class="px-4 py-1 text-end  bg-skin-tertiary/60">debtInterestRate</th>
+                    <th x-show="columnFilters.debtPayment"  class="px-4 py-1 text-end  bg-skin-tertiary/60">debtPayment</th>
+                    <th x-show="columnFilters.debtPaymentTotal"  class="px-4 py-1 text-end  bg-skin-tertiary/60">debtPaymentTotal</th>
+                    <th x-show="columnFilters.retirementStrategy"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Retirement Strategy</th>
+                    <th x-show="columnFilters.retirementWithdrawalRate"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Withdrawal Rate</th>
+                    <th x-show="columnFilters.retirementIncomeProjected"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Income Projected</th>
+                    <th x-show="columnFilters.retirementIncomeGoal"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Income Goal</th>
+                    <th x-show="columnFilters.retirementAge"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Age</th>
+                    <th x-show="columnFilters.retirementSavingsAmount"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings</th>
                     <th x-show="columnFilters.iraSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
                     <th x-show="columnFilters.iraContribution"  class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
                     <th x-show="columnFilters.iraContributionTotal"  class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution</th>
@@ -74,8 +94,18 @@
                         <td x-show="columnFilters.incomePreTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomePreTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.incomeTaxable" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomeTaxable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.incomeTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomeTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td x-show="columnFilters.expensesTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.expensesTaxed.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.expenses" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.expenses.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.incomeDisposable" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.incomeDisposable.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.debt" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.debt.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.debtInterestRate" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.debtInterestRate"></span></td>
+                        <td x-show="columnFilters.debtPayment" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.debtPayment.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.debtPaymentTotal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.debtPaymentTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.retirementStrategy" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementStrategy"></span></td>
+                        <td x-show="columnFilters.retirementWithdrawalRate" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementWithdrawalRate"></span></td>
+                        <td x-show="columnFilters.retirementIncomeProjected" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementIncomeProjected.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.retirementIncomeGoal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementIncomeGoal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.retirementAge" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementAge"></span></td>
+                        <td x-show="columnFilters.retirementSavingsAmount" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementSavingsAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.iraSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.iraContribution" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.iraContributionTotal" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
@@ -107,8 +137,29 @@
                     <div class="grid grid-cols-3 gap-3">
                         <c-input :field="form.year" x-model.number="formData.yearInitial"/>
                         <c-input :field="form.age" x-model.number="formData.ageInitial"/>
-                        <c-input :field="form.retirement_age" x-model.number="formData.retirementAge"/>
                         <c-input :field="form.life_expectancy" x-model.number="formData.lifeExpectancy"/>
+                    </div>
+                </div>
+
+                <!-- Debt -->
+                <div class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
+                    <h2 class="text-2xl font-semibold mb-3">Debt</h2>
+                    <div class="grid grid-cols-3 gap-3">
+                        <c-input :field="form.debt" x-model.number="formData.debt"/>
+                        <c-input :field="form.debt_interest_rate" x-model.number="formData.debtInterestRate"/>
+                        <c-input :field="form.debt_payment" x-model.number="formData.debtPayment"/>
+                    </div>
+                </div>
+                
+                <!-- Retirement Goals -->
+                <div class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
+                    <h2 class="text-2xl font-semibold mb-3">Retirement</h2>
+                    <div class="grid grid-cols-3 gap-3">
+                        <c-select :field="form.retirement_strategy" x-model="formData.retirementStrategy"/>
+                        <c-input :field="form.retirement_age" x-model.number="formData.retirementAge"/>
+                        <c-input :field="form.retirement_withdrawal_rate" x-model.number="formData.retirementWithdrawalRate"/>
+                        <c-input :field="form.retirement_expenses" x-model.number="formData.retirementIncomeGoal"/>
+                        <c-input :field="form.retirement_savings_amount" x-model.number="formData.retirementSavingsAmount"/>
                     </div>
                 </div>
 
@@ -128,7 +179,7 @@
                         </div>
                         <!-- Expense Fields -->
                         <div class="col-span-1">
-                            <c-input :field="form.annual_expenses" x-model.number="formData.expensesTaxedInitial"/>
+                            <c-input :field="form.expenses" x-model.number="formData.expensesInitial"/>
                         </div>
                         <div class="col-span-1">
                             <c-select :field="form.expenses_growth_strategy" x-model="formData.expensesGrowthStrategy"/>
@@ -309,14 +360,21 @@
 
         function setupFormData() {
             return {
-                formData: Alpine.$persist({
+                formData: {
                     /* Profile */
                     ageInitial: 38,
                     age: 0,
                     yearInitial: 2024,
                     year: 0,
-                    retirementAge: 45,
-                    lifeExpectancy: 55,
+                    lifeExpectancy: 75,
+                    
+                    /* Retirement Strategies */
+                    retirementStrategy: 'percent_rule',
+                    retirementWithdrawalRate: 4,
+                    retirementIncomeGoal: 100000,
+                    retirementAge: 55,
+                    retirementSavingsAmount: 2000000,
+                    retirementIncomeProjected: 0,
 
                     /* Initial Values */
                     cashInitial: 27000,
@@ -324,7 +382,7 @@
 
 
                     /* Income */
-                    incomePreTaxedInitial: 100000,
+                    incomePreTaxedInitial: 200000,
                     incomePreTaxed: 0,
                     incomeTaxable: 0,
                     incomeTaxed: 0,
@@ -342,10 +400,16 @@
                     incomeTaxNumberOfDependents: '0',
 
                     /* Expenses */
-                    expensesTaxedInitial: 50000,
-                    expensesTaxed: 50000,
+                    expensesInitial: 50000,
+                    expenses: 50000,
                     expenseRate: 2,
                     expensesGrowthStrategy: "fixed",
+                    
+                    /* Debt & Mortgage */
+                    debt: 0,
+                    debtInterestRate: 0,
+                    debtPayment: 0,
+                    debtPaymentTotal: 0,
 
                     /* Goals */
                     targetAnnualRetirementSpendingPreTaxed: 0,
@@ -407,7 +471,7 @@
                     inflationGrowthStrategy: 'fixed',
 
 
-                }),
+                },
                 getTableHeaders: ()=>{
                     let headers = []
                     document.querySelectorAll("table th").forEach(header => headers.push(header.textContent))
@@ -420,8 +484,14 @@
                     incomePreTaxed: true,
                     incomeTaxable: true,
                     incomeTaxed: true,
-                    expensesTaxed: true,
+                    expenses: true,
+                    debt: true,
                     incomeDisposable: true,
+                    retirementStrategy: true,
+                    retirementWithdrawalRate: true,
+                    retirementIncomeGoal: true,
+                    retirementAge: true,
+                    retirementSavingsAmount: true,
                     iraSavingsStartOfYear: true,
                     iraContribution: true,
                     iraContributionTotal: true,
@@ -447,6 +517,14 @@
                         this.fillTable()
                     });
                     this.fillTable();
+                },
+                
+                
+                RetirementStrategies: {
+                    age: (row) => row.age === row.retirementAge,
+                    percent_rule: (row) => row.savingsEndOfYear * row.retirementWithdrawalRate / 100 > row.retirementIncomeGoal,
+                    target_savings: (row) => row.retirementSavingsAmount >= row.savingsEndOfYear,
+                    debt_free: (row) => row.debt <= 0                   
                 },
 
                 TaxDeferredContributionStrategies: {
@@ -508,7 +586,7 @@
 
                 ExpenseGrowthStrategies: {
                     fixed: (row) => {
-                        return row.expensesTaxed * (1 + row.expenseRate / 100)
+                        return row.expenses * (1 + row.expenseRate / 100)
                     },
                     percentage_increase: (row) => row.incomePreTaxed * (1 + row.incomeGrowthRate / 100),
                 },
@@ -567,7 +645,7 @@
                     return row.incomePreTaxed - row.taxDeferredContribution;
                 },
                 getIncomeDisposable(row) {
-                    return row.incomeTaxed - row.expensesTaxed;
+                    return row.incomeTaxed - row.expenses;
                 },
                 getTaxDeferredContributionElectiveLimit(row) {
                     return row.taxDeferredContributionElectiveLimit * (1 + row.taxDeferredContributionElectiveLimitInflationRate / 100);
@@ -590,7 +668,7 @@
                     curRow.year = formData.yearInitial
                     curRow.cash = formData.cashInitial
                     curRow.incomePreTaxed = formData.incomePreTaxedInitial
-                    curRow.expensesTaxed = formData.expensesTaxedInitial
+                    curRow.expenses = formData.expensesInitial
 
                     curRow.taxDeferredSavingsStartOfYear = formData.taxDeferredInitialSavings
                     curRow.taxDeferredContributionElectiveLimit = formData.taxDeferredContributionElectiveLimit
@@ -633,6 +711,8 @@
                     curRow.age += 1
                     curRow.year += 1
                     curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
+                    
+                    curRow.retirementIncomeGoal += curRow.retirementIncomeGoal * curRow.inflationRate / 100
 
                     curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
                     curRow.taxDeferredContributionElectiveLimit = this.getTaxDeferredContributionElectiveLimit(curRow)
@@ -659,9 +739,10 @@
 
                     curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
                     curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
+                    
+                    curRow.retirementIncomeProjected = curRow.savingsEndOfYear * curRow.retirementWithdrawalRate / 100
 
-
-                    curRow.expensesTaxed = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
+                    curRow.expenses = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
                     curRow.incomeTaxable = this.getIncomeTaxable(curRow)
                     curRow.incomeTaxAmount = this.IncomeTaxStrategies[this.formData.incomeTaxStrategy](curRow)
                     curRow.incomeTaxed = this.getIncomeTaxed(curRow)
@@ -671,11 +752,14 @@
                 }, fillTable() {
                     let firstRow = this.initializeTableRow(this.formData);
                     let table = [firstRow];
-
-                    for (let i = 1; i <= this.formData.retirementAge - this.formData.ageInitial; i++) {
-                        let previousRow = table[i - 1];
+                    let rowIndex = 0
+                    
+                    while (table[rowIndex].age <= table[rowIndex].lifeExpectancy && !this.RetirementStrategies[this.formData.retirementStrategy](table[rowIndex])) {
+                        let previousRow = table[rowIndex];
                         let curRow = this.updateRow(previousRow);
                         table.push(curRow);
+                        rowIndex += 1;
+                        
                     }
 
                     this.results = table;
