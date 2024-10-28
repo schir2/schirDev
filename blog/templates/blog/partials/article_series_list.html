@@ -1,0 +1,5 @@
+<ol>
+{% for article in series.articles.all %}
+    <li><c-link href="{% url 'blog:article_detail' slug=article.slug %}">{{ forloop.counter }}. {{ article.title }}</c-link></li>
+{% endfor %}
+</ol>
