@@ -7,7 +7,7 @@ from django.views.decorators.http import require_GET, require_POST
 from django_cotton.cotton_loader import CottonCompiler
 
 from blog.forms import ArticleForm
-from blog.models import Article, Topic, Tag, ArticleInteraction
+from blog.models import Article, Topic, Tag, ArticleInteraction, ArticleSeries
 
 
 def css_display_cheatsheet_view(request):
@@ -18,7 +18,8 @@ def css_display_cheatsheet_view(request):
 
 def theme_view(request):
     template_name = 'blog/theme.html'
-    colors = ['base', 'muted', 'primary', 'secondary', 'tertiary', 'accent', 'error', 'success', 'link', 'link-hover', 'link-active', 'info', 'warning']
+    colors = ['base', 'muted', 'primary', 'secondary', 'tertiary', 'accent', 'error', 'success', 'link', 'link-hover', 'link-active',
+              'info', 'warning']
     themes = ['light', 'dark']
     context = {'themes': themes, 'colors': colors}
     return render(request, template_name=template_name, context=context)
@@ -274,3 +275,16 @@ def toggle_dislike_view(request, slug):
     response = HttpResponse(render_to_string('blog/partials/like_dislike_buttons.html', context))
     response['HX-Trigger'] = 'interactionUpdated'
     return response
+
+
+def article_series_detail_view(request, slug):
+    return render(request, context=get_object_or_404(ArticleSeries, slug=slug), template_name='blog/series_detail.html')
+
+
+def article_series_list_view(request, slug):
+    return render(request, context=get_object_or_404(ArticleSeries, slug=slug), template_name='blog/series_list.html')
+
+
+def article_series_get_next_sequence_number_view(request, slug):
+    article_series = get_object_or_404(ArticleSeries, slug=slug)
+    return HttpResponse(article_series.get_next_sequence_number(), content_type='text/html')
