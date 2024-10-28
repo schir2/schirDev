@@ -5,7 +5,8 @@ from blog.views import article_list_view, article_detail_view, home_view, articl
     tag_detail_view, tag_create_view, tag_edit_view, tag_delete_view, topic_list_view, topic_create_view, \
     topic_detail_view, topic_edit_view, topic_delete_view, article_like_count_view, article_dislike_count_view, \
     toggle_dislike_view, toggle_like_view, article_archive_view, article_edit_view, article_view_count_view, \
-    article_comments_view, article_add_comment_view, css_display_cheatsheet_view, theme_view
+    article_comments_view, article_add_comment_view, css_display_cheatsheet_view, theme_view, article_series_list_view, \
+    article_series_detail_view, article_series_get_next_sequence_number_view
 
 app_name = 'blog'
 
@@ -30,6 +31,14 @@ urlpatterns = [
 
              ])
              ),
+        path('article_series/', include([
+            path('', article_series_list_view, name='article_series_list'),
+            path('<str:slug>/', include([
+                path('', article_series_detail_view, name='article_series_detail'),
+                path('get_next_sequence_number', article_series_get_next_sequence_number_view,
+                     name='article_series_get_next_sequence_number')
+            ]))
+        ])),
         path('resources/', include([
             path('css_display_cheatsheet', css_display_cheatsheet_view, name='css_display_cheatsheet'),
         ])),
