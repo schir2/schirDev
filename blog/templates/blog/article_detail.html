@@ -1,8 +1,7 @@
 {% extends 'blog/layouts/base.html' %}
 
 {% block content %}
-    <article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4">
         <div class="flex items-center text-sm mb-4">
             <span class="mr-4">{{ article.created_at|date:"F d, Y" }}</span>
             <span class="mr-4">By {{ article.creator.username }}</span>
@@ -17,13 +16,16 @@
                 </span>
             </span>
         </div>
-
-        <div class="prose prose-skin prose-xl max-w-5xl">
+        <article class="prose prose-skin prose-xl max-w-5xl">
             <h1>{{ article.title }}</h1>
             {{ content }}
-        </div>
+        </article>
 
         <!-- Like/Dislike buttons -->
         {% include 'blog/partials/like_dislike_buttons.html' %}
-    </article>
+        {% if article.series %}
+            <h2 class="text-3xl">{{ article.series.title }}</h2>
+            {% include 'blog/partials/article_series_list.html' with series=article.series %}
+        {% endif %}
+    </div>
 {% endblock %}
