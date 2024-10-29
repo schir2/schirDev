@@ -369,7 +369,7 @@
                     lifeExpectancy: 75,
                     
                     /* Retirement Strategies */
-                    retirementStrategy: 'percent_rule',
+                    retirementStrategy: 'debt_free',
                     retirementWithdrawalRate: 4,
                     retirementIncomeGoal: 100000,
                     retirementAge: 55,
@@ -406,9 +406,9 @@
                     expensesGrowthStrategy: "fixed",
                     
                     /* Debt & Mortgage */
-                    debt: 0,
-                    debtInterestRate: 0,
-                    debtPayment: 0,
+                    debt: 5000,
+                    debtInterestRate: 5,
+                    debtPayment: 500,
                     debtPaymentTotal: 0,
 
                     /* Goals */
@@ -694,6 +694,10 @@
                     curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
                     curRow.iraGrowthAmount = this.IraGrowthStrategy[formData.iraGrowthStrategy](curRow)
                     curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
+                    
+                    curRow.debtPayment = Math.min(curRow.debtPayment, curRow.debt)
+                    curRow.debt -= curRow.debtPayment
+                    curRow.debtPaymentTotal += curRow.debtPayment
 
                     curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
                     curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
@@ -701,6 +705,9 @@
                     curRow.incomeTaxable = this.getIncomeTaxable(curRow)
                     curRow.incomeTaxAmount = this.IncomeTaxStrategies[formData.incomeTaxStrategy](curRow)
                     curRow.incomeTaxed = this.getIncomeTaxed(curRow)
+                    
+                    curRow.retirementIncomeProjected = curRow.savingsEndOfYear * curRow.retirementWithdrawalRate / 100
+                    
                     curRow.incomeDisposable = this.getIncomeDisposable(curRow)
                     curRow.cash = this.getCash(curRow)
 
@@ -736,6 +743,11 @@
                     curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
                     curRow.iraGrowthAmount = this.IraGrowthStrategy[this.formData.iraGrowthStrategy](curRow)
                     curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
+                    
+                    curRow.debt = curRow.debt * (1 + curRow.debtInterestRate / 100)
+                    curRow.debtPayment = Math.min(curRow.debtPayment, curRow.debt)
+                    curRow.debt -= curRow.debtPayment
+                    curRow.debtPaymentTotal += curRow.debtPayment
 
                     curRow.savingsStartOfYear = this.getSavingsStartOfYear(curRow)
                     curRow.savingsEndOfYear = this.getSavingsEndOfYear(curRow)
