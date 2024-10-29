@@ -1,7 +1,7 @@
 {% extends 'blog/layouts/base.html' %}
 
 {% block content %}
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4">
+    <div class="lg:max-w-7xl lg:mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4">
         <div class="flex items-center text-sm mb-4">
             <span class="mr-4">{{ article.created_at|date:"F d, Y" }}</span>
             <span class="mr-4">By {{ article.creator.username }}</span>
@@ -16,7 +16,7 @@
                 </span>
             </span>
         </div>
-        <article class="prose prose-skin prose-xl max-w-5xl">
+        <article class="prose prose-skin lg:prose-xl max-w-5xl">
             <h1>{{ article.title }}</h1>
             {{ content }}
         </article>
