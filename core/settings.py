@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'import_export',
     'users',
-    'tinymce',
     "content.apps.ContentConfig",
     'common.apps.CommonConfig',
     "blog.apps.BlogConfig",
