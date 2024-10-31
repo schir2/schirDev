@@ -1,0 +1,18 @@
+{% extends 'blog/layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="flex items-center justify-center min-h-screen-nav">
+        <form method="post" class="m-auto">
+            {% csrf_token %}
+            <h2 class="text-center my-3">Log In</h2>
+            {% csrf_token %}
+            <c-input :field="form.username"></c-input>
+            <c-input :field="form.password"></c-input>
+            <c-button type="submit">Sign In</c-button>
+            <a class="p-3 text-center w-full block" href="{% url 'password_reset' %}">Reset Password</a>
+            <p class="text-skin-muted font-weight-light">If you have not logged in yet, please use your company email and reset your password.</p>
+        </form>
+    </div>
+
+{% endblock %}
