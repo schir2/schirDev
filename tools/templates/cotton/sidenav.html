@@ -1,0 +1,16 @@
+<aside class="bg-skin-surface p-4 h-screen pt-20 left-0 flex-shrink-0 transition-all duration-300"
+       x-data="{
+       expandSidebar: $persist(true),
+       }"
+       :class="expandSidebar ? 'w-64' : 'w-16'">
+    <div class="mb-6">
+        <button @click="expandSidebar = !expandSidebar" class="text-skin-link hover:text-skin-link-hover">
+            <c-icons.menu class="inline-block mr-2"/>
+        </button>
+    </div>
+    <nav>
+        <ul>
+            {{ slot }}
+        </ul>
+    </nav>
+</aside>
