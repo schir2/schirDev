@@ -1,0 +1,26 @@
+{% load active_link_tags %}
+<c-vars
+    type="button"
+    variant="primary"
+    size="medium"
+    extra_classes=""
+    icon=""
+>
+</c-vars>
+
+<button type="{{ type }}" {{ attrs }}
+    class="font-normal ease-in-out duration-500 transition-all {{ extra_classes }}
+        {% if disabled %} opacity-50 cursor-not-allowed {% endif %}
+        {% if size == 'small' %} px-2 py-1 text-sm
+        {% elif size == 'large' %} px-6 py-3 text-lg
+        {% else %} px-4 py-2 text-base {% endif %}
+        {% if variant == 'primary' %}
+            text-skin-link hover:text-skin-link-inverted
+        {% elif variant == 'secondary' %}
+            text-skin-secondary/80 hover:text-skin-secondary
+        {% endif %}">
+    {% if icon %}
+        <c-component is="icons.{{ icon }}" class="mr-2" />
+    {% endif %}
+    {{ slot }}
+</button>
