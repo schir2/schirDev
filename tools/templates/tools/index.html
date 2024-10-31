@@ -1,5 +1,15 @@
 {% extends 'tools/base.html' %}
 {% block head_title %}Tools{% endblock %}
 {% block content %}
-	
+    <h1 class="text-4xl font-bold font-serif">Tools</h1>
+    <div class="grid grid-cols-3">
+        <c-card>
+            <c-slot name="title">Retirement Calculator</c-slot>
+            <c-slot name="content">???</c-slot>
+            <c-slot name="actions">???
+                <c-link href="{% url 'tools:retirement_calculator' %}">Open</c-link>
+            </c-slot>
+        </c-card>
+    </div>
+
 {% endblock %}
