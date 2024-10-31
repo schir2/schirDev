@@ -10,8 +10,12 @@ urlpatterns = [
     path('tools/', include('tools.urls', namespace='tools')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('users/', include('django.contrib.auth.urls', )),
 
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = 'schir.dev admin'
