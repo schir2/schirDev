@@ -12,7 +12,7 @@
             hx-target="#interaction-buttons-{{ article.pk }}"
             hx-swap="outerHTML"
             class="flex items-center space-x-1 transition-all duration-300 ease-in-out {% if article.user_has_disliked %}text-red-500{% else %}text-skin-muted{% endif %} hover:text-red-600">
-        <c-icons.thumbs-up
+        <c-icons.thumbs-down
                 class="h-6 w-6 transition-transform duration-300 ease-in-out {% if article.user_has_disliked %}scale-110{% endif %}"
                 fill="{% if article.user_has_disliked %}{% else %}none{% endif %}"/>
         <span id="dislike-count-{{ article.pk }}" class="font-semibold">{{ article.dislikes.count }}</span>

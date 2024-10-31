@@ -1,5 +1,13 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
+    <c-input :field="form.title"></c-input>
+    <c-select :field="form.series"></c-select>
+    <c-input :field="form.series_sequence_number"></c-input>
+    {{ form.content }}
+    
+    <c-select :field="form.topic"></c-select>
+    <c-select :field="form.tags"></c-select>
+    <c-input :field="image"></c-input>
+    
+    <c-button type="submit">Create</c-button>
 </form>

@@ -5,14 +5,13 @@
         <div class="flex items-center text-sm mb-4">
             <span class="mr-4">{{ article.created_at|date:"F d, Y" }}</span>
             <span class="mr-4">By {{ article.creator.username }}</span>
-            <span class="flex items-center">
+            <span class="flex items-center space-x-3">
                 <c-icons.eye/>
                 <span id="view-count-{{ article.pk }}"
                       hx-get="{% url 'blog:article_view_count' slug=article.slug %}"
                       hx-trigger="load delay:1s, every 30s"
                       hx-swap="innerHTML transition:fade"
-                      class="transition-all duration-300 ease-in-out">
-                    {{ article.view_count }}
+                      class="transition-all duration-300 ease-in-out"> {{ article.view_count }}
                 </span>
             </span>
         </div>
