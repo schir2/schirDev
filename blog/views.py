@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_not_required
 from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -10,12 +11,14 @@ from blog.forms import ArticleForm
 from blog.models import Article, Topic, Tag, ArticleInteraction, ArticleSeries
 
 
+@login_not_required
 def css_display_cheatsheet_view(request):
     template_name = 'blog/resources/css_display_cheatsheet.html'
     context = dict()
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def theme_view(request):
     template_name = 'blog/theme.html'
     colors = ['base', 'muted', 'primary', 'secondary', 'tertiary', 'accent', 'error', 'success', 'link', 'link-hover', 'link-active',
@@ -25,6 +28,7 @@ def theme_view(request):
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def home_view(request):
     context = {}
     template_name = 'blog/home.html'
@@ -36,7 +40,7 @@ def home_view(request):
     context['tags'] = tags
     return render(request, template_name=template_name, context=context)
 
-
+@login_not_required
 def article_list_view(request):
     template_name = 'blog/article_list.html'
     context = {}
@@ -45,6 +49,7 @@ def article_list_view(request):
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def article_detail_view(request, slug):
     template_name = 'blog/article_detail.html'
     context = {}
@@ -111,12 +116,14 @@ def article_delete_view(request, slug: str):
     return
 
 
+@login_not_required
 @require_GET
 def article_view_count_view(request, slug: str):
     article = get_object_or_404(Article, slug=slug)
     return HttpResponse(article.view_count, content_type='text/html')
 
 
+@login_not_required
 @require_GET
 def article_comments_view(request, slug):
     article = get_object_or_404(Article, slug=slug)
@@ -135,6 +142,7 @@ def article_add_comment_view(request):
     return
 
 
+@login_not_required
 def tag_list_view(request):
     template_name = 'blog/tag_list.html'
     context = {}
@@ -143,6 +151,7 @@ def tag_list_view(request):
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def tag_detail_view(request, slug: str):
     template_name = 'blog/tag_detail.html'
     context = {}
@@ -169,12 +178,14 @@ def tag_delete_view(request):
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def topic_list_view(request):
     template_name = 'blog/topic_list.html'
     context = {}
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def topic_detail_view(request, slug: str):
     template_name = 'blog/topic_detail.html'
     context = {}
@@ -199,12 +210,14 @@ def topic_delete_view(request):
     return render(request, template_name=template_name, context=context)
 
 
+@login_not_required
 def article_like_count_view(request, slug):
     article = Article.objects.get(slug=slug)
     like_count = article.interactions.filter(interaction_type='like').count()
     return HttpResponse(f"{like_count} likes")
 
 
+@login_not_required
 def article_dislike_count_view(request, slug):
     article = Article.objects.get(slug=slug)
     like_count = article.interactions.filter(interaction_type='dislike').count()
@@ -277,10 +290,12 @@ def toggle_dislike_view(request, slug):
     return response
 
 
+@login_not_required
 def article_series_detail_view(request, slug):
     return render(request, context=get_object_or_404(ArticleSeries, slug=slug), template_name='blog/series_detail.html')
 
 
+@login_not_required
 def article_series_list_view(request, slug):
     return render(request, context=get_object_or_404(ArticleSeries, slug=slug), template_name='blog/series_list.html')
 
