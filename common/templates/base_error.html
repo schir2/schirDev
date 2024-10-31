@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'ceo/scss/bootstrap/bootstrap.css' %}">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     {% tailwind_css %}
 </head>
 <body
         class="bg-skin-base text-lg text-skin-base"
-        hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
         :data-theme="theme" x-data="{ theme : $persist('light'), toggleTheme() { this.theme = this.theme === 'dark' ? 'light' : 'dark' }}">
 <main class="pt-16 mx-auto min-h-nav-offset">
     <main class="flex-grow container mx-auto bg-skin-surface rounded-md space-y-12">
