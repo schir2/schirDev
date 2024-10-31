@@ -1,6 +1,6 @@
 {% load static %}
 
-<div id="article{{ article.pk }}" class="p-6 flex flex-col justify-between min-h-96 space-y-3 bg-skin-surface rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-skin-surface-hover col-span-6 md:col-span-6 xxl:col-span-4
+<div id="article{{ article.pk }}" class="p-6 flex flex-col justify-between min-h-96 space-y-3 bg-skin-surface rounded-sm md:rounded-md shadow-md overflow-hidden transition-all duration-300 hover:bg-skin-surface-hover col-span-12 md:col-span-6 xxl:col-span-4
 ">
     <div class="flex justify-between">
         <span class="text-xs text-skin-muted">{{ article.created_at|date:"F d, Y" }}</span>
@@ -36,10 +36,6 @@
             <span>
                 <c-icons.message-square/>
                 <span>{{ article.comments.count }}</span>
-            </span>
-            <span>
-                <c-icons.trending-up/>
-                <span>{{ article.popularity_score }}</span>
             </span>
         </div>
 

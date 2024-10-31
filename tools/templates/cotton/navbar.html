@@ -1,31 +1,73 @@
 {% load static %}
-<nav class="bg-skin-surface fixed top-0 z-50 shadow-md h-16 w-screen flex justify-center align-middle">
-    <div class="container flex justify-between align-middle my-auto">
-        <div class="space-x-3">
+<nav class="bg-skin-surface fixed top-0 z-50 shadow-md h-16 w-full flex justify-center items-center px-4 sm:px-8 lg:px-16" data-theme="dark"
+     x-data="{ menu: { open: false, isSpinning: false } }">
+    <!-- Hamburger button for mobile screens -->
+    <button
+            class="sm:hidden text-skin-secondary/80 hover:text-skin-secondary font-normal ease-in-out duration-500 transition-all"
+            @click="menu.open = !menu.open; menu.isSpinning = true; setTimeout(() => menu.isSpinning = false, 500)"
+    >
+        <div :class="{ 'spin-fast': menu.isSpinning }">
+            <c-icons.menu/>
+        </div>
+    </button>
+
+    <!-- Container for responsive flex layout -->
+    <div class="flex w-full justify-between items-center container space-x-3">
+
+        <!-- Left section with navbar items, hidden by default on mobile -->
+        <div class="flex-1 space-x-3 items-center hidden sm:flex">
             {{ left }}
             {% for page in navbar_items %}
-                <c-link href="#{{ page.slug }}">{{ page.title }}</c-link>
+                <c-nav-link href="#{{ page.slug }}">{{ page.title }}</c-nav-link>
             {% endfor %}
-            <c-link href="{% url 'content:index' %}">Portfolio</c-link>
-        
-            <c-link href="{% url 'arcus:index' %}" icon="check-circle">Arcus</c-link>
-            <c-link href="{% url 'blog:index' %}" icon="align-left">Blog</c-link>
-            <c-link href="{% url 'content:index' %}" icon="user">Portfolio</c-link>
-            <c-link href="{% url 'tools:index' %}" icon="tool">Tools</c-link>
+            <c-nav-link href="{% url 'content:index' %}">Portfolio</c-nav-link>
+            <c-nav-link href="{% url 'arcus:index' %}">Arcus</c-nav-link>
+            <c-nav-link href="{% url 'blog:index' %}">Blog</c-nav-link>
+            <c-nav-link href="{% url 'content:index' %}">Portfolio</c-nav-link>
+            <c-nav-link href="{% url 'tools:index' %}">Tools</c-nav-link>
         </div>
-        <div class="space-x-3">
+
+        <!-- Middle section for centered items, hidden by default on mobile -->
+        <div class="hidden sm:block">
             {{ middle }}
         </div>
-        <div class="flex justify-end align-middle gap-3">
+
+        <!-- Right section with icons and other nav items -->
+        <div class="flex items-center space-x-3">
             {{ right }}
-            <c-link variant="nav" href="{% url 'blog:article_create' %}">
+            <c-nav-link variant="nav" href="{% url 'blog:article_create' %}">
                 <c-icons.plus/>
-            </c-link>
-            <c-link variant="nav" href="https://github.com/schir2">
+            </c-nav-link>
+            <c-nav-link variant="nav" href="https://github.com/schir2">
                 <c-icons.github/>
-            </c-link>
-            <c-icons.sun extra_classes="text-yellow-500 cursor-pointer" x-show="theme == 'dark'" @click="theme = 'light'"/>
-            <c-icons.moon extra_classes="text-purple-500 cursor-pointer" x-show="theme == 'light'" @click="theme = 'dark'"/>
+            </c-nav-link>
+            <c-icons.sun
+                    extra_classes="text-yellow-500 cursor-pointer"
+                    x-show="theme === 'dark'"
+                    @click="toggleTheme()"
+            />
+
+            <!-- Moon icon for dark mode, rotating and scaling when switching -->
+            <c-icons.moon
+                    extra_classes="text-purple-500 cursor-pointer"
+                    x-show="theme === 'light'"
+                    @click="toggleTheme()"
+            />
         </div>
+    </div>
+
+    <!-- Mobile Menu - visible when toggled open -->
+    <div x-show="menu.open"
+         class="absolute top-16 left-0 w-full bg-skin-surface shadow-md sm:hidden flex flex-col items-start space-y-2 p-4"
+         @click.away="menu.open = false">
+        {{ left }}
+        {% for page in navbar_items %}
+            <c-nav-link href="#{{ page.slug }}">{{ page.title }}</c-nav-link>
+        {% endfor %}
+        <c-nav-link href="{% url 'content:index' %}">Portfolio</c-nav-link>
+        <c-nav-link href="{% url 'arcus:index' %}">Arcus</c-nav-link>
+        <c-nav-link href="{% url 'blog:index' %}">Blog</c-nav-link>
+        <c-nav-link href="{% url 'content:index' %}">Portfolio</c-nav-link>
+        <c-nav-link href="{% url 'tools:index' %}">Tools</c-nav-link>
     </div>
 </nav>

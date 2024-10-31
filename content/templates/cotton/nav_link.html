@@ -1,0 +1,8 @@
+{% load active_link_tags %}
+<a href="{{ href }}"
+   class="{% active_link href %} text-skin-secondary/80 hover:text-skin-secondary font-normal ease-in-out duration-500 transition-all {{ extra_classes }}">
+    {% if icon %}
+        <c-component is="icons.{{ icon }}"/>
+    {% endif %}
+    {{ slot }}
+</a>

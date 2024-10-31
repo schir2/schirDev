@@ -4,6 +4,20 @@
 
 @layer base {
 
+    @keyframes spin-multiple {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(1080deg);
+        }
+    }
+
+    .spin-fast {
+        animation: spin-multiple 0.5s ease-in-out; /* 0.5 seconds for quick spin */
+    }
+
+
     .prose-skin table {
         @apply min-w-full divide-y divide-skin-base;
     }

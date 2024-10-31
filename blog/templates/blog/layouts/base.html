@@ -23,7 +23,7 @@
 </style>
 </head>
 
-<body class="bg-skin-base text-lg text-skin-base" :data-theme="theme" x-data="{ theme : $persist('light')}">
+<body class="bg-skin-base text-lg text-skin-base" :data-theme="theme" x-data="{ theme : $persist('light'), toggleTheme() { this.theme = this.theme === 'dark' ? 'light' : 'dark' }}">
 <c-navbar>
     <c-slot name="section_links">
         {% block section_links %}

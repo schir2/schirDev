@@ -10,12 +10,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     {% tailwind_css %}
     <script src="{% static 'js/htmx.min.js' %}"></script>
+<style>
+    .MathJax {
+    overflow-x: auto;
+    white-space: nowrap;  /* This prevents text from wrapping within the container */
+}
+</style>
 </head>
 
-<body class="bg-skin-base text-lg text-skin-base" :data-theme="theme" x-data="{ theme : $persist('light')}">
+<body class="bg-skin-base text-lg text-skin-base" :data-theme="theme" x-data="{ theme : $persist('light'), toggleTheme() { this.theme = this.theme === 'dark' ? 'light' : 'dark' }}">
 <c-navbar>
     <c-slot name="section_links">
         {% block section_links %}
