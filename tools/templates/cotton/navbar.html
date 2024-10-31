@@ -35,6 +35,10 @@
         <!-- Right section with icons and other nav items -->
         <div class="flex items-center space-x-3">
             {{ right }}
+            {% if request.user.is_authenticated %}
+            <c-button hx-post="{% url 'logout' %}" type="submit">Logout</c-button>
+            {% else %}
+            {% endif %}
             <c-nav-link variant="nav" href="{% url 'blog:article_create' %}">
                 <c-icons.plus/>
             </c-nav-link>

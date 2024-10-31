@@ -1,12 +1,12 @@
+from django.contrib.auth.decorators import login_not_required
 from django.shortcuts import render
 from django.utils import timezone
 
 from arcus.models import Project, Task
 
 
+@login_not_required
 def index_view(request):
-    CAPITAL_GAINS_TAX=0.8
-
     context = {}
     # Get the recent projects and tasks
     recent_projects = Project.objects.order_by('-created_at')[:5]

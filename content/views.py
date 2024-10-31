@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_not_required
 from django.shortcuts import render
 from django.views.generic import ListView
 
@@ -5,6 +6,7 @@ from content.forms.contact_message_forms import ContactMessageForm
 from content.models import Project, SkillCategory, Page
 
 
+@login_not_required
 def index_view(request):
     context = {}
     form = ContactMessageForm
@@ -16,6 +18,7 @@ def index_view(request):
     return render(request, 'content/home.html', context=context)
 
 
+@login_not_required
 def contact_message_form_view(request):
     context = {}
 
@@ -34,8 +37,3 @@ def contact_message_form_view(request):
     if request.htmx:
         return render(request, template_name='content/partials/contact_message_form.html', context=context)
     return render(request, 'content/contact_message_form.html', context=context)
-
-
-class ProjectListView(ListView):
-    model = Project
-    template_name_suffix = 's'
