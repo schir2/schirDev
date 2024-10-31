@@ -19,25 +19,40 @@
 </head>
 
 <body
-        class="bg-skin-base text-lg text-skin-base"
+        class="bg-skin-primary text-lg text-skin-base"
         hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
-        :data-theme="theme" x-data="{ theme : $persist('light'), toggleTheme() { this.theme = this.theme === 'dark' ? 'light' : 'dark' }}">
+        :data-theme="theme"
+        x-data="{ theme : $persist('light'), toggleTheme() { this.theme = this.theme === 'dark' ? 'light' : 'dark' }, 
+           expandSidebar: $persist(true),}">
 <c-navbar></c-navbar>
-<div class="flex flex-col md:flex-row min-h-nav-offset mx-auto pt-20">
-    <!-- Sidebar -->
-    <c-sidenav>
-        <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
-            <c-arcus.link href="{% url 'tools:retirement_calculator' %}" class="flex items-center">
-                <c-icons.trending-up class="inline-block mr-2"/>
-                <span x-show="expandSidebar">Retirement Calculator</span>
-            </c-arcus.link>
-        </li>
-    </c-sidenav>
+<c-sidenav>
+    <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+        <c-arcus.link href="{% url 'tools:retirement_calculator' %}" class="flex items-center">
+            <c-icons.trending-up class="inline-block mr-2"/>
+            <span x-show="expandSidebar">Retirement Calculator</span>
+        </c-arcus.link>
+    </li>
+    <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+        <c-arcus.link href="{% url 'tools:theme' %}" class="flex items-center">
+            <c-icons.sun class="inline-block mr-2"/>
+            <span x-show="expandSidebar">Theme</span>
+        </c-arcus.link>
+    </li>
+    <li class="mb-4" :class="expandSidebar ? 'ml-2' : 'ml-0'">
+        <c-arcus.link href="{% url 'tools:css_display_cheatsheet' %}" class="flex items-center">
+            <c-icons.code class="inline-block mr-2"/>
+            <span x-show="expandSidebar">CSS Display Cheatsheet</span>
+        </c-arcus.link>
+    </li>
+</c-sidenav>
+<div class="flex flex-col md:flex-row min-h-nav-offset mx-auto">
 
     <!-- Main Content -->
-    <main class="flex-1 bg-skin-base mx-auto px-4 py-8 overflow-y-auto">
+    <main class="px-4 py-8 mx-auto" x-transition :class="expandSidebar ? 'ps-64' : 'ps-16'">
         {% block before_content %}{% endblock %}
-        {% block content %}{% endblock %}
+        <main class="flex-grow container p-16 bg-skin-surface shadow-md rounded-md space-y-12">
+            {% block content %}{% endblock %}
+        </main>
     </main>
 </div>
 

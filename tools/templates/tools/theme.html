@@ -1,6 +1,6 @@
-{% extends 'blog/layouts/base.html' %}
+{% extends 'tools/base.html' %}
 {% block content %}
-    <div class="bg-skin-surface p-16 space-y-8">
+    <div class="bg-skin-surface space-y-8">
         <h1 class="text-3xl font-bold">Theme Color Palette</h1>
         {% for theme in themes %}
             <div class="bg-skin-base p-8 shadow-lg rounded-2xl" data-theme="{{ theme }}">

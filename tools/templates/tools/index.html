@@ -2,12 +2,44 @@
 {% block head_title %}Tools{% endblock %}
 {% block content %}
     <h1 class="text-4xl font-bold font-serif">Tools</h1>
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
         <c-card>
             <c-slot name="title">Retirement Calculator</c-slot>
-            <c-slot name="content">???</c-slot>
-            <c-slot name="actions">???
-                <c-link href="{% url 'tools:retirement_calculator' %}">Open</c-link>
+            <c-slot name="content">
+                <p class="italic text-skin-muted">
+                    Take control of your retirement goals with our comprehensive calculator. This tool lets you model various retirement
+                    strategies, explore income growth paths, and assess expenses. It's designed to help you understand how contributions,
+                    tax strategies, and investments can bring you closer to financial independence.
+                </p>
+            </c-slot>
+            <c-slot name="actions">
+                <c-link href="{% url 'tools:retirement_calculator' %}">Try it Out</c-link>
+            </c-slot>
+        </c-card>
+        <c-card>
+            <c-slot name="title">CSS Display Properties Cheatsheet</c-slot>
+            <c-slot name="content">
+                <p class="italic text-skin-muted">
+                    Quickly navigate the essentials of CSS display properties. This guide is built to help you understand, compare, and
+                    effectively use different display types across HTML elements. Each row provides insights into layout behaviors and
+                    common applications, offering a clear reference whether you’re learning or fine-tuning your design skills.
+                </p>
+            </c-slot>
+            <c-slot name="actions">
+                <c-link href="{% url 'tools:retirement_calculator' %}">Explore the Cheatsheet</c-link>
+            </c-slot>
+        </c-card>
+        <c-card>
+            <c-slot name="title">Theme Behind the Design</c-slot>
+            <c-slot name="content">
+                <p class="italic text-skin-muted">
+                    Explore the visual elements and color palette that drive the aesthetic and functionality of this site. This theme has
+                    been crafted to balance clarity and creativity, aiming to make navigation intuitive and visually appealing. Below,
+                    you'll see how different components work together to create a cohesive, accessible, and professional experience.
+                </p>
+            </c-slot>
+            <c-slot name="actions">
+                <c-link href="{% url 'tools:retirement_calculator' %}">View Full Theme</c-link>
             </c-slot>
         </c-card>
     </div>
