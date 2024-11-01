@@ -26,15 +26,14 @@ class Article(BaseModel):
     slug = models.SlugField(verbose_name=_('Slug'), unique=True, max_length=200)
     content = RichTextUploadingField(verbose_name=_('Content'), )
     topic = models.ForeignKey('blog.Topic', verbose_name=_('Topic'), related_name='articles',
-                              on_delete=models.SET_NULL,
-                              blank=True, null=True)
+                              on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField('blog.Tag', verbose_name=_('Tags'), related_name='articles', blank=True)
     image = models.ImageField(verbose_name=_('Image'), upload_to='blog/article_images/', blank=True, null=True)
     is_published = models.BooleanField(_('Is published'), default=True)
     view_count = models.PositiveIntegerField(verbose_name=_('View count'), default=0)
     popularity_score = models.FloatField(verbose_name=_('Popularity Score'), default=0.0)
-    series = models.ForeignKey('ArticleSeries', verbose_name=_('Series'), related_name='articles', on_delete=models.SET_NULL, null=True)
-    series_sequence_number = models.PositiveIntegerField(verbose_name=_('Series sequence number'), null=True)
+    series = models.ForeignKey('ArticleSeries', verbose_name=_('Series'), related_name='articles', on_delete=models.SET_NULL, null=True, blank=True)
+    series_sequence_number = models.PositiveIntegerField(verbose_name=_('Series sequence number'), null=True, blank=True)
 
     def __str__(self):
         return self.title
