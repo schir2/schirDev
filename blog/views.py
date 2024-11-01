@@ -27,7 +27,7 @@ def home_view(request):
 def article_list_view(request):
     template_name = 'blog/article_list.html'
     context = {}
-    article_list = Article.objects.all()
+    article_list = Article.objects.fitler(published=True)
     context['article_list'] = article_list
     return render(request, template_name=template_name, context=context)
 
