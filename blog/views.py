@@ -15,9 +15,14 @@ from blog.models import Article, Topic, Tag, ArticleInteraction, ArticleSeries
 def home_view(request):
     context = {}
     template_name = 'blog/home.html'
-    latest_articles = Article.objects.order_by('-created_at')[:20]
-    tags = Tag.objects.all()
-    topics = Topic.objects.all()
+    latest_articles = Article.objects.filter(is_published=True).order_by('-created_at')[:20]
+    tags = set()
+    topics = set()
+    for article in latest_articles:
+        for tag in article.tags.all():
+            tags.add(tag)
+        if article.topic:
+            topics.add(article.topic)
     context['latest_articles'] = latest_articles
     context['topics'] = topics
     context['tags'] = tags
@@ -27,7 +32,7 @@ def home_view(request):
 def article_list_view(request):
     template_name = 'blog/article_list.html'
     context = {}
-    article_list = Article.objects.fitler(published=True)
+    article_list = Article.objects.fitler(is_published=True)
     context['article_list'] = article_list
     return render(request, template_name=template_name, context=context)
 
