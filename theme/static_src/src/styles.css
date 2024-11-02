@@ -17,6 +17,14 @@
         animation: spin-multiple 0.5s ease-in-out; /* 0.5 seconds for quick spin */
     }
 
+    .prose :where(code):not(:where([class~="not-prose"] *))::before {
+        content: "`";
+    }
+
+    .prose :where(code):not(:where([class~="not-prose"] *))::after {
+        content: "`";
+    }
+
 
     .prose-skin table {
         @apply min-w-full divide-y divide-skin-base;

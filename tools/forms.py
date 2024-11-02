@@ -80,6 +80,12 @@ class RetirementCalculatorForm(forms.Form):
         ('debt_free', 'Retire When Debt Is Eliminated'),
     ]
 
+    CASH_MAINTENANCE_STRATEGY_CHOICES = [
+        ('fixed', 'Fixed Cash Maintenance'),
+        ('variable_cash_reserve', 'Variable Cash Reserve'),
+        ('percentage_of_portfolio', 'Percentage of Portfolio'),
+    ]
+
     age = forms.IntegerField(
         min_value=0,
         max_value=100,
@@ -171,6 +177,25 @@ class RetirementCalculatorForm(forms.Form):
         initial=20000,
         label="Cash",
         help_text="Your current bank savings (e.g., checking, savings accounts).",
+    )
+
+    cash_maintenance_strategy = forms.ChoiceField(
+        choices=CASH_MAINTENANCE_STRATEGY_CHOICES,
+        initial='fixed',
+        label="Cash Maintenance Strategy",
+        help_text="Strategies for maintaining cash.",
+    )
+
+    cash_maintenance_target_amount = forms.IntegerField(
+        min_value=0,
+        initial=0,
+        label="Cash Maintenance Target Amount",
+    )
+
+    cash_maintenance_months_of_expenses_in_reserve= forms.IntegerField(
+        min_value=0,
+        initial=6,
+        label="Cash Maintenance Number of Month Expenses",
     )
 
     annual_taxable_contribution = forms.IntegerField(
@@ -418,13 +443,6 @@ class RetirementCalculatorForm(forms.Form):
         help_text=""
     )
 
-    withdrawal_rate = forms.FloatField(
-        min_value=0,
-        initial=4.0,
-        label="Withdrawal Rate (%)",
-        help_text="The percent of your total savings that you plan to withdraw annually after retirement"
-    )
-
     debt = forms.DecimalField(
         min_value=0,
         max_digits=12,
@@ -450,3 +468,5 @@ class RetirementCalculatorForm(forms.Form):
     )
 
     # TODO Account for student loan
+    # TODO Add overarching strategy for retirement
+    # TODO Add Cash Maitenance Strategies

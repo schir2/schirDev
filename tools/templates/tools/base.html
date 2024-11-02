@@ -8,14 +8,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    {% tailwind_css %}
+
+    {% block head %}{% endblock %}
+    {% block styles %}{% endblock %}
+
+    <script src="{% static 'js/htmx.min.js' %}"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    {% tailwind_css %}
-    <script src="{% static 'js/htmx.min.js' %}"></script>
-    {% block head %}{% endblock %}
-    {% block styles %}{% endblock %}
 </head>
 
 <body
