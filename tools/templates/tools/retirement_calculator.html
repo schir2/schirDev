@@ -40,6 +40,9 @@
                     <li><button @click="columnFilters.taxableContribution = !columnFilters.taxableContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxableContribution</button></li>
                     <li><button @click="columnFilters.taxableContributionTotal = !columnFilters.taxableContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">taxableContributionTotal</button></li>
                     <li><button @click="columnFilters.taxableSavingsEndOfYear = !columnFilters.taxableSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxableSavingsEndOfYear</button></li>
+                    <li><button @click="columnFilters.taxDeferredContributionElectiveLimit = !columnFilters.taxDeferredContributionElectiveLimit" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContributionElectiveLimit ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContributionElectiveLimit</button></li>
+                    <li><button @click="columnFilters.taxDeferredContributionElectiveLimitApplied = !columnFilters.taxDeferredContributionElectiveLimitApplied" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContributionElectiveLimitApplied ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContributionElectiveLimitApplied</button></li>
+                    <li><button @click="columnFilters.taxDeferredContributionElectiveTotalLimitApplied = !columnFilters.taxDeferredContributionElectiveTotalLimitApplied" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContributionElectiveTotalLimitApplied ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContributionElectiveTotalLimitApplied</button></li>
                     <li><button @click="columnFilters.cash = !columnFilters.cash" class="px-2 py-1 rounded-sm border" :class="columnFilters.cash ? 'bg-skin-success' : 'bg-skin-muted'">cash</button></li>
                     <li><button @click="columnFilters.savingsStartOfYear = !columnFilters.savingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.savingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">savingsStartOfYear</button></li>
                     <li><button @click="columnFilters.savingsEndOfYear = !columnFilters.savingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.savingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">savingsEndOfYear</button></li>
@@ -84,6 +87,9 @@
                     <th x-show="columnFilters.taxableContribution"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Contribution</th>
                     <th x-show="columnFilters.taxableContributionTotal"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Total Contribution</th>
                     <th x-show="columnFilters.taxableSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (EOY)</th>
+                    <th x-show="columnFilters.taxDeferredContributionElectiveLimit"  class="px-4 py-1 text-end  bg-skin-tertiary/60">taxDeferredContributionElectiveLimit</th>
+                    <th x-show="columnFilters.taxDeferredContributionElectiveLimitApplied"  class="px-4 py-1 text-end  bg-skin-tertiary/60">taxDeferredContributionElectiveLimitApplied</th>
+                    <th x-show="columnFilters.taxDeferredContributionElectiveTotalLimitApplied"  class="px-4 py-1 text-end  bg-skin-tertiary/60">taxDeferredContributionElectiveTotalLimitApplied</th>
                     <th x-show="columnFilters.cash"  class="px-4 py-1 text-end  bg-skin-primary/60">Cash</th>
                     <th x-show="columnFilters.savingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
                     <th x-show="columnFilters.savingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
@@ -117,6 +123,9 @@
                         <td x-show="columnFilters.employerContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.employerContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxDeferredContributionTotal" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxDeferredSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredContributionElectiveLimit" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContributionElectiveLimit.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredContributionElectiveLimitApplied" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContributionElectiveLimitApplied.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxDeferredContributionElectiveTotalLimitApplied" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContributionElectiveTotalLimitApplied.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxableSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxableContribution" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxableContributionTotal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
@@ -171,7 +180,7 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <!-- Income Fields -->
                         <div class="col-span-1">
-                            <c-input :field="form.income_pre_taxed" x-model.number="formData.incomePreTaxedInitial"/>
+                            <c-input :field="form.income_pre_taxed" x-model.number="formData.incomePreTaxed"/>
                         </div>
                         <div class="col-span-1">
                             <c-select :field="form.income_growth_strategy" x-model="formData.incomeGrowthStrategy"/>
@@ -181,7 +190,7 @@
                         </div>
                         <!-- Expense Fields -->
                         <div class="col-span-1">
-                            <c-input :field="form.expenses" x-model.number="formData.expensesInitial"/>
+                            <c-input :field="form.expenses" x-model.number="formData.expenses"/>
                         </div>
                         <div class="col-span-1">
                             <c-select :field="form.expenses_growth_strategy" x-model="formData.expensesGrowthStrategy"/>
@@ -365,9 +374,7 @@
                 formData: {
                     /* Profile */
                     age: 38,
-                    age: 0,
                     year: 2024,
-                    year: 0,
                     lifeExpectancy: 75,
                     
                     /* Retirement Strategies */
@@ -380,12 +387,10 @@
 
                     /* Initial Values */
                     cash: 27000,
-                    cash: 0,
 
 
                     /* Income */
-                    incomePreTaxedInitial: 200000,
-                    incomePreTaxed: 0,
+                    incomePreTaxed: 200000,
                     incomeTaxable: 0,
                     incomeTaxed: 0,
                     incomeDisposable: 0,
@@ -402,7 +407,6 @@
                     incomeTaxNumberOfDependents: '0',
 
                     /* Expenses */
-                    expensesInitial: 50000,
                     expenses: 50000,
                     expenseRate: 2,
                     expensesGrowthStrategy: "fixed",
@@ -418,21 +422,21 @@
                     targetEndOfLifeSavingsPreTaxed: 0,
 
                     /* Tax Deferred Savings */
-                    taxDeferredSavingsStartOfYear: 40000,
-                    taxDeferredContributionFixedAmount: 5000,
-                    taxDeferredContributionStrategy: 'percent_of_income',
                     taxDeferredSavingsStartOfYear: 0,
+                    taxDeferredContributionFixedAmount: 5000,
+                    taxDeferredContributionStrategy: 'max',
                     taxDeferredSavingsEndOfYear: 0,
                     taxDeferredContribution: 0,
                     taxDeferredContributionTotal: 0,
                     taxDeferredGrowthStrategy: 'start',
                     taxDeferredContributionPercentage: 6,
                     taxDeferredGrowthRate: 6.0,
-                    taxDeferredContributionElectiveLimit: 22500,
-                    taxDeferredContributionElectiveLimitApplied: 0,
-                    taxDeferredContributionCatchUpLimit: 7500,
-                    taxDeferredContributionTotalElectiveLimit: 66000,
-                    taxDeferredContributionTotalElectiveLimitApplied: 0,
+                    
+                    taxDeferredContributionElectiveLimit: undefined,
+                    taxDeferredContributionElectiveLimitApplied: undefined,
+                    taxDeferredContributionCatchUpLimit: undefined,
+                    taxDeferredContributionTotalElectiveLimit: undefined,
+                    taxDeferredContributionTotalElectiveLimitApplied: undefined,
                     taxDeferredContributionElectiveLimitInflationRate: 2.5,
 
                     /* Employer Contributions */
@@ -444,7 +448,7 @@
                     employerContributionFixedAmount: 0,
 
                     /* IRA Savings */
-                    iraSavingsInitial: 7000,
+                    iraSavingsInitial: 0,
                     iraContributionFixedAmount: 7000,
                     iraContribution: 0,
                     iraContributionStrategy: 'max',
@@ -458,7 +462,7 @@
                     iraContributionCatchUpLimit: 8000,
 
                     /* Taxable Savings */
-                    taxableSavingsInitial: 23000,
+                    taxableSavingsInitial: 0,
                     taxableContributionFixedAmount: 0,
                     taxableContribution: 0,
                     taxableContributionStrategy: 'fixed',
@@ -649,37 +653,20 @@
                 getIncomeDisposable(row) {
                     return row.incomeTaxed - row.expenses;
                 },
-                getTaxDeferredContributionElectiveLimit(row) {
-                    return row.taxDeferredContributionElectiveLimit * (1 + row.taxDeferredContributionElectiveLimitInflationRate / 100);
-                },
-                getTaxDeferredContributionElectiveLimitApplied(row) {
-                    return row.age < 50 ? row.taxDeferredContributionElectiveLimit : row.taxDeferredContributionElectiveLimit + row.taxDeferredContributionCatchUpLimit
-                },
-                getTaxDeferredContributionElectiveTotalLimitApplied(row) {
-                    return row.age < 50 ? row.taxDeferredContributionTotalElectiveLimit : row.taxDeferredContributionTotalElectiveLimit + row.taxDeferredContributionCatchUpLimit
-                },
                 getTaxDeferredContribution(row) {
                     return Math.min(this.TaxDeferredContributionStrategies[row.taxDeferredContributionStrategy](row), row.taxDeferredContributionElectiveLimitApplied)
                 }, 
                 initializeTableRow(formData) {
                     let curRow = JSON.parse(JSON.stringify(formData));
                     
+                    
+                    curRow = process.ElectiveLimitsProcess.process(curRow)
+                    
                     /* TODO Need to account for employer contribution more than the employee. Goal is to maximize savings */
 
                     /* Initialization */
-                    curRow.age = formData.age
-                    curRow.year = formData.year
-                    curRow.cash = formData.cash
-                    curRow.incomePreTaxed = formData.incomePreTaxedInitial
-                    curRow.expenses = formData.expensesInitial
-                    curRow.taxDeferredContributionFixedAmount = formData.taxDeferredContributionFixedAmount
-                    
-                    
                     
                     curRow.taxDeferredSavingsStartOfYear = formData.taxDeferredSavingsStartOfYear
-                    curRow.taxDeferredContributionElectiveLimit = formData.taxDeferredContributionElectiveLimit
-                    curRow.taxDeferredContributionElectiveLimitApplied = this.getTaxDeferredContributionElectiveLimitApplied(curRow)
-                    curRow.taxDeferredContributionElectiveTotalLimitApplied = this.getTaxDeferredContributionElectiveTotalLimitApplied(curRow)
                     
                     curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
                     curRow.employerContribution = this.getEmployerContribution(curRow)
@@ -725,12 +712,12 @@
                     curRow.year += 1
                     curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
                     
+                    
+                    curRow = process.ElectiveLimitsProcess.process(curRow)
+                    
                     curRow.retirementIncomeGoal += curRow.retirementIncomeGoal * curRow.inflationRate / 100
 
                     curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
-                    curRow.taxDeferredContributionElectiveLimit = this.getTaxDeferredContributionElectiveLimit(curRow)
-                    curRow.taxDeferredContributionElectiveLimitApplied = this.getTaxDeferredContributionElectiveLimitApplied(curRow)
-                    curRow.taxDeferredContributionElectiveTotalLimitApplied = this.getTaxDeferredContributionElectiveTotalLimitApplied(curRow)
 
                     curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
                     curRow.employerContribution = this.getEmployerContribution(curRow)
