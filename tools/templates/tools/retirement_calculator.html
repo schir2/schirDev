@@ -1,7 +1,7 @@
 {% extends 'tools/base.html' %}
 {% load static %}
 {% block head %}
-    <script src="{% static 'tools/js/retirement_calculator.js' %}"></script>
+    <script src="{% static 'tools/js/retirement_calculator.iife.js' %}"></script>
 {% endblock %}
 {% block head_title %}Retirement Calculator{% endblock %}
 {% block content %}
@@ -10,7 +10,7 @@
 
         <div class="col-span-2">
             <nav id="columnFilters">
-                <ul class="flex flex-wrap gap-3">
+                <ul class="flex flex-wrap gap-3 text-xs">
                     <li><button @click="columnFilters.age = !columnFilters.age" class="px-2 py-1 rounded-sm border" :class="columnFilters.age ? 'bg-skin-success' : 'bg-skin-muted'">age</button></li>
                     <li><button @click="columnFilters.incomePreTaxed = !columnFilters.incomePreTaxed" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomePreTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomePreTaxed</button></li>
                     <li><button @click="columnFilters.incomeTaxable = !columnFilters.incomeTaxable" class="px-2 py-1 rounded-sm border" :class="columnFilters.incomeTaxable ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxable</button></li>
@@ -29,7 +29,7 @@
                     <li><button @click="columnFilters.retirementSavingsAmount = !columnFilters.retirementSavingsAmount" class="px-2 py-1 rounded-sm border" :class="columnFilters.retirementSavingsAmount ? 'bg-skin-success' : 'bg-skin-muted'">retirementSavingsAmount</button></li>
                     <li><button @click="columnFilters.iraSavingsStartOfYear = !columnFilters.iraSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsStartOfYear</button></li>
                     <li><button @click="columnFilters.iraContribution = !columnFilters.iraContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContribution ? 'bg-skin-success' : 'bg-skin-muted'">iraContribution</button></li>
-                    <li><button @click="columnFilters.iraContributionTotal = !columnFilters.iraContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">iraContributionTotal</button></li>
+                    <li><button @click="columnFilters.iraContributionLifetime = !columnFilters.iraContributionLifetime" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraContributionLifetime ? 'bg-skin-success' : 'bg-skin-muted'">iraContributionLifetime</button></li>
                     <li><button @click="columnFilters.iraSavingsEndOfYear = !columnFilters.iraSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.iraSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsEndOfYear</button></li>
                     <li><button @click="columnFilters.taxDeferredSavingsStartOfYear = !columnFilters.taxDeferredSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredSavingsStartOfYear</button></li>
                     <li><button @click="columnFilters.taxDeferredContribution = !columnFilters.taxDeferredContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContribution</button></li>
@@ -76,7 +76,7 @@
                     <th x-show="columnFilters.retirementSavingsAmount"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings</th>
                     <th x-show="columnFilters.iraSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
                     <th x-show="columnFilters.iraContribution"  class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
-                    <th x-show="columnFilters.iraContributionTotal"  class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution</th>
+                    <th x-show="columnFilters.iraContributionLifetime"  class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution</th>
                     <th x-show="columnFilters.iraSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
                     <th x-show="columnFilters.taxDeferredSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred (SOY)</th>
                     <th x-show="columnFilters.taxDeferredContribution"  class="px-4 py-1 text-end  bg-skin-secondary/60">Contribution</th>
@@ -116,7 +116,7 @@
                         <td x-show="columnFilters.retirementSavingsAmount" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.retirementSavingsAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.iraSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.iraContribution" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td x-show="columnFilters.iraContributionTotal" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.iraContributionLifetime" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraContributionLifetime.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.iraSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.iraSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxDeferredSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxDeferredContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
@@ -368,14 +368,12 @@
 
 {% block javascript %}
     <script>
-
         function setupFormData() {
             return {
-                formData: initialFormData,
+                formData: RetirementCalculator.initialFormData,
                 getTableHeaders: ()=>{
                     let headers = []
                     document.querySelectorAll("table th").forEach(header => headers.push(header.textContent))
-                    console.log(headers)
                     return headers
                     
                 },
@@ -394,7 +392,7 @@
                     retirementSavingsAmount: true,
                     iraSavingsStartOfYear: true,
                     iraContribution: true,
-                    iraContributionTotal: true,
+                    iraContributionLifetime: true,
                     iraSavingsEndOfYear: true,
                     taxDeferredSavingsStartOfYear: true,
                     taxDeferredContribution: true,
@@ -427,33 +425,6 @@
                     debt_free: (row) => row.debt <= 0                   
                 },
 
-                TaxDeferredContributionStrategies: {
-                    fixed: (row) => row.taxDeferredContributionFixedAmount,
-                    percent_of_income: (row) => {
-                        return row.incomePreTaxed * (row.taxDeferredContributionPercentage / 100)
-                    },
-                    until_company_match: (row) => row.employerMatchPercentageLimit * row.incomePreTaxed / 100,
-                    max: (row) => row.taxDeferredContributionElectiveLimit,
-                },
-
-                TaxDeferredGrowthStrategy: {
-                    start: (row) => row.taxDeferredSavingsStartOfYear * (row.taxDeferredGrowthRate / 100),
-                    end: (row) => row.taxDeferredSavingsEndOfYear * (row.taxDeferredGrowthRate / 100),
-                },
-
-                IraGrowthStrategy: {
-                    start: (row) => row.iraSavingsStartOfYear * (row.iraGrowthRate / 100),
-                    end: (row) => row.iraSavingsEndOfYear * (row.iraGrowthRate / 100),
-                },
-
-                IraContributionStrategies: {
-                    fixed: (row) => row.iraContribution,
-                    percent_of_income: (row) => row.incomePreTaxed * (row.iraContributionPercentage / 100),
-                    max: (row) => {
-                        return Number(row.age) >= 50 ? row.iraContributionCatchUpLimit : row.iraContributionLimit
-                    }
-                },
-
 
                 InflationGrowthStrategies: {
                     fixed: (row) => row.inflationRate,
@@ -478,27 +449,6 @@
                     },
                     percentage_increase: (row) => row.incomePreTaxed * (1 + row.incomeGrowthRate / 100),
                 },
-
-                EmployerContributionStrategies: {
-                    none: (row) => 0,
-                    percentage_of_contribution: (row) => {
-                        let employerMatch = row.taxDeferredContribution * (row.employerMatchPercentage / 100);
-                        let maxEmployerMatch = row.incomePreTaxed * row.employerMatchPercentageLimit / 100;
-                        return Math.min(employerMatch, maxEmployerMatch);
-                    },
-                    percentage_of_compensation: (row) => {
-                        return row.incomePreTaxed * (row.employerContributionPercentage / 100);
-                    },
-                    fixed: (row) => {
-                        return row.employerContributionFixedAmount;
-                    },
-                },
-                getEmployerContribution(row) {
-                    let employerContribution = this.EmployerContributionStrategies[row.employerContributionStrategy](row);
-                    let remainingTotalLimit = row.taxDeferredContributionElectiveTotalLimitApplied - row.taxDeferredContribution;
-
-                    return Math.max(0, Math.min(employerContribution, remainingTotalLimit));
-                },
                 getTaxDeferredContributionTotal(row) {
                     return row.taxDeferredContribution + row.employerContribution;
                 },
@@ -509,7 +459,7 @@
                     return row.iraContribution;
                 },
                 getIraSavingsEndOfYear(row) {
-                    return row.iraSavingsStartOfYear + row.iraContributionTotal + row.iraGrowthAmount;
+                    return row.iraSavingsStartOfYear + row.iraContributionLifetime + row.iraGrowthAmount;
                 },
                 getSavingsStartOfYear(row) {
                     return row.taxDeferredSavingsStartOfYear + row.taxableSavingsStartOfYear + row.iraSavingsStartOfYear;
@@ -534,30 +484,16 @@
                 }, 
                 initializeTableRow(formData) {
                     let curRow = JSON.parse(JSON.stringify(formData));
-
-
-                    curRow = process.ElectiveLimitsProcess.process(curRow)
-                    
+                    curRow = RetirementCalculator.process.electiveLimitProcess.process(curRow)
                     /* TODO Need to account for employer contribution more than the employee. Goal is to maximize savings */
 
                     /* Initialization */
 
-                    curRow.taxDeferredSavingsStartOfYear = formData.taxDeferredSavingsStartOfYear
-                    
-                    curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
-                    curRow.employerContribution = this.getEmployerContribution(curRow)
-                    curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
-                    curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[curRow.taxDeferredGrowthStrategy](curRow)
-                    curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
-                    
-                    curRow = pipeline.TaxableSavingsPipeline.initialize(curRow)
-
-                    curRow.iraSavingsStartOfYear = formData.iraSavingsInitial
-                    curRow.iraContribution = formData.iraContributionFixedAmount
-                    curRow.iraContribution = this.IraContributionStrategies[formData.iraContributionStrategy](curRow)
-                    curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
-                    curRow.iraGrowthAmount = this.IraGrowthStrategy[formData.iraGrowthStrategy](curRow)
-                    curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
+   
+                    curRow = RetirementCalculator.pipeline.taxDeferredPipeline.initialize(curRow)
+                    curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.initialize(curRow)
+                    curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.initialize(curRow)
+                    curRow = RetirementCalculator.pipeline.iraSavingsPipeline.initialize(curRow)
                     
                     curRow.debtPayment = Math.min(curRow.debtPayment, curRow.debt)
                     curRow.debt -= curRow.debtPayment
@@ -584,25 +520,16 @@
                     curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
 
 
-                    curRow = process.ElectiveLimitsProcess.process(curRow)
+                    curRow = RetirementCalculator.process.electiveLimitProcess.process(curRow)
                     
                     curRow.retirementIncomeGoal += curRow.retirementIncomeGoal * curRow.inflationRate / 100
 
-                    curRow.taxDeferredSavingsStartOfYear = curRow.taxDeferredSavingsEndOfYear
+                    curRow = RetirementCalculator.pipeline.taxDeferredPipeline.initialize(curRow)
+                    curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.initialize(curRow)
+                    curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.process(curRow)
+                    curRow = RetirementCalculator.pipeline.iraSavingsPipeline.process(curRow)
 
-                    curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
-                    curRow.employerContribution = this.getEmployerContribution(curRow)
-                    curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
-                    curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[curRow.taxDeferredGrowthStrategy](curRow)
-                    curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
 
-                    curRow = pipeline.TaxableSavingsPipeline.process(curRow)
-
-                    curRow.iraSavingsStartOfYear = curRow.iraSavingsEndOfYear
-                    curRow.iraContribution = this.IraContributionStrategies[curRow.iraContributionStrategy](curRow)
-                    curRow.iraContributionTotal = this.getIraContributionTotal(curRow)
-                    curRow.iraGrowthAmount = this.IraGrowthStrategy[curRow.iraGrowthStrategy](curRow)
-                    curRow.iraSavingsEndOfYear = this.getIraSavingsEndOfYear(curRow)
                     
                     curRow.debt = curRow.debt * (1 + curRow.debtInterestRate / 100)
                     curRow.debtPayment = Math.min(curRow.debtPayment, curRow.debt)

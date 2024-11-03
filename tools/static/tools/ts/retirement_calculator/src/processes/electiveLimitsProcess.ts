@@ -1,7 +1,7 @@
-import {Row} from "/interfaces/Row";
-import {Process} from "/interfaces/Process";
+import {Row} from "../interfaces/Row";
+import {Process} from "../interfaces/Process";
 
-class ElectiveLimitsProcess implements Process {
+export default class ElectiveLimitsProcess implements Process {
     adjustCatchUpLimit(row: Row) {
         row.taxDeferredContributionCatchUpLimit = 7500
         return row;

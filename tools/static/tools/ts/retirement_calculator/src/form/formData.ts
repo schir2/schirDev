@@ -1,4 +1,4 @@
-import FormData from '/interfaces/FormData'
+import FormData from '../interfaces/FormData'
 const initialFormData: FormData = {
     age: 38,
     year: 2024,
@@ -44,7 +44,7 @@ const initialFormData: FormData = {
     taxDeferredContributionElectiveLimitApplied: undefined,
     taxDeferredContributionCatchUpLimit: undefined,
     taxDeferredContributionTotalElectiveLimit: undefined,
-    taxDeferredContributionTotalElectiveLimitApplied: undefined,
+    taxDeferredContributionElectiveTotalLimitApplied: undefined,
     taxDeferredContributionElectiveLimitInflationRate: 2.5,
     employerContributionStrategy: 'percentage_of_contribution',
     employerContribution: 0,

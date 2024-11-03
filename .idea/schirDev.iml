@@ -29,6 +29,7 @@
     <orderEntry type="library" name="@alpinejs/persist" level="application" />
     <orderEntry type="library" name="mathjax" level="application" />
     <orderEntry type="library" name="mathjax" level="application" />
+    <orderEntry type="library" name="retirement_calculator.iife.js" level="project" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

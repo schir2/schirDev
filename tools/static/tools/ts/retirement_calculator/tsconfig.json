@@ -3,13 +3,10 @@
 
     "outFile": "./js/retirement_calculator.js",
     "target": "ES6",
-    "module": "None",
+    "module": "ES6",
     "moduleResolution": "node",
     "strict": true,
     "baseUrl": "./",
-    "paths": {
-      "/*": ["src/*"],
-    }
   },
   "include": [
     "./src/**/*.ts",

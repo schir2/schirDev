@@ -5,7 +5,7 @@ import {
   IncomeTaxStrategy, InflationGrowthStrategy, IraContributionStrategy, IraGrowthStrategy,
   RetirementStrategy, TaxableContributionStrategy, TaxableGrowthStrategy,
   TaxDeferredGrowthStrategy
-} from "/types";
+} from "../types";
 
 export default interface FormData {
   /* Profile */
@@ -70,7 +70,7 @@ export default interface FormData {
   taxDeferredContributionElectiveLimitApplied?: number;
   taxDeferredContributionCatchUpLimit?: number;
   taxDeferredContributionTotalElectiveLimit?: number;
-  taxDeferredContributionTotalElectiveLimitApplied?: number;
+  taxDeferredContributionElectiveTotalLimitApplied?: number;
   taxDeferredContributionElectiveLimitInflationRate: number;
 
   /* Employer Contributions */

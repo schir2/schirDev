@@ -1,5 +1,5 @@
-import {Row} from "/interfaces/Row";
-import {Pipeline} from "/interfaces/Pipeline";
+import {Row} from "../interfaces/Row";
+import {Pipeline} from "../interfaces/Pipeline";
 
 export default class TaxableSavingsPipeline implements Pipeline {
     calculateContribution(row: Row): Row {
@@ -8,13 +8,12 @@ export default class TaxableSavingsPipeline implements Pipeline {
                 row.taxableContribution = row.taxableContributionFixedAmount
                 return row
             case 'percent_of_income':
-                row.taxableContribution += row.incomePreTaxed * (row.taxableContributionPercentage / 100)
+                row.taxableContribution = row.incomePreTaxed * (row.taxableContributionPercentage / 100)
                 return row
         }
-        return row
     }
 
-    calculateTaxableGrowth(row: Row): Row {
+    calculateGrowth(row: Row): Row {
         switch (row.taxableGrowthStrategy) {
             case 'start':
                 row.taxableGrowthAmount = row.taxableSavingsStartOfYear * (row.taxableGrowthRate / 100)
@@ -23,10 +22,9 @@ export default class TaxableSavingsPipeline implements Pipeline {
                 row.taxableGrowthAmount = (row.taxableSavingsStartOfYear + row.taxableContribution) * (row.taxableGrowthRate / 100)
                 return row
         }
-        return row
     }
 
-    calculateSavingsEndOfYear(row: Row) {
+    calculateSavingsEndOfYear(row: Row): Row {
         row.taxableSavingsEndOfYear = row.taxableSavingsStartOfYear + row.taxableContribution + row.taxableGrowthAmount;
         return row
     }
@@ -34,7 +32,7 @@ export default class TaxableSavingsPipeline implements Pipeline {
     initialize(row: Row) {
         row.taxableSavingsStartOfYear = row.taxableSavingsStartOfYear ? row.taxableSavingsStartOfYear : 0
         row = this.calculateContribution(row)
-        row = this.calculateTaxableGrowth(row)
+        row = this.calculateGrowth(row)
         row = this.calculateSavingsEndOfYear(row)
         row.taxableContributionLifetime += row.taxableContribution
         return row
@@ -43,7 +41,7 @@ export default class TaxableSavingsPipeline implements Pipeline {
     process(row: Row) {
         row.taxableSavingsStartOfYear = row.taxableSavingsEndOfYear
         row = this.calculateContribution(row)
-        row = this.calculateTaxableGrowth(row)
+        row = this.calculateGrowth(row)
         row = this.calculateSavingsEndOfYear(row)
         row.taxableContributionLifetime += row.taxableContribution
         return row

@@ -11,11 +11,11 @@ import {
     TaxableContributionStrategy,
     TaxableGrowthStrategy,
     TaxDeferredGrowthStrategy
-} from '/types'
+} from '../types'
 
 export interface Row {
     /* Profile */
-    taxDeferredContributionElectiveTotalLimitApplied: number;
+    employerContributionLifetime: number;
     age: number;
     year: number;
     lifeExpectancy: number;
@@ -73,12 +73,13 @@ export interface Row {
     taxDeferredContributionPercentage: number;
     taxDeferredSavingsEndOfYear: number;
     taxDeferredGrowthRate: number;
+    taxDeferredContributionLifetime: number;
 
+    taxDeferredContributionCatchUpLimit: number;
     taxDeferredContributionElectiveLimit: number;
     taxDeferredContributionElectiveLimitApplied: number;
-    taxDeferredContributionCatchUpLimit: number;
     taxDeferredContributionTotalElectiveLimit: number;
-    taxDeferredContributionTotalElectiveLimitApplied: number;
+    taxDeferredContributionElectiveTotalLimitApplied: number;
     taxDeferredContributionElectiveLimitInflationRate: number;
 
     /* Employer Contributions */
@@ -93,11 +94,13 @@ export interface Row {
     iraSavingsStartOfYear: number;
     iraSavingsEndOfYear: number;
     iraContribution: number;
+    iraContributionFixedAmount: number;
     iraContributionStrategy: IraContributionStrategy;
-    iraContributionTotal: number;
+    iraContributionLifetime: number;
     iraGrowthStrategy: IraGrowthStrategy;
     iraContributionPercentage: number;
     iraGrowthRate: number;
+    iraGrowthAmount: number;
     iraContributionLimit: number;
     iraContributionCatchUpLimit: number;
 
