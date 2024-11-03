@@ -38,7 +38,7 @@
                     <li><button @click="columnFilters.taxDeferredSavingsEndOfYear = !columnFilters.taxDeferredSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredSavingsEndOfYear</button></li>
                     <li><button @click="columnFilters.taxableSavingsStartOfYear = !columnFilters.taxableSavingsStartOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxableSavingsStartOfYear</button></li>
                     <li><button @click="columnFilters.taxableContribution = !columnFilters.taxableContribution" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxableContribution</button></li>
-                    <li><button @click="columnFilters.taxableContributionTotal = !columnFilters.taxableContributionTotal" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">taxableContributionTotal</button></li>
+                    <li><button @click="columnFilters.taxableContributionLifetime = !columnFilters.taxableContributionLifetime" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableContributionLifetime ? 'bg-skin-success' : 'bg-skin-muted'">taxableContributionLifetime</button></li>
                     <li><button @click="columnFilters.taxableSavingsEndOfYear = !columnFilters.taxableSavingsEndOfYear" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxableSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxableSavingsEndOfYear</button></li>
                     <li><button @click="columnFilters.taxDeferredContributionElectiveLimit = !columnFilters.taxDeferredContributionElectiveLimit" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContributionElectiveLimit ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContributionElectiveLimit</button></li>
                     <li><button @click="columnFilters.taxDeferredContributionElectiveLimitApplied = !columnFilters.taxDeferredContributionElectiveLimitApplied" class="px-2 py-1 rounded-sm border" :class="columnFilters.taxDeferredContributionElectiveLimitApplied ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContributionElectiveLimitApplied</button></li>
@@ -85,7 +85,7 @@
                     <th x-show="columnFilters.taxDeferredSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred (EOY)</th>
                     <th x-show="columnFilters.taxableSavingsStartOfYear"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (SOY)</th>
                     <th x-show="columnFilters.taxableContribution"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Contribution</th>
-                    <th x-show="columnFilters.taxableContributionTotal"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Total Contribution</th>
+                    <th x-show="columnFilters.taxableContributionLifetime"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Total Contribution</th>
                     <th x-show="columnFilters.taxableSavingsEndOfYear"  class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (EOY)</th>
                     <th x-show="columnFilters.taxDeferredContributionElectiveLimit"  class="px-4 py-1 text-end  bg-skin-tertiary/60">taxDeferredContributionElectiveLimit</th>
                     <th x-show="columnFilters.taxDeferredContributionElectiveLimitApplied"  class="px-4 py-1 text-end  bg-skin-tertiary/60">taxDeferredContributionElectiveLimitApplied</th>
@@ -128,7 +128,7 @@
                         <td x-show="columnFilters.taxDeferredContributionElectiveTotalLimitApplied" class="px-4 py-1 text-end bg-skin-secondary/40"><span x-text="row.taxDeferredContributionElectiveTotalLimitApplied.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxableSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableSavingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxableContribution" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContribution.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
-                        <td x-show="columnFilters.taxableContributionTotal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
+                        <td x-show="columnFilters.taxableContributionLifetime" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableContributionLifetime.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.taxableSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span x-text="row.taxableSavingsEndOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.cash" class="px-4 py-1 text-end bg-skin-primary/40"><span :class="row.cash < 0 && 'text-skin-error'" x-text="row.cash.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
                         <td x-show="columnFilters.savingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span x-text="row.savingsStartOfYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' })"></span></td>
@@ -431,7 +431,7 @@
                     taxDeferredGrowthStrategy: 'start',
                     taxDeferredContributionPercentage: 6,
                     taxDeferredGrowthRate: 6.0,
-                    
+
                     taxDeferredContributionElectiveLimit: undefined,
                     taxDeferredContributionElectiveLimitApplied: undefined,
                     taxDeferredContributionCatchUpLimit: undefined,
@@ -462,16 +462,15 @@
                     iraContributionCatchUpLimit: 8000,
 
                     /* Taxable Savings */
-                    taxableSavingsInitial: 0,
-                    taxableContributionFixedAmount: 0,
+                    taxableContributionFixedAmount: 10,
                     taxableContribution: 0,
                     taxableContributionStrategy: 'fixed',
                     taxableSavingsStartOfYear: 0,
                     taxableSavingsEndOfYear: 0,
-                    taxableContributionTotal: 0,
-                    taxableGrowthStrategy: 'start',
+                    taxableContributionLifetime: 0,
+                    taxableGrowthStrategy: 'end',
                     taxableContributionPercentage: 0,
-                    taxableGrowthRate: 6.0,
+                    taxableGrowthRate: 10.0,
 
                     inflationRate: 2.0,
                     inflationGrowthStrategy: 'fixed',
@@ -509,7 +508,7 @@
                     taxDeferredSavingsEndOfYear: true,
                     taxableSavingsStartOfYear: true,
                     taxableContribution: true,
-                    taxableContributionTotal: true,
+                    taxableContributionLifetime: true,
                     taxableSavingsEndOfYear: true,
                     cash: true,
                     savingsStartOfYear: true,
@@ -545,18 +544,6 @@
                 TaxDeferredGrowthStrategy: {
                     start: (row) => row.taxDeferredSavingsStartOfYear * (row.taxDeferredGrowthRate / 100),
                     end: (row) => row.taxDeferredSavingsEndOfYear * (row.taxDeferredGrowthRate / 100),
-                },
-
-
-                TaxableGrowthStrategy: {
-                    start: (row) => row.taxableSavingsStartOfYear * (row.taxableGrowthRate / 100),
-                    end: (row) => row.taxableSavingsEndOfYear * (row.taxableGrowthRate / 100),
-                },
-
-
-                TaxableContributionStrategies: {
-                    fixed: (row) => row.taxableContribution,
-                    percent_of_income: (row) => row.incomePreTaxed * (row.taxableContributionPercentage / 100),
                 },
 
                 IraGrowthStrategy: {
@@ -623,12 +610,6 @@
                 getTaxDeferredSavingsEndOfYear(row) {
                     return row.taxDeferredSavingsStartOfYear + row.taxDeferredContributionTotal + row.taxDeferredGrowthAmount;
                 },
-                getTaxableContributionTotal(row) {
-                    return row.taxableContribution;
-                },
-                getTaxableSavingsEndOfYear(row) {
-                    return row.taxableSavingsStartOfYear + row.taxableContributionTotal + row.taxableGrowthAmount;
-                },
                 getIraContributionTotal(row) {
                     return row.iraContribution;
                 },
@@ -658,14 +639,14 @@
                 }, 
                 initializeTableRow(formData) {
                     let curRow = JSON.parse(JSON.stringify(formData));
-                    
-                    
+
+
                     curRow = process.ElectiveLimitsProcess.process(curRow)
                     
                     /* TODO Need to account for employer contribution more than the employee. Goal is to maximize savings */
 
                     /* Initialization */
-                    
+
                     curRow.taxDeferredSavingsStartOfYear = formData.taxDeferredSavingsStartOfYear
                     
                     curRow.taxDeferredContribution = this.getTaxDeferredContribution(curRow)
@@ -673,13 +654,8 @@
                     curRow.taxDeferredContributionTotal = this.getTaxDeferredContributionTotal(curRow)
                     curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[curRow.taxDeferredGrowthStrategy](curRow)
                     curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
-
-                    curRow.taxableSavingsStartOfYear = curRow.taxableSavingsInitial
-                    curRow.taxableContribution = formData.taxableContributionFixedAmount
-                    curRow.taxableContribution = this.TaxableContributionStrategies[curRow.taxableContributionStrategy](curRow)
-                    curRow.taxableContributionTotal = this.getTaxableContributionTotal(curRow)
-                    curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[curRow.taxableGrowthStrategy](curRow)
-                    curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(curRow)
+                    
+                    curRow = pipeline.TaxableSavingsPipeline.initialize(curRow)
 
                     curRow.iraSavingsStartOfYear = formData.iraSavingsInitial
                     curRow.iraContribution = formData.iraContributionFixedAmount
@@ -711,8 +687,8 @@
                     curRow.age += 1
                     curRow.year += 1
                     curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
-                    
-                    
+
+
                     curRow = process.ElectiveLimitsProcess.process(curRow)
                     
                     curRow.retirementIncomeGoal += curRow.retirementIncomeGoal * curRow.inflationRate / 100
@@ -725,11 +701,7 @@
                     curRow.taxDeferredGrowthAmount = this.TaxDeferredGrowthStrategy[curRow.taxDeferredGrowthStrategy](curRow)
                     curRow.taxDeferredSavingsEndOfYear = this.getTaxDeferredSavingsEndOfYear(curRow)
 
-                    curRow.taxableSavingsStartOfYear = curRow.taxableSavingsEndOfYear
-                    curRow.taxableContribution = this.TaxableContributionStrategies[curRow.taxableContributionStrategy](curRow)
-                    curRow.taxableContributionTotal = this.getTaxableContributionTotal(curRow)
-                    curRow.taxableGrowthAmount = this.TaxableGrowthStrategy[curRow.taxableGrowthStrategy](curRow)
-                    curRow.taxableSavingsEndOfYear = this.getTaxableSavingsEndOfYear(curRow)
+                    curRow = pipeline.TaxableSavingsPipeline.process(curRow)
 
                     curRow.iraSavingsStartOfYear = curRow.iraSavingsEndOfYear
                     curRow.iraContribution = this.IraContributionStrategies[curRow.iraContributionStrategy](curRow)

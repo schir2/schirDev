@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outFile": "./static/js/retirement_calculator.js",
+    "target": "ES6",
+    "module": "amd",
+    "moduleResolution": "node",
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["*"],
+      "types/*": ["types/*"],
+      "form/*": ["form/*"],
+      "pipelines/*": ["pipelines/*"],
+      "processes/*": ["processes/*"],
+      "interfaces/*": ["interfaces/*"],
+    }
+  },
+  "include": [
+    "form/**/*.ts",
+    "pipelines/**/*.ts",
+    "processes/**/*.ts",
+    "interfaces/**/*.ts",
+    "types/**/*.ts",
+    "index.ts",
+  ]
+}
