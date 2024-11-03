@@ -1,8 +1,8 @@
-import {Row} from "interfaces/Row";
-import {Pipeline} from "interfaces/Pipeline";
+import {Row} from "/interfaces/Row";
+import {Pipeline} from "/interfaces/Pipeline";
 
 export default class TaxableSavingsPipeline implements Pipeline {
-    calculateContribution(row: Row) {
+    calculateContribution(row: Row): Row {
         switch (row.taxableContributionStrategy) {
             case 'fixed':
                 row.taxableContribution = row.taxableContributionFixedAmount
@@ -11,9 +11,10 @@ export default class TaxableSavingsPipeline implements Pipeline {
                 row.taxableContribution += row.incomePreTaxed * (row.taxableContributionPercentage / 100)
                 return row
         }
+        return row
     }
 
-    calculateTaxableGrowth(row: Row) {
+    calculateTaxableGrowth(row: Row): Row {
         switch (row.taxableGrowthStrategy) {
             case 'start':
                 row.taxableGrowthAmount = row.taxableSavingsStartOfYear * (row.taxableGrowthRate / 100)
@@ -22,6 +23,7 @@ export default class TaxableSavingsPipeline implements Pipeline {
                 row.taxableGrowthAmount = (row.taxableSavingsStartOfYear + row.taxableContribution) * (row.taxableGrowthRate / 100)
                 return row
         }
+        return row
     }
 
     calculateSavingsEndOfYear(row: Row) {

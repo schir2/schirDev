@@ -5,7 +5,7 @@ import {
   IncomeTaxStrategy, InflationGrowthStrategy, IraContributionStrategy, IraGrowthStrategy,
   RetirementStrategy, TaxableContributionStrategy, TaxableGrowthStrategy,
   TaxDeferredGrowthStrategy
-} from "types";
+} from "/types";
 
 export default interface FormData {
   /* Profile */

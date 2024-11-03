@@ -11,7 +11,7 @@ import {
     TaxableContributionStrategy,
     TaxableGrowthStrategy,
     TaxDeferredGrowthStrategy
-} from 'types'
+} from '/types'
 
 export interface Row {
     /* Profile */

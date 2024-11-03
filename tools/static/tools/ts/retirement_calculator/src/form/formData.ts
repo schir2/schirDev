@@ -1,4 +1,4 @@
-import FormData from 'interfaces/FormData'
+import FormData from '/interfaces/FormData'
 const initialFormData: FormData = {
     age: 38,
     year: 2024,

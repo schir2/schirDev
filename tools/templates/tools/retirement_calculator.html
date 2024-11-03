@@ -1,7 +1,7 @@
 {% extends 'tools/base.html' %}
 {% load static %}
 {% block head %}
-    <script src="{% static 'tools/js/retirement_calculator/pipelines.js' %}"></script>
+    <script src="{% static 'tools/js/retirement_calculator.js' %}"></script>
 {% endblock %}
 {% block head_title %}Retirement Calculator{% endblock %}
 {% block content %}
@@ -371,112 +371,7 @@
 
         function setupFormData() {
             return {
-                formData: {
-                    /* Profile */
-                    age: 38,
-                    year: 2024,
-                    lifeExpectancy: 75,
-                    
-                    /* Retirement Strategies */
-                    retirementStrategy: 'debt_free',
-                    retirementWithdrawalRate: 4,
-                    retirementIncomeGoal: 100000,
-                    retirementAge: 55,
-                    retirementSavingsAmount: 2000000,
-                    retirementIncomeProjected: 0,
-
-                    /* Initial Values */
-                    cash: 27000,
-
-
-                    /* Income */
-                    incomePreTaxed: 200000,
-                    incomeTaxable: 0,
-                    incomeTaxed: 0,
-                    incomeDisposable: 0,
-                    incomeGrowthStrategy: 'percentage_increase',
-                    incomeGrowthRate: 0,
-                    incomeGrowthAmount: 0,
-
-
-                    /* Income Tax */
-                    incomeTaxAmount: 0,
-                    incomeTaxRate: 30.0,
-                    incomeTaxStrategy: 'simple',
-                    incomeTaxFilingStatus: 'single',
-                    incomeTaxNumberOfDependents: '0',
-
-                    /* Expenses */
-                    expenses: 50000,
-                    expenseRate: 2,
-                    expensesGrowthStrategy: "fixed",
-                    
-                    /* Debt & Mortgage */
-                    debt: 5000,
-                    debtInterestRate: 5,
-                    debtPayment: 500,
-                    debtPaymentTotal: 0,
-
-                    /* Goals */
-                    targetAnnualRetirementSpendingPreTaxed: 0,
-                    targetEndOfLifeSavingsPreTaxed: 0,
-
-                    /* Tax Deferred Savings */
-                    taxDeferredSavingsStartOfYear: 0,
-                    taxDeferredContributionFixedAmount: 5000,
-                    taxDeferredContributionStrategy: 'max',
-                    taxDeferredSavingsEndOfYear: 0,
-                    taxDeferredContribution: 0,
-                    taxDeferredContributionTotal: 0,
-                    taxDeferredGrowthStrategy: 'start',
-                    taxDeferredContributionPercentage: 6,
-                    taxDeferredGrowthRate: 6.0,
-
-                    taxDeferredContributionElectiveLimit: undefined,
-                    taxDeferredContributionElectiveLimitApplied: undefined,
-                    taxDeferredContributionCatchUpLimit: undefined,
-                    taxDeferredContributionTotalElectiveLimit: undefined,
-                    taxDeferredContributionTotalElectiveLimitApplied: undefined,
-                    taxDeferredContributionElectiveLimitInflationRate: 2.5,
-
-                    /* Employer Contributions */
-                    employerContributionStrategy: 'percentage_of_contribution',
-                    employerContribution: 0,
-                    employerMatchPercentage: 100,
-                    employerMatchPercentageLimit: 3,
-                    employerContributionPercentage: 0,
-                    employerContributionFixedAmount: 0,
-
-                    /* IRA Savings */
-                    iraSavingsInitial: 0,
-                    iraContributionFixedAmount: 7000,
-                    iraContribution: 0,
-                    iraContributionStrategy: 'max',
-                    iraSavingsStartOfYear: 0,
-                    iraSavingsEndOfYear: 0,
-                    iraContributionTotal: 0,
-                    iraGrowthStrategy: 'start',
-                    iraContributionPercentage: 0,
-                    iraGrowthRate: 6.0,
-                    iraContributionLimit: 7000,
-                    iraContributionCatchUpLimit: 8000,
-
-                    /* Taxable Savings */
-                    taxableContributionFixedAmount: 10,
-                    taxableContribution: 0,
-                    taxableContributionStrategy: 'fixed',
-                    taxableSavingsStartOfYear: 0,
-                    taxableSavingsEndOfYear: 0,
-                    taxableContributionLifetime: 0,
-                    taxableGrowthStrategy: 'end',
-                    taxableContributionPercentage: 0,
-                    taxableGrowthRate: 10.0,
-
-                    inflationRate: 2.0,
-                    inflationGrowthStrategy: 'fixed',
-
-
-                },
+                formData: initialFormData,
                 getTableHeaders: ()=>{
                     let headers = []
                     document.querySelectorAll("table th").forEach(header => headers.push(header.textContent))

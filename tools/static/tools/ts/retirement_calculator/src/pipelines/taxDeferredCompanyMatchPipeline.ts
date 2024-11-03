@@ -1,5 +1,5 @@
-import {Pipeline} from "interfaces/Pipeline";
-import {Row} from "interfaces/Row";
+import {Pipeline} from "/interfaces/Pipeline";
+import {Row} from "/interfaces/Row";
 
 export default class TaxDeferredCompanyMatchPipeline implements Pipeline {
     process(row: Row) {

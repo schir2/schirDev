@@ -1,5 +1,5 @@
-import {Row} from "interfaces/Row";
-import {Pipeline} from "interfaces/Pipeline";
+import {Row} from "/interfaces/Row";
+import {Pipeline} from "/interfaces/Pipeline";
 
 export default class TaxDeferredSupplementalPipeline implements Pipeline {
     initialize(row: Row): Row {
