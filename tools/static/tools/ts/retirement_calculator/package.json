@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "chokidar \"src/**/*.ts\" -c \"npm run build\" --initial --verbose"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0"
+  }
+}
