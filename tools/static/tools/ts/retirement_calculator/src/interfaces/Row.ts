@@ -4,17 +4,16 @@ import {
     ExpensesGrowthStrategy,
     GrowthStrategy,
     IncomeTaxStrategy,
-    InflationGrowthStrategy,
+    InflationGrowthStrategy, InvestmentGrowthStrategy,
     IraContributionStrategy,
-    IraGrowthStrategy,
     RetirementStrategy,
     TaxableContributionStrategy,
-    TaxableGrowthStrategy,
-    TaxDeferredGrowthStrategy
 } from '../types'
 
 export interface Row {
     /* Profile */
+    investmentGrowthStrategy: InvestmentGrowthStrategy;
+    employerGrowthAmount: number;
     employerContributionLifetime: number;
     age: number;
     year: number;
@@ -29,7 +28,8 @@ export interface Row {
     retirementIncomeProjected: number;
 
     /* Cash and Disposable Income */
-    cash: number;
+    cashStartOfYear: number;
+    cashEndOfYear: number;
     incomeDisposable: number;
 
     /* Income */
@@ -39,6 +39,7 @@ export interface Row {
     incomeGrowthStrategy: GrowthStrategy;
     incomeGrowthRate: number;
     incomeGrowthAmount: number;
+    agi: number;
 
     /* Tax */
     incomeTaxAmount: number;
@@ -68,7 +69,6 @@ export interface Row {
     taxDeferredContributionStrategy: ContributionStrategy;
     taxDeferredContribution: number;
     taxDeferredContributionTotal: number;
-    taxDeferredGrowthStrategy: TaxDeferredGrowthStrategy;
     taxDeferredGrowthAmount: number;
     taxDeferredContributionPercentage: number;
     taxDeferredSavingsEndOfYear: number;
@@ -89,6 +89,8 @@ export interface Row {
     employerMatchPercentageLimit: number;
     employerContributionPercentage: number;
     employerContributionFixedAmount: number;
+    employerSavingsStartOfYear: number;
+    employerSavingsEndOfYear: number;
 
     /* IRA */
     iraSavingsStartOfYear: number;
@@ -97,7 +99,6 @@ export interface Row {
     iraContributionFixedAmount: number;
     iraContributionStrategy: IraContributionStrategy;
     iraContributionLifetime: number;
-    iraGrowthStrategy: IraGrowthStrategy;
     iraContributionPercentage: number;
     iraGrowthRate: number;
     iraGrowthAmount: number;
@@ -111,7 +112,6 @@ export interface Row {
     taxableContribution: number;
     taxableContributionStrategy: TaxableContributionStrategy;
     taxableContributionLifetime: number;
-    taxableGrowthStrategy: TaxableGrowthStrategy;
     taxableContributionPercentage: number;
     taxableGrowthRate: number;
     taxableGrowthAmount: number;

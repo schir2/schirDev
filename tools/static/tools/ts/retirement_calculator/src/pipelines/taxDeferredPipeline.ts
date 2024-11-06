@@ -1,42 +1,56 @@
 import {Row} from "../interfaces/Row";
-import {Pipeline} from "../interfaces/Pipeline";
+import {InvestmentPipeline} from "../interfaces/InvestmentPipeline";
 
 export function getElectiveContribution(row: Row): number {
-    let electiveLimit = 0
+    let electiveContribution = 0
     switch (row.taxDeferredContributionStrategy) {
         case 'fixed':
-            electiveLimit = row.taxDeferredContributionFixedAmount
+            electiveContribution = row.taxDeferredContributionFixedAmount
             break
         case 'percent_of_income':
-            electiveLimit = row.incomePreTaxed * (row.taxDeferredContributionPercentage / 100)
+            electiveContribution = row.incomePreTaxed * (row.taxDeferredContributionPercentage / 100)
             break
         case 'until_company_match':
-            electiveLimit = row.employerMatchPercentageLimit * row.incomePreTaxed / 100
+            electiveContribution = row.employerMatchPercentageLimit * row.incomePreTaxed / 100
             break
         case "max":
-            electiveLimit = row.taxDeferredContributionElectiveLimitApplied
+            electiveContribution = row.taxDeferredContributionElectiveLimitApplied
+            break
     }
-    return Math.min(electiveLimit, row.taxDeferredContributionElectiveLimitApplied)
+
+    return Math.min(electiveContribution, row.taxDeferredContributionElectiveLimitApplied)
 
 }
 
-export default class TaxDeferredPipeline implements Pipeline {
+export default class TaxDeferredPipeline implements InvestmentPipeline {
     initialize(row: Row): Row {
-
-        row.taxDeferredSavingsStartOfYear = row.taxDeferredSavingsStartOfYear ? row.taxDeferredSavingsStartOfYear : 0
-        row = this.calculateContribution(row);
-        row = this.calculateGrowth(row);
+        row.taxDeferredSavingsStartOfYear = row.taxDeferredSavingsStartOfYear ?? 0
+        row = this.calculateContribution(row)
+        row = this.calculateGrowthAmount(row)
+        row.taxDeferredContributionLifetime = row.taxDeferredContribution
         row = this.calculateSavingsEndOfYear(row);
-        row.taxDeferredContributionLifetime += row.taxDeferredContribution
         return row
     }
 
     process(row: Row) {
-
-        row = this.calculateContribution(row);
-        row = this.calculateGrowth(row);
+        row = this.calculateSavingsStartOfYear(row)
+        row = this.calculateContribution(row)
+        row = this.calculateGrowthAmount(row)
+        row.taxDeferredContributionLifetime += row.taxDeferredContribution
         row = this.calculateSavingsEndOfYear(row);
         return row;
+    }
+
+
+    calculateGrowthAmount(row: Row): Row {
+        switch (row.investmentGrowthStrategy) {
+            case 'start':
+                row.taxDeferredGrowthAmount = row.taxDeferredSavingsStartOfYear * (row.taxDeferredGrowthRate / 100)
+                return row
+            case 'end':
+                row.taxDeferredGrowthAmount = (row.taxDeferredSavingsStartOfYear + row.taxDeferredContribution) * (row.taxDeferredGrowthRate / 100)
+                return row
+        }
     }
 
     calculateContribution(row: Row): Row {
@@ -44,13 +58,12 @@ export default class TaxDeferredPipeline implements Pipeline {
         return row
     }
 
-    calculateGrowth(row: Row): Row {
-        row.taxDeferredSavingsStartOfYear * (row.taxDeferredGrowthRate / 100);
+    calculateSavingsStartOfYear(row: Row): Row {
+        row.taxDeferredSavingsStartOfYear = row.taxDeferredSavingsEndOfYear
         return row
     }
 
     calculateSavingsEndOfYear(row: Row): Row {
-        // TODO Fix this
         row.taxDeferredSavingsEndOfYear = row.taxDeferredSavingsStartOfYear + row.taxDeferredContribution + row.taxDeferredGrowthAmount;
         return row
     }

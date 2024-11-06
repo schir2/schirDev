@@ -2,9 +2,8 @@ import {
   ContributionStrategy, EmployerContributionStrategy,
   ExpensesGrowthStrategy,
   GrowthStrategy,
-  IncomeTaxStrategy, InflationGrowthStrategy, IraContributionStrategy, IraGrowthStrategy,
-  RetirementStrategy, TaxableContributionStrategy, TaxableGrowthStrategy,
-  TaxDeferredGrowthStrategy
+  IncomeTaxStrategy, InflationGrowthStrategy, IraContributionStrategy,
+  RetirementStrategy, TaxableContributionStrategy, InvestmentGrowthStrategy,
 } from "../types";
 
 export default interface FormData {
@@ -12,6 +11,10 @@ export default interface FormData {
   age: number;
   year: number;
   lifeExpectancy: number;
+
+  /* Extra Settings */
+  allowNegativeBalance: boolean;
+  investmentGrowthStrategy: InvestmentGrowthStrategy
 
   /* Retirement Strategies */
   retirementStrategy: RetirementStrategy;
@@ -62,7 +65,6 @@ export default interface FormData {
   taxDeferredSavingsEndOfYear: number;
   taxDeferredContribution: number;
   taxDeferredContributionTotal: number;
-  taxDeferredGrowthStrategy: TaxDeferredGrowthStrategy;
   taxDeferredContributionPercentage: number;
   taxDeferredGrowthRate: number;
 
@@ -80,6 +82,8 @@ export default interface FormData {
   employerMatchPercentageLimit: number;
   employerContributionPercentage: number;
   employerContributionFixedAmount: number;
+  employerSavingsStartOfYear: number;
+  employerSavingsEndOfYear: number;
 
   /* IRA Savings */
   iraSavingsInitial: number;
@@ -89,7 +93,6 @@ export default interface FormData {
   iraSavingsStartOfYear: number;
   iraSavingsEndOfYear: number;
   iraContributionTotal: number;
-  iraGrowthStrategy: IraGrowthStrategy;
   iraContributionPercentage: number;
   iraGrowthRate: number;
   iraContributionLimit: number;
@@ -102,7 +105,6 @@ export default interface FormData {
   taxableSavingsStartOfYear: number;
   taxableSavingsEndOfYear: number;
   taxableContributionLifetime: number;
-  taxableGrowthStrategy: TaxableGrowthStrategy;
   taxableContributionPercentage: number;
   taxableGrowthRate: number;
 

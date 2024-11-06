@@ -1,7 +1,7 @@
 import {Row} from "../interfaces/Row";
-import {Pipeline} from "../interfaces/Pipeline";
+import {InvestmentPipeline} from "../interfaces/InvestmentPipeline";
 
-export default class IraSavingsPipeline implements Pipeline {
+export default class IraSavingsPipeline implements InvestmentPipeline {
     calculateContribution(row: Row): Row {
         switch (row.iraContributionStrategy) {
             case 'fixed':
@@ -16,15 +16,9 @@ export default class IraSavingsPipeline implements Pipeline {
         }
     }
 
-    calculateGrowth(row: Row): Row {
-        switch (row.iraGrowthStrategy) {
-            case 'start':
-                row.iraGrowthAmount = row.iraSavingsStartOfYear * (row.iraGrowthRate / 100)
-                return row
-            case 'end':
-                row.iraGrowthAmount = (row.iraSavingsStartOfYear + row.iraContribution) * (row.iraGrowthRate / 100)
-                return row
-        }
+    calculateSavingsStartOfYear(row: Row): Row {
+        row.iraSavingsStartOfYear = row.iraSavingsEndOfYear
+        return row
     }
 
     calculateSavingsEndOfYear(row: Row) {
@@ -32,19 +26,31 @@ export default class IraSavingsPipeline implements Pipeline {
         return row
     }
 
+    calculateGrowthAmount(row: Row): Row {
+        switch (row.investmentGrowthStrategy) {
+            case 'start':
+                row.iraGrowthAmount = row.iraSavingsStartOfYear * (row.iraGrowthRate / 100)
+                return row
+            case 'end':
+                row.iraGrowthAmount = (row.iraSavingsStartOfYear + row.iraContribution) * (row.iraGrowthRate / 100)
+                return row
+        }
+        return row
+    }
+
     initialize(row: Row) {
         row.iraSavingsStartOfYear = row.iraSavingsStartOfYear ? row.iraSavingsStartOfYear : 0
         row = this.calculateContribution(row)
-        row = this.calculateGrowth(row)
+        row = this.calculateGrowthAmount(row)
         row = this.calculateSavingsEndOfYear(row)
         row.iraContributionLifetime = row.iraContribution
         return row
     }
 
     process(row: Row) {
-        row.iraSavingsStartOfYear = row.iraSavingsEndOfYear
+        row = this.calculateSavingsStartOfYear(row)
         row = this.calculateContribution(row)
-        row = this.calculateGrowth(row)
+        row = this.calculateGrowthAmount(row)
         row = this.calculateSavingsEndOfYear(row)
         row.iraContributionLifetime += row.iraContribution
         return row

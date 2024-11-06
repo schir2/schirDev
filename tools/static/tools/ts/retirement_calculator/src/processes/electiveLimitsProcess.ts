@@ -28,7 +28,6 @@ export default class ElectiveLimitsProcess implements Process {
 
     calculateAgeAdjustedLimit(row: Row) {
         row.taxDeferredContributionElectiveLimitApplied = row.age < 50 ? row.taxDeferredContributionElectiveLimit : row.taxDeferredContributionElectiveLimit + row.taxDeferredContributionCatchUpLimit
-        console.log(row.taxDeferredContributionElectiveLimitApplied)
         return row
     }
 
@@ -41,6 +40,8 @@ export default class ElectiveLimitsProcess implements Process {
         row.taxDeferredContributionCatchUpLimit = row.taxDeferredContributionCatchUpLimit ?? 7500;
         row.taxDeferredContributionElectiveLimit = row.taxDeferredContributionElectiveLimit ?? 22500;
         row.taxDeferredContributionTotalElectiveLimit = row.taxDeferredContributionTotalElectiveLimit ?? 66000;
+        row = this.calculateAgeAdjustedLimit(row)
+        row = this.calculateAgeAdjustedTotalLimit(row)
         return row;
     }
 

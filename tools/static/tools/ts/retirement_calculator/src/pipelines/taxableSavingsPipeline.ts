@@ -1,7 +1,7 @@
 import {Row} from "../interfaces/Row";
-import {Pipeline} from "../interfaces/Pipeline";
+import {InvestmentPipeline} from "../interfaces/InvestmentPipeline";
 
-export default class TaxableSavingsPipeline implements Pipeline {
+export default class TaxableSavingsPipeline implements InvestmentPipeline {
     calculateContribution(row: Row): Row {
         switch (row.taxableContributionStrategy) {
             case 'fixed':
@@ -13,8 +13,8 @@ export default class TaxableSavingsPipeline implements Pipeline {
         }
     }
 
-    calculateGrowth(row: Row): Row {
-        switch (row.taxableGrowthStrategy) {
+    calculateGrowthAmount(row: Row): Row {
+        switch (row.investmentGrowthStrategy) {
             case 'start':
                 row.taxableGrowthAmount = row.taxableSavingsStartOfYear * (row.taxableGrowthRate / 100)
                 return row
@@ -24,26 +24,31 @@ export default class TaxableSavingsPipeline implements Pipeline {
         }
     }
 
+    calculateSavingsStartOfYear(row: Row): Row {
+        row.taxableSavingsStartOfYear= row.taxableSavingsEndOfYear
+        return row
+    }
+
     calculateSavingsEndOfYear(row: Row): Row {
         row.taxableSavingsEndOfYear = row.taxableSavingsStartOfYear + row.taxableContribution + row.taxableGrowthAmount;
         return row
     }
 
     initialize(row: Row) {
-        row.taxableSavingsStartOfYear = row.taxableSavingsStartOfYear ? row.taxableSavingsStartOfYear : 0
+        row.taxableSavingsStartOfYear = row.taxableSavingsStartOfYear ?? 0
         row = this.calculateContribution(row)
-        row = this.calculateGrowth(row)
-        row = this.calculateSavingsEndOfYear(row)
+        row = this.calculateGrowthAmount(row)
         row.taxableContributionLifetime += row.taxableContribution
+        row = this.calculateSavingsEndOfYear(row)
         return row
     }
 
     process(row: Row) {
-        row.taxableSavingsStartOfYear = row.taxableSavingsEndOfYear
+        row = this.calculateSavingsStartOfYear(row)
         row = this.calculateContribution(row)
-        row = this.calculateGrowth(row)
-        row = this.calculateSavingsEndOfYear(row)
+        row = this.calculateGrowthAmount(row)
         row.taxableContributionLifetime += row.taxableContribution
+        row = this.calculateSavingsEndOfYear(row)
         return row
 
     }
