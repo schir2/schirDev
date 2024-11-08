@@ -39,6 +39,7 @@ export default class TaxableSavingsPipeline implements InvestmentPipeline {
         row = this.calculateContribution(row)
         row = this.calculateGrowthAmount(row)
         row.taxableContributionLifetime += row.taxableContribution
+        row.taxableSpending += row.taxableContribution
         row = this.calculateSavingsEndOfYear(row)
         return row
     }
@@ -48,6 +49,7 @@ export default class TaxableSavingsPipeline implements InvestmentPipeline {
         row = this.calculateContribution(row)
         row = this.calculateGrowthAmount(row)
         row.taxableContributionLifetime += row.taxableContribution
+        row.taxableSpending += row.taxableContribution
         row = this.calculateSavingsEndOfYear(row)
         return row
 

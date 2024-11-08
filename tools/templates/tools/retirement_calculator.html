@@ -163,26 +163,26 @@
                         </button>
                     </li>
                     <li>
-                        <button @click="columnFilters.iraSavingsStartOfYear = !columnFilters.iraSavingsStartOfYear"
+                        <button @click="columnFilters.iraTaxableSavingsStartOfYear = !columnFilters.iraTaxableSavingsStartOfYear"
                                 class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsStartOfYear
+                                :class="columnFilters.iraTaxableSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableSavingsStartOfYear
                         </button>
                     </li>
                     <li>
-                        <button @click="columnFilters.iraContribution = !columnFilters.iraContribution" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraContribution ? 'bg-skin-success' : 'bg-skin-muted'">iraContribution
+                        <button @click="columnFilters.iraTaxableContribution = !columnFilters.iraTaxableContribution" class="px-2 py-1 rounded-sm border"
+                                :class="columnFilters.iraTaxableContribution ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableContribution
                         </button>
                     </li>
                     <li>
-                        <button @click="columnFilters.iraContributionLifetime = !columnFilters.iraContributionLifetime"
+                        <button @click="columnFilters.iraTaxableContributionLifetime = !columnFilters.iraTaxableContributionLifetime"
                                 class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraContributionLifetime ? 'bg-skin-success' : 'bg-skin-muted'">iraContributionLifetime
+                                :class="columnFilters.iraTaxableContributionLifetime ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableContributionLifetime
                         </button>
                     </li>
                     <li>
-                        <button @click="columnFilters.iraSavingsEndOfYear = !columnFilters.iraSavingsEndOfYear"
+                        <button @click="columnFilters.iraTaxableSavingsEndOfYear = !columnFilters.iraTaxableSavingsEndOfYear"
                                 class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraSavingsEndOfYear
+                                :class="columnFilters.iraTaxableSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableSavingsEndOfYear
                         </button>
                     </li>
                     <li>
@@ -199,9 +199,23 @@
                         </button>
                     </li>
                     <li>
+                        <button @click="columnFilters.employerSavingsStartOfYear = !columnFilters.employerSavingsStartOfYear"
+                                class="px-2 py-1 rounded-sm border"
+                                :class="columnFilters.employerSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
+                            employerSavingsStartOfYear
+                        </button>
+                    </li>
+                    <li>
                         <button @click="columnFilters.employerContribution = !columnFilters.employerContribution"
                                 class="px-2 py-1 rounded-sm border"
                                 :class="columnFilters.employerContribution ? 'bg-skin-success' : 'bg-skin-muted'">employerContribution
+                        </button>
+                    </li>
+                    <li>
+                        <button @click="columnFilters.employerSavingsEndOfYear = !columnFilters.employerSavingsEndOfYear"
+                                class="px-2 py-1 rounded-sm border"
+                                :class="columnFilters.employerSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
+                            employerSavingsEndOfYear
                         </button>
                     </li>
                     <li>
@@ -311,16 +325,18 @@
                     <th x-show="columnFilters.retirementIncomeGoal" class="px-4 py-1 text-end  bg-skin-tertiary/60">Income Goal</th>
                     <th x-show="columnFilters.retirementAge" class="px-4 py-1 text-end  bg-skin-tertiary/60">Age</th>
                     <th x-show="columnFilters.retirementSavingsAmount" class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings</th>
-                    <th x-show="columnFilters.iraSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
-                    <th x-show="columnFilters.iraContribution" class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
-                    <th x-show="columnFilters.iraContributionLifetime" class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution
+                    <th x-show="columnFilters.iraTaxableSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
+                    <th x-show="columnFilters.iraTaxableContribution" class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
+                    <th x-show="columnFilters.iraTaxableContributionLifetime" class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution
                     </th>
-                    <th x-show="columnFilters.iraSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
+                    <th x-show="columnFilters.iraTaxableSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
                     <th x-show="columnFilters.taxDeferredSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred
                         (SOY)
                     </th>
                     <th x-show="columnFilters.taxDeferredContribution" class="px-4 py-1 text-end  bg-skin-secondary/60">Contribution</th>
-                    <th x-show="columnFilters.employerContribution" class="px-4 py-1 text-end  bg-skin-secondary/60">Employer Contribution
+                    <th x-show="columnFilters.employerSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">ESOYS
+                    <th x-show="columnFilters.employerContribution" class="px-4 py-1 text-end  bg-skin-secondary/60">ECON
+                    <th x-show="columnFilters.employerSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">EEOYS
                     </th>
                     <th x-show="columnFilters.taxDeferredContributionTotal" class="px-4 py-1 text-end  bg-skin-secondary/60">Total
                         Contribution
@@ -385,16 +401,16 @@
                         <td x-show="columnFilters.retirementSavingsAmount" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
                                 x-text="toCurrency(row.retirementSavingsAmount)"></span>
                         </td>
-                        <td x-show="columnFilters.iraSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraSavingsStartOfYear)"></span>
+                        <td x-show="columnFilters.iraTaxableSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
+                                x-text="toCurrency(row.iraTaxableSavingsStartOfYear)"></span>
                         </td>
-                        <td x-show="columnFilters.iraContribution" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraContribution)"></span></td>
-                        <td x-show="columnFilters.iraContributionLifetime" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraContributionLifetime)"></span>
+                        <td x-show="columnFilters.iraTaxableContribution" class="px-4 py-1 text-end bg-skin-primary/40"><span
+                                x-text="toCurrency(row.iraTaxableContribution)"></span></td>
+                        <td x-show="columnFilters.iraTaxableContributionLifetime" class="px-4 py-1 text-end bg-skin-primary/40"><span
+                                x-text="toCurrency(row.iraTaxableContributionLifetime)"></span>
                         </td>
-                        <td x-show="columnFilters.iraSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraSavingsEndOfYear)"></span>
+                        <td x-show="columnFilters.iraTaxableSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
+                                x-text="toCurrency(row.iraTaxableSavingsEndOfYear)"></span>
                         </td>
                         <td x-show="columnFilters.taxDeferredSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
                                 x-text="toCurrency(row.taxDeferredSavingsStartOfYear)"></span>
@@ -402,8 +418,14 @@
                         <td x-show="columnFilters.taxDeferredContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span
                                 x-text="toCurrency(row.taxDeferredContribution)"></span>
                         </td>
+                        <td x-show="columnFilters.employerSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
+                                x-text="toCurrency(row.employerSavingsStartOfYear)"></span>
+                        </td>
                         <td x-show="columnFilters.employerContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span
                                 x-text="toCurrency(row.employerContribution)"></span>
+                        </td>
+                        <td x-show="columnFilters.employerSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
+                                x-text="toCurrency(row.employerSavingsEndOfYear)"></span>
                         </td>
                         <td x-show="columnFilters.taxDeferredContributionTotal" class="px-4 py-1 text-end bg-skin-secondary/40"><span
                                 x-text="toCurrency(row.taxDeferredContribution + row.employerContribution)"></span>
@@ -552,7 +574,7 @@
                             <c-input :field="form.taxable_savings" x-model.number="formData.taxableSavingsInitial"/>
                         </div>
                         <div class="col-span-1">
-                            <c-input :field="form.ira_savings" x-model.number="formData.iraSavingsInitial"/>
+                            <c-input :field="form.ira_savings" x-model.number="formData.iraTaxableSavingsStartOfYear"/>
                         </div>
                     </div>
                 </div>
@@ -641,14 +663,14 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- IRA Contribution Strategy -->
                         <div class="col-span-1">
-                            <c-select :field="form.ira_contribution_strategy" x-model="formData.iraContributionStrategy"/>
+                            <c-select :field="form.ira_contribution_strategy" x-model="formData.iraTaxableContributionStrategy"/>
                         </div>
                         <!-- IRA Contribution Inputs -->
-                        <div class="col-span-1" x-show="formData.iraContributionStrategy == 'fixed'">
-                            <c-input :field="form.ira_contribution_fixed_amount" x-model.number="formData.iraContributionFixedAmount"/>
+                        <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'fixed'">
+                            <c-input :field="form.ira_contribution_fixed_amount" x-model.number="formData.iraTaxableContributionFixedAmount"/>
                         </div>
-                        <div class="col-span-1" x-show="formData.iraContributionStrategy == 'percent_of_income'">
-                            <c-input :field="form.ira_contribution_percentage" x-model.number="formData.iraContributionPercentage"/>
+                        <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'percent_of_income'">
+                            <c-input :field="form.ira_contribution_percentage" x-model.number="formData.iraTaxableContributionPercentage"/>
                         </div>
                         <!-- IRA Growth Rate -->
                         <div class="col-span-1">
@@ -712,13 +734,15 @@
                     retirementIncomeGoal: true,
                     retirementAge: true,
                     retirementSavingsAmount: true,
-                    iraSavingsStartOfYear: true,
-                    iraContribution: true,
-                    iraContributionLifetime: true,
-                    iraSavingsEndOfYear: true,
+                    iraTaxableSavingsStartOfYear: true,
+                    iraTaxableContribution: true,
+                    iraTaxableContributionLifetime: true,
+                    iraTaxableSavingsEndOfYear: true,
                     taxDeferredSavingsStartOfYear: true,
                     taxDeferredContribution: true,
+                    employerSavingsStartOfYear: true,
                     employerContribution: true,
+                    employerSavingsEndOfYear: true,
                     taxDeferredContributionTotal: true,
                     taxDeferredSavingsEndOfYear: true,
                     taxableSavingsStartOfYear: true,
@@ -737,9 +761,9 @@
                     });
                     this.fillTable();
                 },
-                toCurrency: (str) =>{
-                    if (str === 0 || str){
-                        return str.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+                toCurrency: (str) => {
+                    if (str === 0 || str) {
+                        return str.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
                     }
                     return null
                 },
@@ -763,107 +787,44 @@
                     bracket: (row) => row.incomeTaxable * row.incomeTaxRate / 100,
                 },
 
-                IncomeGrowthStrategies: {
-                    fixed: (row) => {
-                        return row.incomePreTaxed
-                    },
-                    percentage_increase: (row) => row.incomePreTaxed * (1 + row.incomeGrowthRate / 100),
-                },
-
-                ExpenseGrowthStrategies: {
-                    fixed: (row) => {
-                        return row.expenses * (1 + row.expenseRate / 100)
-                    },
-                    percentage_increase: (row) => row.incomePreTaxed * (1 + row.incomeGrowthRate / 100),
-                },
-                getTaxDeferredContributionTotal(row) {
-                    return row.taxDeferredContribution + row.employerContribution;
-                },
-                getTaxDeferredSavingsEndOfYear(row) {
-                    return row.taxDeferredSavingsStartOfYear + row.taxDeferredContribution + row.employerContribution + row.taxDeferredGrowthAmount;
-                },
-                getIraContributionTotal(row) {
-                    return row.iraContribution;
-                },
-                getIraSavingsEndOfYear(row) {
-                    return row.iraSavingsStartOfYear + row.iraContributionLifetime + row.iraGrowthAmount;
-                },
-                getSavingsStartOfYear(row) {
-                    return row.taxDeferredSavingsStartOfYear + row.taxableSavingsStartOfYear + row.iraSavingsStartOfYear;
-                },
-                getSavingsEndOfYear(row) {
-                    return row.taxDeferredSavingsEndOfYear + row.taxableSavingsEndOfYear + row.iraSavingsEndOfYear;
-                },
-                getCash(row) {
-                    return row.cash + row.incomeDisposable - row.iraContribution - row.taxableContribution
-                },
-                getIncomeTaxed(row) {
-                    return row.incomeTaxable - row.incomeTaxAmount;
-                },
-                getIncomeTaxable(row) {
-                    return row.incomePreTaxed - row.taxDeferredContribution;
-                },
-                getIncomeDisposable(row) {
-                    return row.incomeTaxed - row.expenses;
-                },
-                getTaxDeferredContribution(row) {
-                    return Math.min(this.TaxDeferredContributionStrategies[row.taxDeferredContributionStrategy](row), row.taxDeferredContributionElectiveLimitApplied)
-                },
                 initializeTableRow(formData) {
                     let curRow = JSON.parse(JSON.stringify(formData));
                     /* TODO Need to account for employer contribution more than the employee. Goal is to maximize savings */
 
                     /* Initialization */
 
+                    curRow = RetirementCalculator.pipeline.startOfYearPipeline.initialize(curRow)
                     curRow = RetirementCalculator.process.electiveLimit.initialize(curRow)
-                    
+
                     curRow = RetirementCalculator.pipeline.taxDeferredPipeline.initialize(curRow)
                     curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.initialize(curRow)
                     curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.initialize(curRow)
-                    curRow = RetirementCalculator.pipeline.iraSavingsPipeline.initialize(curRow)
                     
+                    curRow = RetirementCalculator.pipeline.iraTaxableSavingsPipeline.initialize(curRow)
+                    curRow = RetirementCalculator.pipeline.iraTaxDeferredSavingsPipeline.initialize(curRow)
+
 
                     curRow.debtPayment = Math.min(curRow.debtPayment, curRow.debt)
                     curRow.debt -= curRow.debtPayment
                     curRow.debtPaymentTotal += curRow.debtPayment
 
+                    curRow = RetirementCalculator.pipeline.endOfYearPipeline.initialize(curRow)
 
-                    curRow.incomeTaxable = this.getIncomeTaxable(curRow)
-                    curRow.incomeTaxAmount = this.IncomeTaxStrategies[formData.incomeTaxStrategy](curRow)
-                    curRow.incomeTaxed = this.getIncomeTaxed(curRow)
-
-                    curRow.retirementIncomeProjected = curRow.savingsEndOfYear * curRow.retirementWithdrawalRate / 100
-
-                    curRow.incomeDisposable = this.getIncomeDisposable(curRow)
-                    curRow.cashStartOfYear = this.getCash(curRow)
 
                     return curRow;
 
                 }, updateRow(previousRow) {
                     let curRow = JSON.parse(JSON.stringify(previousRow));
-                    curRow.age += 1
-                    curRow.year += 1
-                    curRow.incomePreTaxed = this.IncomeGrowthStrategies[curRow.incomeGrowthStrategy](curRow)
-                    curRow.retirementIncomeGoal += curRow.retirementIncomeGoal * curRow.inflationRate / 100
 
 
+                    curRow = RetirementCalculator.pipeline.startOfYearPipeline.process(curRow)
                     curRow = RetirementCalculator.process.electiveLimit.process(curRow)
-
-                    
                     curRow = RetirementCalculator.pipeline.taxDeferredPipeline.process(curRow)
                     curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.process(curRow)
                     curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.process(curRow)
-                    curRow = RetirementCalculator.pipeline.iraSavingsPipeline.process(curRow)
-                    
-
-                    curRow.retirementIncomeProjected = curRow.savingsEndOfYear * curRow.retirementWithdrawalRate / 100
-
-                    curRow.expenses = this.ExpenseGrowthStrategies[curRow.expensesGrowthStrategy](curRow)
-                    curRow.incomeTaxable = this.getIncomeTaxable(curRow)
-                    curRow.incomeTaxAmount = this.IncomeTaxStrategies[curRow.incomeTaxStrategy](curRow)
-                    curRow.incomeTaxed = this.getIncomeTaxed(curRow)
-                    curRow.incomeDisposable = this.getIncomeDisposable(curRow)
-                    curRow.cashStartOfYear = this.getCash(curRow)
+                    curRow = RetirementCalculator.pipeline.iraTaxableSavingsPipeline.process(curRow)
+                    curRow = RetirementCalculator.pipeline.iraTaxDeferredSavingsPipeline.process(curRow)
+                    curRow = RetirementCalculator.pipeline.endOfYearPipeline.process(curRow)
                     return curRow;
                 }, fillTable() {
                     let firstRow = this.initializeTableRow(this.formData);

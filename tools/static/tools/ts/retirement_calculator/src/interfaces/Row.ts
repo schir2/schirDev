@@ -4,8 +4,10 @@ import {
     ExpensesGrowthStrategy,
     GrowthStrategy,
     IncomeTaxStrategy,
-    InflationGrowthStrategy, InvestmentGrowthStrategy,
+    InflationGrowthStrategy,
+    InvestmentGrowthStrategy,
     IraContributionStrategy,
+    IraType,
     RetirementStrategy,
     TaxableContributionStrategy,
 } from '../types'
@@ -92,18 +94,29 @@ export interface Row {
     employerSavingsStartOfYear: number;
     employerSavingsEndOfYear: number;
 
-    /* IRA */
-    iraSavingsStartOfYear: number;
-    iraSavingsEndOfYear: number;
-    iraContribution: number;
-    iraContributionFixedAmount: number;
-    iraContributionStrategy: IraContributionStrategy;
-    iraContributionLifetime: number;
-    iraContributionPercentage: number;
-    iraGrowthRate: number;
-    iraGrowthAmount: number;
-    iraContributionLimit: number;
-    iraContributionCatchUpLimit: number;
+  /* IRA Savings */
+  iraTaxableSavingsStartOfYear: number;
+  iraTaxableSavingsEndOfYear: number;
+  iraTaxableContribution: number;
+  iraTaxableContributionFixedAmount: number;
+  iraTaxableContributionStrategy: IraContributionStrategy;
+  iraTaxableContributionPercentage: number;
+  iraTaxableContributionLifetime: number;
+  iraTaxableGrowthAmount: number;
+
+  iraTaxDeferredSavingsStartOfYear: number;
+  iraTaxDeferredSavingsEndOfYear: number;
+  iraTaxDeferredContribution: number;
+  iraTaxDeferredContributionFixedAmount: number;
+  iraTaxDeferredContributionStrategy: IraContributionStrategy;
+  iraTaxDeferredContributionPercentage: number;
+  iraTaxDeferredContributionLifetime: number;
+  iraTaxDeferredGrowthAmount: number;
+
+  iraGrowthRate: number;
+  iraContributionLimit: number;
+  iraContributionCatchUpLimit: number;
+
 
     /* Taxable Savings */
     taxableSavingsStartOfYear: number;
@@ -123,4 +136,6 @@ export interface Row {
     /* Calculated Fields */
     savingsStartOfYear: number;
     savingsEndOfYear: number;
+    taxableSpending: number;
+    taxDeferredSpending: number;
 }

@@ -28,6 +28,7 @@ export default class TaxDeferredPipeline implements InvestmentPipeline {
         row = this.calculateContribution(row)
         row = this.calculateGrowthAmount(row)
         row.taxDeferredContributionLifetime = row.taxDeferredContribution
+        row.taxDeferredSpending += row.taxDeferredContribution
         row = this.calculateSavingsEndOfYear(row);
         return row
     }
@@ -37,7 +38,9 @@ export default class TaxDeferredPipeline implements InvestmentPipeline {
         row = this.calculateContribution(row)
         row = this.calculateGrowthAmount(row)
         row.taxDeferredContributionLifetime += row.taxDeferredContribution
+        row.taxDeferredSpending += row.taxDeferredContribution
         row = this.calculateSavingsEndOfYear(row);
+        row.savingsEndOfYear = row.taxDeferredContribution + row.taxDeferredGrowthAmount
         return row;
     }
 

@@ -8,3 +8,4 @@ export type ExpensesGrowthStrategy = 'fixed' | 'percentage_increase';
 export type IraContributionStrategy = 'fixed' | 'percent_of_income' | 'max';
 export type InvestmentGrowthStrategy = 'start' | 'end';
 export type TaxableContributionStrategy = 'fixed' | 'percent_of_income';
+export type IraType = 'roth' | 'traditional'

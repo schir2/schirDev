@@ -3,29 +3,31 @@ import {Row} from "../interfaces/Row";
 import {getElectiveContribution} from "./taxDeferredPipeline"
 
 export default class TaxDeferredEmployerPipeline implements InvestmentPipeline {
-    process(row: Row) {
-        row = this.calculateSavingsStartOfYear(row)
-        row = this.calculateContribution(row);
-        row.employerContributionLifetime += row.employerContribution
-        row = this.calculateSavingsEndOfYear(row);
-        return row;
-    }
-
     initialize(row: Row): Row {
         row.employerSavingsStartOfYear = row.employerSavingsStartOfYear ?? 0
         row = this.calculateContribution(row);
         row.employerContributionLifetime += row.employerContribution
+        row = this.calculateGrowthAmount(row)
         row = this.calculateSavingsEndOfYear(row)
         return row
     }
 
+    process(row: Row) {
+        row = this.calculateSavingsStartOfYear(row)
+        row = this.calculateContribution(row);
+        row.employerContributionLifetime += row.employerContribution
+        row = this.calculateGrowthAmount(row)
+        row = this.calculateSavingsEndOfYear(row);
+        return row;
+    }
+
     calculateSavingsEndOfYear(row: Row): Row {
-        row.savingsEndOfYear = row.savingsStartOfYear + row.employerContribution + row.employerGrowthAmount
+        row.employerSavingsEndOfYear = row.employerSavingsStartOfYear + row.employerContribution + row.employerGrowthAmount
         return row
     }
 
     calculateSavingsStartOfYear(row: Row): Row {
-        row.savingsStartOfYear = row.savingsEndOfYear
+        row.employerSavingsStartOfYear = row.employerSavingsEndOfYear
         return row
     }
 
@@ -60,7 +62,6 @@ export default class TaxDeferredEmployerPipeline implements InvestmentPipeline {
                 employerContribution = row.incomePreTaxed * (row.employerContributionPercentage / 100)
                 break
         }
-        console.log(row.taxDeferredContributionElectiveTotalLimitApplied, electiveContribution, employerContribution)
         row.employerContribution = Math.min(employerContribution, row.taxDeferredContributionElectiveTotalLimitApplied - electiveContribution)
         return row
 
