@@ -7,7 +7,6 @@ import {
     InflationGrowthStrategy,
     InvestmentGrowthStrategy,
     IraContributionStrategy,
-    IraType,
     RetirementStrategy,
     TaxableContributionStrategy,
 } from '../types'
@@ -94,28 +93,28 @@ export interface Row {
     employerSavingsStartOfYear: number;
     employerSavingsEndOfYear: number;
 
-  /* IRA Savings */
-  iraTaxableSavingsStartOfYear: number;
-  iraTaxableSavingsEndOfYear: number;
-  iraTaxableContribution: number;
-  iraTaxableContributionFixedAmount: number;
-  iraTaxableContributionStrategy: IraContributionStrategy;
-  iraTaxableContributionPercentage: number;
-  iraTaxableContributionLifetime: number;
-  iraTaxableGrowthAmount: number;
+    /* IRA Savings */
+    iraTaxableSavingsStartOfYear: number;
+    iraTaxableSavingsEndOfYear: number;
+    iraTaxableContribution: number;
+    iraTaxableContributionFixedAmount: number;
+    iraTaxableContributionStrategy: IraContributionStrategy;
+    iraTaxableContributionPercentage: number;
+    iraTaxableContributionLifetime: number;
+    iraTaxableGrowthAmount: number;
 
-  iraTaxDeferredSavingsStartOfYear: number;
-  iraTaxDeferredSavingsEndOfYear: number;
-  iraTaxDeferredContribution: number;
-  iraTaxDeferredContributionFixedAmount: number;
-  iraTaxDeferredContributionStrategy: IraContributionStrategy;
-  iraTaxDeferredContributionPercentage: number;
-  iraTaxDeferredContributionLifetime: number;
-  iraTaxDeferredGrowthAmount: number;
+    iraTaxDeferredSavingsStartOfYear: number;
+    iraTaxDeferredSavingsEndOfYear: number;
+    iraTaxDeferredContribution: number;
+    iraTaxDeferredContributionFixedAmount: number;
+    iraTaxDeferredContributionStrategy: IraContributionStrategy;
+    iraTaxDeferredContributionPercentage: number;
+    iraTaxDeferredContributionLifetime: number;
+    iraTaxDeferredGrowthAmount: number;
 
-  iraGrowthRate: number;
-  iraContributionLimit: number;
-  iraContributionCatchUpLimit: number;
+    iraGrowthRate: number;
+    iraContributionLimit: number;
+    iraContributionCatchUpLimit: number;
 
 
     /* Taxable Savings */

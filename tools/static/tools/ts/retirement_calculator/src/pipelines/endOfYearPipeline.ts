@@ -6,7 +6,6 @@ export default class EndOfYearPipeline implements Pipeline {
     initialize(row: Row): Row {
         row.incomeTaxable = this.calculateIncomeTaxable(row)
         row.incomeTaxAmount = this.calculateIncomeTaxAmount(row)
-        console.log(row.incomeTaxAmount)
         row.incomeTaxed = this.calculateIncomeTaxed(row)
         row.incomeDisposable = this.calculateIncomeDisposable(row)
         row.cashEndOfYear = this.calculateEndOfYearCash(row)
@@ -22,7 +21,7 @@ export default class EndOfYearPipeline implements Pipeline {
     process(row: Row): Row {
         row.incomeTaxable = this.calculateIncomeTaxable(row)
         row.incomeTaxAmount = this.calculateIncomeTaxAmount(row)
-        row.incomeTaxed -= this.calculateIncomeTaxed(row)
+        row.incomeTaxed = this.calculateIncomeTaxed(row)
         row.incomeDisposable = this.calculateIncomeDisposable(row)
         row.cashEndOfYear = this.calculateEndOfYearCash(row)
         row.retirementIncomeProjected = this.calculateRetirementIncomeProjected(row)
