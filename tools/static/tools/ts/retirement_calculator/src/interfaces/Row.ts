@@ -12,7 +12,13 @@ import {
     RetirementStrategy,
     TaxableContributionStrategy
 } from "../types";
-import {assertDefined, calculateCompoundInterest} from "../utils";
+import {
+    assertDefined,
+    calculateCompoundInterest,
+    calculateTaxDeferredContributionLimit, calculateTaxDeferredElectiveContributionCatchUpLimit,
+    calculateTaxDeferredElectiveContributionLimit
+} from "../utils";
+import {TAX_DEFERRED_CATCH_UP_AGE, TAX_DEFERRED_LIMIT_INFLATION_RATE} from "../constants";
 
 export class Row {
     age: number;
@@ -71,12 +77,12 @@ export class Row {
     taxDeferredGrowthRate: number;
     taxDeferredContributionLifetime: number;
 
-    taxDeferredContributionCatchUpLimit?: number;
-    taxDeferredContributionElectiveLimit?: number;
-    taxDeferredContributionElectiveLimitApplied?: number;
-    taxDeferredContributionTotalElectiveLimit?: number;
-    taxDeferredContributionElectiveTotalLimitApplied?: number;
-    taxDeferredContributionElectiveLimitInflationRate?: number;
+    taxDeferredContributionLimitInflationRate: number;
+    taxDeferredContributionElectiveCatchUpLimit: number;
+    taxDeferredContributionElectiveLimit: number;
+    taxDeferredContributionLimit: number;
+    taxDeferredContributionElectiveLimitApplied: number;
+    taxDeferredContributionLimitApplied: number;
 
     /* Employer Contributions */
     employerContributionStrategy: EmployerContributionStrategy;
@@ -177,12 +183,12 @@ export class Row {
         this.taxDeferredContribution = 0
         this.taxDeferredContributionLifetime = 0;
 
-        this.taxDeferredContributionElectiveLimitInflationRate = TAX_DEFERRED_LIMIT_INFLATION_RATE;
-        this.taxDeferredContributionCatchUpLimit = this.calculateTaxDeferredContributionCatchUpLimit();
-        this.taxDeferredContributionElectiveLimit = 0;
-        this.taxDeferredContributionElectiveLimitApplied =;
-        this.taxDeferredContributionTotalElectiveLimit = 0;
-        this.taxDeferredContributionElectiveTotalLimitApplied = 0;
+        this.taxDeferredContributionLimitInflationRate = TAX_DEFERRED_LIMIT_INFLATION_RATE;
+        this.taxDeferredContributionElectiveCatchUpLimit = calculateTaxDeferredElectiveContributionCatchUpLimit(this.year);
+        this.taxDeferredContributionElectiveLimit = calculateTaxDeferredElectiveContributionLimit(this.year)
+        this.taxDeferredContributionLimit = calculateTaxDeferredContributionLimit(this.year);
+        this.taxDeferredContributionElectiveLimitApplied = this.calculateTaxDeferredContributionElectiveLimitApplied() ;
+        this.taxDeferredContributionLimitApplied = this.calculateTaxDeferredContributionLimitApplied();
 
         this.employerContributionStrategy = formData.employerContributionStrategy;
         this.employerMatchPercentage = formData.employerMatchPercentage;
@@ -233,16 +239,6 @@ export class Row {
 
     }
 
-    private calculateTaxDeferredContributionCatchUpLimit() {
-        return calculateCompoundInterest(
-            TAX_DEFERRED_ELECTIVE_CONTRIBUTION_LIMIT_2024,
-            TAX_DEFERRED_LIMIT_INFLATION_RATE,
-            1,
-            this.year - TAX_DEFERRED_DEFAULT_YEAR
-        )
-
-    }
-
     calculateTaxableContribution(): number {
         switch (this.taxableContributionStrategy) {
             case 'fixed':
@@ -282,7 +278,7 @@ export class Row {
     }
 
     calculateEmployerContribution(): number {
-        assertDefined(this.taxDeferredContributionElectiveTotalLimitApplied, 'taxDeferredContributionElectiveTotalLimitApplied')
+        assertDefined(this.taxDeferredContributionLimitApplied, 'taxDeferredContributionElectiveTotalLimitApplied')
         let employerContribution = 0
         const electiveContribution = this.calculateTaxDeferredContribution()
 
@@ -301,7 +297,7 @@ export class Row {
                 employerContribution = this.incomePreTaxed * (this.employerContributionPercentage / 100)
                 break
         }
-        return Math.min(employerContribution, this.taxDeferredContributionElectiveTotalLimitApplied - electiveContribution)
+        return Math.min(employerContribution, this.taxDeferredContributionLimitApplied - electiveContribution)
 
     }
 
@@ -448,6 +444,26 @@ export class Row {
             case "percentage_increase":
                 return this.incomePreTaxed * (1 + this.incomeGrowthRate / 100)
         }
+    }
+
+    calculateTaxDeferredContributionElectiveLimitApplied(): number {
+        return this.age < TAX_DEFERRED_CATCH_UP_AGE ? this.taxDeferredContributionElectiveLimit : this.taxDeferredContributionElectiveLimit + this.taxDeferredContributionElectiveCatchUpLimit
+    }
+
+    calculateTaxDeferredContributionLimitApplied(): number {
+        return this.age < TAX_DEFERRED_CATCH_UP_AGE ? this.taxDeferredContributionLimit : this.taxDeferredContributionLimit + this.taxDeferredContributionElectiveCatchUpLimit
+    }
+
+    calculateAdjustedTaxDeferredContributionLimit(): number {
+        return this.taxDeferredContributionLimit * (1 + this.taxDeferredContributionLimitInflationRate / 100)
+    }
+
+    calculateAdjustedTaxDeferredContributionElectiveLimit(): number {
+        return this.taxDeferredContributionElectiveLimit * (1 + this.taxDeferredContributionLimitInflationRate / 100)
+    }
+
+    calculateAdjustedTaxDeferredContributionElectiveCatchUpLimit(): number {
+        return this.taxDeferredContributionElectiveCatchUpLimit * (1 + this.taxDeferredContributionLimitInflationRate / 100)
     }
 
 }
