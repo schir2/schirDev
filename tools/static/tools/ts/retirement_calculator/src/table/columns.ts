@@ -185,8 +185,8 @@ const tableColumns: ColumnDefinition<keyof Row>[] = [
         show: true
     },
     {
-        id: 'taxDeferredContributionCatchUpLimit',
-        value: 'taxDeferredContributionCatchUpLimit',
+        id: 'taxDeferredContributionElectiveCatchUpLimit',
+        value: 'taxDeferredContributionElectiveCatchUpLimit',
         label: 'taxDeferredContributionCatchUpLimit',
         format: 'currency',
         section: 'deferred',
@@ -209,24 +209,24 @@ const tableColumns: ColumnDefinition<keyof Row>[] = [
         show: true
     },
     {
-        id: 'taxDeferredContributionTotalElectiveLimit',
-        value: 'taxDeferredContributionTotalElectiveLimit',
+        id: 'taxDeferredContributionLimit',
+        value: 'taxDeferredContributionLimit',
         label: 'taxDeferredContributionTotalElectiveLimit',
         format: 'currency',
         section: 'deferred',
         show: true
     },
     {
-        id: 'taxDeferredContributionElectiveTotalLimitApplied',
-        value: 'taxDeferredContributionElectiveTotalLimitApplied',
+        id: 'taxDeferredContributionLimitApplied',
+        value: 'taxDeferredContributionLimitApplied',
         label: 'taxDeferredContributionElectiveTotalLimitApplied',
         format: 'currency',
         section: 'deferred',
         show: true
     },
     {
-        id: 'taxDeferredContributionElectiveLimitInflationRate',
-        value: 'taxDeferredContributionElectiveLimitInflationRate',
+        id: 'taxDeferredContributionLimitInflationRate',
+        value: 'taxDeferredContributionLimitInflationRate',
         label: 'taxDeferredContributionElectiveLimitInflationRate',
         format: 'percent',
         section: 'deferred',
