@@ -9,9 +9,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "watch": "chokidar \"src/**/*.ts\" -c \"npm run build\" --initial --verbose"
+    "watch": "chokidar \"src/**/*.ts\" -c \"npm run build\" --initial --verbose",
+    "test": "vitest"
   },
   "devDependencies": {
-    "chokidar-cli": "^3.0.0"
+    "chokidar-cli": "^3.0.0",
+    "vitest": "^2.1.4"
   }
 }
