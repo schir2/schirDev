@@ -12,6 +12,7 @@ export default class TaxableSavingsPipeline implements InvestmentPipeline {
         row.taxableContributionLifetime += row.taxableContribution
         row.taxableSpending += row.taxableContribution
         row.taxableSavingsEndOfYear = row.calculateTaxableSavingsEndOfYear()
+        row.savingsEndOfYear += row.taxableContribution + row.taxableGrowthAmount
         return row
 
     }

@@ -54,7 +54,8 @@ export class Row {
     expensesGrowthStrategy: ExpensesGrowthStrategy;
 
     /* Debt */
-    debt: number;
+    debtStartOfYear: number;
+    debtEndOfYear: number;
     debtInterestRate: number;
     debtPayment: number;
     debtPaymentTotal: number;
@@ -146,8 +147,10 @@ export class Row {
         this.retirementIncomeGoal = formData.retirementIncomeGoal;
         this.retirementAge = formData.retirementAge;
         this.retirementSavingsAmount = formData.retirementSavingsAmount;
-        this.cashStartOfYear = formData.cash;
+
+        this.cashStartOfYear = 0;
         this.cashEndOfYear = formData.cash;
+
         this.incomePreTaxed = formData.incomePreTaxed;
         this.incomeGrowthStrategy = formData.incomeGrowthStrategy;
         this.incomeGrowthRate = formData.incomeGrowthRate;
@@ -155,15 +158,19 @@ export class Row {
         this.incomeTaxStrategy = formData.incomeTaxStrategy;
         this.incomeTaxFilingStatus = formData.incomeTaxFilingStatus;
         this.incomeTaxNumberOfDependents = formData.incomeTaxNumberOfDependents;
+
         this.expenses = formData.expenses;
         this.expenseRate = formData.expenseRate;
         this.expensesGrowthStrategy = formData.expensesGrowthStrategy;
-        this.debt = formData.debt;
+
+        this.debtStartOfYear = 0;
+        this.debtEndOfYear = formData.debt;
         this.debtInterestRate = formData.debtInterestRate;
         this.debtPayment = formData.debtPayment;
         this.debtPaymentTotal = 0;
 
-        this.taxDeferredSavingsStartOfYear = formData.taxDeferredSavings;
+        this.taxDeferredSavingsStartOfYear = 0;
+        this.taxDeferredSavingsEndOfYear = formData.taxDeferredSavings;
         this.taxDeferredContributionFixedAmount = formData.taxDeferredContributionFixedAmount;
         this.taxDeferredContributionStrategy = formData.taxDeferredContributionStrategy;
         this.taxDeferredContributionPercentage = formData.taxDeferredContributionPercentage;
@@ -175,19 +182,23 @@ export class Row {
         this.employerContributionPercentage = formData.employerContributionPercentage;
         this.employerContributionFixedAmount = formData.employerContributionFixedAmount;
         this.employerSavingsStartOfYear = 0;
+        this.employerSavingsEndOfYear = 0;
         this.employerContributionLifetime = 0;
-        this.iraTaxableSavingsStartOfYear = formData.iraTaxableSavings;
+        this.iraTaxableSavingsStartOfYear = 0;
+        this.iraTaxableSavingsEndOfYear = formData.iraTaxableSavings;
         this.iraTaxableContributionFixedAmount = formData.iraTaxableContributionFixedAmount;
         this.iraTaxableContributionStrategy = formData.iraTaxableContributionStrategy;
         this.iraTaxableContributionPercentage = formData.iraTaxableContributionPercentage;
         this.iraTaxableContributionLifetime = 0;
-        this.iraTaxDeferredSavingsStartOfYear = formData.iraTaxDeferredSavings;
+        this.iraTaxDeferredSavingsStartOfYear = 0;
+        this.iraTaxDeferredSavingsEndOfYear = formData.iraTaxDeferredSavings;
         this.iraTaxDeferredContributionFixedAmount = formData.iraTaxDeferredContributionFixedAmount;
         this.iraTaxDeferredContributionStrategy = formData.iraTaxDeferredContributionStrategy;
         this.iraTaxDeferredContributionPercentage = formData.iraTaxDeferredContributionPercentage;
         this.iraTaxDeferredContributionLifetime = 0;
         this.iraGrowthRate = formData.iraGrowthRate;
-        this.taxableSavingsStartOfYear = formData.taxableSavings;
+        this.taxableSavingsStartOfYear = 0;
+        this.taxableSavingsEndOfYear = formData.taxableSavings;
         this.taxableContributionFixedAmount = formData.taxableContributionFixedAmount;
         this.taxableContributionStrategy = formData.taxableContributionStrategy;
         this.taxableContributionLifetime = 0;
@@ -208,13 +219,13 @@ export class Row {
         this.iraTaxDeferredContribution = this.calculateIraDeferredContribution()
         this.employerContribution = this.calculateEmployerContribution()
         this.savingsStartOfYear = this.calculateSavingsStartOfYear()
+        this.savingsEndoFYear = this.calculateSavingsEndoFYear()
 
     }
 
     calculateSavingsStartOfYear() {
         return this.taxableSavingsStartOfYear + this.iraTaxableSavingsStartOfYear + this.iraTaxDeferredSavingsStartOfYear + this.employerSavingsStartOfYear + this.taxDeferredSavingsStartOfYear;
     }
-
 
     calculateTaxableContribution(): number {
         switch (this.taxableContributionStrategy) {
@@ -360,13 +371,13 @@ export class Row {
         return this.taxDeferredSavingsStartOfYear + this.taxDeferredContribution + this.taxDeferredGrowthAmount;
     }
 
-    calculateSavingsEndOfYear(): number {
+    calculateEmployerSavingsEndOfYear(): number {
         assertDefined(this.employerGrowthAmount, 'employerGrowthAmount')
         return this.employerSavingsStartOfYear + this.employerContribution + this.employerGrowthAmount
     }
 
 
-    calculateGrowthAmount(): number {
+    calculateEmployerGrowthAmount(): number {
         switch (this.investmentGrowthStrategy) {
             case 'start':
                 return this.employerSavingsStartOfYear * (this.taxDeferredGrowthRate / 100)
@@ -374,4 +385,54 @@ export class Row {
                 return (this.employerSavingsStartOfYear + this.employerContribution) * (this.taxDeferredGrowthRate / 100)
         }
     }
+
+    calculateIncomeTaxable(): number {
+        return this.incomePreTaxed - this.taxDeferredSpending
+
+    }
+
+    calculateIncomeTaxAmount(): number {
+        assertDefined(this.incomeTaxable, 'incomeTaxable')
+        switch (this.incomeTaxStrategy) {
+            case 'bracket':
+                return this.incomeTaxable * this.incomeTaxRate / 100
+            case 'simple':
+                return this.incomeTaxable * this.incomeTaxRate / 100
+        }
+    }
+
+
+    calculateIncomeTaxed(): number {
+        assertDefined(this.incomeTaxable, 'incomeTaxable')
+        assertDefined(this.incomeTaxAmount, 'incomeTaxAmount')
+        return this.incomeTaxable - this.incomeTaxAmount;
+    }
+
+
+    calculateIncomeDisposable(): number {
+        assertDefined(this.incomeTaxed, 'incomeTaxed')
+        return this.incomeTaxed - this.taxableSpending - this.expenses
+    }
+
+    calculateEndOfYearCash(): number {
+        assertDefined(this.incomeDisposable, 'incomeDisposable')
+        return this.incomeDisposable
+    }
+
+
+    calculateRetirementIncomeProjected(): number {
+        return this.savingsEndOfYear * this.retirementWithdrawalRate / 100
+    }
+
+
+    calculateIncome(): number {
+        switch (this.incomeGrowthStrategy) {
+            case "fixed":
+                return this.incomePreTaxed
+            case "percentage_increase":
+                return this.incomePreTaxed * (1 + this.incomeGrowthRate / 100)
+        }
+    }
+
+
 }

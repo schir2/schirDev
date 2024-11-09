@@ -11,6 +11,7 @@ export default class IraTaxableSavingsPipeline implements InvestmentPipeline {
         row.iraTaxableGrowthAmount = row.calculateIraTaxableGrowthAmount()
         row.iraTaxableSavingsEndOfYear = row.calculateIraTaxableSavingsEndOfYear()
         row.iraTaxableContributionLifetime += row.iraTaxableContribution
+        row.savingsEndOfYear += row.iraTaxableContribution + row.iraTaxableGrowthAmount
         return row
 
     }

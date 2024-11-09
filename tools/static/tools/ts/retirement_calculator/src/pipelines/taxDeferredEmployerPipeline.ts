@@ -9,8 +9,9 @@ export default class TaxDeferredEmployerPipeline implements InvestmentPipeline {
         row.taxDeferredSavingsStartOfYear = row.taxDeferredSavingsEndOfYear
         row.employerContribution = row.calculateEmployerContribution();
         row.employerContributionLifetime += row.employerContribution
-        row.taxDeferredGrowthAmount = row.calculateGrowthAmount()
-        row.taxDeferredSavingsEndOfYear = row.calculateSavingsEndOfYear();
+        row.employerGrowthAmount = row.calculateEmployerGrowthAmount()
+        row.employerSavingsEndOfYear = row.calculateEmployerSavingsEndOfYear();
+        row.savingsEndOfYear += row.employerContribution + row.employerGrowthAmount
         return row;
     }
 }

@@ -6,6 +6,7 @@ export default class StartOfYearPipeline implements Pipeline {
     process(row: Row): Row {
         row.age += 1
         row.year += 1
+        row.incomePreTaxed = row.calculateIncome()
         row.savingsStartOfYear = row.savingsEndOfYear
         row.retirementIncomeGoal += row.retirementIncomeGoal * row.inflationRate / 100
         row.taxDeferredSpending = 0

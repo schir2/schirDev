@@ -11,6 +11,7 @@ export default class IraTaxDeferredSavingsPipeline implements InvestmentPipeline
         row.iraTaxDeferredGrowthAmount = row.calculateIraTaxDeferredGrowthAmount()
         row.iraTaxDeferredSavingsEndOfYear = row.calculateIraTaxDeferredSavingsEndOfYear()
         row.iraTaxDeferredContributionLifetime += row.iraTaxDeferredContribution
+        row.savingsEndOfYear += row.iraTaxDeferredContribution + row.iraTaxDeferredGrowthAmount
         return row
     }
 }
