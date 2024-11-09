@@ -12,8 +12,7 @@ import {
     RetirementStrategy,
     TaxableContributionStrategy
 } from "../types";
-import {assertDefined} from "../utils";
-import {getElectiveContribution} from "../pipelines/taxDeferredPipeline";
+import {assertDefined, calculateCompoundInterest} from "../utils";
 
 export class Row {
     age: number;
@@ -175,7 +174,16 @@ export class Row {
         this.taxDeferredContributionStrategy = formData.taxDeferredContributionStrategy;
         this.taxDeferredContributionPercentage = formData.taxDeferredContributionPercentage;
         this.taxDeferredGrowthRate = formData.taxDeferredGrowthRate;
+        this.taxDeferredContribution = 0
         this.taxDeferredContributionLifetime = 0;
+
+        this.taxDeferredContributionElectiveLimitInflationRate = TAX_DEFERRED_LIMIT_INFLATION_RATE;
+        this.taxDeferredContributionCatchUpLimit = this.calculateTaxDeferredContributionCatchUpLimit();
+        this.taxDeferredContributionElectiveLimit = 0;
+        this.taxDeferredContributionElectiveLimitApplied =;
+        this.taxDeferredContributionTotalElectiveLimit = 0;
+        this.taxDeferredContributionElectiveTotalLimitApplied = 0;
+
         this.employerContributionStrategy = formData.employerContributionStrategy;
         this.employerMatchPercentage = formData.employerMatchPercentage;
         this.employerMatchPercentageLimit = formData.employerMatchPercentageLimit;
@@ -183,24 +191,32 @@ export class Row {
         this.employerContributionFixedAmount = formData.employerContributionFixedAmount;
         this.employerSavingsStartOfYear = 0;
         this.employerSavingsEndOfYear = 0;
+        this.employerContribution = 0;
         this.employerContributionLifetime = 0;
+
         this.iraTaxableSavingsStartOfYear = 0;
         this.iraTaxableSavingsEndOfYear = formData.iraTaxableSavings;
         this.iraTaxableContributionFixedAmount = formData.iraTaxableContributionFixedAmount;
         this.iraTaxableContributionStrategy = formData.iraTaxableContributionStrategy;
+        this.iraTaxableContribution = 0
         this.iraTaxableContributionPercentage = formData.iraTaxableContributionPercentage;
         this.iraTaxableContributionLifetime = 0;
+
         this.iraTaxDeferredSavingsStartOfYear = 0;
         this.iraTaxDeferredSavingsEndOfYear = formData.iraTaxDeferredSavings;
         this.iraTaxDeferredContributionFixedAmount = formData.iraTaxDeferredContributionFixedAmount;
         this.iraTaxDeferredContributionStrategy = formData.iraTaxDeferredContributionStrategy;
+        this.iraTaxDeferredContribution = 0;
         this.iraTaxDeferredContributionPercentage = formData.iraTaxDeferredContributionPercentage;
         this.iraTaxDeferredContributionLifetime = 0;
+
         this.iraGrowthRate = formData.iraGrowthRate;
+
         this.taxableSavingsStartOfYear = 0;
         this.taxableSavingsEndOfYear = formData.taxableSavings;
         this.taxableContributionFixedAmount = formData.taxableContributionFixedAmount;
         this.taxableContributionStrategy = formData.taxableContributionStrategy;
+        this.taxableContribution = 0
         this.taxableContributionLifetime = 0;
         this.taxableContributionPercentage = formData.taxableContributionPercentage;
         this.taxableGrowthRate = formData.taxableGrowthRate;
@@ -212,19 +228,19 @@ export class Row {
         this.taxableSpending = 0;
         this.taxDeferredSpending = 0;
         this.investmentGrowthStrategy = 'start'
-        this.taxDeferredContribution = this.calculateTaxDeferredContribution()
-        this.taxableContribution = this.calculateTaxableContribution()
-        this.taxDeferredContribution = this.calculateTaxableContribution()
-        this.iraTaxableContribution = this.calculateIraTaxableContribution()
-        this.iraTaxDeferredContribution = this.calculateIraDeferredContribution()
-        this.employerContribution = this.calculateEmployerContribution()
-        this.savingsStartOfYear = this.calculateSavingsStartOfYear()
-        this.savingsEndoFYear = this.calculateSavingsEndoFYear()
+        this.savingsStartOfYear = 0
+        this.savingsEndOfYear = this.taxableSavingsEndOfYear + this.taxDeferredSavingsEndOfYear + this.iraTaxableSavingsEndOfYear + this.iraTaxDeferredSavingsEndOfYear + this.employerSavingsEndOfYear
 
     }
 
-    calculateSavingsStartOfYear() {
-        return this.taxableSavingsStartOfYear + this.iraTaxableSavingsStartOfYear + this.iraTaxDeferredSavingsStartOfYear + this.employerSavingsStartOfYear + this.taxDeferredSavingsStartOfYear;
+    private calculateTaxDeferredContributionCatchUpLimit() {
+        return calculateCompoundInterest(
+            TAX_DEFERRED_ELECTIVE_CONTRIBUTION_LIMIT_2024,
+            TAX_DEFERRED_LIMIT_INFLATION_RATE,
+            1,
+            this.year - TAX_DEFERRED_DEFAULT_YEAR
+        )
+
     }
 
     calculateTaxableContribution(): number {
@@ -268,7 +284,7 @@ export class Row {
     calculateEmployerContribution(): number {
         assertDefined(this.taxDeferredContributionElectiveTotalLimitApplied, 'taxDeferredContributionElectiveTotalLimitApplied')
         let employerContribution = 0
-        const electiveContribution = getElectiveContribution(this)
+        const electiveContribution = this.calculateTaxDeferredContribution()
 
         switch (this.employerContributionStrategy) {
             case 'none':
@@ -414,7 +430,7 @@ export class Row {
         return this.incomeTaxed - this.taxableSpending - this.expenses
     }
 
-    calculateEndOfYearCash(): number {
+    calculateCashEndOfYear(): number {
         assertDefined(this.incomeDisposable, 'incomeDisposable')
         return this.incomeDisposable
     }
@@ -433,6 +449,5 @@ export class Row {
                 return this.incomePreTaxed * (1 + this.incomeGrowthRate / 100)
         }
     }
-
 
 }
