@@ -8,7 +8,7 @@ export default class EndOfYearPipeline implements Pipeline {
         row.incomeTaxAmount = row.calculateIncomeTaxAmount()
         row.incomeTaxed = row.calculateIncomeTaxed()
         row.incomeDisposable = row.calculateIncomeDisposable()
-        row.cashEndOfYear = row.calculateEndOfYearCash()
+        row.cashEndOfYear = row.calculateCashEndOfYear()
         row.retirementIncomeProjected = row.calculateRetirementIncomeProjected()
         return row
     }
