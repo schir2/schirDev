@@ -11,291 +11,28 @@
         <div class="col-span-2 space-y-6">
             <nav id="sectionFilters">
                 <ul class="flex flex-wrap gap-3 text-xs">
-                    <li>
-                        <button @click="sectionFilters.personal = !sectionFilters.personal" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.personal ? 'bg-skin-success' : 'bg-skin-muted'">personal
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.debt = !sectionFilters.debt" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.debt ? 'bg-skin-success' : 'bg-skin-muted'">debt
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.retirement = !sectionFilters.retirement" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.retirement ? 'bg-skin-success' : 'bg-skin-muted'">retirement
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.income = !sectionFilters.income" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.income ? 'bg-skin-success' : 'bg-skin-muted'">income
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.taxes = !sectionFilters.taxes" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.taxes ? 'bg-skin-success' : 'bg-skin-muted'">taxes
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.savings = !sectionFilters.savings" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.savings ? 'bg-skin-success' : 'bg-skin-muted'">savings
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.deferred = !sectionFilters.deferred" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.deferred ? 'bg-skin-success' : 'bg-skin-muted'">deferred
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.employer = !sectionFilters.employer" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.employer ? 'bg-skin-success' : 'bg-skin-muted'">employer
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.ira = !sectionFilters.ira" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.ira ? 'bg-skin-success' : 'bg-skin-muted'">ira
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.taxable = !sectionFilters.taxable" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.taxable ? 'bg-skin-success' : 'bg-skin-muted'">taxable
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="sectionFilters.targets = !sectionFilters.targets" class="px-2 py-1 rounded-sm border"
-                                :class="sectionFilters.targets ? 'bg-skin-success' : 'bg-skin-muted'">targets
-                        </button>
-                    </li>
+                    <template x-for="[key, value] in Object.entries(sectionFilters)">
+                        <li>
+                            <button @click="sectionFilters[key] = !sectionFilters[key]" class="px-2 py-1 rounded-sm border"
+                                    :class="value ? 'bg-skin-success' : 'bg-skin-muted'"><span x-text="key"></span>
+                            </button>
+                        </li>
 
-
+                    </template>
                 </ul>
             </nav>
             <nav id="columnFilters">
                 <ul class="flex flex-wrap gap-3 text-xs">
-                    <li>
-                        <button @click="columnFilters.age = !columnFilters.age" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.age ? 'bg-skin-success' : 'bg-skin-muted'">age
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.incomePreTaxed = !columnFilters.incomePreTaxed" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.incomePreTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomePreTaxed
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.incomeTaxable = !columnFilters.incomeTaxable" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.incomeTaxable ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxable
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.incomeTaxed = !columnFilters.incomeTaxed" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.incomeTaxed ? 'bg-skin-success' : 'bg-skin-muted'">incomeTaxed
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.expenses = !columnFilters.expenses" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.expenses ? 'bg-skin-success' : 'bg-skin-muted'">expenses
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.incomeDisposable = !columnFilters.incomeDisposable"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.incomeDisposable ? 'bg-skin-success' : 'bg-skin-muted'">incomeDisposable
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.debt = !columnFilters.debt" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.debt ? 'bg-skin-success' : 'bg-skin-muted'">debt
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.debtInterestRate = !columnFilters.debtInterestRate"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.debtInterestRate ? 'bg-skin-success' : 'bg-skin-muted'">debtInterestRate
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.debtPayment = !columnFilters.debtPayment" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.debtPayment ? 'bg-skin-success' : 'bg-skin-muted'">debtPayment
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.debtPaymentTotal = !columnFilters.debtPaymentTotal"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.debtPaymentTotal ? 'bg-skin-success' : 'bg-skin-muted'">debtPaymentTotal
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.retirementStrategy = !columnFilters.retirementStrategy"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.retirementStrategy ? 'bg-skin-success' : 'bg-skin-muted'">retirementStrategy
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.retirementWithdrawalRate = !columnFilters.retirementWithdrawalRate"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.retirementWithdrawalRate ? 'bg-skin-success' : 'bg-skin-muted'">
-                            retirementWithdrawalRate
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.retirementIncomeProjected = !columnFilters.retirementIncomeProjected"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.retirementIncomeProjected ? 'bg-skin-success' : 'bg-skin-muted'">
-                            retirementIncomeProjected
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.retirementIncomeGoal = !columnFilters.retirementIncomeGoal"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.retirementIncomeGoal ? 'bg-skin-success' : 'bg-skin-muted'">retirementIncomeGoal
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.retirementAge = !columnFilters.retirementAge" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.retirementAge ? 'bg-skin-success' : 'bg-skin-muted'">retirementAge
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.retirementSavingsAmount = !columnFilters.retirementSavingsAmount"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.retirementSavingsAmount ? 'bg-skin-success' : 'bg-skin-muted'">retirementSavingsAmount
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.iraTaxableSavingsStartOfYear = !columnFilters.iraTaxableSavingsStartOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraTaxableSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableSavingsStartOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.iraTaxableContribution = !columnFilters.iraTaxableContribution" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraTaxableContribution ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableContribution
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.iraTaxableContributionLifetime = !columnFilters.iraTaxableContributionLifetime"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraTaxableContributionLifetime ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableContributionLifetime
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.iraTaxableSavingsEndOfYear = !columnFilters.iraTaxableSavingsEndOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.iraTaxableSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">iraTaxableSavingsEndOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredSavingsStartOfYear = !columnFilters.taxDeferredSavingsStartOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxDeferredSavingsStartOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredContribution = !columnFilters.taxDeferredContribution"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxDeferredContribution
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.employerSavingsStartOfYear = !columnFilters.employerSavingsStartOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.employerSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
-                            employerSavingsStartOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.employerContribution = !columnFilters.employerContribution"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.employerContribution ? 'bg-skin-success' : 'bg-skin-muted'">employerContribution
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.employerSavingsEndOfYear = !columnFilters.employerSavingsEndOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.employerSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
-                            employerSavingsEndOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredContributionTotal = !columnFilters.taxDeferredContributionTotal"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredContributionTotal ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxDeferredContributionTotal
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredSavingsEndOfYear = !columnFilters.taxDeferredSavingsEndOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxDeferredSavingsEndOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxableSavingsStartOfYear = !columnFilters.taxableSavingsStartOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxableSavingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxableSavingsStartOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxableContribution = !columnFilters.taxableContribution"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxableContribution ? 'bg-skin-success' : 'bg-skin-muted'">taxableContribution
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxableContributionLifetime = !columnFilters.taxableContributionLifetime"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxableContributionLifetime ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxableContributionLifetime
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxableSavingsEndOfYear = !columnFilters.taxableSavingsEndOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxableSavingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">taxableSavingsEndOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredContributionElectiveLimit = !columnFilters.taxDeferredContributionElectiveLimit"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredContributionElectiveLimit ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxDeferredContributionElectiveLimit
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredContributionElectiveLimitApplied = !columnFilters.taxDeferredContributionElectiveLimitApplied"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredContributionElectiveLimitApplied ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxDeferredContributionElectiveLimitApplied
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.taxDeferredContributionElectiveTotalLimitApplied = !columnFilters.taxDeferredContributionElectiveTotalLimitApplied"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.taxDeferredContributionElectiveTotalLimitApplied ? 'bg-skin-success' : 'bg-skin-muted'">
-                            taxDeferredContributionElectiveTotalLimitApplied
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.cash = !columnFilters.cash" class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.cash ? 'bg-skin-success' : 'bg-skin-muted'">cash
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.savingsStartOfYear = !columnFilters.savingsStartOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.savingsStartOfYear ? 'bg-skin-success' : 'bg-skin-muted'">savingsStartOfYear
-                        </button>
-                    </li>
-                    <li>
-                        <button @click="columnFilters.savingsEndOfYear = !columnFilters.savingsEndOfYear"
-                                class="px-2 py-1 rounded-sm border"
-                                :class="columnFilters.savingsEndOfYear ? 'bg-skin-success' : 'bg-skin-muted'">savingsEndOfYear
-                        </button>
-                    </li>
+                    <template x-for="(column, index) in columns">
+
+                        <li x-show="sectionFilters[column.section]">
+                            <button @click="column.show = !column.show" class="px-2 py-1 rounded-sm border"
+                                    :class="column.show ? 'bg-skin-success' : 'bg-skin-muted'"
+                                    x-text="column.label"
+                            ></button>
+                        </li>
+                    </template>
+
                 </ul>
             </nav>
             <table class="table-auto border border-collapse">
@@ -308,161 +45,20 @@
                 {#                    <th class="text-left px-4 py-1 font-semibold text-base bg-skin-primary" colspan="3">Savings</th>#}
                 {#                </tr>#}
                 <tr>
-                    <th x-show="columnFilters.age" class="px-4 py-1 text-start  bg-skin-tertiary/60">Age</th>
-                    <th x-show="columnFilters.incomePreTaxed" class="px-4 py-1 text-end  bg-skin-tertiary/60">Pre-Tax</th>
-                    <th x-show="columnFilters.incomeTaxable" class="px-4 py-1 text-end  bg-skin-tertiary/60">Taxable</th>
-                    <th x-show="columnFilters.incomeTaxed" class="px-4 py-1 text-end  bg-skin-tertiary/60">Post-Tax</th>
-                    <th x-show="columnFilters.expenses" class="px-4 py-1 text-end  bg-skin-tertiary/60">Expenses</th>
-                    <th x-show="columnFilters.incomeDisposable" class="px-4 py-1 text-end  bg-skin-tertiary/60">Disposable</th>
-                    <th x-show="columnFilters.debt" class="px-4 py-1 text-end  bg-skin-tertiary/60">debt</th>
-                    <th x-show="columnFilters.debtInterestRate" class="px-4 py-1 text-end  bg-skin-tertiary/60">debtInterestRate</th>
-                    <th x-show="columnFilters.debtPayment" class="px-4 py-1 text-end  bg-skin-tertiary/60">debtPayment</th>
-                    <th x-show="columnFilters.debtPaymentTotal" class="px-4 py-1 text-end  bg-skin-tertiary/60">debtPaymentTotal</th>
-                    <th x-show="columnFilters.retirementStrategy" class="px-4 py-1 text-end  bg-skin-tertiary/60">Retirement Strategy</th>
-                    <th x-show="columnFilters.retirementWithdrawalRate" class="px-4 py-1 text-end  bg-skin-tertiary/60">Withdrawal Rate</th>
-                    <th x-show="columnFilters.retirementIncomeProjected" class="px-4 py-1 text-end  bg-skin-tertiary/60">Income Projected
-                    </th>
-                    <th x-show="columnFilters.retirementIncomeGoal" class="px-4 py-1 text-end  bg-skin-tertiary/60">Income Goal</th>
-                    <th x-show="columnFilters.retirementAge" class="px-4 py-1 text-end  bg-skin-tertiary/60">Age</th>
-                    <th x-show="columnFilters.retirementSavingsAmount" class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings</th>
-                    <th x-show="columnFilters.iraTaxableSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
-                    <th x-show="columnFilters.iraTaxableContribution" class="px-4 py-1 text-end  bg-skin-primary/60">Contribution</th>
-                    <th x-show="columnFilters.iraTaxableContributionLifetime" class="px-4 py-1 text-end  bg-skin-primary/60">Total Contribution
-                    </th>
-                    <th x-show="columnFilters.iraTaxableSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
-                    <th x-show="columnFilters.taxDeferredSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred
-                        (SOY)
-                    </th>
-                    <th x-show="columnFilters.taxDeferredContribution" class="px-4 py-1 text-end  bg-skin-secondary/60">Contribution</th>
-                    <th x-show="columnFilters.employerSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">ESOYS
-                    <th x-show="columnFilters.employerContribution" class="px-4 py-1 text-end  bg-skin-secondary/60">ECON
-                    <th x-show="columnFilters.employerSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">EEOYS
-                    </th>
-                    <th x-show="columnFilters.taxDeferredContributionTotal" class="px-4 py-1 text-end  bg-skin-secondary/60">Total
-                        Contribution
-                    </th>
-                    <th x-show="columnFilters.taxDeferredSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-secondary/60">Tax Deferred
-                        (EOY)
-                    </th>
-                    <th x-show="columnFilters.taxableSavingsStartOfYear" class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (SOY)</th>
-                    <th x-show="columnFilters.taxableContribution" class="px-4 py-1 text-end  bg-skin-tertiary/60">Contribution</th>
-                    <th x-show="columnFilters.taxableContributionLifetime" class="px-4 py-1 text-end  bg-skin-tertiary/60">Total
-                        Contribution
-                    </th>
-                    <th x-show="columnFilters.taxableSavingsEndOfYear" class="px-4 py-1 text-end  bg-skin-tertiary/60">Savings (EOY)</th>
-                    <th x-show="columnFilters.taxDeferredContributionElectiveLimit" class="px-4 py-1 text-end  bg-skin-tertiary/60">
-                        taxDeferredContributionElectiveLimit
-                    </th>
-                    <th x-show="columnFilters.taxDeferredContributionElectiveLimitApplied" class="px-4 py-1 text-end  bg-skin-tertiary/60">
-                        taxDeferredContributionElectiveLimitApplied
-                    </th>
-                    <th x-show="columnFilters.taxDeferredContributionElectiveTotalLimitApplied"
-                        class="px-4 py-1 text-end  bg-skin-tertiary/60">taxDeferredContributionElectiveTotalLimitApplied
-                    </th>
-                    <th x-show="columnFilters.cash" class="px-4 py-1 text-end  bg-skin-primary/60">Cash</th>
-                    <th x-show="columnFilters.savingsStartOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (SOY)</th>
-                    <th x-show="columnFilters.savingsEndOfYear" class="px-4 py-1 text-end  bg-skin-primary/60">Savings (EOY)</th>
+                    <template x-for="(column, index) in columns">
+                        <th x-show="sectionFilters[column.section] && column.show" class="px-4 py-1 text-start  bg-skin-tertiary/60">
+                            <span x-text="column.label"></span>
+                        </th>
+                    </template>
                 </tr>
                 </thead>
                 <tbody class="text-sm">
                 <template x-for="(row, index) in results">
                     <tr class="border-b">
-                        <td x-show="columnFilters.age" class="px-4 py-1 bg-skin-tertiary"><span x-text="row.age"></span></td>
-                        <td x-show="columnFilters.incomePreTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.incomePreTaxed)"></span></td>
-                        <td x-show="columnFilters.incomeTaxable" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.incomeTaxable)"></span></td>
-                        <td x-show="columnFilters.incomeTaxed" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.incomeTaxed)"></span></td>
-                        <td x-show="columnFilters.expenses" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.expenses)"></span></td>
-                        <td x-show="columnFilters.incomeDisposable" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.incomeDisposable)"></span></td>
-                        <td x-show="columnFilters.debt" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.debt)"></span></td>
-                        <td x-show="columnFilters.debtInterestRate" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.debtInterestRate"></span></td>
-                        <td x-show="columnFilters.debtPayment" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.debtPayment)"></span></td>
-                        <td x-show="columnFilters.debtPaymentTotal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.debtPaymentTotal)"></span></td>
-                        <td x-show="columnFilters.retirementStrategy" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.retirementStrategy"></span></td>
-                        <td x-show="columnFilters.retirementWithdrawalRate" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.retirementWithdrawalRate"></span></td>
-                        <td x-show="columnFilters.retirementIncomeProjected" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.retirementIncomeProjected)"></span>
-                        </td>
-                        <td x-show="columnFilters.retirementIncomeGoal" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.retirementIncomeGoal)"></span>
-                        </td>
-                        <td x-show="columnFilters.retirementAge" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="row.retirementAge"></span></td>
-                        <td x-show="columnFilters.retirementSavingsAmount" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.retirementSavingsAmount)"></span>
-                        </td>
-                        <td x-show="columnFilters.iraTaxableSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraTaxableSavingsStartOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.iraTaxableContribution" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraTaxableContribution)"></span></td>
-                        <td x-show="columnFilters.iraTaxableContributionLifetime" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraTaxableContributionLifetime)"></span>
-                        </td>
-                        <td x-show="columnFilters.iraTaxableSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.iraTaxableSavingsEndOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.taxDeferredSavingsStartOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.taxDeferredContribution)"></span>
-                        </td>
-                        <td x-show="columnFilters.employerSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.employerSavingsStartOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.employerContribution" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.employerContribution)"></span>
-                        </td>
-                        <td x-show="columnFilters.employerSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.employerSavingsEndOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredContributionTotal" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.taxDeferredContribution + row.employerContribution)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.taxDeferredSavingsEndOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredContributionElectiveLimit" class="px-4 py-1 text-end bg-skin-secondary/40">
-                            <span x-text="toCurrency(row.taxDeferredContributionElectiveLimit)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredContributionElectiveLimitApplied"
-                            class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.taxDeferredContributionElectiveLimitApplied)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxDeferredContributionElectiveTotalLimitApplied"
-                            class="px-4 py-1 text-end bg-skin-secondary/40"><span
-                                x-text="toCurrency(row.taxDeferredContributionElectiveTotalLimitApplied)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxableSavingsStartOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.taxableSavingsStartOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxableContribution" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.taxableContribution)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxableContributionLifetime" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.taxableContributionLifetime)"></span>
-                        </td>
-                        <td x-show="columnFilters.taxableSavingsEndOfYear" class="px-4 py-1 text-end bg-skin-tertiary/40"><span
-                                x-text="toCurrency(row.taxableSavingsEndOfYear)"></span>
-                        </td>
-                        <td x-show="columnFilters.cash" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                :class="row.cash < 0 && 'text-skin-error'"
-                                x-text="toCurrency(row.cash)"></span></td>
-                        <td x-show="columnFilters.savingsStartOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.savingsStartOfYear)"></span></td>
-                        <td x-show="columnFilters.savingsEndOfYear" class="px-4 py-1 text-end bg-skin-primary/40"><span
-                                x-text="toCurrency(row.savingsEndOfYear)"></span></td>
+                        <template x-for="(column, index) in columns">
+                            <td x-show="sectionFilters[column.section] && column.show" class="px-4 py-1 bg-skin-tertiary">
+                                <span x-text="formatValue(row[column.value], column.format)"></span></td>
+                        </template>
                     </tr>
                 </template>
                 </tbody>
@@ -667,7 +263,8 @@
                         </div>
                         <!-- IRA Contribution Inputs -->
                         <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'fixed'">
-                            <c-input :field="form.ira_contribution_fixed_amount" x-model.number="formData.iraTaxableContributionFixedAmount"/>
+                            <c-input :field="form.ira_contribution_fixed_amount"
+                                     x-model.number="formData.iraTaxableContributionFixedAmount"/>
                         </div>
                         <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'percent_of_income'">
                             <c-input :field="form.ira_contribution_percentage" x-model.number="formData.iraTaxableContributionPercentage"/>
@@ -719,41 +316,11 @@
                     ira: true,
                     taxable: true,
                     targets: true,
+                    extra: true,
 
                 }),
-                columnFilters: Alpine.$persist({
-                    age: true,
-                    incomePreTaxed: true,
-                    incomeTaxable: true,
-                    incomeTaxed: true,
-                    expenses: true,
-                    debt: true,
-                    incomeDisposable: true,
-                    retirementStrategy: true,
-                    retirementWithdrawalRate: true,
-                    retirementIncomeGoal: true,
-                    retirementAge: true,
-                    retirementSavingsAmount: true,
-                    iraTaxableSavingsStartOfYear: true,
-                    iraTaxableContribution: true,
-                    iraTaxableContributionLifetime: true,
-                    iraTaxableSavingsEndOfYear: true,
-                    taxDeferredSavingsStartOfYear: true,
-                    taxDeferredContribution: true,
-                    employerSavingsStartOfYear: true,
-                    employerContribution: true,
-                    employerSavingsEndOfYear: true,
-                    taxDeferredContributionTotal: true,
-                    taxDeferredSavingsEndOfYear: true,
-                    taxableSavingsStartOfYear: true,
-                    taxableContribution: true,
-                    taxableContributionLifetime: true,
-                    taxableSavingsEndOfYear: true,
-                    cash: true,
-                    savingsStartOfYear: true,
-                    savingsEndOfYear: true,
-                }),
-                results: null,
+                columns: Alpine.$persist(RetirementCalculator.table.columns),
+                results: [],
 
                 init() {
                     this.$watch('formData', () => {
@@ -761,11 +328,13 @@
                     });
                     this.fillTable();
                 },
-                toCurrency: (str) => {
-                    if (str === 0 || str) {
-                        return str.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+                formatValue: (value, format) => {
+                    console.log(value, format)
+                    if (format === 'currency') {
+                        return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
                     }
-                    return null
+
+                    return value
                 },
 
 
@@ -799,7 +368,7 @@
                     curRow = RetirementCalculator.pipeline.taxDeferredPipeline.initialize(curRow)
                     curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.initialize(curRow)
                     curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.initialize(curRow)
-                    
+
                     curRow = RetirementCalculator.pipeline.iraTaxableSavingsPipeline.initialize(curRow)
                     curRow = RetirementCalculator.pipeline.iraTaxDeferredSavingsPipeline.initialize(curRow)
 

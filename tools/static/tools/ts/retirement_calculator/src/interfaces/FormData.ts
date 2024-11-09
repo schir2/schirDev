@@ -22,22 +22,15 @@ export default interface FormData {
   retirementIncomeGoal: number;
   retirementAge: number;
   retirementSavingsAmount: number;
-  retirementIncomeProjected: number;
 
-  /* Initial Values */
   cash: number;
 
   /* Income */
   incomePreTaxed: number;
-  incomeTaxable: number;
-  incomeTaxed: number;
-  incomeDisposable: number;
   incomeGrowthStrategy: GrowthStrategy;
   incomeGrowthRate: number;
-  incomeGrowthAmount: number;
 
   /* Income Tax */
-  incomeTaxAmount: number;
   incomeTaxRate: number;
   incomeTaxStrategy: IncomeTaxStrategy;
   incomeTaxFilingStatus: string;
@@ -52,65 +45,39 @@ export default interface FormData {
   debt: number;
   debtInterestRate: number;
   debtPayment: number;
-  debtPaymentTotal: number;
 
-  /* Goals */
-  targetAnnualRetirementSpendingPreTaxed: number;
-  targetEndOfLifeSavingsPreTaxed: number;
 
   /* Tax Deferred Savings */
-  taxDeferredSavingsStartOfYear: number;
+  taxDeferredSavings: number;
   taxDeferredContributionFixedAmount: number;
   taxDeferredContributionStrategy: ContributionStrategy;
-  taxDeferredSavingsEndOfYear: number;
-  taxDeferredContribution: number;
-  taxDeferredContributionTotal: number;
   taxDeferredContributionPercentage: number;
   taxDeferredGrowthRate: number;
 
-  taxDeferredContributionElectiveLimit?: number;
-  taxDeferredContributionElectiveLimitApplied?: number;
-  taxDeferredContributionCatchUpLimit?: number;
-  taxDeferredContributionTotalElectiveLimit?: number;
-  taxDeferredContributionElectiveTotalLimitApplied?: number;
-  taxDeferredContributionElectiveLimitInflationRate: number;
-
   /* Employer Contributions */
   employerContributionStrategy: EmployerContributionStrategy;
-  employerContribution: number;
   employerMatchPercentage: number;
   employerMatchPercentageLimit: number;
   employerContributionPercentage: number;
   employerContributionFixedAmount: number;
-  employerSavingsStartOfYear: number;
-  employerSavingsEndOfYear: number;
 
   /* IRA Savings */
-  iraTaxableSavingsStartOfYear: number;
-  iraTaxableSavingsEndOfYear: number;
-  iraTaxableContribution: number;
+  iraTaxableSavings: number;
   iraTaxableContributionFixedAmount: number;
   iraTaxableContributionStrategy: IraContributionStrategy;
   iraTaxableContributionPercentage: number;
 
-  iraTaxDeferredSavingsStartOfYear: number;
-  iraTaxDeferredSavingsEndOfYear: number;
-  iraTaxDeferredContribution: number;
+  iraTaxDeferredSavings: number;
   iraTaxDeferredContributionFixedAmount: number;
   iraTaxDeferredContributionStrategy: IraContributionStrategy;
   iraTaxDeferredContributionPercentage: number;
 
   iraGrowthRate: number;
-  iraContributionLimit: number;
-  iraContributionCatchUpLimit: number;
 
   /* Taxable Savings */
   taxableContributionFixedAmount: number;
-  taxableContribution: number;
   taxableContributionStrategy: TaxableContributionStrategy;
-  taxableSavingsStartOfYear: number;
-  taxableSavingsEndOfYear: number;
-  taxableContributionLifetime: number;
+  taxableSavings: number;
   taxableContributionPercentage: number;
   taxableGrowthRate: number;
 
