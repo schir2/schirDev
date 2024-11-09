@@ -70,7 +70,6 @@ const tableColumns: ColumnDefinition<keyof Row>[] = [
     },
     {id: 'incomeGrowthRate', value: 'incomeGrowthRate', label: 'incomeGrowthRate', format: 'percent', section: 'income', show: true},
     {id: 'incomeGrowthAmount', value: 'incomeGrowthAmount', label: 'incomeGrowthAmount', format: 'currency', section: 'income', show: true},
-    {id: 'agi', value: 'agi', label: 'agi', format: 'currency', section: 'income', show: true},
     {id: 'incomeTaxAmount', value: 'incomeTaxAmount', label: 'incomeTaxAmount', format: 'currency', section: 'income', show: true},
     {id: 'incomeTaxRate', value: 'incomeTaxRate', label: 'incomeTaxRate', format: '', section: 'income', show: true},
     {id: 'incomeTaxStrategy', value: 'incomeTaxStrategy', label: 'incomeTaxStrategy', format: '', section: 'income', show: true},
@@ -100,7 +99,8 @@ const tableColumns: ColumnDefinition<keyof Row>[] = [
         section: 'income',
         show: true
     },
-    {id: 'debt', value: 'debt', label: 'debt', format: 'currency', section: 'debt', show: true},
+    {id: 'debtStartOfYear', value: 'debtStartOfYear', label: 'debtStartOfYear', format: 'currency', section: 'debt', show: true},
+    {id: 'debtEndOfYear', value: 'debtEndOfYear', label: 'debtEndOfYear', format: 'currency', section: 'debt', show: true},
     {id: 'debtInterestRate', value: 'debtInterestRate', label: 'debtInterestRate', format: 'percent', section: 'debt', show: true},
     {id: 'debtPayment', value: 'debtPayment', label: 'debtPayment', format: 'currency', section: 'debt', show: true},
     {id: 'debtPaymentTotal', value: 'debtPaymentTotal', label: 'debtPaymentTotal', format: 'currency', section: 'debt', show: true},
