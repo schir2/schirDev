@@ -64,228 +64,234 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-span-2 grid grid-cols-2 gap-3">
+        <template x-if="formData">
+            <div class="col-span-2 grid grid-cols-2 gap-3">
 
-            <div class="space-y-3">
+                <div class="space-y-3">
 
-                <!-- Personal Information -->
-                <div x-show="sectionFilters.personal" class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
-                    <h2 class="text-2xl font-semibold mb-3">Personal Information</h2>
-                    <div class="grid grid-cols-3 gap-3">
-                        <c-input :field="form.year" x-model.number="formData.year"/>
-                        <c-input :field="form.age" x-model.number="formData.age"/>
-                        <c-input :field="form.life_expectancy" x-model.number="formData.lifeExpectancy"/>
+                    <!-- Personal Information -->
+                    <div x-show="sectionFilters.personal" class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
+                        <h2 class="text-2xl font-semibold mb-3">Personal Information</h2>
+                        <div class="grid grid-cols-3 gap-3">
+                            <c-input :field="form.year" x-model.number="formData.year"/>
+                            <c-input :field="form.age" x-model.number="formData.age"/>
+                            <c-input :field="form.life_expectancy" x-model.number="formData.lifeExpectancy"/>
+                        </div>
+                    </div>
+
+                    <!-- Debt -->
+                    <div x-show="sectionFilters.debt" class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
+                        <h2 class="text-2xl font-semibold mb-3">Debt</h2>
+                        <div class="grid grid-cols-3 gap-3">
+                            <c-input :field="form.debt" x-model.number="formData.debt"/>
+                            <c-input :field="form.debt_interest_rate" x-model.number="formData.debtInterestRate"/>
+                            <c-input :field="form.debt_payment" x-model.number="formData.debtPayment"/>
+                        </div>
+                    </div>
+
+                    <!-- Retirement Goals -->
+                    <div x-show="sectionFilters.retirement" class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
+                        <h2 class="text-2xl font-semibold mb-3">Retirement</h2>
+                        <div class="grid grid-cols-3 gap-3">
+                            <c-select :field="form.retirement_strategy" x-model="formData.retirementStrategy"/>
+                            <c-input :field="form.retirement_age" x-model.number="formData.retirementAge"/>
+                            <c-input :field="form.retirement_withdrawal_rate" x-model.number="formData.retirementWithdrawalRate"/>
+                            <c-input :field="form.retirement_expenses" x-model.number="formData.retirementIncomeGoal"/>
+                            <c-input :field="form.retirement_savings_amount" x-model.number="formData.retirementSavingsAmount"/>
+                        </div>
+                    </div>
+
+                    <!-- Income and Expenses -->
+                    <div x-show="sectionFilters.income" class="p-3 border">
+                        <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <!-- Income Fields -->
+                            <div class="col-span-1">
+                                <c-input :field="form.income_pre_taxed" x-model.number="formData.incomePreTaxed"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-select :field="form.income_growth_strategy" x-model="formData.incomeGrowthStrategy"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.income_growth_rate" x-model.number="formData.incomeGrowthRate"/>
+                            </div>
+                            <!-- Expense Fields -->
+                            <div class="col-span-1">
+                                <c-input :field="form.expenses" x-model.number="formData.expenses"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-select :field="form.expenses_growth_strategy" x-model="formData.expensesGrowthStrategy"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.expense_rate" x-model.number="formData.expenseRate"/>
+                            </div>
+                            <!-- Inflation Fields -->
+                            <div class="col-span-1">
+                                <c-input :field="form.inflation_rate" x-model.number="formData.inflationRate"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-select :field="form.inflation_growth_strategy" x-model="formData.inflationGrowthStrategy"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Taxes -->
+                    <div x-show="sectionFilters.taxes" class="p-3 border">
+                        <h2 class="text-2xl font-semibold mb-3">Taxes</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="col-span-1">
+                                <c-select :field="form.income_tax_strategy" x-model="formData.incomeTaxStrategy"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.income_tax_rate" x-model.number="formData.incomeTaxRate"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-select :field="form.filing_status" x-model="formData.incomeTaxFilingStatus"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.number_of_dependents" x-model.number="formData.incomeTaxNumberOfDependents"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.is_blind" x-model="formData.isBlind" type="checkbox"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Savings -->
+                    <div x-show="sectionFilters.savings" class="p-3 border">
+                        <h2 class="text-2xl font-semibold mb-3">Savings</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="col-span-1">
+                                <c-input :field="form.cash" x-model.number="formData.cash"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.tax_deferred_savings" x-model.number="formData.taxDeferredSavingsStartOfYear"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.taxable_savings" x-model.number="formData.taxableSavingsInitial"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.ira_savings" x-model.number="formData.iraTaxableSavingsStartOfYear"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Debt -->
-                <div x-show="sectionFilters.debt" class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
-                    <h2 class="text-2xl font-semibold mb-3">Debt</h2>
-                    <div class="grid grid-cols-3 gap-3">
-                        <c-input :field="form.debt" x-model.number="formData.debt"/>
-                        <c-input :field="form.debt_interest_rate" x-model.number="formData.debtInterestRate"/>
-                        <c-input :field="form.debt_payment" x-model.number="formData.debtPayment"/>
+                <div class="space-y-3">
+
+                    <!-- Tax-Deferred Contributions -->
+                    <div x-show="sectionFilters.deferred" class="p-3 bg-skin-secondary shadow-sm shadow-purple-200 rounded">
+                        <h2 class="text-2xl font-semibold mb-3">Tax-Deferred Contributions</h2>
+                        <p class="text-sm text-skin-muted">
+                            These grow tax-free until retirement, but withdrawals are taxed (e.g., 401(k), Traditional IRA).
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="col-span-1">
+                                <c-select :field="form.tax_deferred_contribution_strategy"
+                                          x-model="formData.taxDeferredContributionStrategy"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'fixed'">
+                                <c-input :field="form.tax_deferred_contribution_fixed_amount"
+                                         x-model.number="formData.taxDeferredContributionFixedAmount"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'percent_of_income'">
+                                <c-input :field="form.tax_deferred_contribution_percentage"
+                                         x-model.number="formData.taxDeferredContributionPercentage"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.tax_deferred_growth_rate" x-model.number="formData.taxDeferredGrowthRate"/>
+                            </div>
+                            <div class="col-span-1">
+                                <c-input :field="form.tax_deferred_contribution_limit_inflation_rate"
+                                         x-model.number="formData.taxDeferredContributionElectiveLimitInflationRate"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Employer Match Inputs -->
+                    <div x-show="sectionFilters.employer" class="p-3 bg-skin-secondary shadow-sm shadow-purple-200 rounded">
+                        <h2 class="text-2xl font-semibold mb-3">Employer Contributions</h2>
+                        <p class="text-sm text-skin-muted">
+                            Additional tax deferred contributions made by your employer.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="col-span-1">
+                                <c-select :field="form.employer_contribution_strategy" x-model="formData.employerContributionStrategy"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.employerContributionStrategy === 'percentage_of_contribution'">
+                                <c-input :field="form.employer_match_percentage_limit"
+                                         x-model.number="formData.employerMatchPercentageLimit"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.employerContributionStrategy === 'percentage_of_contribution'">
+                                <c-input :field="form.employer_match_percentage" x-model.number="formData.employerMatchPercentage"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.employerContributionStrategy === 'percentage_of_compensation'">
+                                <c-input :field="form.employer_contribution_percentage"
+                                         x-model.number="formData.employerContributionPercentage"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.employerContributionStrategy === 'fixed'">
+                                <c-input :field="form.employer_contribution_fixed_amount"
+                                         x-model.number="formData.employerContributionFixedAmount"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Taxable Contributions -->
+                    <div x-show="sectionFilters.taxable" class="p-3 border bg-skin-tertiary shadow-sm rounded shadow-orange-200">
+                        <h2 class="text-2xl font-semibold mb-3">Taxable Contributions</h2>
+                        <p class="text-sm text-skin-muted">
+                            Brokerage accounts where you pay taxes on capital gains, dividends, and interest as they are realized.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <c-select :field="form.taxable_contribution_strategy" x-model="formData.taxableContributionStrategy"/>
+                            <c-input :field="form.annual_taxable_contribution" x-model.number="formData.taxableContributionFixedAmount"/>
+                            <c-input :field="form.taxable_contribution_percentage" x-model.number="formData.taxableContributionPercentage"/>
+                            <!-- Taxable Savings Growth Rate -->
+                            <c-input :field="form.taxable_savings_growth_rate" x-model.number="formData.taxableGrowthRate"/>
+                        </div>
+                    </div>
+
+                    <!-- IRA -->
+                    <div x-show="sectionFilters.ira" class="p-3 border shadow-sm shadow-lime-200 bg-skin-primary">
+                        <h2 class="text-2xl font-semibold">IRA</h2>
+                        <p class="text-sm text-skin-muted">
+                            These are funded with post-tax dollars and can be withdrawn tax-free in retirement (e.g., Roth IRA).
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- IRA Contribution Strategy -->
+                            <div class="col-span-1">
+                                <c-select :field="form.ira_contribution_strategy" x-model="formData.iraTaxableContributionStrategy"/>
+                            </div>
+                            <!-- IRA Contribution Inputs -->
+                            <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'fixed'">
+                                <c-input :field="form.ira_contribution_fixed_amount"
+                                         x-model.number="formData.iraTaxableContributionFixedAmount"/>
+                            </div>
+                            <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'percent_of_income'">
+                                <c-input :field="form.ira_contribution_percentage"
+                                         x-model.number="formData.iraTaxableContributionPercentage"/>
+                            </div>
+                            <!-- IRA Growth Rate -->
+                            <div class="col-span-1">
+                                <c-input :field="form.ira_growth_rate" x-model.number="formData.iraGrowthRate"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Retirement Goals -->
-                <div x-show="sectionFilters.retirement" class="p-3 border bg-skin-tertiary shadow-sm shadow-red-200 rounded">
-                    <h2 class="text-2xl font-semibold mb-3">Retirement</h2>
-                    <div class="grid grid-cols-3 gap-3">
-                        <c-select :field="form.retirement_strategy" x-model="formData.retirementStrategy"/>
-                        <c-input :field="form.retirement_age" x-model.number="formData.retirementAge"/>
-                        <c-input :field="form.retirement_withdrawal_rate" x-model.number="formData.retirementWithdrawalRate"/>
-                        <c-input :field="form.retirement_expenses" x-model.number="formData.retirementIncomeGoal"/>
-                        <c-input :field="form.retirement_savings_amount" x-model.number="formData.retirementSavingsAmount"/>
-                    </div>
-                </div>
-
-                <!-- Income and Expenses -->
-                <div x-show="sectionFilters.income" class="p-3 border">
-                    <h2 class="text-2xl font-semibold mb-3">Income and Expenses</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <!-- Income Fields -->
-                        <div class="col-span-1">
-                            <c-input :field="form.income_pre_taxed" x-model.number="formData.incomePreTaxed"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-select :field="form.income_growth_strategy" x-model="formData.incomeGrowthStrategy"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.income_growth_rate" x-model.number="formData.incomeGrowthRate"/>
-                        </div>
-                        <!-- Expense Fields -->
-                        <div class="col-span-1">
-                            <c-input :field="form.expenses" x-model.number="formData.expenses"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-select :field="form.expenses_growth_strategy" x-model="formData.expensesGrowthStrategy"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.expense_rate" x-model.number="formData.expenseRate"/>
-                        </div>
-                        <!-- Inflation Fields -->
-                        <div class="col-span-1">
-                            <c-input :field="form.inflation_rate" x-model.number="formData.inflationRate"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-select :field="form.inflation_growth_strategy" x-model="formData.inflationGrowthStrategy"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Taxes -->
-                <div x-show="sectionFilters.taxes" class="p-3 border">
-                    <h2 class="text-2xl font-semibold mb-3">Taxes</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="col-span-1">
-                            <c-select :field="form.income_tax_strategy" x-model="formData.incomeTaxStrategy"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.income_tax_rate" x-model.number="formData.incomeTaxRate"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-select :field="form.filing_status" x-model="formData.incomeTaxFilingStatus"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.number_of_dependents" x-model.number="formData.incomeTaxNumberOfDependents"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.is_blind" x-model="formData.isBlind" type="checkbox"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Savings -->
-                <div x-show="sectionFilters.savings" class="p-3 border">
-                    <h2 class="text-2xl font-semibold mb-3">Savings</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="col-span-1">
-                            <c-input :field="form.cash" x-model.number="formData.cash"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.tax_deferred_savings" x-model.number="formData.taxDeferredSavingsStartOfYear"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.taxable_savings" x-model.number="formData.taxableSavingsInitial"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.ira_savings" x-model.number="formData.iraTaxableSavingsStartOfYear"/>
-                        </div>
+                <div x-show="sectionFilters.targets" class="p-3 border col-span-2">
+                    <h2 class="text-2xl font-semibold mb-3">Targets</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <c-input :field="form.target_annual_retirement_spending_pre_taxed"
+                                 x-model.number="formData.targetAnnualRetirementSpendingPreTaxed"/>
+                        <c-input :field="form.target_end_of_life_savings_pre_taxed"
+                                 x-model.number="formData.targetEndOfLifeSavingsPreTaxed"/>
                     </div>
                 </div>
             </div>
-
-            <div class="space-y-3">
-
-                <!-- Tax-Deferred Contributions -->
-                <div x-show="sectionFilters.deferred" class="p-3 bg-skin-secondary shadow-sm shadow-purple-200 rounded">
-                    <h2 class="text-2xl font-semibold mb-3">Tax-Deferred Contributions</h2>
-                    <p class="text-sm text-skin-muted">
-                        These grow tax-free until retirement, but withdrawals are taxed (e.g., 401(k), Traditional IRA).
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="col-span-1">
-                            <c-select :field="form.tax_deferred_contribution_strategy" x-model="formData.taxDeferredContributionStrategy"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'fixed'">
-                            <c-input :field="form.tax_deferred_contribution_fixed_amount"
-                                     x-model.number="formData.taxDeferredContributionFixedAmount"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.taxDeferredContributionStrategy == 'percent_of_income'">
-                            <c-input :field="form.tax_deferred_contribution_percentage"
-                                     x-model.number="formData.taxDeferredContributionPercentage"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.tax_deferred_growth_rate" x-model.number="formData.taxDeferredGrowthRate"/>
-                        </div>
-                        <div class="col-span-1">
-                            <c-input :field="form.tax_deferred_contribution_limit_inflation_rate"
-                                     x-model.number="formData.taxDeferredContributionElectiveLimitInflationRate"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Employer Match Inputs -->
-                <div x-show="sectionFilters.employer" class="p-3 bg-skin-secondary shadow-sm shadow-purple-200 rounded">
-                    <h2 class="text-2xl font-semibold mb-3">Employer Contributions</h2>
-                    <p class="text-sm text-skin-muted">
-                        Additional tax deferred contributions made by your employer.
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="col-span-1">
-                            <c-select :field="form.employer_contribution_strategy" x-model="formData.employerContributionStrategy"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.employerContributionStrategy === 'percentage_of_contribution'">
-                            <c-input :field="form.employer_match_percentage_limit" x-model.number="formData.employerMatchPercentageLimit"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.employerContributionStrategy === 'percentage_of_contribution'">
-                            <c-input :field="form.employer_match_percentage" x-model.number="formData.employerMatchPercentage"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.employerContributionStrategy === 'percentage_of_compensation'">
-                            <c-input :field="form.employer_contribution_percentage"
-                                     x-model.number="formData.employerContributionPercentage"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.employerContributionStrategy === 'fixed'">
-                            <c-input :field="form.employer_contribution_fixed_amount"
-                                     x-model.number="formData.employerContributionFixedAmount"/>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Taxable Contributions -->
-                <div x-show="sectionFilters.taxable" class="p-3 border bg-skin-tertiary shadow-sm rounded shadow-orange-200">
-                    <h2 class="text-2xl font-semibold mb-3">Taxable Contributions</h2>
-                    <p class="text-sm text-skin-muted">
-                        Brokerage accounts where you pay taxes on capital gains, dividends, and interest as they are realized.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <c-select :field="form.taxable_contribution_strategy" x-model="formData.taxableContributionStrategy"/>
-                        <c-input :field="form.annual_taxable_contribution" x-model.number="formData.taxableContributionFixedAmount"/>
-                        <c-input :field="form.taxable_contribution_percentage" x-model.number="formData.taxableContributionPercentage"/>
-                        <!-- Taxable Savings Growth Rate -->
-                        <c-input :field="form.taxable_savings_growth_rate" x-model.number="formData.taxableGrowthRate"/>
-                    </div>
-                </div>
-
-                <!-- IRA -->
-                <div x-show="sectionFilters.ira" class="p-3 border shadow-sm shadow-lime-200 bg-skin-primary">
-                    <h2 class="text-2xl font-semibold">IRA</h2>
-                    <p class="text-sm text-skin-muted">
-                        These are funded with post-tax dollars and can be withdrawn tax-free in retirement (e.g., Roth IRA).
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- IRA Contribution Strategy -->
-                        <div class="col-span-1">
-                            <c-select :field="form.ira_contribution_strategy" x-model="formData.iraTaxableContributionStrategy"/>
-                        </div>
-                        <!-- IRA Contribution Inputs -->
-                        <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'fixed'">
-                            <c-input :field="form.ira_contribution_fixed_amount"
-                                     x-model.number="formData.iraTaxableContributionFixedAmount"/>
-                        </div>
-                        <div class="col-span-1" x-show="formData.iraTaxableContributionStrategy == 'percent_of_income'">
-                            <c-input :field="form.ira_contribution_percentage" x-model.number="formData.iraTaxableContributionPercentage"/>
-                        </div>
-                        <!-- IRA Growth Rate -->
-                        <div class="col-span-1">
-                            <c-input :field="form.ira_growth_rate" x-model.number="formData.iraGrowthRate"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div x-show="sectionFilters.targets" class="p-3 border col-span-2">
-                <h2 class="text-2xl font-semibold mb-3">Targets</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <c-input :field="form.target_annual_retirement_spending_pre_taxed"
-                             x-model.number="formData.targetAnnualRetirementSpendingPreTaxed"/>
-                    <c-input :field="form.target_end_of_life_savings_pre_taxed" x-model.number="formData.targetEndOfLifeSavingsPreTaxed"/>
-                </div>
-            </div>
-        </div>
+        </template>
 
     </div>
 
@@ -295,122 +301,6 @@
 
 {% block javascript %}
     <script>
-        function setupFormData() {
-            return {
-                formData: RetirementCalculator.initialFormData,
-                getTableHeaders: () => {
-                    let headers = []
-                    document.querySelectorAll("table th").forEach(header => headers.push(header.textContent))
-                    return headers
-
-                },
-                sectionFilters: Alpine.$persist({
-                    personal: true,
-                    debt: true,
-                    retirement: true,
-                    income: true,
-                    taxes: true,
-                    savings: true,
-                    deferred: true,
-                    employer: true,
-                    ira: true,
-                    taxable: true,
-                    targets: true,
-                    extra: true,
-
-                }),
-                columns: Alpine.$persist(RetirementCalculator.table.columns),
-                results: [],
-
-                init() {
-                    this.$watch('formData', () => {
-                        this.fillTable()
-                    });
-                    this.fillTable();
-                },
-                formatValue: (value, format) => {
-                    console.log(value, format)
-                    if (format === 'currency') {
-                        return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-                    }
-
-                    return value
-                },
-
-
-                RetirementStrategies: {
-                    age: (row) => row.age === row.retirementAge,
-                    percent_rule: (row) => row.savingsEndOfYear * row.retirementWithdrawalRate / 100 > row.retirementIncomeGoal,
-                    target_savings: (row) => row.retirementSavingsAmount >= row.savingsEndOfYear,
-                    debt_free: (row) => row.debt <= 0
-                },
-
-
-                InflationGrowthStrategies: {
-                    fixed: (row) => row.inflationRate,
-                    percentage_increase: (row) => row.inflationRate * (1 + row.inflationRate / 100),
-                },
-
-                IncomeTaxStrategies: {
-                    simple: (row) => row.incomeTaxable * row.incomeTaxRate / 100,
-                    bracket: (row) => row.incomeTaxable * row.incomeTaxRate / 100,
-                },
-
-                initializeTableRow(formData) {
-                    let curRow = JSON.parse(JSON.stringify(formData));
-                    /* TODO Need to account for employer contribution more than the employee. Goal is to maximize savings */
-
-                    /* Initialization */
-
-                    curRow = RetirementCalculator.pipeline.startOfYearPipeline.initialize(curRow)
-                    curRow = RetirementCalculator.process.electiveLimit.initialize(curRow)
-
-                    curRow = RetirementCalculator.pipeline.taxDeferredPipeline.initialize(curRow)
-                    curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.initialize(curRow)
-                    curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.initialize(curRow)
-
-                    curRow = RetirementCalculator.pipeline.iraTaxableSavingsPipeline.initialize(curRow)
-                    curRow = RetirementCalculator.pipeline.iraTaxDeferredSavingsPipeline.initialize(curRow)
-
-
-                    curRow.debtPayment = Math.min(curRow.debtPayment, curRow.debt)
-                    curRow.debt -= curRow.debtPayment
-                    curRow.debtPaymentTotal += curRow.debtPayment
-
-                    curRow = RetirementCalculator.pipeline.endOfYearPipeline.initialize(curRow)
-
-
-                    return curRow;
-
-                }, updateRow(previousRow) {
-                    let curRow = JSON.parse(JSON.stringify(previousRow));
-
-
-                    curRow = RetirementCalculator.pipeline.startOfYearPipeline.process(curRow)
-                    curRow = RetirementCalculator.process.electiveLimit.process(curRow)
-                    curRow = RetirementCalculator.pipeline.taxDeferredPipeline.process(curRow)
-                    curRow = RetirementCalculator.pipeline.taxDeferredEmployerMatchPipeline.process(curRow)
-                    curRow = RetirementCalculator.pipeline.taxableSavingsPipeline.process(curRow)
-                    curRow = RetirementCalculator.pipeline.iraTaxableSavingsPipeline.process(curRow)
-                    curRow = RetirementCalculator.pipeline.iraTaxDeferredSavingsPipeline.process(curRow)
-                    curRow = RetirementCalculator.pipeline.endOfYearPipeline.process(curRow)
-                    return curRow;
-                }, fillTable() {
-                    let firstRow = this.initializeTableRow(this.formData);
-                    let table = [firstRow];
-                    let rowIndex = 0
-
-                    while (table[rowIndex].age <= table[rowIndex].lifeExpectancy && !this.RetirementStrategies[this.formData.retirementStrategy](table[rowIndex])) {
-                        let previousRow = table[rowIndex];
-                        let curRow = this.updateRow(previousRow);
-                        table.push(curRow);
-                        rowIndex += 1;
-
-                    }
-
-                    this.results = table;
-                },
-            }
-        }
+        RetirementCalculator.setupFormData()
     </script>
 {% endblock %}

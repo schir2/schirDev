@@ -1,4 +1,6 @@
 import initialFormData from './form/formData'
 import {pipeline} from './pipelines'
 import {process} from './processes'
-export {initialFormData, pipeline, process}
+import table from './table'
+import {Row} from './interfaces/Row'
+export {initialFormData, pipeline, process, table, Row}

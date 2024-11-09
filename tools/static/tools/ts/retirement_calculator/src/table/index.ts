@@ -1,5 +1,6 @@
 import tableColumns from "./columns";
 
-export const table = {
+const table = {
     columns: [tableColumns]
 }
+export default table

@@ -14,8 +14,8 @@ import {
 } from "../types";
 import {
     assertDefined,
-    calculateCompoundInterest,
-    calculateTaxDeferredContributionLimit, calculateTaxDeferredElectiveContributionCatchUpLimit,
+    calculateTaxDeferredContributionLimit,
+    calculateTaxDeferredElectiveContributionCatchUpLimit,
     calculateTaxDeferredElectiveContributionLimit
 } from "../utils";
 import {TAX_DEFERRED_CATCH_UP_AGE, TAX_DEFERRED_LIMIT_INFLATION_RATE} from "../constants";
@@ -187,7 +187,7 @@ export class Row {
         this.taxDeferredContributionElectiveCatchUpLimit = calculateTaxDeferredElectiveContributionCatchUpLimit(this.year);
         this.taxDeferredContributionElectiveLimit = calculateTaxDeferredElectiveContributionLimit(this.year)
         this.taxDeferredContributionLimit = calculateTaxDeferredContributionLimit(this.year);
-        this.taxDeferredContributionElectiveLimitApplied = this.calculateTaxDeferredContributionElectiveLimitApplied() ;
+        this.taxDeferredContributionElectiveLimitApplied = this.calculateTaxDeferredContributionElectiveLimitApplied();
         this.taxDeferredContributionLimitApplied = this.calculateTaxDeferredContributionLimitApplied();
 
         this.employerContributionStrategy = formData.employerContributionStrategy;
