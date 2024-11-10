@@ -1,20 +1,10 @@
 import initialFormData from "./formData";
 import Alpine from 'alpinejs';
-import persist from '@alpinejs/persist';
+import {table} from "../index";
 
 export function setupFormData() {
     return {
         formData: initialFormData,
-        getTableHeaders: () => {
-            let headers: string[] = []
-            document.querySelectorAll("table th").forEach(header => {
-                if (header && header.textContent) {
-                    headers.push(header.textContent)
-                }
-            })
-            return headers
-
-        },
         sectionFilters: Alpine.$persist({
             personal: true,
             debt: true,
@@ -30,7 +20,7 @@ export function setupFormData() {
             extra: true,
 
         }),
-        columns: Alpine.$persist(RetirementCalculator.table.columns),
+        columns: Alpine.$persist(table.columns),
         results: [],
 
         init() {
@@ -39,8 +29,7 @@ export function setupFormData() {
             });
             this.fillTable();
         },
-        formatValue: (value, format) => {
-            console.log(value, format)
+        formatValue: (value: string, format: string) => {
             if (format === 'currency') {
                 return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
             }
