@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from import_export.admin import ImportExportModelAdmin
 
 from .models import Article, Topic, Comment, FeaturedArticle, ArticleInteraction, ArticleSeries
 from .models import Tag
 
 
 @admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(ImportExportModelAdmin):
     list_display = ('name', 'slug', 'created_at', 'edited_at', 'creator', 'editor')
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
@@ -15,7 +16,7 @@ class TagAdmin(admin.ModelAdmin):
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(ImportExportModelAdmin):
     list_display = (
         'title', 'series', 'topic', 'is_published', 'popularity_score', 'created_at', 'edited_at', 'creator', 'editor')
     list_filter = ('topic', 'is_published', 'tags', 'created_at')
@@ -35,7 +36,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 @admin.register(Topic)
-class TopicAdmin(admin.ModelAdmin):
+class TopicAdmin(ImportExportModelAdmin):
     list_display = ('name', 'slug', 'description', 'created_at', 'edited_at', 'creator', 'editor')
     search_fields = ('name', 'description',)
     prepopulated_fields = {'slug': ('name',)}
@@ -44,7 +45,7 @@ class TopicAdmin(admin.ModelAdmin):
 
 
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(ImportExportModelAdmin):
     list_display = ('article', 'content', 'is_approved', 'created_at', 'creator')
     list_filter = ('is_approved', 'created_at', 'article__title')
     search_fields = ('content', 'article__title', 'creator__username')
@@ -59,7 +60,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 @admin.register(FeaturedArticle)
-class FeaturedArticleAdmin(admin.ModelAdmin):
+class FeaturedArticleAdmin(ImportExportModelAdmin):
     list_display = ('article', 'featured_reason', 'created_at', 'edited_at', 'creator', 'editor')
     search_fields = ('article__title', 'featured_reason')
     ordering = ['-created_at']
@@ -68,7 +69,7 @@ class FeaturedArticleAdmin(admin.ModelAdmin):
 
 
 @admin.register(ArticleInteraction)
-class ArticleInteractionAdmin(admin.ModelAdmin):
+class ArticleInteractionAdmin(ImportExportModelAdmin):
     list_display = ('article', 'interaction_type', 'creator', 'created_at')
     list_filter = ('interaction_type', 'created_at', 'article__title')
     search_fields = ('article__title', 'creator__username', 'interaction_type')
@@ -77,7 +78,7 @@ class ArticleInteractionAdmin(admin.ModelAdmin):
 
 
 @admin.register(ArticleSeries)
-class ArticleSeriesAdmin(admin.ModelAdmin):
+class ArticleSeriesAdmin(ImportExportModelAdmin):
     list_display = ('title', 'description', 'editor', 'edited_at', 'creator', 'created_at',)
     list_filter = ('created_at',)
     search_fields = ('title',)
